@@ -46,4 +46,4 @@ format:
     toc: true
     lang: zh
 
-bibliography: ../publications.bib
+bibliography: publications.bib

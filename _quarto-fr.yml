@@ -46,4 +46,4 @@ format:
     toc: true
     lang: fr
 
-bibliography: ../publications.bib
+bibliography: publications.bib
