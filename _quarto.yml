@@ -1,0 +1,66 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Benjamin Peeters"
+  site-url: "https://benjaminpeeters.github.io"
+  favicon: favicon.ico
+
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Publications"
+        href: publications.qmd
+      - text: "Blog"
+        href: blog/index.qmd
+      - text: "Data & Code"
+        href: data-code.qmd
+      - text: "Teaching"
+        href: teaching.qmd
+    right:
+      - icon: translate
+        menu:
+          - text: "Français"
+            href: /fr/index.html
+          - text: "中文"
+            href: /zh/index.html
+      - icon: github
+        href: https://github.com/benjaminpeeters
+        aria-label: GitHub
+      - icon: mortarboard-fill
+        href: https://scholar.google.com
+        aria-label: Google Scholar
+      - icon: linkedin
+        href: https://linkedin.com
+        aria-label: LinkedIn
+
+  page-footer:
+    left: |
+      Benjamin Peeters - Postdoctoral Researcher at PIK
+    center: |
+      [ORCID: 0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)
+    right: |
+      Built with [Quarto](https://quarto.org/)
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+      dark: [darkly, custom-dark.scss]
+    css: styles.css
+    include-in-header: state-manager.html
+    toc: true
+    toc-location: right
+    code-copy: true
+    code-fold: false
+    anchor-sections: true
+    link-external-newwindow: true
+
+bibliography: publications.bib
+
+execute:
+  freeze: auto
