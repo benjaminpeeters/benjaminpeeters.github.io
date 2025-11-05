@@ -2,7 +2,6 @@
 title: "Benjamin Peeters"
 subtitle: "Postdoctoral Researcher, Potsdam Institute for Climate Impact Research (PIK)"
 page-layout: full
-title-block-banner: true
 ---
 
 ## About

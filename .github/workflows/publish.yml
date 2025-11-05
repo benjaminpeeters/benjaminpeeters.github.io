@@ -35,10 +35,10 @@ jobs:
         run: quarto render
 
       - name: Render French site
-        run: quarto render --profile fr
+        run: quarto render fr
 
       - name: Render Chinese site
-        run: quarto render --profile zh
+        run: quarto render zh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

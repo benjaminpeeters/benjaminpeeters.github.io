@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site/zh
+  output-dir: ../_site/zh
 
 website:
   title: "Benjamin Peeters"
@@ -11,20 +11,24 @@ website:
     search: true
     left:
       - text: "主页"
-        href: zh/index.qmd
+        href: index.qmd
       - text: "出版物"
-        href: zh/publications.qmd
+        href: publications.qmd
       - text: "博客"
-        href: zh/blog/index.qmd
+        href: blog/index.qmd
       - text: "数据与代码"
-        href: zh/data-code.qmd
+        href: data-code.qmd
       - text: "教学"
-        href: zh/teaching.qmd
+        href: teaching.qmd
     right:
-      - text: "EN"
-        href: ../index.html
-      - text: "FR"
-        href: ../fr/index.html
+      - icon: translate
+        menu:
+          - text: "English"
+            href: /index.html
+          - text: "Français"
+            href: /fr/index.html
+          - text: "中文"
+            href: /zh/index.html
       - icon: github
         href: https://github.com/benjaminpeeters
         aria-label: GitHub
@@ -40,10 +44,11 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, custom.scss]
-      dark: [darkly, custom-dark.scss]
+      light: [cosmo, ../custom.scss]
+      dark: [darkly, ../custom-dark.scss]
     css: ../styles.css
+    include-in-header: ../state-manager.html
     toc: true
     lang: zh
 
-bibliography: publications.bib
+bibliography: ../publications.bib

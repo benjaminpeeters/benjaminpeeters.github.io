@@ -2,7 +2,6 @@
 title: "Benjamin Peeters"
 subtitle: "博士后研究员，波茨坦气候影响研究所 (PIK)"
 page-layout: full
-title-block-banner: true
 ---
 
 ## 关于

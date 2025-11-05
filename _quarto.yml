@@ -22,10 +22,12 @@ website:
       - text: "Teaching"
         href: teaching.qmd
     right:
-      - text: "FR"
-        href: fr/index.html
-      - text: "中文"
-        href: zh/index.html
+      - icon: translate
+        menu:
+          - text: "Français"
+            href: /fr/index.html
+          - text: "中文"
+            href: /zh/index.html
       - icon: github
         href: https://github.com/benjaminpeeters
         aria-label: GitHub
@@ -50,6 +52,7 @@ format:
       light: [cosmo, custom.scss]
       dark: [darkly, custom-dark.scss]
     css: styles.css
+    include-in-header: state-manager.html
     toc: true
     toc-location: right
     code-copy: true
