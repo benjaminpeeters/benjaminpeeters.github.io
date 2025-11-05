@@ -1,0 +1,33 @@
+---
+title: "Publications"
+bibliography: ../publications.bib
+---
+
+## Articles de revues
+
+Mes recherches explorent les schémas cycliques dans la finance internationale, l'économie du climat et l'histoire économique. Vous trouverez ci-dessous une liste de mes travaux publiés et de mes projets de recherche en cours.
+
+::: {.publication-entry}
+### Articles publiés
+
+- **Schéma cyclique des flux financiers internationaux vers la semi-périphérie**
+  *International Review of Economics & Finance*, 2025
+  [DOI: 10.1016/j.iref.2025.104456](https://doi.org/10.1016/j.iref.2025.104456)
+
+- **La transition énergétique peut-elle être douce ? Une approche d'équilibre général de l'EROEI**
+  *Sustainability*, 2020
+  [DOI: 10.3390/su12031176](https://doi.org/10.3390/su12031176)
+:::
+
+::: {.publication-entry}
+### Documents de travail
+
+- **Réponse de la politique monétaire ou intégration économique : qu'est-ce qui détermine les retombées de la politique monétaire internationale ?**
+  Avec Alexandre Girard, 2025
+
+- **Cycles à moyen terme et crises financières dans les pays semi-périphériques**
+  Avec Jean-Christophe Defraigne, 2023
+
+- **Centre et périphérie depuis la Seconde Guerre mondiale : histoire, cadre et estimations**
+  2023
+:::

@@ -1,0 +1,29 @@
+---
+title: "Welcome to My Blog"
+author: "Benjamin Peeters"
+date: "2025-01-01"
+categories: [news, welcome]
+description: "Welcome to my new Quarto-powered website and blog"
+---
+
+## Welcome!
+
+Welcome to my new website, built with [Quarto](https://quarto.org/). This blog will feature posts about:
+
+- Economic research and analysis
+- Climate economics and sustainable development
+- Data science and computational methods
+- R programming and reproducible research
+
+Stay tuned for more content!
+
+## About This Site
+
+This website is built using Quarto, which allows me to:
+
+- Write content in Markdown
+- Execute R code inline
+- Generate reproducible research outputs
+- Maintain a multilingual site (English, French, Chinese)
+
+Check out my [publications](/publications.html) page to see my research work.

@@ -1,0 +1,42 @@
+---
+title: "Publications"
+bibliography: publications.bib
+nocite: '@*'
+---
+
+## Journal Articles
+
+:::{#refs-articles}
+:::
+
+## Working Papers
+
+My research explores cyclical patterns in international finance, climate economics, and economic history. Below is a list of my published work and ongoing research projects.
+
+::: {.publication-entry}
+### Published Articles
+
+- **Cyclical pattern in international financial flows to the semi-periphery** [@peeters2025cyclical]
+  *International Review of Economics & Finance*, 2025
+
+- **Can the Energy Transition Be Smooth? A General Equilibrium Approach to the EROEI** [@peeters2020energy]
+  *Sustainability*, 2020
+:::
+
+::: {.publication-entry}
+### Working Papers
+
+- **Monetary policy response or economic integration: what drives international monetary policy spillovers?** [@peetersGirard2025]
+  With Alexandre Girard, 2025
+
+- **Medium-Term Cycles and Financial Crises in Semi-periphery Countries** [@peetersDefraigne2023]
+  With Jean-Christophe Defraigne, 2023
+
+- **Center and Periphery since WWII: history, framework, and estimations** [@peetersStratification]
+  2023
+:::
+
+## References
+
+:::{#refs}
+:::
