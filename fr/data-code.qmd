@@ -1,0 +1,28 @@
+---
+title: "Données et Code"
+---
+
+## Matériaux de réplication
+
+Cette page contiendra des liens vers les données, le code et les matériaux de réplication pour mes projets de recherche.
+
+### Ressources disponibles
+
+À venir :
+
+- Code de réplication pour les articles publiés
+- Ensembles de données utilisés dans la recherche
+- Packages et scripts R
+- Documentation et guides
+
+## Dépôts GitHub
+
+Pour le code et les projets les plus récents, veuillez visiter mon [profil GitHub](https://github.com/benjaminpeeters).
+
+## Science ouverte
+
+Je suis engagé dans la science ouverte et la recherche reproductible. Tout le code et les données pour les publications récentes seront disponibles ici lors de la publication.
+
+---
+
+*Cette page est actuellement en construction. Revenez bientôt pour des mises à jour.*

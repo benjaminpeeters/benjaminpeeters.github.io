@@ -1,0 +1,44 @@
+---
+title: "Benjamin Peeters"
+subtitle: "博士后研究员，波茨坦气候影响研究所 (PIK)"
+page-layout: full
+---
+
+## 关于
+
+我是德国[波茨坦气候影响研究所 (PIK)](https://www.pik-potsdam.de/en/home) [转型路径研究部](https://www.pik-potsdam.de/en/institute/departments/transformation-pathways)的博士后研究员。
+
+我拥有比利时[鲁汶大学](https://uclouvain.be/en/index.html)经济学博士学位。
+
+我的研究重点是自1970年代以来金融相互依存关系的实证评估，专业领域包括：
+
+- 经济史
+- 宏观经济学
+- 气候经济学
+- 国际金融
+
+## 研究兴趣
+
+我的工作研究国际金融流动的周期性模式，特别是流向半外围国家的资金，并探索气候变化与经济系统的交叉点。我将历史分析与当代经济建模相结合，以理解长期金融动态及其对可持续发展的影响。
+
+## 当前职位
+
+**博士后研究员**
+波茨坦气候影响研究所 (PIK)
+研究部门：转型路径
+地点：德国波茨坦
+
+## 教育背景
+
+**经济学博士**
+比利时鲁汶大学
+
+## 联系方式
+
+- **ORCID**：[0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)
+- **GitHub**：[github.com/benjaminpeeters](https://github.com/benjaminpeeters)
+- **电子邮件**：[通过机构网站联系](https://www.pik-potsdam.de/en/home)
+
+---
+
+*本网站使用[Quarto](https://quarto.org/)构建，这是一个开源的科学和技术出版系统。*

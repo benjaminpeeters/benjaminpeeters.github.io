@@ -1,0 +1,14 @@
+---
+title: "博客"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  feed: true
+page-layout: full
+---
+
+欢迎来到我的博客。在这里我分享关于经济学、气候研究和数据分析的想法。

@@ -1,0 +1,54 @@
+project:
+  type: website
+  output-dir: ../_site/fr
+
+website:
+  title: "Benjamin Peeters"
+  site-url: "https://benjaminpeeters.github.io/fr"
+
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Accueil"
+        href: index.qmd
+      - text: "Publications"
+        href: publications.qmd
+      - text: "Blog"
+        href: blog/index.qmd
+      - text: "Données & Code"
+        href: data-code.qmd
+      - text: "Enseignement"
+        href: teaching.qmd
+    right:
+      - icon: translate
+        menu:
+          - text: "English"
+            href: /index.html
+          - text: "Français"
+            href: /fr/index.html
+          - text: "中文"
+            href: /zh/index.html
+      - icon: github
+        href: https://github.com/benjaminpeeters
+        aria-label: GitHub
+
+  page-footer:
+    left: |
+      Benjamin Peeters - Chercheur postdoctoral à PIK
+    center: |
+      [ORCID: 0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)
+    right: |
+      Construit avec [Quarto](https://quarto.org/)
+
+format:
+  html:
+    theme:
+      light: [cosmo, ../custom.scss]
+      dark: [darkly, ../custom-dark.scss]
+    css: ../styles.css
+    include-in-header: ../state-manager.html
+    toc: true
+    lang: fr
+
+bibliography: ../publications.bib
