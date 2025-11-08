@@ -1,0 +1,310 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const title = 'Benjamin Peeters';
+const subtitle = 'Postdoctoral Researcher, Potsdam Institute for Climate Impact Research (PIK)';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} - ${SITE_TITLE}`} description={subtitle} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="hero">
+					<h1>{title}</h1>
+					<p class="subtitle">{subtitle}</p>
+				</div>
+
+				<section>
+					<h2>About</h2>
+					<p class="intro">
+						I am a Postdoctoral Researcher at the <a href="https://www.pik-potsdam.de/en/institute/departments/transformation-pathways" target="_blank">Research Department Transformation Pathways</a> at the <a href="https://www.pik-potsdam.de/en/home" target="_blank">Potsdam Institute for Climate Impact Research (PIK)</a>, Germany,
+						where I work under the supervision of <a href="https://www.pik-potsdam.de/members/piontek" target="_blank">Franziska Piontek</a>.
+					</p>
+					<p>
+						My research explores the links between physical and financial risks of climate change,
+						utilizing the <a href="https://www.pik-potsdam.de/en/institute/departments/transformation-pathways/models/remind" target="_blank">REMIND</a> integrated assessment model
+						to understand how climate impacts propagate through economic systems.
+					</p>
+					<p>
+						I hold a PhD in Economics from <a href="https://uclouvain.be/en/index.html" target="_blank">UCLouvain</a>, Belgium,
+						where my doctoral research examined empirical assessments of financial interdependencies in the global economy since the 1970s.
+					</p>
+				</section>
+
+				<section>
+					<h2>Research Interests</h2>
+					<div class="interests-grid">
+						<div class="interest-card">
+							<h3>Climate Economics</h3>
+							<p>Physical and financial risks of climate change, climate-economy feedbacks, integrated assessment modeling</p>
+						</div>
+						<div class="interest-card">
+							<h3>International Finance</h3>
+							<p>Cross-border capital flows, financial interdependencies, balance-of-payment dynamics, monetary policy spillovers</p>
+						</div>
+						<div class="interest-card">
+							<h3>Economic History</h3>
+							<p>Financial globalization since the 1970s, historical patterns of financial crises, long-term economic dynamics</p>
+						</div>
+						<div class="interest-card">
+							<h3>Applied Econometrics</h3>
+							<p>Panel data methods, time-varying spatial regression, dynamic modeling, empirical macroeconomics</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Current Research</h2>
+					<div class="position-card">
+						<h3>Postdoctoral Researcher</h3>
+						<p class="institution">Potsdam Institute for Climate Impact Research (PIK), Germany</p>
+						<p class="period">2023 - Present</p>
+						<div class="details">
+							<p><strong>Department:</strong> Transformation Pathways</p>
+							<p><strong>Supervisor:</strong> <a href="https://www.pik-potsdam.de/members/piontek" target="_blank">Franziska Piontek</a></p>
+							<p><strong>Focus:</strong> Links between physical and financial risks of climate change using the REMIND integrated assessment model</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Education</h2>
+					<div class="education-list">
+						<div class="education-item">
+							<h3>PhD in Economics</h3>
+							<p class="institution">Université catholique de Louvain (UCLouvain), Belgium</p>
+							<p class="period">Defense: October 2022 | Submitted: October 2022</p>
+							<p class="thesis-title">Empirical Assessments of Financial Interdependencies in the Global Economy since the 1970s</p>
+						</div>
+						<div class="education-item">
+							<h3>Master in Economics</h3>
+							<p class="institution">Université catholique de Louvain (UCLouvain), Belgium</p>
+						</div>
+						<div class="education-item">
+							<h3>Master in Electrical Engineering</h3>
+							<p class="institution">Université catholique de Louvain (UCLouvain), Belgium</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Professional Experience</h2>
+					<div class="experience-list">
+						<div class="experience-item">
+							<h3>Visiting Professor</h3>
+							<p class="institution">National Chengchi University, Taiwan</p>
+							<p class="period">2023 - 2024</p>
+							<p>Teaching courses on regional integration, EU-Asia relations, and international affairs</p>
+						</div>
+						<div class="experience-item">
+							<h3>Teaching Assistant</h3>
+							<p class="institution">Université catholique de Louvain (UCLouvain), Belgium</p>
+							<p class="period">2014 - 2023</p>
+							<p>Courses in Econometrics, Macroeconomics, Statistics, and Operational Research</p>
+						</div>
+					</div>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		margin-bottom: 2rem;
+		padding: 2rem 0;
+	}
+
+	.hero h1 {
+		color: var(--accent-dark);
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.subtitle {
+		font-size: 1.2rem;
+		color: var(--text-color);
+		opacity: 0.9;
+		margin-top: 0.5rem;
+		line-height: 1.5;
+	}
+
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	section {
+		margin: 3rem 0;
+	}
+
+	section h2 {
+		color: var(--accent);
+		font-size: 1.8rem;
+		margin-bottom: 1.5rem;
+		border-bottom: 2px solid var(--accent-light);
+		padding-bottom: 0.5rem;
+	}
+
+	.intro {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		margin-bottom: 1rem;
+	}
+
+	.interests-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.interest-card {
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 4px solid var(--accent);
+		transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+	}
+
+	.interest-card:hover {
+		box-shadow: 0 4px 12px rgba(45, 126, 63, 0.2);
+		transform: translateY(-2px);
+	}
+
+	.interest-card h3 {
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+		color: var(--accent-dark);
+		font-size: 1.2rem;
+	}
+
+	.interest-card p {
+		margin: 0;
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.position-card {
+		padding: 2rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 4px solid var(--accent);
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.position-card:hover {
+		box-shadow: 0 4px 12px rgba(45, 126, 63, 0.2);
+	}
+
+	.position-card h3 {
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+		color: var(--accent-dark);
+		font-size: 1.4rem;
+	}
+
+	.institution {
+		font-style: italic;
+		color: var(--text-color);
+		opacity: 0.9;
+		margin: 0.5rem 0;
+		font-size: 1.05rem;
+	}
+
+	.period {
+		color: var(--accent);
+		font-weight: 600;
+		margin: 0.5rem 0;
+		font-size: 0.95rem;
+	}
+
+	.details {
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--accent-light);
+	}
+
+	.details p {
+		margin: 0.5rem 0;
+		line-height: 1.6;
+	}
+
+	.education-list,
+	.experience-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.education-item,
+	.experience-item {
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 3px solid var(--accent-light);
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.education-item:hover,
+	.experience-item:hover {
+		box-shadow: 0 2px 8px rgba(45, 126, 63, 0.15);
+	}
+
+	.education-item h3,
+	.experience-item h3 {
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+		color: var(--accent-dark);
+		font-size: 1.2rem;
+	}
+
+	.education-item p,
+	.experience-item p {
+		margin: 0.5rem 0;
+		line-height: 1.6;
+	}
+
+	.thesis-title {
+		font-style: italic;
+		color: var(--text-color);
+		opacity: 0.95;
+		padding-top: 0.5rem;
+		border-top: 1px solid var(--accent-light);
+		margin-top: 0.75rem !important;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.subtitle {
+			font-size: 1.05rem;
+		}
+
+		.interests-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.position-card,
+		.education-item,
+		.experience-item,
+		.interest-card {
+			padding: 1.25rem;
+		}
+
+		section h2 {
+			font-size: 1.5rem;
+		}
+	}
+</style>

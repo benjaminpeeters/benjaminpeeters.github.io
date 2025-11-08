@@ -1,0 +1,21 @@
+{
+  "name": "temp-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.9",
+    "@astrojs/rss": "^4.0.13",
+    "@astrojs/sitemap": "^3.6.0",
+    "@inlang/paraglide-astro": "^0.4.1",
+    "astro": "^5.15.3",
+    "rehype-citation": "^2.3.1",
+    "sass": "^1.93.3",
+    "sharp": "^0.34.3"
+  }
+}

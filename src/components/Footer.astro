@@ -1,0 +1,35 @@
+---
+import { SITE_AUTHOR, GITHUB_USERNAME, ORCID } from '../consts';
+const today = new Date();
+---
+
+<footer>
+	<p>
+		<strong>{SITE_AUTHOR}</strong> - Postdoctoral Researcher at PIK<br>
+		<a href={`https://orcid.org/${ORCID}`} target="_blank">ORCID: {ORCID}</a>
+	</p>
+	<p>&copy; {today.getFullYear()} {SITE_AUTHOR}. Built with <a href="https://astro.build" target="_blank">Astro</a>.</p>
+</footer>
+
+<style>
+	footer {
+		padding: 2em 1em;
+		background: var(--footer-bg);
+		color: var(--text-color);
+		text-align: center;
+		margin-top: 4rem;
+		border-top: 3px solid var(--accent);
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+	footer p {
+		margin: 0.5em 0;
+		font-size: 0.9rem;
+	}
+	footer a {
+		color: #2d7e3f;
+		text-decoration: none;
+	}
+	footer a:hover {
+		text-decoration: underline;
+	}
+</style>

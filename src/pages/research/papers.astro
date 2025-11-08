@@ -1,0 +1,218 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Papers - ${SITE_TITLE}`} description="Research publications and working papers" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Papers</h1>
+
+				<section>
+					<h2>Published Articles</h2>
+
+					<div class="publication-entry">
+						<h3>Can the Energy Transition Be Smooth? A General Equilibrium Approach to the EROEI</h3>
+						<p class="authors">Fagnart, J.-F.; Germain, M.; Peeters, B.</p>
+						<p class="journal">Sustainability, 2020, 12, 1176</p>
+						<p class="description">
+							Analysis of energy transition challenges using a general equilibrium framework,
+							focusing on Energy Return on Energy Invested (EROEI) dynamics.
+						</p>
+						<p class="links">
+							<a href="https://doi.org/10.3390/su12031176" target="_blank">DOI: 10.3390/su12031176</a>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Working Papers (Under Review)</h2>
+
+					<div class="publication-entry">
+						<h3>Cyclical Pattern in International Financial Flows to the Semi-periphery</h3>
+						<p class="authors">Peeters, B.</p>
+						<p class="status">Under Review</p>
+						<p class="description">
+							Examines cyclical patterns in international financial flows to semi-periphery countries,
+							analyzing the structural dynamics of balance-of-payment crises.
+						</p>
+					</div>
+
+					<div class="publication-entry">
+						<h3>Monetary policy response or economic integration: what drives international monetary policy spillovers?</h3>
+						<p class="authors">Peeters, B.; Girard, A.; Gnabo, J.-Y.</p>
+						<p class="status">Under Review</p>
+						<p class="description">
+							Investigates the relative importance of monetary policy responses versus economic integration
+							in explaining international monetary policy spillover effects.
+						</p>
+						<p class="note">Includes paper PDF, dataset, and R code</p>
+					</div>
+
+					<div class="publication-entry">
+						<h3>Medium-Term Cycles and Financial Crises in Semi-periphery Countries</h3>
+						<p class="authors">Peeters, B.; Defraigne, J.-C.</p>
+						<p class="status">Under Review</p>
+						<p class="description">
+							Analysis of medium-term economic cycles and their relationship to financial crises
+							in semi-periphery economies, exploring structural vulnerabilities.
+						</p>
+					</div>
+
+					<div class="publication-entry">
+						<h3>How has Financial Globalization impacted Monetary Policy? An overview</h3>
+						<p class="authors">Peeters, B.</p>
+						<p class="status">In Revision</p>
+						<p class="description">
+							Comprehensive overview of the impact of financial globalization on monetary policy conduct,
+							effectiveness, and transmission mechanisms across different economic contexts.
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Works in Progress</h2>
+
+					<div class="publication-entry">
+						<h3>Instability in the IMS: The Role of Inflation Spillovers among Advanced Economies</h3>
+						<p class="authors">Peeters, B.</p>
+						<p class="status">In Progress</p>
+					</div>
+
+					<div class="publication-entry">
+						<h3>Integrating Intangible Assets into the World-System Approach</h3>
+						<p class="authors">Peeters, B.</p>
+						<p class="status">In Progress</p>
+					</div>
+
+					<div class="publication-entry">
+						<h3>The Debt-Trap Diplomacy of China and Western Countries</h3>
+						<p class="authors">Peeters, B.; Sauvenier, M.; Seynaeve, C.</p>
+						<p class="status">In Progress</p>
+					</div>
+
+					<div class="publication-entry">
+						<h3>The Underestimated Functions of Tax Havens</h3>
+						<p class="authors">Peeters, B.</p>
+						<p class="status">In Progress</p>
+					</div>
+
+					<div class="publication-entry">
+						<h3>Industrialization and Natural Disasters</h3>
+						<p class="authors">Peeters, B.</p>
+						<p class="status">In Progress</p>
+					</div>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	section {
+		margin: 3rem 0;
+	}
+
+	.publication-entry {
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+		border-left: 4px solid var(--accent);
+		background-color: var(--card-bg);
+		border-radius: 4px;
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.publication-entry:hover {
+		box-shadow: 0 4px 12px rgba(45, 126, 63, 0.2);
+	}
+
+	.publication-entry h3 {
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+		color: var(--accent-dark);
+		font-size: 1.2rem;
+		line-height: 1.4;
+	}
+
+	.authors {
+		font-style: italic;
+		color: var(--text-color);
+		margin: 0.5rem 0;
+		font-size: 0.95rem;
+	}
+
+	.journal {
+		font-weight: 600;
+		color: var(--accent);
+		margin: 0.5rem 0;
+		font-size: 0.95rem;
+	}
+
+	.status {
+		display: inline-block;
+		padding: 0.25rem 0.75rem;
+		background-color: var(--accent-light);
+		color: white;
+		border-radius: 12px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		margin: 0.5rem 0;
+	}
+
+	.description {
+		margin: 1rem 0;
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.links {
+		margin-top: 1rem;
+	}
+
+	.links a {
+		display: inline-block;
+		margin-right: 1rem;
+		padding: 0.5rem 1rem;
+		background-color: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		font-size: 0.9rem;
+		transition: background-color 0.3s ease;
+	}
+
+	.links a:hover {
+		background-color: var(--accent-dark);
+	}
+
+	.note {
+		font-size: 0.85rem;
+		color: var(--accent);
+		font-style: italic;
+		margin-top: 0.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.publication-entry {
+			padding: 1rem;
+		}
+
+		.publication-entry h3 {
+			font-size: 1.1rem;
+		}
+	}
+</style>

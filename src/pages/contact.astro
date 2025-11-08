@@ -1,0 +1,135 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, EMAIL, PHONE, ORCID, LINKEDIN_URL, GITHUB_USERNAME } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Contact - ${SITE_TITLE}`} description="Get in touch with Benjamin Peeters" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Contact</h1>
+
+				<section>
+					<h2>Get in Touch</h2>
+					<p>
+						Feel free to reach out for research collaborations, questions about my work, or academic inquiries.
+					</p>
+
+					<div class="contact-info">
+						<div class="contact-item">
+							<h3>Email</h3>
+							<p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+						</div>
+
+						<div class="contact-item">
+							<h3>Phone</h3>
+							<p>{PHONE}</p>
+						</div>
+
+						<div class="contact-item">
+							<h3>Professional Profiles</h3>
+							<ul class="profile-links">
+								<li><a href={`https://orcid.org/${ORCID}`} target="_blank">ORCID: {ORCID}</a></li>
+								<li><a href={LINKEDIN_URL} target="_blank">LinkedIn Profile</a></li>
+								<li><a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank">GitHub: @{GITHUB_USERNAME}</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Location</h2>
+					<p>
+						<strong>Potsdam Institute for Climate Impact Research (PIK)</strong><br>
+						Research Department: Transformation Pathways<br>
+						Potsdam, Germany
+					</p>
+				</section>
+
+				<section class="note">
+					<p>
+						<strong>Note:</strong> For formal contact forms with file upload capabilities,
+						please visit the institutional website or use the email address above.
+					</p>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	section {
+		margin: 2rem 0;
+	}
+
+	.contact-info {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+
+	.contact-item {
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 3px solid var(--accent);
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.contact-item:hover {
+		box-shadow: 0 4px 8px rgba(45, 126, 63, 0.2);
+	}
+
+	.contact-item h3 {
+		margin-top: 0;
+		color: var(--accent);
+		font-size: 1.2rem;
+	}
+
+	.contact-item p {
+		margin: 0.5rem 0;
+	}
+
+	.profile-links {
+		list-style: none;
+		padding: 0;
+		margin: 0.5rem 0;
+	}
+
+	.profile-links li {
+		margin: 0.5rem 0;
+	}
+
+	.note {
+		background-color: var(--card-bg);
+		padding: 1rem;
+		border-radius: 4px;
+		border-left: 3px solid var(--accent-light);
+		font-size: 0.95rem;
+	}
+
+	.note p {
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.contact-info {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+	}
+</style>

@@ -1,0 +1,210 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_TITLE } from '../../../consts';
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={`Livres - ${SITE_TITLE}`} description="Projets de livres en développement" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Livres</h1>
+
+				<p class="intro">
+					Projets de livres actuellement en développement, axés sur les crises financières, l'histoire économique,
+					et l'évolution de la mondialisation économique.
+				</p>
+
+				<section>
+					<div class="book-card">
+						<div class="status-badge">En développement</div>
+						<h2>Financial Crises in Semi-periphery Countries</h2>
+						<p class="authors">Peeters, B.; Defraigne, J.-C.</p>
+
+						<div class="description">
+							<p>
+								Ce livre examine les crises de balance des paiements dans les pays semi-périphériques à travers
+								le prisme de la dynamique économique structurelle et des flux financiers internationaux.
+							</p>
+
+							<h3>Concepts clés</h3>
+							<p>
+								Introduit le concept de <strong>cycles CLIF</strong> (cycles industriels-financiers
+								des économies leaders du Centre) comme cadre pour comprendre l'instabilité financière.
+							</p>
+
+							<h3>Couverture</h3>
+							<p>Analyse de trois grandes vagues de crises :</p>
+							<ul>
+								<li><strong>Années 1980</strong> - Crise de la dette latino-américaine et ajustement structurel</li>
+								<li><strong>1994-2001</strong> - Crise financière asiatique et turbulences des marchés émergents</li>
+								<li><strong>2008-2019</strong> - Crise financière mondiale et crise de la dette souveraine européenne</li>
+							</ul>
+
+							<h3>Thèmes</h3>
+							<ul>
+								<li>Vulnérabilités structurelles des économies semi-périphériques</li>
+								<li>Dynamique des flux financiers internationaux</li>
+								<li>Réponses politiques et cadres institutionnels</li>
+								<li>Modèles historiques et défis contemporains</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="book-card">
+						<div class="status-badge">En développement</div>
+						<h2>Histoire de la Mondialisation Économique du 19ème Siècle à nos Jours</h2>
+						<p class="subtitle">History of Economic Globalization from the 19th Century to the Present</p>
+						<p class="authors">Peeters, B.; Defraigne, J.-C.</p>
+						<p class="language">Langue : Français</p>
+
+						<div class="description">
+							<p>
+								Une analyse historique complète de la mondialisation économique, examinant son évolution
+								depuis la révolution industrielle du 19ème siècle jusqu'à l'intégration économique mondiale contemporaine.
+							</p>
+
+							<h3>Sujets abordés</h3>
+							<ul>
+								<li><strong>Forces productives</strong> - Évolution de la technologie et des systèmes de production</li>
+								<li><strong>Géopolitique</strong> - Dynamiques de pouvoir et relations internationales</li>
+								<li><strong>Cycles hégémoniques</strong> - Changements dans le leadership économique mondial</li>
+								<li><strong>Systèmes sociaux</strong> - Transformations institutionnelles et sociétales</li>
+								<li><strong>Actifs intangibles</strong> - Connaissances, innovation et propriété intellectuelle</li>
+							</ul>
+
+							<h3>Approche</h3>
+							<p>
+								Combine l'histoire économique et l'économie politique, offrant une perspective à long terme
+								sur la dynamique structurelle du développement économique mondial et de l'intégration.
+							</p>
+						</div>
+					</div>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.intro {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		margin: 1.5rem 0 2.5rem 0;
+		color: var(--text-color);
+	}
+
+	section {
+		margin: 2rem 0;
+	}
+
+	.book-card {
+		margin-bottom: 3rem;
+		padding: 2rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 4px solid var(--accent);
+		position: relative;
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.book-card:hover {
+		box-shadow: 0 4px 12px rgba(45, 126, 63, 0.2);
+	}
+
+	.status-badge {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		padding: 0.5rem 1rem;
+		background-color: var(--accent-light);
+		color: white;
+		border-radius: 20px;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	.book-card h2 {
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+		color: var(--accent-dark);
+		font-size: 1.5rem;
+		line-height: 1.3;
+		padding-right: 140px;
+	}
+
+	.subtitle {
+		font-size: 1.1rem;
+		font-style: italic;
+		color: var(--text-color);
+		margin: 0.5rem 0;
+		opacity: 0.9;
+	}
+
+	.authors {
+		font-style: italic;
+		color: var(--text-color);
+		margin: 0.5rem 0;
+		font-size: 0.95rem;
+	}
+
+	.language {
+		font-size: 0.9rem;
+		color: var(--accent);
+		font-weight: 600;
+		margin: 0.5rem 0;
+	}
+
+	.description {
+		margin-top: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.description h3 {
+		color: var(--accent);
+		font-size: 1.1rem;
+		margin-top: 1.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.description p {
+		margin: 0.75rem 0;
+	}
+
+	.description ul {
+		margin: 0.75rem 0 0 1.5rem;
+	}
+
+	.description ul li {
+		margin: 0.5rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.book-card {
+			padding: 1.5rem;
+		}
+
+		.book-card h2 {
+			padding-right: 0;
+			margin-bottom: 2.5rem;
+		}
+
+		.status-badge {
+			position: static;
+			display: inline-block;
+			margin-bottom: 1rem;
+		}
+	}
+</style>

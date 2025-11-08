@@ -1,0 +1,125 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_TITLE } from '../../../consts';
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={`Recherche - ${SITE_TITLE}`} description="Publications de recherche, ensembles de données, code et travaux académiques" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Recherche</h1>
+
+				<p class="intro">
+					Ma recherche se concentre sur les évaluations empiriques des interdépendances financières, l'économie climatique,
+					et l'intersection entre l'histoire économique et les défis macroéconomiques contemporains.
+				</p>
+
+				<div class="research-grid">
+					<a href="/fr/research/papers" class="research-card">
+						<h2>Publications</h2>
+						<p>Articles publiés, documents de travail en cours d'évaluation et travaux en cours sur les flux financiers, les effets de contagion de la politique monétaire et les crises économiques.</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/fr/research/resources" class="research-card">
+						<h2>Ressources</h2>
+						<p>Ensembles de données ouvertes incluant des indicateurs macroéconomiques mondiaux et des dépôts de code pour la régression spatiale variable dans le temps et la modélisation économique.</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/fr/research/books" class="research-card">
+						<h2>Livres</h2>
+						<p>Projets de livres en développement sur les crises financières dans les pays semi-périphériques et l'histoire de la mondialisation économique.</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/fr/research/phd-manuscript" class="research-card">
+						<h2>Thèse de doctorat</h2>
+						<p>Thèse de doctorat sur les évaluations empiriques des interdépendances financières depuis les années 1970, soutenue à l'UCLouvain en 2023.</p>
+						<span class="arrow">→</span>
+					</a>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.intro {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-color);
+		margin: 2rem 0 3rem 0;
+	}
+
+	.research-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+
+	.research-card {
+		display: block;
+		padding: 2rem;
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		text-decoration: none;
+		color: var(--text-color);
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	.research-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 16px rgba(45, 126, 63, 0.2);
+		border-color: var(--accent);
+	}
+
+	.research-card h2 {
+		color: var(--accent);
+		margin-top: 0;
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+	}
+
+	.research-card p {
+		margin: 0;
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.arrow {
+		position: absolute;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		font-size: 1.5rem;
+		color: var(--accent);
+		transition: transform 0.3s ease;
+	}
+
+	.research-card:hover .arrow {
+		transform: translateX(4px);
+	}
+
+	@media (max-width: 768px) {
+		.research-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+</style>

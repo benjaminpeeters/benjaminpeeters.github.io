@@ -1,0 +1,125 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Research - ${SITE_TITLE}`} description="Research publications, datasets, code, and academic work" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Research</h1>
+
+				<p class="intro">
+					My research focuses on empirical assessments of financial interdependencies, climate economics,
+					and the intersection of economic history with contemporary macroeconomic challenges.
+				</p>
+
+				<div class="research-grid">
+					<a href="/research/papers" class="research-card">
+						<h2>Papers</h2>
+						<p>Published articles, working papers under review, and works in progress on financial flows, monetary policy spillovers, and economic crises.</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/research/resources" class="research-card">
+						<h2>Resources</h2>
+						<p>Open datasets including worldwide macroeconomic indicators and code repositories for time-varying spatial regression and economic modeling.</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/research/books" class="research-card">
+						<h2>Books</h2>
+						<p>Book projects in development on financial crises in semi-periphery countries and the history of economic globalization.</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/research/phd-manuscript" class="research-card">
+						<h2>PhD Manuscript</h2>
+						<p>Doctoral thesis on empirical assessments of financial interdependencies since the 1970s, defended at UCLouvain in 2023.</p>
+						<span class="arrow">→</span>
+					</a>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.intro {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-color);
+		margin: 2rem 0 3rem 0;
+	}
+
+	.research-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+
+	.research-card {
+		display: block;
+		padding: 2rem;
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		text-decoration: none;
+		color: var(--text-color);
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	.research-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 16px rgba(45, 126, 63, 0.2);
+		border-color: var(--accent);
+	}
+
+	.research-card h2 {
+		color: var(--accent);
+		margin-top: 0;
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+	}
+
+	.research-card p {
+		margin: 0;
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.arrow {
+		position: absolute;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		font-size: 1.5rem;
+		color: var(--accent);
+		transition: transform 0.3s ease;
+	}
+
+	.research-card:hover .arrow {
+		transform: translateX(4px);
+	}
+
+	@media (max-width: 768px) {
+		.research-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+</style>

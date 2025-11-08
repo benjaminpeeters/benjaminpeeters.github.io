@@ -1,0 +1,108 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+const title = 'Benjamin Peeters';
+const subtitle = '博士后研究员，波茨坦气候影响研究所 (PIK)';
+---
+
+<!doctype html>
+<html lang="zh">
+	<head>
+		<BaseHead title={`${title} - ${SITE_TITLE}`} description={subtitle} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="hero">
+					<h1>{title}</h1>
+					<p class="subtitle">{subtitle}</p>
+				</div>
+
+				<section>
+					<h2>关于</h2>
+					<p>
+						我是德国<a href="https://www.pik-potsdam.de/en/home" target="_blank">波茨坦气候影响研究所 (PIK)</a> <a href="https://www.pik-potsdam.de/en/institute/departments/transformation-pathways" target="_blank">转型路径研究部</a>的博士后研究员。
+					</p>
+					<p>
+						我拥有比利时<a href="https://uclouvain.be/en/index.html" target="_blank">鲁汶大学</a>经济学博士学位。
+					</p>
+					<p>
+						我的研究重点是自1970年代以来金融相互依存关系的实证评估，专业领域包括：
+					</p>
+					<ul>
+						<li>经济史</li>
+						<li>宏观经济学</li>
+						<li>气候经济学</li>
+						<li>国际金融</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>研究兴趣</h2>
+					<p>
+						我的工作研究国际金融流动的周期性模式，特别是流向半外围国家的资金，并探索气候变化与经济系统的交叉点。我将历史分析与当代经济建模相结合，以理解长期金融动态及其对可持续发展的影响。
+					</p>
+				</section>
+
+				<section>
+					<h2>当前职位</h2>
+					<p><strong>博士后研究员</strong><br>
+					波茨坦气候影响研究所 (PIK)<br>
+					研究部门：转型路径<br>
+					地点：德国波茨坦</p>
+				</section>
+
+				<section>
+					<h2>教育背景</h2>
+					<p><strong>经济学博士</strong><br>
+					比利时鲁汶大学</p>
+				</section>
+
+				<section>
+					<h2>联系方式</h2>
+					<ul>
+						<li><strong>ORCID</strong>：<a href="https://orcid.org/0000-0002-5095-2021" target="_blank">0000-0002-5095-2021</a></li>
+						<li><strong>GitHub</strong>：<a href="https://github.com/benjaminpeeters" target="_blank">github.com/benjaminpeeters</a></li>
+						<li><strong>电子邮件</strong>：<a href="https://www.pik-potsdam.de/en/home" target="_blank">通过机构网站联系</a></li>
+					</ul>
+				</section>
+
+				<hr>
+				<p class="footer-note">本网站使用<a href="https://astro.build/" target="_blank">Astro</a>构建，这是一个用于构建快速、以内容为中心的网站的现代Web框架。</p>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		margin-bottom: 2rem;
+	}
+	.subtitle {
+		font-size: 1.2rem;
+		color: #666;
+		margin-top: 0.5rem;
+	}
+	article {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	section {
+		margin: 2rem 0;
+	}
+	hr {
+		margin: 2rem 0;
+		border: none;
+		border-top: 1px solid #ddd;
+	}
+	.footer-note {
+		font-size: 0.9rem;
+		font-style: italic;
+		color: #666;
+	}
+</style>

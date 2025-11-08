@@ -1,0 +1,135 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE, EMAIL, PHONE, ORCID, LINKEDIN_URL, GITHUB_USERNAME } from '../../consts';
+---
+
+<!doctype html>
+<html lang="zh">
+	<head>
+		<BaseHead title={`聯絡 - ${SITE_TITLE}`} description="聯絡 Benjamin Peeters" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>聯絡</h1>
+
+				<section>
+					<h2>聯絡方式</h2>
+					<p>
+						歡迎就研究合作、工作諮詢或學術查詢與我聯繫。
+					</p>
+
+					<div class="contact-info">
+						<div class="contact-item">
+							<h3>電子郵件</h3>
+							<p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+						</div>
+
+						<div class="contact-item">
+							<h3>電話</h3>
+							<p>{PHONE}</p>
+						</div>
+
+						<div class="contact-item">
+							<h3>專業檔案</h3>
+							<ul class="profile-links">
+								<li><a href={`https://orcid.org/${ORCID}`} target="_blank">ORCID：{ORCID}</a></li>
+								<li><a href={LINKEDIN_URL} target="_blank">LinkedIn 個人資料</a></li>
+								<li><a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank">GitHub：@{GITHUB_USERNAME}</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>地點</h2>
+					<p>
+						<strong>波茨坦氣候影響研究所 (PIK)</strong><br>
+						研究部門：轉型路徑<br>
+						波茨坦，德國
+					</p>
+				</section>
+
+				<section class="note">
+					<p>
+						<strong>注意：</strong> 如需具備檔案上傳功能的正式聯絡表單，
+						請訪問機構網站或使用上述電子郵件地址。
+					</p>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	section {
+		margin: 2rem 0;
+	}
+
+	.contact-info {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+
+	.contact-item {
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 3px solid var(--accent);
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.contact-item:hover {
+		box-shadow: 0 4px 8px rgba(45, 126, 63, 0.2);
+	}
+
+	.contact-item h3 {
+		margin-top: 0;
+		color: var(--accent);
+		font-size: 1.2rem;
+	}
+
+	.contact-item p {
+		margin: 0.5rem 0;
+	}
+
+	.profile-links {
+		list-style: none;
+		padding: 0;
+		margin: 0.5rem 0;
+	}
+
+	.profile-links li {
+		margin: 0.5rem 0;
+	}
+
+	.note {
+		background-color: var(--card-bg);
+		padding: 1rem;
+		border-radius: 4px;
+		border-left: 3px solid var(--accent-light);
+		font-size: 0.95rem;
+	}
+
+	.note p {
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.contact-info {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+	}
+</style>

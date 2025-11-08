@@ -1,0 +1,269 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_TITLE, GITHUB_USERNAME } from '../../../consts';
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={`Ressources - ${SITE_TITLE}`} description="Ensembles de données ouverts et dépôts de code pour la recherche" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Ressources (Données et Code)</h1>
+
+				<p class="intro">
+					Ressources de science ouverte incluant des ensembles de données et du code pour la recherche reproductible.
+					Toutes les ressources sont librement disponibles à des fins académiques et de recherche.
+				</p>
+
+				<section>
+					<h2>Ensembles de données</h2>
+
+					<div class="resource-card">
+						<h3>Worldwide Longitudinal Macroeconomic Indicators Dataset</h3>
+						<div class="meta">
+							<span class="tag">DONNÉES</span>
+							<span class="date">Mis à jour : 2023</span>
+						</div>
+						<p class="description">
+							Ensemble de données longitudinales complètes couvrant 163 pays de 1970 à 2020.
+							Comprend des variables démographiques et économiques utilisant les codes pays ISO 3166.
+						</p>
+						<div class="details">
+							<p><strong>Couverture :</strong> 163 pays, 1970-2020</p>
+							<p><strong>Variables :</strong> Indicateurs démographiques et macroéconomiques</p>
+							<p><strong>Normes :</strong> Codes pays ISO 3166</p>
+							<p><strong>Formats :</strong> RData, CSV, Excel</p>
+						</div>
+						<div class="note">
+							<p>Disponible en téléchargement via le dépôt institutionnel ou sur demande</p>
+						</div>
+					</div>
+
+					<div class="resource-card">
+						<h3>Monetary Policy Interest Rates</h3>
+						<div class="meta">
+							<span class="tag">DONNÉES</span>
+						</div>
+						<p class="description">
+							Ensemble de données mensuelles sur les taux d'intérêt directeurs pour la recherche en banque centrale.
+						</p>
+						<div class="details">
+							<p><strong>Mots-clés :</strong> taux d'intérêt directeurs, banque centrale, taux virtuels</p>
+							<p><strong>Fréquence :</strong> Mensuelle</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Dépôts de code</h2>
+
+					<div class="resource-card">
+						<h3>Time-Varying Spatial Regression (TVSR)</h3>
+						<div class="meta">
+							<span class="tag code-tag">CODE</span>
+							<span class="date">Publié : 14 février 2024</span>
+						</div>
+						<p class="description">
+							Package R implémentant des méthodes de régression spatiale variant dans le temps.
+							Deux méthodologies : LKSR (régression spatiale à noyau local) et SDSR (régression spatiale pilotée par le score).
+						</p>
+						<div class="details">
+							<p><strong>Langage :</strong> R</p>
+							<p><strong>Méthodologies :</strong></p>
+							<ul>
+								<li>LKSR (Local-Kernel Spatial Regression)</li>
+								<li>SDSR (Score-Driven Spatial Regression)</li>
+							</ul>
+						</div>
+						<div class="links">
+							<a href={`https://github.com/${GITHUB_USERNAME}/TVSR`} target="_blank">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="vertical-align: middle; margin-right: 0.5rem;">
+									<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+								</svg>
+								Voir sur GitHub
+							</a>
+						</div>
+					</div>
+
+					<div class="resource-card">
+						<h3>Dynamic General Equilibrium Model of Energy Transition</h3>
+						<div class="meta">
+							<span class="tag code-tag">CODE</span>
+						</div>
+						<p class="description">
+							Implémentation en Fortran d'un modèle d'équilibre général dynamique pour analyser la dynamique de la transition énergétique.
+						</p>
+						<div class="details">
+							<p><strong>Langage :</strong> Fortran</p>
+							<p><strong>Sujets :</strong> Transition énergétique, énergie renouvelable, EROEI, croissance économique</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="github-note">
+					<h3>Plus sur GitHub</h3>
+					<p>
+						Pour des dépôts de code, outils et projets supplémentaires, visitez mon profil GitHub :
+						<a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank">@{GITHUB_USERNAME}</a>
+					</p>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.intro {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		margin: 1.5rem 0 2.5rem 0;
+		color: var(--text-color);
+	}
+
+	section {
+		margin: 3rem 0;
+	}
+
+	.resource-card {
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 4px solid var(--accent);
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.resource-card:hover {
+		box-shadow: 0 4px 12px rgba(45, 126, 63, 0.2);
+	}
+
+	.resource-card h3 {
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+		color: var(--accent-dark);
+		font-size: 1.3rem;
+	}
+
+	.meta {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.tag {
+		display: inline-block;
+		padding: 0.25rem 0.75rem;
+		background-color: var(--accent);
+		color: white;
+		border-radius: 12px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+	}
+
+	.code-tag {
+		background-color: #5a9f6b;
+	}
+
+	.date {
+		font-size: 0.85rem;
+		color: var(--text-color);
+		opacity: 0.8;
+	}
+
+	.description {
+		margin: 1rem 0;
+		line-height: 1.6;
+	}
+
+	.details {
+		margin: 1.5rem 0;
+		padding: 1rem;
+		background-color: var(--bg-color);
+		border-radius: 4px;
+		font-size: 0.95rem;
+	}
+
+	.details p {
+		margin: 0.5rem 0;
+	}
+
+	.details ul {
+		margin: 0.5rem 0 0 1.5rem;
+	}
+
+	.details ul li {
+		margin: 0.25rem 0;
+	}
+
+	.links {
+		margin-top: 1.5rem;
+	}
+
+	.links a {
+		display: inline-block;
+		padding: 0.75rem 1.25rem;
+		background-color: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 600;
+		transition: background-color 0.3s ease, transform 0.2s ease;
+	}
+
+	.links a:hover {
+		background-color: var(--accent-dark);
+		transform: translateY(-2px);
+	}
+
+	.note {
+		margin-top: 1rem;
+		padding: 0.75rem;
+		background-color: var(--accent-light);
+		color: white;
+		border-radius: 4px;
+		font-size: 0.9rem;
+	}
+
+	.note p {
+		margin: 0;
+	}
+
+	.github-note {
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border: 2px dashed var(--accent);
+		text-align: center;
+	}
+
+	.github-note h3 {
+		margin-top: 0;
+		color: var(--accent);
+	}
+
+	@media (max-width: 768px) {
+		.resource-card {
+			padding: 1rem;
+		}
+
+		.meta {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+	}
+</style>

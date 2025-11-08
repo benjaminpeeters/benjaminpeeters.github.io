@@ -1,0 +1,125 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_TITLE } from '../../../consts';
+---
+
+<!doctype html>
+<html lang="zh">
+	<head>
+		<BaseHead title={`研究 - ${SITE_TITLE}`} description="研究出版物、數據集、代碼和學術工作" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>研究</h1>
+
+				<p class="intro">
+					我的研究專注於金融相互依賴性的實證評估、氣候經濟學，
+					以及經濟史與當代總體經濟挑戰的交叉研究。
+				</p>
+
+				<div class="research-grid">
+					<a href="/zh/research/papers" class="research-card">
+						<h2>論文</h2>
+						<p>已發表文章、審查中的工作論文，以及關於金融流動、貨幣政策溢出效應和經濟危機的進行中工作。</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/zh/research/resources" class="research-card">
+						<h2>資源</h2>
+						<p>開放數據集，包括全球宏觀經濟指標以及用於時變空間回歸和經濟建模的代碼庫。</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/zh/research/books" class="research-card">
+						<h2>書籍</h2>
+						<p>關於半邊陲國家金融危機和經濟全球化歷史的書籍項目正在開發中。</p>
+						<span class="arrow">→</span>
+					</a>
+
+					<a href="/zh/research/phd-manuscript" class="research-card">
+						<h2>博士論文</h2>
+						<p>關於1970年代以來金融相互依賴性實證評估的博士論文，2023年在魯汶大學答辯。</p>
+						<span class="arrow">→</span>
+					</a>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.intro {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-color);
+		margin: 2rem 0 3rem 0;
+	}
+
+	.research-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+
+	.research-card {
+		display: block;
+		padding: 2rem;
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		text-decoration: none;
+		color: var(--text-color);
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	.research-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 16px rgba(45, 126, 63, 0.2);
+		border-color: var(--accent);
+	}
+
+	.research-card h2 {
+		color: var(--accent);
+		margin-top: 0;
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+	}
+
+	.research-card p {
+		margin: 0;
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.arrow {
+		position: absolute;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		font-size: 1.5rem;
+		color: var(--accent);
+		transition: transform 0.3s ease;
+	}
+
+	.research-card:hover .arrow {
+		transform: translateX(4px);
+	}
+
+	@media (max-width: 768px) {
+		.research-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+</style>

@@ -1,0 +1,242 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_TITLE, PHD_THESIS_TITLE, PHD_INSTITUTION, PHD_DEFENSE_DATE, PHD_THESIS_URL } from '../../../consts';
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={`Thèse de doctorat - ${SITE_TITLE}`} description={PHD_THESIS_TITLE} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Thèse de doctorat</h1>
+
+				<div class="thesis-card">
+					<h2>{PHD_THESIS_TITLE}</h2>
+
+					<div class="meta">
+						<p><strong>Auteur :</strong> Benjamin Peeters</p>
+						<p><strong>Institution :</strong> {PHD_INSTITUTION}</p>
+						<p><strong>Date de défense :</strong> {PHD_DEFENSE_DATE}</p>
+						<p><strong>Soumise :</strong> Octobre 2022</p>
+					</div>
+
+					<div class="abstract">
+						<h3>Résumé</h3>
+						<p>
+							Cette thèse de doctorat fournit des évaluations empiriques des interdépendances financières
+							dans l'économie mondiale depuis les années 1970. À travers trois chapitres analytiques principaux,
+							elle examine la dynamique structurelle des flux financiers internationaux, les schémas de crises,
+							et les débordements de politique monétaire dans différents contextes économiques.
+						</p>
+					</div>
+
+					<div class="chapters">
+						<h3>Chapitres principaux</h3>
+
+						<div class="chapter">
+							<h4>Chapitre 1 : Modèle d'optimisation de portefeuille</h4>
+							<p>
+								Développement et application d'un cadre d'optimisation de portefeuille pour analyser
+								les flux de capitaux internationaux et les modèles d'investissement à travers différentes zones économiques.
+							</p>
+						</div>
+
+						<div class="chapter">
+							<h4>Chapitre 2 : Analyse des crises</h4>
+							<p>
+								Examen systématique des crises financières dans les pays semi-périphériques, identifiant
+								les schémas cycliques et les vulnérabilités structurelles dans la dynamique de la balance des paiements.
+							</p>
+						</div>
+
+						<div class="chapter">
+							<h4>Chapitre 3 : Débordements de politique monétaire</h4>
+							<p>
+								Étude des mécanismes de transmission de la politique monétaire internationale et des effets de débordement,
+								distinguant les moteurs de coordination politique et d'intégration économique.
+							</p>
+						</div>
+					</div>
+
+					<div class="themes">
+						<h3>Thèmes clés</h3>
+						<ul>
+							<li>Flux financiers internationaux et mobilité des capitaux</li>
+							<li>Crises de balance des paiements dans les économies émergentes</li>
+							<li>Interdépendance et débordements de politique monétaire</li>
+							<li>Mondialisation financière depuis les années 1970</li>
+							<li>Dynamique structurelle des relations centre-périphérie</li>
+							<li>Méthodes économétriques pour l'analyse de données de panel</li>
+						</ul>
+					</div>
+
+					<div class="access">
+						<h3>Accéder à la thèse complète</h3>
+						<p>
+							Le manuscrit complet est disponible via le dépôt institutionnel de l'UCLouvain.
+						</p>
+						<a href={PHD_THESIS_URL} target="_blank" class="thesis-link">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 0.5rem;">
+								<path d="M3 17V7a2 2 0 012-2h2m10 12v-10a2 2 0 00-2-2h-2M3 7h4m0 0v10m0-10a2 2 0 012-2h2m0 10h4" />
+							</svg>
+							Voir le manuscrit complet sur le dépôt de l'UCLouvain
+						</a>
+						<p class="doi">Handle: hdl.handle.net/2078.3/273394</p>
+					</div>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.thesis-card {
+		padding: 2rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 4px solid var(--accent);
+		margin: 2rem 0;
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.thesis-card:hover {
+		box-shadow: 0 4px 12px rgba(45, 126, 63, 0.2);
+	}
+
+	.thesis-card h2 {
+		margin-top: 0;
+		color: var(--accent-dark);
+		font-size: 1.8rem;
+		line-height: 1.3;
+		margin-bottom: 1.5rem;
+	}
+
+	.meta {
+		padding: 1.5rem;
+		background-color: var(--bg-color);
+		border-radius: 4px;
+		margin: 1.5rem 0;
+	}
+
+	.meta p {
+		margin: 0.5rem 0;
+		font-size: 0.95rem;
+	}
+
+	.abstract,
+	.chapters,
+	.themes,
+	.access {
+		margin: 2rem 0;
+	}
+
+	h3 {
+		color: var(--accent);
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+
+	.abstract p {
+		line-height: 1.7;
+		font-size: 1.05rem;
+	}
+
+	.chapter {
+		margin: 1.5rem 0;
+		padding: 1rem;
+		background-color: var(--bg-color);
+		border-radius: 4px;
+		border-left: 3px solid var(--accent-light);
+	}
+
+	.chapter h4 {
+		margin-top: 0;
+		color: var(--accent-dark);
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.chapter p {
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.themes ul {
+		margin: 0.5rem 0 0 1.5rem;
+	}
+
+	.themes ul li {
+		margin: 0.75rem 0;
+		line-height: 1.5;
+	}
+
+	.access {
+		padding: 1.5rem;
+		background-color: var(--accent-light);
+		color: white;
+		border-radius: 4px;
+		text-align: center;
+	}
+
+	.access h3 {
+		color: white;
+		margin-top: 0;
+	}
+
+	.access p {
+		margin: 0.75rem 0;
+		opacity: 0.95;
+	}
+
+	.thesis-link {
+		display: inline-block;
+		margin: 1.5rem 0 1rem 0;
+		padding: 1rem 2rem;
+		background-color: white;
+		color: var(--accent-dark);
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 600;
+		font-size: 1.05rem;
+		transition: all 0.3s ease;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.thesis-link:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	.doi {
+		font-size: 0.9rem;
+		font-family: monospace;
+		opacity: 0.9;
+	}
+
+	@media (max-width: 768px) {
+		.thesis-card {
+			padding: 1.5rem;
+		}
+
+		.thesis-card h2 {
+			font-size: 1.5rem;
+		}
+
+		.thesis-link {
+			padding: 0.875rem 1.5rem;
+			font-size: 0.95rem;
+		}
+	}
+</style>

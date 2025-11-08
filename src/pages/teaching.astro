@@ -1,0 +1,258 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Teaching - ${SITE_TITLE}`} description="Teaching experience and course materials" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<h1>Teaching</h1>
+
+				<p class="intro">
+					Teaching experience spanning econometrics, macroeconomics, statistics, and international relations
+					across multiple universities and programs.
+				</p>
+
+				<section>
+					<h2>Current Courses (2023-2024)</h2>
+
+					<div class="course-card">
+						<h3>Regional Integration and EU-Asia Relations</h3>
+						<p class="institution">National Chengchi University, Taiwan</p>
+						<div class="materials">
+							<p><strong>Topics:</strong></p>
+							<ul>
+								<li>European industrialization and integration</li>
+								<li>East Asian industrialization and integration</li>
+								<li>Comparative regional integration models</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="course-card">
+						<h3>Regional Studies - European Union International Relations</h3>
+						<p class="institution">National Chengchi University, Taiwan</p>
+						<div class="materials">
+							<p><strong>Topics:</strong></p>
+							<ul>
+								<li>EU single market and economic integration</li>
+								<li>EU budget and fiscal policy</li>
+								<li>European Monetary Union</li>
+								<li>Financial crises in Europe</li>
+							</ul>
+							<p><strong>Supplementary materials:</strong> Summary questions, readings, case studies</p>
+						</div>
+					</div>
+
+					<div class="course-card">
+						<h3>France in International Affairs (法國社會與國際關係)</h3>
+						<p class="institution">National Chengchi University, Taiwan</p>
+						<div class="materials">
+							<p><strong>Topics:</strong></p>
+							<ul>
+								<li>French society and political economy</li>
+								<li>Historical graphics on liberalism and socialism</li>
+								<li>France's role in international relations</li>
+							</ul>
+							<p><strong>Resources:</strong> Political economy terminology lexicon, podcasts</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Previous Teaching Experience</h2>
+
+					<div class="period-section">
+						<h3>2021-2023: UCLouvain</h3>
+						<div class="course-item">
+							<h4>Econometrics (ECGE1330)</h4>
+							<p>Advanced econometrics course covering:</p>
+							<ul>
+								<li>Linear regression models</li>
+								<li>Time series analysis</li>
+								<li>Panel data methods</li>
+								<li>Statistical inference and hypothesis testing</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="period-section">
+						<h3>2016-2021: UCLouvain</h3>
+						<div class="course-item">
+							<h4>Econometrics (ECGE1330)</h4>
+							<p>Foundational econometrics instruction for economics students.</p>
+						</div>
+					</div>
+
+					<div class="period-section">
+						<h3>2016-2019: UCLouvain</h3>
+						<div class="course-item">
+							<h4>Macroeconomics</h4>
+							<p>Intermediate macroeconomic theory and applications</p>
+						</div>
+						<div class="course-item">
+							<h4>Probability and Statistics</h4>
+							<p>Probability theory and statistical methods</p>
+						</div>
+						<div class="course-item">
+							<h4>Advanced Statistics</h4>
+							<p>Advanced statistical techniques and applications</p>
+						</div>
+					</div>
+
+					<div class="period-section">
+						<h3>2016-2018: UCLouvain</h3>
+						<div class="course-item">
+							<h4>Operational Research</h4>
+							<p>Optimization methods and decision analysis</p>
+						</div>
+						<div class="course-item">
+							<h4>Applied Statistics</h4>
+							<p>Statistical applications in economics and business</p>
+						</div>
+					</div>
+
+					<div class="period-section">
+						<h3>2014-2016: UCLouvain</h3>
+						<div class="course-item">
+							<h4>Statistics Courses (LCOPS, LECGE, LESPO)</h4>
+							<p>Statistics instruction across multiple programs:</p>
+							<ul>
+								<li>LCOPS - Political and social sciences</li>
+								<li>LECGE - Economics and management</li>
+								<li>LESPO - Political science</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Teaching Philosophy</h2>
+					<p>
+						My teaching approach emphasizes the connection between theoretical concepts and real-world
+						applications, particularly in understanding economic dynamics, financial systems, and
+						policy implications. I integrate historical perspectives with contemporary analysis to
+						provide students with a comprehensive understanding of economic phenomena.
+					</p>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	article {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.intro {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		margin: 1.5rem 0 2.5rem 0;
+		color: var(--text-color);
+	}
+
+	section {
+		margin: 3rem 0;
+	}
+
+	.course-card {
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		border-left: 4px solid var(--accent);
+		transition: box-shadow 0.3s ease, background-color 0.3s ease;
+	}
+
+	.course-card:hover {
+		box-shadow: 0 4px 12px rgba(45, 126, 63, 0.2);
+	}
+
+	.course-card h3 {
+		margin-top: 0;
+		color: var(--accent-dark);
+		font-size: 1.3rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.institution {
+		font-style: italic;
+		color: var(--text-color);
+		opacity: 0.9;
+		margin: 0.5rem 0 1rem 0;
+	}
+
+	.materials {
+		margin-top: 1rem;
+	}
+
+	.materials p {
+		margin: 0.75rem 0;
+	}
+
+	.materials ul {
+		margin: 0.5rem 0 0 1.5rem;
+	}
+
+	.materials ul li {
+		margin: 0.25rem 0;
+	}
+
+	.period-section {
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background-color: var(--card-bg);
+		border-radius: 8px;
+		transition: background-color 0.3s ease;
+	}
+
+	.period-section h3 {
+		margin-top: 0;
+		color: var(--accent);
+		font-size: 1.2rem;
+		margin-bottom: 1rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid var(--accent-light);
+	}
+
+	.course-item {
+		margin: 1.5rem 0;
+	}
+
+	.course-item h4 {
+		margin: 0 0 0.5rem 0;
+		color: var(--accent-dark);
+		font-size: 1.1rem;
+	}
+
+	.course-item p {
+		margin: 0.5rem 0;
+		line-height: 1.6;
+	}
+
+	.course-item ul {
+		margin: 0.5rem 0 0 1.5rem;
+	}
+
+	.course-item ul li {
+		margin: 0.25rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.course-card,
+		.period-section {
+			padding: 1rem;
+		}
+	}
+</style>
