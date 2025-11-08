@@ -1,0 +1,300 @@
+/* Custom CSS to match benjaminpeeters.com styling */
+
+/* Import Rubik font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+/* Global font settings */
+body {
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Light mode specific styles */
+html:not(.dark) body {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+html:not(.dark) section {
+  background-color: #ffffff;
+}
+
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: #333333;
+}
+
+html:not(.dark) .card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+html:not(.dark) .section-heading {
+  color: #333333;
+}
+
+/* Remove any background gradients */
+.hbx-bg-gradient {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.hbx-prose {
+  background-color: transparent;
+}
+
+/* Link colors - green accent from benjaminpeeters.com */
+a {
+  color: rgb(33, 147, 12);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: rgb(236, 106, 73); /* Coral/orange hover color */
+  text-decoration: none;
+}
+
+/* Navigation and header styling */
+.navbar a,
+.nav-link {
+  color: rgb(33, 147, 12);
+}
+
+.navbar a:hover,
+.nav-link:hover {
+  color: rgb(236, 106, 73);
+}
+
+/* Button styling to match accent colors */
+.btn-primary {
+  background-color: rgb(33, 147, 12);
+  border-color: rgb(33, 147, 12);
+}
+
+.btn-primary:hover {
+  background-color: rgb(236, 106, 73);
+  border-color: rgb(236, 106, 73);
+}
+
+/* Typography adjustments */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+}
+
+/* Hide "Professional Summary" heading */
+.resume-biography-3 h2 {
+  display: none;
+}
+
+/* Reduce name font size */
+.resume-biography-3 h1 {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .resume-biography-3 h1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* Clean, minimal styling for biography section */
+.resume-biography-3 {
+  background: transparent;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+/* Reduce spacing between intro and NEWS section */
+.resume-biography-3 + section,
+section + section {
+  padding-top: 1.5rem !important;
+}
+
+/* Publications section styling */
+#papers {
+  background: transparent;
+}
+
+.article-metadata {
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+/* Card and content styling */
+.card {
+  box-shadow: none;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure NEWS section title styling */
+.section-heading {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Publication list styling */
+.pub-list-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+}
+
+.pub-list-item:last-child {
+  border-bottom: none;
+}
+
+/* Avatar and profile styling */
+.avatar {
+  border: 3px solid #e0e0e0;
+}
+
+/* Social icons */
+.social-icons a {
+  color: rgb(33, 147, 12);
+}
+
+.social-icons a:hover {
+  color: rgb(236, 106, 73);
+}
+
+/* Hide Hugo Blox footer branding */
+.page-footer p {
+  display: none;
+}
+
+/* Show custom footer from params.yaml */
+.page-footer footer::after {
+  content: "© 2025 Benjamin Peeters - Postdoctoral Researcher at PIK";
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+/* News section styling */
+#news .compact-item,
+#news .citation-item,
+#news .card,
+#news article {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+#news .compact-item:hover,
+#news .citation-item:hover,
+#news .card:hover,
+#news article:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgb(33, 147, 12);
+}
+
+/* Hide images in news items */
+#news .article-featured-image,
+#news .featured-image,
+#news img {
+  display: none !important;
+}
+
+/* News item title styling */
+#news .article-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333333;
+}
+
+#news .article-title a {
+  color: rgb(33, 147, 12);
+}
+
+#news .article-title a:hover {
+  color: rgb(236, 106, 73);
+}
+
+/* News summary styling */
+#news .article-summary {
+  color: #666666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* News metadata (date, tags) */
+#news .article-metadata {
+  font-size: 0.875rem;
+  color: #888888;
+  margin-bottom: 0.75rem;
+}
+
+/* News links styling (PDF, DOI, etc.) */
+#news .article-links {
+  margin-top: 1rem;
+}
+
+#news .btn-outline-primary {
+  border-color: rgb(33, 147, 12);
+  color: rgb(33, 147, 12);
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#news .btn-outline-primary:hover {
+  background-color: rgb(33, 147, 12);
+  color: #ffffff;
+}
+
+/* View All News button styling */
+#news .view-all-btn,
+#news .cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(33, 147, 12);
+  color: #ffffff !important;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#news .view-all-btn:hover,
+#news .cta-btn:hover {
+  background-color: rgb(236, 106, 73);
+  text-decoration: none;
+}
+
+/* Hide author information on individual news post pages */
+.page-body .page-author,
+.page-body .article-author,
+.page-body .author-card,
+.page-body .page-metadata .author,
+article .page-author,
+article .article-author,
+article .author-card,
+.article-header .author,
+.article-metadata .author,
+.page-header .author {
+  display: none !important;
+}
+
+/* Hide "Authors" heading */
+.page-body h2:contains("Authors"),
+.page-body h3:contains("Authors"),
+article h2:contains("Authors"),
+article h3:contains("Authors") {
+  display: none !important;
+}

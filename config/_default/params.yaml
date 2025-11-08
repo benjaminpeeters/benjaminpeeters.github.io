@@ -1,0 +1,62 @@
+# SITE SETUP
+# Guide: https://docs.hugoblox.com/tutorial/
+# Documentation: https://docs.hugoblox.com/
+# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+
+# Appearance
+appearance:
+  mode: light
+  color: slate
+  font: minimal
+  # Load custom CSS
+  plugins_css:
+    - custom
+
+# SEO
+marketing:
+  seo:
+    site_type: Person
+    local_business_type: ''
+    org_name: 'Potsdam Institute for Climate Impact Research'
+    description: 'Benjamin Peeters - Postdoctoral Researcher at PIK. Research on economic history, macroeconomics, climate economics, and international finance.'
+    twitter: ''
+  analytics:
+    google_analytics: ''
+    baidu_tongji: ''
+    plausible: ''
+    fathom: ''
+    pirsch: ''
+  verification:
+    google: ''
+    baidu: ''
+
+# Site header
+header:
+  navbar:
+    enable: true
+    block: 'navbar'
+    fixed_to_top: true
+    show_search: false
+    show_theme_chooser: true
+    show_language_chooser: true
+    logo:
+      text: 'Benjamin Peeters'
+
+# Site footer
+footer:
+  copyright:
+    notice: '© {year} Benjamin Peeters - Postdoctoral Researcher at PIK | [ORCID: 0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)'
+    license:
+      enable: false
+
+# Localization
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'
+
+# Site features
+features:
+  math:
+    enable: false
+  privacy_pack:
+    enable: false

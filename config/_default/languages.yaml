@@ -1,0 +1,27 @@
+# Languages
+#   Create a section for each of your site's languages.
+#   Documentation: https://docs.hugoblox.com/reference/language/
+
+# Default language
+en:
+  languageCode: en-us
+  contentDir: content/en
+  title: Benjamin Peeters
+  params:
+    description: 'Postdoctoral Researcher at PIK - Research on economic history, macroeconomics, climate economics, and international finance'
+
+# French
+fr:
+  languageCode: fr
+  contentDir: content/fr
+  title: Benjamin Peeters
+  params:
+    description: 'Chercheur postdoctoral au PIK - Recherche en histoire économique, macroéconomie, économie du climat et finance internationale'
+
+# Chinese
+zh:
+  languageCode: zh-Hans
+  contentDir: content/zh
+  title: Benjamin Peeters
+  params:
+    description: '波茨坦气候影响研究所博士后研究员 - 经济史、宏观经济学、气候经济学和国际金融研究'

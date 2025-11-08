@@ -1,0 +1,21 @@
+# Navigation Links - French
+
+main:
+  - name: Accueil
+    url: /
+    weight: 10
+  - name: Publications
+    url: /publications/
+    weight: 20
+  - name: Données & Code
+    url: /data-code/
+    weight: 30
+  - name: Enseignement
+    url: /teaching/
+    weight: 40
+  - name: À propos
+    url: /about/
+    weight: 50
+  - name: Contact
+    url: /contact/
+    weight: 60
