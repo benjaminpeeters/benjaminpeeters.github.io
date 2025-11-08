@@ -1,0 +1,122 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Benjamin Peeters
+    - name: Email
+      value: benjaminpeeters@protonmail.com
+    - name: Phone
+      value: +32 496 399 505
+    - name: Languages
+      value: English, French, Chinese
+    - name: ORCID
+      value: <a href="https://orcid.org/0000-0002-5095-2021">0000-0002-5095-2021</a>
+
+- title: Education
+  type: time_table
+  contents:
+    - title: PhD in Economics
+      institution: UCLouvain Saint-Louis Brussels, Belgium
+      year: 2023
+      description:
+        - "Thesis: Empirical Assessments of Financial Interdependencies Since the 1970s"
+        - "Supervisors: Alexander Girard, Jean-Christophe Defraigne"
+        - "Focus: Portfolio optimization models, balance-of-payment crises, international monetary policy spillovers"
+        - <a href="http://hdl.handle.net/2078.3/273394">Thesis Repository</a>
+    - title: Master in Economics
+      institution: UCLouvain, Belgium
+      year: Prior to 2023
+    - title: Master in Electrical Engineering
+      institution: UCLouvain, Belgium
+      year: Prior to 2023
+    - title: Certificates
+      institution: UCLouvain, Belgium
+      year: Prior to 2023
+      description:
+        - Economic and Social Ethics
+        - Statistics
+        - Radiation Protection
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Postdoctoral Researcher
+      institution: Potsdam Institute for Climate Impact Research (PIK), Germany
+      year: 2023 - present
+      description:
+        - Research Department Transformation Pathways
+        - Examining links between physical and financial risks of climate change
+        - Working with REMIND model on climate damages and adaptation costs
+        - Analyzing climate risk effects on capital costs in developing nations
+    - title: PhD Researcher and Teaching Assistant
+      institution: UCLouvain, Belgium
+      year: 2016 - 2023
+      description:
+        - Doctoral research on financial interdependencies
+        - Teaching assistant for multiple courses in economics and statistics
+        - Supervised student projects and tutorials
+
+- title: Teaching Experience
+  type: time_table
+  contents:
+    - title: Lecturer
+      institution: Current Institution (2023-2024)
+      year: 2023-2024
+      description:
+        - Regional Integration and EU-Asia Relations
+        - Regional Studies - European Union International Relations
+        - France in International Affairs (taught in French)
+    - title: Teaching Assistant
+      institution: UCLouvain, Belgium
+      year: 2017-2023
+      description:
+        - Econometrics (ECGE1330)
+    - title: Teaching Assistant
+      institution: UCLouvain, Belgium
+      year: 2016-2019
+      description:
+        - Macroeconomics (ECGE1211)
+        - Probability Theory (INGE1131)
+        - Advanced Statistics (INGE1231)
+    - title: Teaching Assistant
+      institution: UCLouvain, Belgium
+      year: 2016-2018
+      description:
+        - Operational Research (INGE1312)
+        - Applied Statistics (ECGE 1232)
+
+- title: Research Interests
+  type: nested_list
+  contents:
+    - title: Climate Economics
+      items:
+        - Climate damages and adaptation costs
+        - Climate risk effects on capital markets
+        - Integration of financial risk in climate-economy models
+    - title: Macroeconomics and Finance
+      items:
+        - Financial interdependencies and crises
+        - International monetary policy spillovers
+        - Balance-of-payment crises
+        - Portfolio optimization
+    - title: International Economics
+      items:
+        - Financial globalization
+        - Regional integration
+        - Economic cycles in semi-peripheral countries
+    - title: Methods
+      items:
+        - Time-series econometrics
+        - Spatial econometrics
+        - Panel data analysis
+        - General equilibrium modeling
+
+- title: Skills
+  type: list
+  contents:
+    - Econometric Analysis (R, Stata, Python)
+    - Climate-Economy Modeling (REMIND)
+    - Statistical Programming
+    - Data Visualization
+    - Academic Writing and Publishing
+    - Multilingual Teaching (English, French, Chinese)

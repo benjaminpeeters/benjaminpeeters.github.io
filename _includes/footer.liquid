@@ -1,0 +1,149 @@
+{% if site.footer_fixed %}
+  <footer class="fixed-bottom" role="contentinfo">
+    <div class="container mt-0">
+      <div class="row">
+        <!-- Column 1: Professional/Academic Links -->
+        <div class="col-md-4 col-sm-12 mb-3">
+          <div class="footer-section">
+            <div class="footer-links">
+              {% for social in site.data.socials %}
+                {% case social[0] %}
+                  {% when 'github_username' %}
+                    <a href="https://github.com/{{ social[1] }}" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                  {% when 'orcid_id' %}
+                    <a href="https://orcid.org/{{ social[1] }}" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i></a>
+                  {% when 'scholar_userid' %}
+                    <a href="https://scholar.google.com/citations?user={{ social[1] }}" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
+                  {% when 'linkedin_username' %}
+                    <a href="https://www.linkedin.com/in/{{ social[1] }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                  {% else %}
+                    {% if social[1].url %}
+                      <a href="{{ social[1].url }}" title="{{ social[1].title }}" target="_blank" rel="noopener noreferrer">
+                        {% assign file_ext = social[1].logo | split: '.' | last %}
+                        {% if file_ext == 'svg' %}
+                          <svg width="16" height="16">
+                            <image xlink:href="{{ social[1].logo }}" width="16" height="16" />
+                          </svg>
+                        {% elsif file_ext == 'ico' %}
+                          <img src="{{ social[1].logo }}" alt="{{ social[1].title }}" width="16" height="16" style="display: inline;">
+                        {% else %}
+                          <img src="{{ social[1].logo }}" alt="{{ social[1].title }}" width="16" height="16">
+                        {% endif %}
+                      </a>
+                    {% endif %}
+                  {% endcase %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: RSS Feed -->
+        <div class="col-md-4 col-sm-12 mb-3 text-center">
+          <div class="footer-section">
+            <div class="footer-links">
+              {% if site.rss_icon %}
+                <a href="{{ site.baseurl }}/feed.xml" title="RSS Feed" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-square-rss"></i></a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Share This Page -->
+        <div class="col-md-4 col-sm-12 mb-3 text-right">
+          <div class="footer-section">
+            <div class="footer-links">
+              {% assign page_url = page.url | absolute_url | url_encode %}
+              {% assign page_title = page.title | default: site.title | url_encode %}
+              <!-- Twitter/X -->
+              <a href="https://twitter.com/intent/tweet?url={{ page_url }}&text={{ page_title }}" title="Share on X" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page_url }}" title="Share on LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+              <!-- Email -->
+              <a href="mailto:?subject={{ page_title }}&body={{ page_url }}" title="Share via Email"><i class="fa-solid fa-envelope"></i></a>
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" title="Share on Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+              <!-- Reddit -->
+              <a href="https://www.reddit.com/submit?url={{ page_url }}&title={{ page_title }}" title="Share on Reddit" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-reddit"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+{% else %}
+  <footer class="sticky-bottom mt-5" role="contentinfo">
+    {% if site.newsletter.enabled %}
+      {% include newsletter.liquid %}
+    {% endif %}
+
+    <div class="container">
+      <div class="row">
+        <!-- Column 1: Professional/Academic Links -->
+        <div class="col-md-4 col-sm-12 mb-3">
+          <div class="footer-section">
+            <div class="footer-links">
+              {% for social in site.data.socials %}
+                {% case social[0] %}
+                  {% when 'github_username' %}
+                    <a href="https://github.com/{{ social[1] }}" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                  {% when 'orcid_id' %}
+                    <a href="https://orcid.org/{{ social[1] }}" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i></a>
+                  {% when 'scholar_userid' %}
+                    <a href="https://scholar.google.com/citations?user={{ social[1] }}" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
+                  {% when 'linkedin_username' %}
+                    <a href="https://www.linkedin.com/in/{{ social[1] }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                  {% else %}
+                    {% if social[1].url %}
+                      <a href="{{ social[1].url }}" title="{{ social[1].title }}" target="_blank" rel="noopener noreferrer">
+                        {% assign file_ext = social[1].logo | split: '.' | last %}
+                        {% if file_ext == 'svg' %}
+                          <svg width="16" height="16">
+                            <image xlink:href="{{ social[1].logo }}" width="16" height="16" />
+                          </svg>
+                        {% elsif file_ext == 'ico' %}
+                          <img src="{{ social[1].logo }}" alt="{{ social[1].title }}" width="16" height="16" style="display: inline;">
+                        {% else %}
+                          <img src="{{ social[1].logo }}" alt="{{ social[1].title }}" width="16" height="16">
+                        {% endif %}
+                      </a>
+                    {% endif %}
+                  {% endcase %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: RSS Feed -->
+        <div class="col-md-4 col-sm-12 mb-3 text-center">
+          <div class="footer-section">
+            <div class="footer-links">
+              {% if site.rss_icon %}
+                <a href="{{ site.baseurl }}/feed.xml" title="RSS Feed" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-square-rss"></i></a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Share This Page -->
+        <div class="col-md-4 col-sm-12 mb-3 text-right">
+          <div class="footer-section">
+            <div class="footer-links">
+              {% assign page_url = page.url | absolute_url | url_encode %}
+              {% assign page_title = page.title | default: site.title | url_encode %}
+              <!-- Twitter/X -->
+              <a href="https://twitter.com/intent/tweet?url={{ page_url }}&text={{ page_title }}" title="Share on X" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page_url }}" title="Share on LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+              <!-- Email -->
+              <a href="mailto:?subject={{ page_title }}&body={{ page_url }}" title="Share via Email"><i class="fa-solid fa-envelope"></i></a>
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" title="Share on Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+              <!-- Reddit -->
+              <a href="https://www.reddit.com/submit?url={{ page_url }}&title={{ page_title }}" title="Share on Reddit" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-reddit"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+{% endif %}

@@ -1,0 +1,12 @@
+github_users:
+  - benjaminpeeters
+
+repo_description_lines_max: 2
+
+github_repos:
+  - benjaminpeeters/wpd
+  - benjaminpeeters/nvim-focus
+  - benjaminpeeters/working-memory-trainer
+  - benjaminpeeters/pandac
+  - benjaminpeeters/remind
+  - benjaminpeeters/mrdrivers
