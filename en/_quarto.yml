@@ -1,11 +1,11 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: ../_site/en
 
 website:
   title: "Benjamin Peeters"
-  site-url: "https://benjaminpeeters.github.io"
-  favicon: favicon.ico
+  site-url: "https://benjaminpeeters.github.io/en"
+  favicon: ../favicon.ico
 
   navbar:
     background: primary
@@ -24,6 +24,8 @@ website:
     right:
       - icon: translate
         menu:
+          - text: "English"
+            href: /en/index.html
           - text: "Français"
             href: /fr/index.html
           - text: "中文"
@@ -49,18 +51,19 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, custom.scss]
-      dark: [darkly, custom-dark.scss]
-    css: styles.css
-    include-in-header: state-manager.html
+      light: [cosmo, ../custom.scss]
+      dark: [darkly, ../custom-dark.scss]
+    css: ../styles.css
+    include-in-header: ../state-manager.html
     toc: true
     toc-location: right
     code-copy: true
     code-fold: false
     anchor-sections: true
     link-external-newwindow: true
+    lang: en
 
-bibliography: publications.bib
+bibliography: ../publications.bib
 
 execute:
   freeze: auto

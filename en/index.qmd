@@ -39,6 +39,3 @@ UCLouvain, Belgium
 - **GitHub**: [github.com/benjaminpeeters](https://github.com/benjaminpeeters)
 - **Email**: [Contact via institutional website](https://www.pik-potsdam.de/en/home)
 
----
-
-*This website is built with [Quarto](https://quarto.org/), an open-source scientific and technical publishing system.*

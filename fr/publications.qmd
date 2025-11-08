@@ -1,6 +1,6 @@
 ---
 title: "Publications"
-bibliography: ../publications.bib
+nocite: '@*'
 ---
 
 ## Articles de revues

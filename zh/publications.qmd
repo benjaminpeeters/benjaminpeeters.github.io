@@ -1,6 +1,6 @@
 ---
 title: "出版物"
-bibliography: ../publications.bib
+nocite: '@*'
 ---
 
 ## 期刊文章

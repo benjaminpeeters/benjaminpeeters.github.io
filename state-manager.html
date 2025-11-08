@@ -9,9 +9,10 @@
   // Detect current language from URL path
   function getCurrentLanguage() {
     const path = window.location.pathname;
+    if (path.startsWith('/en/')) return 'en';
     if (path.startsWith('/fr/')) return 'fr';
     if (path.startsWith('/zh/')) return 'zh';
-    return 'en';
+    return 'en'; // fallback
   }
 
   // Save language preference to localStorage
@@ -53,7 +54,9 @@
       const href = item.getAttribute('href');
       let itemLang = 'en';
 
-      if (href.includes('/fr/')) {
+      if (href.includes('/en/')) {
+        itemLang = 'en';
+      } else if (href.includes('/fr/')) {
         itemLang = 'fr';
       } else if (href.includes('/zh/')) {
         itemLang = 'zh';
@@ -76,6 +79,8 @@
     // Only handle redirects on homepage
     const isHomepage = window.location.pathname === '/' ||
                        window.location.pathname === '/index.html' ||
+                       window.location.pathname.endsWith('/en/') ||
+                       window.location.pathname.endsWith('/en/index.html') ||
                        window.location.pathname.endsWith('/fr/') ||
                        window.location.pathname.endsWith('/fr/index.html') ||
                        window.location.pathname.endsWith('/zh/') ||
@@ -108,7 +113,7 @@
       if (!hasRedirected) {
         sessionStorage.setItem('quarto-lang-redirected', 'true');
 
-        let newPath = '/index.html';
+        let newPath = '/en/index.html';
         if (savedLang === 'fr') newPath = '/fr/index.html';
         if (savedLang === 'zh') newPath = '/zh/index.html';
 
@@ -149,11 +154,11 @@
         saveLanguagePreference(targetLang);
 
         // Language prefixes
-        const prefixes = { en: '', fr: 'fr/', zh: 'zh/' };
+        const prefixes = { en: 'en/', fr: 'fr/', zh: 'zh/' };
 
         // Get current page path without language prefix
         let pagePath = window.location.pathname.substring(1); // Remove leading /
-        pagePath = pagePath.replace(/^(fr\/|zh\/)/, '');      // Strip language prefix
+        pagePath = pagePath.replace(/^(en\/|fr\/|zh\/)/, '');  // Strip language prefix
 
         // Build new URL with target language prefix
         const newPath = '/' + prefixes[targetLang] + pagePath;
