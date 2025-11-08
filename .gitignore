@@ -11,9 +11,3 @@ assets/libs/
 node_modules/
 vendor
 .idea
-
-# Template images - replace with actual content
-assets/img/prof_pic.jpg
-assets/img/prof_pic_color.png
-assets/img/publication_preview/
-assets/img/book_covers/
