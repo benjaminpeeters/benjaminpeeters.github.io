@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "publications": "Publications",
+    "blog": "Blog",
+    "teaching": "Enseignement",
+    "dataCode": "Données & Code",
+    "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "Benjamin Peeters - Chercheur postdoctoral au PIK",
+    "builtWith": "Créé avec Eleventy",
+    "allRightsReserved": "Tous droits réservés"
+  },
+  "publications": {
+    "title": "Publications",
+    "journal": "Articles de revue",
+    "working": "Documents de travail",
+    "citation": "Citer"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Lire la suite",
+    "publishedOn": "Publié le",
+    "updatedOn": "Mis à jour le"
+  },
+  "general": {
+    "readingTime": "min de lecture",
+    "backToTop": "Retour en haut",
+    "languages": "Langues"
+  }
+}

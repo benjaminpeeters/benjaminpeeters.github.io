@@ -1,0 +1,32 @@
+{
+  "name": "benjaminpeeters-website",
+  "version": "1.0.0",
+  "description": "Academic website for Benjamin Peeters - Postdoctoral Researcher at PIK",
+  "scripts": {
+    "start": "eleventy --serve --port=8005",
+    "build": "eleventy",
+    "debug": "DEBUG=Eleventy* eleventy",
+    "clean": "rm -rf _site"
+  },
+  "keywords": [
+    "eleventy",
+    "academic",
+    "multilingual",
+    "research"
+  ],
+  "author": "Benjamin Peeters",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@vscode/markdown-it-katex": "^1.0.0",
+    "bibtex-parse-js": "^0.0.24",
+    "eleventy-plugin-bibtex": "latest",
+    "katex": "^0.16.0",
+    "markdown-it": "^14.0.0",
+    "markdown-it-anchor": "^9.0.0",
+    "markdown-it-attrs": "^4.1.0"
+  }
+}

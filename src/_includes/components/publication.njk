@@ -1,0 +1,56 @@
+{# Macro to display a single publication entry in compact format #}
+{% macro display(entry) %}
+<div class="publication-item">
+  {# Title on first line #}
+  <div class="publication-title">
+    {% if entry.entryTags.title %}
+      {{ entry.entryTags.title | replace('{', '') | replace('}', '') }}
+    {% endif %}
+  </div>
+
+  {# Authors and journal on second line, inline #}
+  <div class="publication-authors-journal">
+    {% if entry.entryTags.author %}
+      <span class="publication-authors">{{ entry.entryTags.author | replace('{', '') | replace('}', '') }}</span>{% if entry.entryTags.journal or entry.entryTags.booktitle %}, {% endif %}
+    {% endif %}
+    {% if entry.entryTags.journal %}
+      <span class="publication-journal">{{ entry.entryTags.journal | replace('{', '') | replace('}', '') }}</span>
+    {% elif entry.entryTags.booktitle %}
+      <span class="publication-journal">{{ entry.entryTags.booktitle | replace('{', '') | replace('}', '') }}</span>
+    {% endif %}
+  </div>
+
+  {# Year, volume, pages all inline on third line #}
+  <div class="publication-meta-compact">
+    {% if entry.entryTags.year %}
+      <span class="publication-year">({{ entry.entryTags.year }})</span>
+    {% endif %}
+    {% if entry.entryTags.volume %}
+      <span class="publication-volume">{% if entry.entryTags.year %} {% endif %}Vol. {{ entry.entryTags.volume }}{% if entry.entryTags.pages %}, {% endif %}</span>
+    {% endif %}
+    {% if entry.entryTags.pages %}
+      <span class="publication-pages">{% if not entry.entryTags.volume and entry.entryTags.year %} {% endif %}pp. {{ entry.entryTags.pages }}</span>
+    {% endif %}
+  </div>
+
+  {# Links inline #}
+  {% if entry.entryTags.doi or entry.entryTags.url %}
+    <div class="publication-links">
+      {% if entry.entryTags.doi %}
+        <a href="https://doi.org/{{ entry.entryTags.doi }}" target="_blank" rel="noopener noreferrer" class="publication-link">DOI</a>
+      {% endif %}
+      {% if entry.entryTags.url %}
+        <a href="{{ entry.entryTags.url }}" target="_blank" rel="noopener noreferrer" class="publication-link">Link</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {# Optional abstract #}
+  {% if entry.entryTags.abstract %}
+    <details class="publication-abstract">
+      <summary>Abstract</summary>
+      <p>{{ entry.entryTags.abstract | replace('{', '') | replace('}', '') }}</p>
+    </details>
+  {% endif %}
+</div>
+{% endmacro %}

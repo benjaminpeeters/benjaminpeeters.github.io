@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "publications": "出版物",
+    "blog": "博客",
+    "teaching": "教学",
+    "dataCode": "数据与代码",
+    "contact": "联系"
+  },
+  "footer": {
+    "copyright": "Benjamin Peeters - PIK 博士后研究员",
+    "builtWith": "使用 Eleventy 构建",
+    "allRightsReserved": "保留所有权利"
+  },
+  "publications": {
+    "title": "出版物",
+    "journal": "期刊文章",
+    "working": "工作论文",
+    "citation": "引用"
+  },
+  "blog": {
+    "title": "博客",
+    "readMore": "阅读更多",
+    "publishedOn": "发布于",
+    "updatedOn": "更新于"
+  },
+  "general": {
+    "readingTime": "分钟阅读",
+    "backToTop": "返回顶部",
+    "languages": "语言"
+  }
+}

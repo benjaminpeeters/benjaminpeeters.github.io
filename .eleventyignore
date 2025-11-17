@@ -1,0 +1,8 @@
+README.md
+node_modules/
+.git/
+.github/
+*.qmd
+_quarto.yml
+custom.scss
+custom-dark.scss

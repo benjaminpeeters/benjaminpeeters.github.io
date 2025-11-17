@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or site.description }}">
+  <meta name="author" content="{{ site.author.name }}">
+
+  <title>{{ title }} | {{ site.title }}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+
+  <!-- Syntax highlighting theme -->
+  <link rel="stylesheet" href="/styles/syntax-theme.css">
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ title or site.title }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+</head>
+<body>
+
+  <!-- Header with navigation -->
+  {% include "partials/header.njk" %}
+
+  <!-- Main content -->
+  <main class="main-content">
+    {{ content | safe }}
+  </main>
+
+  <!-- Footer -->
+  {% include "partials/footer.njk" %}
+
+  <!-- hCaptcha -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+  <!-- Theme switching script -->
+  <script>
+    // Initialize theme from localStorage or system preference
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+
+    // Theme toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          const newTheme = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+        }
+      });
+    });
+  </script>
+
+  <!-- Contact form handling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle form submission
+      const form = document.getElementById('contact-form');
+      const statusDiv = document.getElementById('form-status');
+
+      if (form && statusDiv) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          // Show loading state
+          const submitButton = form.querySelector('button[type="submit"]');
+          const originalText = submitButton.innerHTML;
+          submitButton.disabled = true;
+          submitButton.innerHTML = 'Sending...';
+
+          // Submit via AJAX
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+              'Accept': 'application/json'
+            }
+          })
+          .then(response => {
+            if (response.ok) {
+              // Success
+              statusDiv.style.display = 'block';
+              statusDiv.style.backgroundColor = '#d4edda';
+              statusDiv.style.color = '#155724';
+              statusDiv.style.border = '1px solid #c3e6cb';
+              statusDiv.textContent = 'Thank you! Your message has been sent successfully.';
+              form.reset();
+              if (typeof hcaptcha !== 'undefined') {
+                hcaptcha.reset();
+              }
+            } else {
+              throw new Error('Form submission failed');
+            }
+          })
+          .catch(error => {
+            // Error
+            statusDiv.style.display = 'block';
+            statusDiv.style.backgroundColor = '#f8d7da';
+            statusDiv.style.color = '#721c24';
+            statusDiv.style.border = '1px solid #f5c6cb';
+            statusDiv.textContent = 'Oops! There was a problem sending your message. Please try again.';
+          })
+          .finally(() => {
+            // Restore button
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalText;
+          });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
