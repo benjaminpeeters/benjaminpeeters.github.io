@@ -1,9 +1,5 @@
-/.quarto/
-/_site/
-*_files/
-*.html
-!index.html
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+node_modules/
+_site/
+.DS_Store
+*.log
+.env
