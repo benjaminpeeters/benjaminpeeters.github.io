@@ -20,6 +20,8 @@ website:
         href: data-code.qmd
       - text: "Enseignement"
         href: teaching.qmd
+      - text: "Contact"
+        href: contact.qmd
     right:
       - icon: translate
         menu:
