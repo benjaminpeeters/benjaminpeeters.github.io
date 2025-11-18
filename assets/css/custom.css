@@ -298,3 +298,113 @@ article h2:contains("Authors"),
 article h3:contains("Authors") {
   display: none !important;
 }
+
+/* Contact Form Styles */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem 0;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333333;
+  font-size: 0.95rem;
+}
+
+.contact-form .required {
+  color: #dc3545;
+  font-weight: 400;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  background-color: #ffffff;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: rgb(33, 147, 12);
+  box-shadow: 0 0 0 3px rgba(33, 147, 12, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-form button[type="submit"] {
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(33, 147, 12);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Rubik', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: rgb(236, 106, 73);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.form-status.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Dark mode contact form styles */
+html.dark .contact-form label {
+  color: #e0e0e0;
+}
+
+html.dark .contact-form input[type="text"],
+html.dark .contact-form input[type="email"],
+html.dark .contact-form textarea {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  color: #e0e0e0;
+}
+
+html.dark .contact-form input[type="text"]:focus,
+html.dark .contact-form input[type="email"]:focus,
+html.dark .contact-form textarea:focus {
+  border-color: rgb(33, 147, 12);
+}

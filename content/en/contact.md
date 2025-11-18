@@ -3,26 +3,60 @@ title: Contact
 type: page
 ---
 
-## I'd love to hear from you!
+## Get in Touch
 
-### Direct Contact
+I welcome questions, collaboration opportunities, and discussions about research. Please use the form below to send me a message, or connect through the channels listed.
 
-Email: benjaminpeeters@protonmail.com
-Phone: +32 496 399 505
+### Institutional Address
+
+Potsdam Institute for Climate Impact Research (PIK)
+Research Department: Transformation Pathways
+Telegrafenberg A 31
+14473 Potsdam, Germany
+
+Website: [www.pik-potsdam.de](https://www.pik-potsdam.de/en/home)
 
 ### Professional Profiles
 
 - ORCID: [0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)
-- [Google Scholar](https://scholar.google.com)
+- [Google Scholar](https://scholar.google.com/citations?user=ACbL7v0AAAAJ)
 - [GitHub](https://github.com/benjaminpeeters)
-- [LinkedIn](https://linkedin.com)
-- [RePEc Ideas](https://ideas.repec.org)
-- [SciProfiles](https://sciprofiles.com)
+- [LinkedIn](https://www.linkedin.com/in/benjamin-peeters)
 
-### Institutional Contact
+### Code and Technical Questions
 
-Potsdam Institute for Climate Impact Research (PIK)
-Research Department: Transformation Pathways
-Potsdam, Germany
+For code-related questions, bug reports, or technical issues with my repositories, please open an issue on [GitHub](https://github.com/benjaminpeeters). This helps maintain a public record and allows others to benefit from the discussion.
 
-Website: [PIK](https://www.pik-potsdam.de/en/home)
+---
+
+## Send a Message
+
+<form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
+  <div class="form-group">
+    <label for="name">Name <span class="required">(required)</span></label>
+    <input type="text" id="name" name="name" required aria-required="true" aria-label="Your name">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email <span class="required">(required)</span></label>
+    <input type="email" id="email" name="email" required aria-required="true" aria-label="Your email address">
+  </div>
+
+  <div class="form-group">
+    <label for="subject">Subject <span class="required">(required)</span></label>
+    <input type="text" id="subject" name="subject" required aria-required="true" aria-label="Message subject">
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message <span class="required">(required)</span></label>
+    <textarea id="message" name="message" rows="6" required aria-required="true" aria-label="Your message"></textarea>
+  </div>
+
+  <div class="form-group">
+    <div class="h-captcha" data-sitekey="f3daf6a4-fe6c-4090-ba50-1810dd7210cc"></div>
+  </div>
+
+  <button type="submit">Send Message</button>
+</form>
+
+<div id="form-status" class="form-status" style="display:none;"></div>
