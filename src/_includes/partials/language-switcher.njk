@@ -16,7 +16,12 @@
   <ul class="language-dropdown">
     {% for language in site.languages %}
       <li class="language-item{% if language.code == (lang or 'en') %} active{% endif %}">
-        <a href="/{{ language.code }}{{ page.filePathStem | replace('/en/', '/') | replace('/fr/', '/') | replace('/zh/', '/') }}/"
+        {% set cleanPath = page.filePathStem | replace('/en/', '/') | replace('/fr/', '/') | replace('/zh/', '/') %}
+        {% if cleanPath == '/index' %}
+          <a href="/{{ language.code }}/"
+        {% else %}
+          <a href="/{{ language.code }}{{ cleanPath }}/"
+        {% endif %}
            lang="{{ language.code }}"
            hreflang="{{ language.code }}">
           {{ language.label }}
