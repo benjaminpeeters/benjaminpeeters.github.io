@@ -54,7 +54,7 @@ permalink: /zh/contact/
         </div>
 
         <div class="form-group">
-          <div class="h-captcha" data-sitekey="79b0382e-a38a-42ee-b3bc-0e90722c1168"></div>
+          <div class="h-captcha" data-sitekey="f3daf6a4-fe6c-4090-ba50-1810dd7210cc"></div>
         </div>
 
         <button type="submit" class="submit-button">
