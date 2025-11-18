@@ -18,5 +18,5 @@ permalink: /zh/blog/
 {% endfor %}
 
 {% if collections.posts_zh.length == 0 %}
-<p>暂无文章。敬请期待！</p>
+暂无文章。敬请期待！
 {% endif %}

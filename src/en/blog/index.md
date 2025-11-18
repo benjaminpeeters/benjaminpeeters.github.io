@@ -18,5 +18,5 @@ permalink: /en/blog/
 {% endfor %}
 
 {% if collections.posts_en.length == 0 %}
-<p>No posts yet. Check back soon!</p>
+No posts yet. Check back soon!
 {% endif %}

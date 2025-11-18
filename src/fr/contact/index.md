@@ -6,13 +6,17 @@ permalink: /fr/contact/
 ---
 
 <div class="contact-container">
-  <div class="contact-header">
-    <h1>J'aimerais avoir de vos nouvelles !</h1>
-    <p class="contact-intro">Vous avez une question, une idée de collaboration, ou vous souhaitez simplement échanger ? N'hésitez pas à me contacter via le formulaire ci-dessous ou via mes réseaux sociaux.</p>
-  </div>
+<div class="contact-header">
 
-  <div class="contact-content">
-    <div class="contact-info-simple">
+# J'aimerais avoir de vos nouvelles !
+
+Vous avez une question, une idée de collaboration, ou vous souhaitez simplement échanger ? N'hésitez pas à me contacter via le formulaire ci-dessous ou via mes réseaux sociaux.
+{.contact-intro}
+
+</div>
+
+<div class="contact-content">
+<div class="contact-info-simple">
       <a href="mailto:benjaminpeeters@protonmail.com" class="contact-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -29,10 +33,11 @@ permalink: /fr/contact/
       </a>
     </div>
 
-    <div class="contact-form-wrapper">
-      <h2>Envoyer un Message</h2>
+<div class="contact-form-wrapper">
 
-      <form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
+## Envoyer un Message
+
+<form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
         <div class="form-group">
           <label for="name">Nom <span class="required">(obligatoire)</span></label>
           <input type="text" id="name" name="name" required>

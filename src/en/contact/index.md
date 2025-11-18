@@ -6,13 +6,17 @@ permalink: /en/contact/
 ---
 
 <div class="contact-container">
-  <div class="contact-header">
-    <h1>I'd love to hear from you!</h1>
-    <p class="contact-intro">Have a question, collaboration idea, or just want to connect? Feel free to reach out using the form below or through my social channels.</p>
-  </div>
+<div class="contact-header">
 
-  <div class="contact-content">
-    <div class="contact-info-simple">
+# I'd love to hear from you!
+
+Have a question, collaboration idea, or just want to connect? Feel free to reach out using the form below or through my social channels.
+{.contact-intro}
+
+</div>
+
+<div class="contact-content">
+<div class="contact-info-simple">
       <a href="mailto:benjaminpeeters@protonmail.com" class="contact-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -29,10 +33,11 @@ permalink: /en/contact/
       </a>
     </div>
 
-    <div class="contact-form-wrapper">
-      <h2>Send a Message</h2>
+<div class="contact-form-wrapper">
 
-      <form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
+## Send a Message
+
+<form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
         <div class="form-group">
           <label for="name">Name <span class="required">(required)</span></label>
           <input type="text" id="name" name="name" required>
@@ -57,16 +62,17 @@ permalink: /en/contact/
           <div class="h-captcha" data-sitekey="f3daf6a4-fe6c-4090-ba50-1810dd7210cc"></div>
         </div>
 
-        <button type="submit" class="submit-button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-          Send Message
-        </button>
-      </form>
+<button type="submit" class="submit-button">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="22" y1="2" x2="11" y2="13"></line>
+<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+</svg>
+Send Message
+</button>
+</form>
 
-      <div id="form-status" style="display:none; margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
-    </div>
-  </div>
+<div id="form-status" style="display:none; margin-top: 1rem; padding: 1rem; border-radius: 4px;"></div>
+
+</div>
+</div>
 </div>

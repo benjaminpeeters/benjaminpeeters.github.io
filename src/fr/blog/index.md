@@ -18,5 +18,5 @@ permalink: /fr/blog/
 {% endfor %}
 
 {% if collections.posts_fr.length == 0 %}
-<p>Pas encore d'articles. Revenez bientôt!</p>
+Pas encore d'articles. Revenez bientôt!
 {% endif %}

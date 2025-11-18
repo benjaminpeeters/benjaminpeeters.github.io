@@ -12,21 +12,21 @@ permalink: /zh/publications/
 ## 已发表文章
 
 {% if bibliography.published.length > 0 %}
-  {% for entry in bibliography.published %}
-    {{ pub.display(entry) }}
-  {% endfor %}
+{% for entry in bibliography.published %}
+{{ pub.display(entry) }}
+{% endfor %}
 {% else %}
-  <p>正确配置BibTeX文件后，出版物将显示在此处。</p>
+正确配置BibTeX文件后，出版物将显示在此处。
 {% endif %}
 
 ## 工作论文
 
 {% if bibliography.workingPapers.length > 0 %}
-  {% for entry in bibliography.workingPapers %}
-    {{ pub.display(entry) }}
-  {% endfor %}
+{% for entry in bibliography.workingPapers %}
+{{ pub.display(entry) }}
+{% endfor %}
 {% else %}
-  <p>工作论文即将推出。</p>
+工作论文即将推出。
 {% endif %}
 
 ---

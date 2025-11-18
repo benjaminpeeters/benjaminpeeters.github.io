@@ -12,21 +12,21 @@ Mes recherches explorent les schémas cycliques en finance internationale, l'éc
 ## Articles publiés
 
 {% if bibliography.published.length > 0 %}
-  {% for entry in bibliography.published %}
-    {{ pub.display(entry) }}
-  {% endfor %}
+{% for entry in bibliography.published %}
+{{ pub.display(entry) }}
+{% endfor %}
 {% else %}
-  <p>Les publications seront affichées ici une fois le fichier BibTeX correctement configuré.</p>
+Les publications seront affichées ici une fois le fichier BibTeX correctement configuré.
 {% endif %}
 
 ## Documents de travail
 
 {% if bibliography.workingPapers.length > 0 %}
-  {% for entry in bibliography.workingPapers %}
-    {{ pub.display(entry) }}
-  {% endfor %}
+{% for entry in bibliography.workingPapers %}
+{{ pub.display(entry) }}
+{% endfor %}
 {% else %}
-  <p>Documents de travail à venir.</p>
+Documents de travail à venir.
 {% endif %}
 
 ---

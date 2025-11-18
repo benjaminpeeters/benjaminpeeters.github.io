@@ -29,10 +29,11 @@ permalink: /zh/contact/
       </a>
     </div>
 
-    <div class="contact-form-wrapper">
-      <h2>发送消息</h2>
+<div class="contact-form-wrapper">
 
-      <form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
+## 发送消息
+
+<form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
         <div class="form-group">
           <label for="name">姓名 <span class="required">(必填)</span></label>
           <input type="text" id="name" name="name" required>

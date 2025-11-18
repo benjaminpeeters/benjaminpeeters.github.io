@@ -9,41 +9,39 @@ eleventyNavigation:
 
 {% import "components/publication.njk" as pub %}
 
-<div class="page-intro">
-  <p>My research explores cyclical patterns in international finance, climate economics, and economic history. I focus on empirical assessments of financial interdependencies and economic transitions from a long-term historical perspective.</p>
+My research explores cyclical patterns in international finance, climate economics, and economic history. I focus on empirical assessments of financial interdependencies and economic transitions from a long-term historical perspective.
+{.page-intro}
+
+## Published Articles {.publications-section}
+
+{% if bibliography.published.length > 0 %}
+<div class="publications-list">
+{% for entry in bibliography.published %}
+{{ pub.display(entry) }}
+{% endfor %}
 </div>
+{% else %}
+Publications will be displayed here once the BibTeX file is properly configured.
+{.empty-message}
+{% endif %}
 
-<div class="publications-section">
-  <h2>Published Articles</h2>
+## Working Papers {.publications-section}
 
-  {% if bibliography.published.length > 0 %}
-    <div class="publications-list">
-      {% for entry in bibliography.published %}
-        {{ pub.display(entry) }}
-      {% endfor %}
-    </div>
-  {% else %}
-    <p class="empty-message">Publications will be displayed here once the BibTeX file is properly configured.</p>
-  {% endif %}
+{% if bibliography.workingPapers.length > 0 %}
+<div class="publications-list">
+{% for entry in bibliography.workingPapers %}
+{{ pub.display(entry) }}
+{% endfor %}
 </div>
+{% else %}
+Working papers coming soon.
+{.empty-message}
+{% endif %}
 
-<div class="publications-section">
-  <h2>Working Papers</h2>
+For the latest updates and citations, visit my profiles:
+{.profile-links}
 
-  {% if bibliography.workingPapers.length > 0 %}
-    <div class="publications-list">
-      {% for entry in bibliography.workingPapers %}
-        {{ pub.display(entry) }}
-      {% endfor %}
-    </div>
-  {% else %}
-    <p class="empty-message">Working papers coming soon.</p>
-  {% endif %}
-</div>
-
-<div class="profile-links">
-  <p>For the latest updates and citations, visit my profiles:</p>
-  <div class="profile-buttons">
+<div class="profile-buttons">
     <a href="https://orcid.org/0000-0002-5095-2021" target="_blank" rel="noopener noreferrer" class="profile-button">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 7.5c.549 0 .995-.446.995-.995 0-.549-.446-.995-.995-.995-.549 0-.995.446-.995.995 0 .549.446.995.995.995zm-.623 1.5H6.25v7h.496v-7zm3.5 0h2.238c2.099 0 3.516 1.417 3.516 3.5s-1.417 3.5-3.516 3.5h-2.238v-7zm.496.5v6h1.742c1.771 0 3.02-1.249 3.02-3s-1.249-3-3.02-3h-1.742z"/>
