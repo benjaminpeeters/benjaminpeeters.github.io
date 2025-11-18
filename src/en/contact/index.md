@@ -8,30 +8,29 @@ permalink: /en/contact/
 <div class="contact-container">
 <div class="contact-header">
 
-# I'd love to hear from you!
+# Get in Touch
 
-Have a question, collaboration idea, or just want to connect? Feel free to reach out using the form below or through my social channels.
+I'm always interested in discussing research collaborations, climate impact research, or other professional inquiries. Please feel free to reach out using the form below.
 {.contact-intro}
 
 </div>
 
 <div class="contact-content">
-<div class="contact-info-simple">
-      <a href="mailto:benjaminpeeters@protonmail.com" class="contact-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        benjaminpeeters@protonmail.com
-      </a>
-      <span class="contact-separator">|</span>
-      <a href="tel:+32496399505" class="contact-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
-        +32 496 399 505
-      </a>
-    </div>
+
+<div class="contact-info-section">
+
+## Work Address
+
+Potsdam Institute for Climate Impact Research (PIK)
+Telegrafenberg A 31
+14473 Potsdam
+Germany
+
+---
+
+For code-related questions or issues, please contact me through [GitHub](https://github.com/benjaminpeeters).
+
+</div>
 
 <div class="contact-form-wrapper">
 
