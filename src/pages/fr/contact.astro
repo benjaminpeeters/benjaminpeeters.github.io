@@ -51,7 +51,9 @@ const locale = 'fr';
 
 				<section class="contact-form-section">
 					<h2>{t(locale, 'contact.form.title')}</h2>
-					<form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
+					<form class="contact-form" id="contact-form" method="POST" action="https://formcarry.com/s/_n_QcqvTqp6">
+						<input type="hidden" name="language" value="fr">
+
 						<div class="form-group">
 							<label for="name">{t(locale, 'contact.form.name')} <span class="required">{t(locale, 'contact.form.required')}</span></label>
 							<input type="text" id="name" name="name" required>
@@ -318,13 +320,13 @@ const locale = 'fr';
 				status.textContent = 'Merci pour votre message ! Je vous répondrai bientôt.';
 				status.className = 'success';
 				form.reset();
-			} else {
-				const data = await response.json();
-				if (data.errors) {
-					status.textContent = data.errors.map((error: any) => error.message).join(', ');
-				} else {
-					status.textContent = 'Oups ! Un problème est survenu lors de l\'envoi de votre formulaire.';
+
+				// Reset hCaptcha if available
+				if (typeof (window as any).hcaptcha !== 'undefined') {
+					(window as any).hcaptcha.reset();
 				}
+			} else {
+				status.textContent = 'Oups ! Un problème est survenu lors de l\'envoi de votre formulaire.';
 				status.className = 'error';
 			}
 		} catch (error) {
