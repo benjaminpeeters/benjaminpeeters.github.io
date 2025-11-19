@@ -65,8 +65,9 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
 
-    // Theme toggle functionality
+    // Theme toggle and navigation functionality
     document.addEventListener('DOMContentLoaded', function() {
+      // Theme toggle functionality
       const themeToggle = document.getElementById('theme-toggle');
       const footerThemeToggle = document.getElementById('footer-theme-toggle');
 
@@ -92,6 +93,116 @@
           document.documentElement.setAttribute('data-theme', newTheme);
         }
       });
+
+      // Hamburger menu functionality
+      const hamburgerToggle = document.getElementById('hamburger-toggle');
+      const mainNav = document.getElementById('main-nav');
+
+      if (hamburgerToggle && mainNav) {
+        // Helper function to close menu
+        function closeMenu() {
+          mainNav.classList.remove('nav-active');
+          hamburgerToggle.classList.remove('active');
+          hamburgerToggle.setAttribute('aria-expanded', 'false');
+          mainNav.style.maxHeight = '0';
+          releaseFocusTrap();
+        }
+
+        // Helper function to open menu
+        function openMenu() {
+          mainNav.classList.add('nav-active');
+          hamburgerToggle.classList.add('active');
+          hamburgerToggle.setAttribute('aria-expanded', 'true');
+          // Dynamic max-height calculation
+          mainNav.style.maxHeight = mainNav.scrollHeight + 'px';
+          setupFocusTrap();
+        }
+
+        // Focus trap variables
+        let focusableElements = [];
+        let firstFocusableElement = null;
+        let lastFocusableElement = null;
+
+        // Setup focus trap
+        function setupFocusTrap() {
+          focusableElements = Array.from(mainNav.querySelectorAll(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          ));
+          firstFocusableElement = focusableElements[0];
+          lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+          // Focus first element when menu opens
+          if (firstFocusableElement) {
+            firstFocusableElement.focus();
+          }
+        }
+
+        // Release focus trap
+        function releaseFocusTrap() {
+          focusableElements = [];
+          firstFocusableElement = null;
+          lastFocusableElement = null;
+          // Return focus to hamburger button
+          hamburgerToggle.focus();
+        }
+
+        // Handle Tab key for focus trap
+        function handleFocusTrap(e) {
+          if (!mainNav.classList.contains('nav-active')) return;
+          if (e.key !== 'Tab') return;
+
+          if (e.shiftKey) { // Shift + Tab (backwards)
+            if (document.activeElement === firstFocusableElement) {
+              e.preventDefault();
+              lastFocusableElement.focus();
+            }
+          } else { // Tab (forwards)
+            if (document.activeElement === lastFocusableElement) {
+              e.preventDefault();
+              firstFocusableElement.focus();
+            }
+          }
+        }
+
+        // Toggle menu on hamburger click
+        hamburgerToggle.addEventListener('click', function() {
+          const isActive = mainNav.classList.contains('nav-active');
+
+          if (isActive) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        // Close menu when clicking a navigation link
+        const navLinks = mainNav.querySelectorAll('.nav-list a');
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            closeMenu();
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          const isClickInsideNav = mainNav.contains(event.target);
+          const isClickOnHamburger = hamburgerToggle.contains(event.target);
+
+          if (!isClickInsideNav && !isClickOnHamburger && mainNav.classList.contains('nav-active')) {
+            closeMenu();
+          }
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && mainNav.classList.contains('nav-active')) {
+            closeMenu();
+          }
+        });
+
+        // Trap focus within menu when open
+        document.addEventListener('keydown', handleFocusTrap);
+      }
     });
   </script>
 

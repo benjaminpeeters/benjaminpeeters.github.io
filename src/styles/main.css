@@ -235,6 +235,58 @@ pre code {
 }
 
 /* ========================================
+   HAMBURGER MENU
+   ======================================== */
+
+.hamburger-menu {
+  display: none; /* Hidden by default (desktop) */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  flex-direction: column;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.hamburger-menu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hamburger animation when active */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Header controls container */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ========================================
    LANGUAGE SWITCHER
    ======================================== */
 
@@ -865,19 +917,66 @@ pre code {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.5rem; }
 
+  /* Show hamburger menu on mobile */
+  .hamburger-menu {
+    display: flex;
+  }
+
+  /* Mobile header layout */
   .header-container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
   }
 
+  /* Hide navigation by default on mobile */
   .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     width: 100%;
-    justify-content: flex-start;
+    background-color: var(--color-header-bg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
   }
 
+  /* Show navigation when active */
+  .main-nav.nav-active {
+    /* max-height set dynamically by JavaScript */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Mobile navigation list */
   .nav-list {
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: 0;
+    padding: 0.5rem 0;
+  }
+
+  .nav-list li {
+    width: 100%;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 1rem var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-color: transparent;
+  }
+
+  .nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: var(--color-secondary);
+  }
+
+  /* Keep header controls visible */
+  .header-controls {
+    display: flex;
+    gap: 0.25rem;
   }
 
   .footer-links {
