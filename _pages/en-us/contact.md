@@ -15,6 +15,9 @@ scripts:
   <div class="contact-header">
     <h2>Get in Touch</h2>
     <p class="contact-intro">
+      <strong style="color: #ff6b6b;">⚠️ TEST MODE: This English contact form is currently testing FormCarry service. For Formspree-based forms, please use <a href="/fr-ca/contact/">French</a> or <a href="/zh-hans/contact/">Chinese</a> versions.</strong>
+    </p>
+    <p class="contact-intro">
       Whether you have a question about my research, want to discuss a potential collaboration,
       or simply want to connect, I'd be happy to hear from you.
     </p>
@@ -55,7 +58,10 @@ scripts:
 
   <div class="contact-form-wrapper">
     <h3>Send a Message</h3>
-    <form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
+    <form class="contact-form" id="contact-form" method="POST" action="https://formcarry.com/s/_n_QcqvTqp6">
+      <!-- Hidden field to identify language -->
+      <input type="hidden" name="language" value="en-us">
+
       <div class="form-group">
         <label for="name">Name <span class="required">(required)</span></label>
         <input type="text" id="name" name="name" required>
