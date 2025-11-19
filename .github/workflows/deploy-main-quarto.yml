@@ -29,14 +29,20 @@ jobs:
         run: |
           R -e 'install.packages(c("rmarkdown", "knitr"))'
 
-      - name: Render English site
+      - name: Render English site (root)
         run: quarto render
+
+      - name: Render English site (/en)
+        run: quarto render en
 
       - name: Render French site
         run: quarto render fr
 
       - name: Render Chinese site
         run: quarto render zh
+
+      - name: Replace root with redirect
+        run: cp redirect-index.html _site/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

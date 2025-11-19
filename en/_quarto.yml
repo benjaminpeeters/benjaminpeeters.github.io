@@ -1,26 +1,26 @@
 project:
   type: website
-  output-dir: ../_site/zh
+  output-dir: ../_site/en
 
 website:
   title: "Benjamin Peeters"
-  site-url: "https://benjaminpeeters.github.io/zh"
+  site-url: "https://benjaminpeeters.github.io/en"
 
   navbar:
     background: primary
     search: true
     left:
-      - text: "主页"
+      - text: "Home"
         href: index.qmd
-      - text: "出版物"
+      - text: "Publications"
         href: publications.qmd
-      - text: "博客"
+      - text: "Blog"
         href: blog/index.qmd
-      - text: "数据与代码"
+      - text: "Data & Code"
         href: data-code.qmd
-      - text: "教学"
+      - text: "Teaching"
         href: teaching.qmd
-      - text: "联系"
+      - text: "Contact"
         href: contact.qmd
     right:
       - icon: translate
@@ -37,11 +37,11 @@ website:
 
   page-footer:
     left: |
-      Benjamin Peeters - PIK博士后研究员
+      Benjamin Peeters - Postdoctoral Researcher at PIK
     center: |
       [ORCID: 0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)
     right: |
-      使用[Quarto](https://quarto.org/)构建
+      Built with [Quarto](https://quarto.org/)
 
 format:
   html:
@@ -51,6 +51,6 @@ format:
     css: ../styles.css
     include-in-header: ../state-manager.html
     toc: true
-    lang: zh
+    lang: en
 
 bibliography: ../publications.bib
