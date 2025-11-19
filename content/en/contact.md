@@ -60,3 +60,52 @@ For code-related questions, bug reports, or technical issues with my repositorie
 </form>
 
 <div id="form-status" class="form-status" style="display:none;"></div>
+
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formStatus.className = 'form-status success';
+          formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+          formStatus.style.display = 'block';
+          form.reset();
+          if (typeof hcaptcha !== 'undefined') { hcaptcha.reset(); }
+        } else {
+          const data = await response.json();
+          formStatus.className = 'form-status error';
+          formStatus.textContent = data.error || 'Oops! There was a problem sending your message. Please try again.';
+          formStatus.style.display = 'block';
+        }
+      } catch (error) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Oops! There was a problem sending your message. Please try again.';
+        formStatus.style.display = 'block';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  }
+});
+</script>
