@@ -7,7 +7,8 @@ import rehypeCitation from 'rehype-citation';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://benjaminpeeters.github.io',
+	site: 'https://benjaminpeeters.com',
+	trailingSlash: 'ignore',
 	i18n: {
 		locales: ['en', 'fr', 'zh'],
 		defaultLocale: 'en',
