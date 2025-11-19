@@ -35,21 +35,17 @@ website:
         href: https://github.com/benjaminpeeters
         aria-label: GitHub
 
-  page-footer:
-    left: |
-      Benjamin Peeters - Chercheur postdoctoral à PIK
-    center: |
-      [ORCID: 0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)
-    right: |
-      Construit avec [Quarto](https://quarto.org/)
-
 format:
   html:
     theme:
       light: [cosmo, ../custom.scss]
       dark: [darkly, ../custom-dark.scss]
     css: ../styles.css
-    include-in-header: ../state-manager.html
+    include-in-header:
+      - ../state-manager.html
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    include-after-body: ../footer-fr.html
     toc: true
     lang: fr
 

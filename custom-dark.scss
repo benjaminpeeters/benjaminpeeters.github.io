@@ -70,3 +70,58 @@ pre {
   background-color: #2d2d2d;
   border: 1px solid #3a3a3a;
 }
+
+/* ========================================
+   DARK MODE FOOTER STYLES
+   ======================================== */
+
+/* Dark mode: ensure content background is dark */
+#quarto-content {
+  background-color: #1a1a1a;
+}
+
+/* Dark mode footer */
+.modern-footer {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+  border-top: 2px solid rgba(76, 175, 80, 0.4);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode text colors */
+.footer-heading {
+  color: #b0b0b0;
+}
+
+.footer-name {
+  color: #66BB6A;
+}
+
+.footer-description {
+  color: #b0b0b0;
+}
+
+.footer-meta {
+  color: #8a8a8a;
+}
+
+.footer-meta a {
+  color: #66BB6A;
+}
+
+.footer-meta a:hover {
+  border-bottom-color: #66BB6A;
+}
+
+/* Dark mode GitHub icon */
+.github-icon i {
+  color: #ffffff;
+}
+
+/* Hover effects in dark mode */
+.footer-icon-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.footer-icon-link:focus {
+  outline-color: #66BB6A;
+}

@@ -42,21 +42,17 @@ website:
         href: https://linkedin.com
         aria-label: LinkedIn
 
-  page-footer:
-    left: |
-      Benjamin Peeters - Postdoctoral Researcher at PIK
-    center: |
-      [ORCID: 0000-0002-5095-2021](https://orcid.org/0000-0002-5095-2021)
-    right: |
-      Built with [Quarto](https://quarto.org/)
-
 format:
   html:
     theme:
       light: [cosmo, custom.scss]
       dark: [darkly, custom-dark.scss]
     css: styles.css
-    include-in-header: state-manager.html
+    include-in-header:
+      - state-manager.html
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    include-after-body: footer-en.html
     toc: true
     toc-location: right
     code-copy: true
