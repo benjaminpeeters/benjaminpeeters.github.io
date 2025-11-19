@@ -408,3 +408,253 @@ html.dark .contact-form input[type="email"]:focus,
 html.dark .contact-form textarea:focus {
   border-color: rgb(33, 147, 12);
 }
+
+/* ============================================ */
+/* FOOTER STYLES */
+/* ============================================ */
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f8f9fa;
+  border-top: 2px solid #e0e0e0;
+  padding: 2rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.site-footer.visible {
+  transform: translateY(0);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333333;
+  font-family: 'Rubik', sans-serif;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.footer-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Icon specific colors - using brand colors */
+.icon-scholar path { fill: #4285F4; }
+.icon-linkedin path { fill: #0A66C2; }
+.icon-orcid path { fill: #A6CE39; }
+.icon-github path { fill: #181717; }
+.icon-facebook path { fill: #1877F2; }
+.icon-twitter path { fill: #1DA1F2; }
+.icon-rss path { fill: #FFA500; }
+
+.footer-controls {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.95rem;
+  color: #333333;
+  transition: all 0.2s ease;
+}
+
+.footer-button:hover {
+  background-color: rgb(33, 147, 12);
+  color: #ffffff;
+  border-color: rgb(33, 147, 12);
+}
+
+.footer-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.theme-icon {
+  display: none;
+}
+
+html:not(.dark) .theme-icon-light {
+  display: block;
+}
+
+html.dark .theme-icon-dark {
+  display: block;
+}
+
+.language-selector {
+  position: relative;
+}
+
+.language-menu {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 150px;
+  overflow: hidden;
+}
+
+.language-menu.active {
+  display: block;
+}
+
+.lang-option {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.lang-option:last-child {
+  border-bottom: none;
+}
+
+.lang-option:hover {
+  background-color: #f8f9fa;
+}
+
+.lang-option.active {
+  background-color: rgb(33, 147, 12);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Dark mode footer styles */
+html.dark .site-footer {
+  background-color: #1a1a1a;
+  border-top-color: #333333;
+}
+
+html.dark .footer-section h3 {
+  color: #e0e0e0;
+}
+
+html.dark .footer-icon,
+html.dark .footer-button {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  color: #e0e0e0;
+}
+
+html.dark .footer-icon:hover,
+html.dark .footer-button:hover {
+  background-color: rgb(33, 147, 12);
+  border-color: rgb(33, 147, 12);
+  color: #ffffff;
+}
+
+html.dark .language-menu {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+html.dark .lang-option {
+  color: #e0e0e0;
+  border-bottom-color: #4a5568;
+}
+
+html.dark .lang-option:hover {
+  background-color: #3a4556;
+}
+
+html.dark .footer-bottom {
+  border-top-color: #333333;
+  color: #999999;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+
+  .footer-controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* Hide social icons from main content if they exist */
+.resume-biography-3 .social-icons,
+.page-author .social-icons,
+.author-card .social-icons {
+  display: none !important;
+}

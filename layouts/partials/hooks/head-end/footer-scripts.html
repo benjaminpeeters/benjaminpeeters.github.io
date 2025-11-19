@@ -1,0 +1,102 @@
+<script>
+(function() {
+  'use strict';
+
+  // Footer scroll visibility
+  function initFooterVisibility() {
+    const footer = document.getElementById('site-footer');
+    if (!footer) return;
+
+    let ticking = false;
+
+    function checkScroll() {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const clientHeight = window.innerHeight;
+
+      // Show footer when within 100px of bottom
+      const distanceFromBottom = scrollHeight - (scrollTop + clientHeight);
+
+      if (distanceFromBottom <= 100) {
+        footer.classList.add('visible');
+      } else {
+        footer.classList.remove('visible');
+      }
+
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(checkScroll);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('resize', requestTick);
+
+    // Initial check
+    checkScroll();
+  }
+
+  // Theme toggle functionality
+  function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+
+    themeToggle.addEventListener('click', function() {
+      const html = document.documentElement;
+      const isDark = html.classList.contains('dark');
+
+      if (isDark) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+
+  // Language menu toggle
+  function initLanguageMenu() {
+    const langToggle = document.getElementById('lang-toggle');
+    const langMenu = document.getElementById('lang-menu');
+
+    if (!langToggle || !langMenu) return;
+
+    langToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      langMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!langMenu.contains(e.target) && !langToggle.contains(e.target)) {
+        langMenu.classList.remove('active');
+      }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        langMenu.classList.remove('active');
+      }
+    });
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initFooterVisibility();
+      initThemeToggle();
+      initLanguageMenu();
+    });
+  } else {
+    initFooterVisibility();
+    initThemeToggle();
+    initLanguageMenu();
+  }
+})();
+</script>
