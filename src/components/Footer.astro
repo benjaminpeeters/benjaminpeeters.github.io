@@ -1,35 +1,270 @@
 ---
-import { SITE_AUTHOR, GITHUB_USERNAME, ORCID } from '../consts';
+import { SITE_AUTHOR, GITHUB_USERNAME, ORCID, GOOGLE_SCHOLAR_URL, LINKEDIN_URL } from '../consts';
+import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
 const today = new Date();
 ---
 
-<footer>
-	<p>
-		<strong>{SITE_AUTHOR}</strong> - Postdoctoral Researcher at PIK<br>
-		<a href={`https://orcid.org/${ORCID}`} target="_blank">ORCID: {ORCID}</a>
-	</p>
-	<p>&copy; {today.getFullYear()} {SITE_AUTHOR}. Built with <a href="https://astro.build" target="_blank">Astro</a>.</p>
+<footer id="site-footer">
+	<div class="footer-container">
+		<div class="footer-section profile-links">
+			<h3 class="footer-heading">Professional</h3>
+			<div class="icon-links">
+				<a href={GOOGLE_SCHOLAR_URL} target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile" class="icon-link scholar">
+					<span class="sr-only">Google Scholar</span>
+					<svg viewBox="0 0 24 24" aria-hidden="true">
+						<path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+					</svg>
+				</a>
+				<a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="icon-link linkedin">
+					<span class="sr-only">LinkedIn</span>
+					<svg viewBox="0 0 24 24" aria-hidden="true">
+						<path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+					</svg>
+				</a>
+				<a href={`https://orcid.org/${ORCID}`} target="_blank" rel="noopener noreferrer" aria-label="ORCID profile" class="icon-link orcid">
+					<span class="sr-only">ORCID</span>
+					<svg viewBox="0 0 256 256" aria-hidden="true">
+						<path fill="currentColor" d="M256 128c0 70.7-57.3 128-128 128C57.3 256 0 198.7 0 128 0 57.3 57.3 0 128 0c70.7 0 128 57.3 128 128z"/>
+						<path fill="white" d="M86.3 186.2H70.9V79.1h15.4v48.4V186.2z M108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1z M124.3 172.4h24.5c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z M88.7 56.8c0 5.5-4.5 10.1-10.1 10.1-5.6 0-10.1-4.6-10.1-10.1 0-5.6 4.5-10.1 10.1-10.1 5.6 0 10.1 4.5 10.1 10.1z"/>
+					</svg>
+				</a>
+				<a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="icon-link github">
+					<span class="sr-only">GitHub</span>
+					<svg viewBox="0 0 16 16" aria-hidden="true">
+						<path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+
+		<div class="footer-section utilities">
+			<h3 class="footer-heading">Tools</h3>
+			<div class="icon-links">
+				<a href="/rss.xml" aria-label="Subscribe to RSS feed" class="icon-link rss">
+					<span class="sr-only">RSS Feed</span>
+					<svg viewBox="0 0 24 24" aria-hidden="true">
+						<path fill="currentColor" d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/>
+					</svg>
+				</a>
+				<div class="utility-controls">
+					<ThemeToggle />
+					<LanguageSwitcher />
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-section copyright">
+			<p class="copyright-text">
+				&copy; {today.getFullYear()} {SITE_AUTHOR}
+			</p>
+			<p class="built-with">
+				Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+			</p>
+		</div>
+	</div>
 </footer>
 
 <style>
 	footer {
-		padding: 2em 1em;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
 		background: var(--footer-bg);
 		color: var(--text-color);
-		text-align: center;
-		margin-top: 4rem;
 		border-top: 3px solid var(--accent);
-		transition: background-color 0.3s ease, color 0.3s ease;
+		transform: translateY(100%);
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: 10;
+		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 	}
-	footer p {
-		margin: 0.5em 0;
-		font-size: 0.9rem;
+
+	footer.revealed {
+		transform: translateY(0);
 	}
-	footer a {
-		color: #2d7e3f;
+
+	.footer-container {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 2rem;
+	}
+
+	.footer-section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.footer-heading {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 600;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.icon-links {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.icon-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s ease, filter 0.2s ease;
+	}
+
+	.icon-link:hover {
+		transform: scale(1.1);
+		filter: brightness(1.2);
+	}
+
+	.icon-link svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	/* Brand colors */
+	.icon-link.scholar svg {
+		color: #4285F4;
+	}
+
+	.icon-link.linkedin svg {
+		color: #0a66c2;
+	}
+
+	.icon-link.orcid svg {
+		/* ORCID logo already has fill colors in SVG */
+	}
+
+	.icon-link.github svg {
+		color: #181717;
+	}
+
+	.icon-link.rss svg {
+		color: #FF6600;
+	}
+
+	/* Dark theme adjustments */
+	:root[data-theme="dark"] .icon-link.github svg {
+		color: #f0f0f0;
+	}
+
+	.utility-controls {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.copyright {
+		text-align: right;
+		font-size: 0.85rem;
+	}
+
+	.copyright-text {
+		margin: 0 0 0.25rem 0;
+		font-weight: 500;
+	}
+
+	.built-with {
+		margin: 0;
+		color: var(--text-secondary);
+		font-size: 0.8rem;
+	}
+
+	.built-with a {
+		color: var(--accent);
 		text-decoration: none;
+		font-weight: 500;
 	}
-	footer a:hover {
+
+	.built-with a:hover {
 		text-decoration: underline;
 	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+
+	/* Responsive design */
+	@media (max-width: 768px) {
+		.footer-container {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			gap: 1.5rem;
+		}
+
+		.footer-section {
+			align-items: center;
+		}
+
+		.copyright {
+			text-align: center;
+		}
+
+		.icon-link svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.footer-container {
+			padding: 1.5rem 1rem;
+		}
+
+		.icon-links {
+			justify-content: center;
+		}
+	}
 </style>
+
+<script>
+	// Scroll reveal functionality
+	const footer = document.getElementById('site-footer');
+	if (footer) {
+		const threshold = 100; // pixels from bottom to trigger reveal
+
+		function checkScroll() {
+			const scrollPosition = window.scrollY + window.innerHeight;
+			const pageHeight = document.documentElement.scrollHeight;
+
+			if (pageHeight - scrollPosition <= threshold) {
+				footer.classList.add('revealed');
+			} else {
+				footer.classList.remove('revealed');
+			}
+		}
+
+		// Only enable scroll reveal if page is tall enough
+		const minPageHeight = window.innerHeight + (footer.offsetHeight || 200);
+		if (document.body.scrollHeight > minPageHeight) {
+			window.addEventListener('scroll', checkScroll, { passive: true });
+			checkScroll(); // Initial check
+		} else {
+			// For short pages, keep footer visible at bottom
+			footer.style.position = 'relative';
+			footer.style.transform = 'none';
+			footer.style.marginTop = '4rem';
+		}
+	}
+</script>
