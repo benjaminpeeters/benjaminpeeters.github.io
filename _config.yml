@@ -40,7 +40,7 @@ rss_icon: true
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+footer_fixed: false  # Using modern sticky footer (see _sass/_footer.scss)
 search_enabled: true
 socials_in_search: true
 posts_in_search: true

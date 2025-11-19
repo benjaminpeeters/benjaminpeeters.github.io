@@ -31,6 +31,11 @@ body.sticky-bottom-footer {
   max-width: $max-content-width;
 }
 
+// Add spacing between main content and footer
+.container[role="main"] {
+  margin-bottom: 3rem;
+}
+
 // Profile
 .profile {
   img {

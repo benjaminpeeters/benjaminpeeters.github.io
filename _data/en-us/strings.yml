@@ -30,6 +30,28 @@ citation:
 collections:
   books: books
   posts: posts
+contact:
+  header: Get in Touch
+  intro: "Whether you have a question about my research, want to discuss a potential collaboration, or simply want to connect, I'd be happy to hear from you."
+  test_warning: "⚠️ TEST MODE: This English contact form is currently testing FormCarry service. For Formspree-based forms, please use <a href=\"/fr-ca/contact/\">French</a> or <a href=\"/zh-hans/contact/\">Chinese</a> versions."
+  office_title: Office Address
+  office_name: Potsdam Institute for Climate Impact Research (PIK)
+  office_department: "Research Department: Transformation Pathways"
+  office_address_line1: Telegrafenberg A 31
+  office_address_line2: 14473 Potsdam
+  office_country: Germany
+  github_title: Code & Technical Questions
+  github_text: "For questions or issues related to code, software, or technical discussions, please reach out via <a href=\"https://github.com/benjaminpeeters\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>. This helps keep technical conversations organized and publicly accessible."
+  form_title: Send a Message
+  name_label: Name
+  email_label: Email
+  subject_label: Subject
+  message_label: Message
+  required: (required)
+  submit_button: Send Message
+  sending_text: Sending...
+  success_message: Thank you for your message! I will get back to you soon.
+  error_message: Oops! There was a problem sending your message. Please try again.
 contact_note: You can even add a little note about which of these is the best way to reach you.
 cv:
   address: Address
@@ -86,6 +108,12 @@ cv:
 footer:
   copyright: Copyright
   last_updated: "Last updated:"
+  connect_label: Connect
+  share_label: Share
+  settings_label: Preferences
+  copy_link: Copy Link
+  link_copied: Link copied!
+  copyright_text: "© 2025 Benjamin Peeters. All Rights Reserved."
 footer_text: > # the ">" symbol means to ignore newlines until "titles:"
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.

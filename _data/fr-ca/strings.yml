@@ -30,6 +30,28 @@ citation:
 collections:
   books: livres
   posts: articles
+contact:
+  header: Prenez Contact
+  intro: "Que vous ayez une question sur mes recherches, que vous souhaitiez discuter d'une collaboration potentielle, ou simplement entrer en contact, je serais ravi de vous entendre."
+  test_warning: "⚠️ MODE TEST: Ce formulaire de contact français teste actuellement le service FormCarry. Pour les formulaires basés sur Formspree, veuillez utiliser les versions <a href=\"/en-us/contact/\">anglaise</a> ou <a href=\"/zh-hans/contact/\">chinoise</a>."
+  office_title: Adresse du Bureau
+  office_name: Potsdam Institute for Climate Impact Research (PIK)
+  office_department: "Département de recherche : Transformation Pathways"
+  office_address_line1: Telegrafenberg A 31
+  office_address_line2: 14473 Potsdam
+  office_country: Allemagne
+  github_title: Questions de Code et Techniques
+  github_text: "Pour les questions ou problèmes liés au code, aux logiciels ou aux discussions techniques, veuillez me contacter via <a href=\"https://github.com/benjaminpeeters\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>. Cela permet de garder les conversations techniques organisées et accessibles publiquement."
+  form_title: Envoyer un Message
+  name_label: Nom
+  email_label: Email
+  subject_label: Sujet
+  message_label: Message
+  required: (requis)
+  submit_button: Envoyer le Message
+  sending_text: Envoi en cours...
+  success_message: Merci pour votre message ! Je vous répondrai bientôt.
+  error_message: Oups ! Un problème est survenu lors de l'envoi de votre message. Veuillez réessayer.
 contact_note: Vous pouvez même ajouter une petite note indiquant lequel de ces moyens est le meilleur pour vous joindre.
 cv:
   address: adresse
@@ -86,6 +108,12 @@ cv:
 footer:
   copyright: "Droits d'auteur"
   last_updated: "Dernière mise à jour le "
+  connect_label: Se connecter
+  share_label: Partager
+  settings_label: Préférences
+  copy_link: Copier le lien
+  link_copied: Lien copié!
+  copyright_text: "© 2025 Benjamin Peeters. Tous droits réservés."
 footer_text: > # the ">" symbol means to ignore newlines until "titles:"
   Propulsé par <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> avec le thème <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a>.
   Hébergé par <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.

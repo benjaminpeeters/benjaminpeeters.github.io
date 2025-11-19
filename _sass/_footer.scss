@@ -1,0 +1,496 @@
+/*******************************************************************************
+ * Footer Styles
+ * Modern footer with brand-colored social icons and sticky positioning
+ ******************************************************************************/
+
+// Brand Colors for Social Platforms
+$brand-colors: (
+  // Profile Links (Connect Section)
+  'github': #181717,
+  'linkedin': #0a66c2,
+  'orcid': #a6ce39,
+  'scholar': #4285f4,
+  'sciprofiles': #0078d4,
+  'ideas-repec': #e04f39,
+
+  // Share Buttons (Share Section)
+  'facebook': #1877f2,
+  'twitter': #000000,
+  'x-twitter': #000000,
+  'instagram': #e4405f,
+  'discord': #5865f2,
+  'reddit': #ff4500,
+  'whatsapp': #25d366,
+  'telegram': #0088cc,
+  'wechat': #09b83e,
+  'weixin': #09b83e,
+  'line': #00b900,
+  'vk': #0077ff,
+  'email': #ea4335,
+
+  // Utilities (Settings Section)
+  'rss': #ffa500,
+);
+
+// Dark mode color adjustments for better contrast
+$brand-colors-dark: (
+  'github': #ffffff,
+  'twitter': #1da1f2,
+  'x-twitter': #1da1f2,
+  'orcid': #b4d84c,
+  'scholar': #5c9bf7,
+);
+
+/*******************************************************************************
+ * Footer Container
+ ******************************************************************************/
+
+footer.footer-sticky {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto; // Pushes footer to bottom when content is short
+
+  // World Bank inspired styling
+  background-color: $wb-dark-blue;
+
+  padding: 2rem 0 1rem; // Reduced bottom padding
+  font-size: 0.875rem;
+  color: $white-color; // White text on dark blue
+
+  // Ensure footer is always at bottom of viewport minimum
+  min-height: fit-content;
+
+  // Smooth appearance
+  transition: background-color 0.3s ease;
+
+  // Dark mode adjustment
+  [data-theme='dark'] & {
+    background-color: $wb-footer-dark;
+  }
+
+  // Footer links in bright blue
+  a {
+    color: $wb-bright-blue;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $wb-hover-blue;
+    }
+  }
+}
+
+/*******************************************************************************
+ * Footer Content Layout
+ ******************************************************************************/
+
+.footer-container {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $white-color; // White text in footer
+    margin: 0 0 0.5rem 0;
+    opacity: 0.8; // Slightly transparent
+  }
+
+  // Right-align third column (Preferences)
+  &:last-child {
+    align-items: flex-end;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+/*******************************************************************************
+ * Icon Links Styling
+ ******************************************************************************/
+
+.footer-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 1.25rem; // Larger touch targets on mobile
+  }
+}
+
+.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  // Ensure minimum touch target size on mobile
+  @media (max-width: 768px) {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  i,
+  svg {
+    font-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+
+    @media (max-width: 768px) {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/*******************************************************************************
+ * Brand Colors - Light Mode
+ ******************************************************************************/
+
+@each $platform, $color in $brand-colors {
+  .footer-icon.icon-#{$platform} {
+    color: $color;
+
+    i,
+    svg {
+      color: $color;
+      fill: $color;
+    }
+  }
+}
+
+/*******************************************************************************
+ * Brand Colors - Dark Mode Adjustments
+ ******************************************************************************/
+
+[data-theme='dark'] {
+  @each $platform, $color in $brand-colors-dark {
+    .footer-icon.icon-#{$platform} {
+      color: $color;
+
+      i,
+      svg {
+        color: $color;
+        fill: $color;
+      }
+    }
+  }
+}
+
+/*******************************************************************************
+ * Special Styling for Instagram Gradient
+ ******************************************************************************/
+
+.footer-icon.icon-instagram {
+  i,
+  svg {
+    background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  // Fallback for dark mode
+  [data-theme='dark'] & {
+    i,
+    svg {
+      background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+/*******************************************************************************
+ * Utility Buttons (Language, Theme)
+ ******************************************************************************/
+
+.footer-utilities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+// Language switcher link (text-based)
+.footer-language-switcher a {
+  color: $white-color;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $wb-bright-blue;
+  }
+
+  i {
+    margin-right: 0.25rem;
+  }
+}
+
+// Language dropdown styling
+.footer-language-switcher .dropdown {
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    color: $white-color;
+    font-size: 0.875rem;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $wb-bright-blue;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    i {
+      margin-right: 0.25rem;
+    }
+
+    &::after {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .dropdown-menu {
+    min-width: auto;
+    font-size: 0.875rem;
+  }
+}
+
+// Theme toggle button (icon-only, matching topbar)
+#footer-light-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: $white-color;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $wb-bright-blue;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.5rem;
+  }
+}
+
+/*******************************************************************************
+ * Copy Link Button
+ ******************************************************************************/
+
+.copy-link-button {
+  position: relative;
+
+  .copy-feedback {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.5rem);
+
+    padding: 0.25rem 0.75rem;
+    background-color: var(--global-theme-color);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid transparent;
+      border-top-color: var(--global-theme-color);
+    }
+
+    &.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-0.75rem);
+    }
+  }
+}
+
+/*******************************************************************************
+ * Footer Attribution (Optional)
+ ******************************************************************************/
+
+.footer-attribution {
+  text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid $wb-bright-blue;
+
+  font-size: 0.75rem;
+  color: #{$white-color};
+  opacity: 0.7;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: underline;
+    }
+  }
+}
+
+/*******************************************************************************
+ * Accessibility Improvements
+ ******************************************************************************/
+
+// Ensure keyboard focus is visible
+.footer-icon:focus,
+.footer-utility-button:focus {
+  outline: 2px solid var(--global-theme-color);
+  outline-offset: 3px;
+}
+
+// Skip to footer link for screen readers
+.skip-to-footer {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+
+  &:focus {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background-color: var(--global-theme-color);
+    color: white;
+  }
+}
+
+/*******************************************************************************
+ * Responsive Adjustments
+ ******************************************************************************/
+
+@media (max-width: 1024px) {
+  .footer-sections {
+    gap: 1.5rem;
+  }
+
+  .footer-icons {
+    gap: 0.875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  footer.footer-sticky {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .footer-section {
+    h3 {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+/*******************************************************************************
+ * Print Styles
+ ******************************************************************************/
+
+@media print {
+  footer.footer-sticky {
+    display: none;
+  }
+}

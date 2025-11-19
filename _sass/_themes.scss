@@ -10,12 +10,15 @@
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$text-charcoal};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$coral-orange};
-  --global-hover-color: #{$coral-orange};
+  --global-theme-color: #{$wb-dark-blue};
+  --global-hover-color: #{$wb-bright-blue};
   --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$footer-green};
+  --global-header-bg-color: #{$wb-dark-blue};
+  --global-header-text-color: #{$white-color};
+  --global-header-link-color: #{$white-color};
+  --global-footer-bg-color: #{$wb-dark-blue};
   --global-footer-text-color: #{$white-color};
-  --global-footer-link-color: #{$white-color};
+  --global-footer-link-color: #{$wb-bright-blue};
   --global-distill-app-color: #{$grey-color};
   --global-divider-color: rgba(0, 0, 0, 0.1);
   --global-card-bg-color: #{$white-color};
@@ -57,6 +60,19 @@
     display: none;
   }
 
+  // Footer theme toggle icons
+  #footer-light-toggle-system {
+    display: block;
+  }
+
+  #footer-light-toggle-dark {
+    display: none;
+  }
+
+  #footer-light-toggle-light {
+    display: none;
+  }
+
   .only-light {
     display: block;
   }
@@ -82,12 +98,15 @@ html[data-theme="dark"] {
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$coral-orange};
-  --global-hover-color: #{$coral-orange};
+  --global-theme-color: #{$wb-bright-blue};
+  --global-hover-color: #{$wb-hover-blue};
   --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$footer-green-dark};
+  --global-header-bg-color: #{$wb-footer-dark};
+  --global-header-text-color: #{$white-color};
+  --global-header-link-color: #{$grey-color-light};
+  --global-footer-bg-color: #{$wb-footer-dark};
   --global-footer-text-color: #{$white-color};
-  --global-footer-link-color: #{$white-color};
+  --global-footer-link-color: #{$wb-bright-blue};
   --global-distill-app-color: #{$grey-color-light};
   --global-divider-color: #424246;
   --global-card-bg-color: #{$grey-900};
@@ -138,6 +157,19 @@ html[data-theme-setting="dark"] {
     display: none;
   }
 
+  // Footer theme toggle icons
+  #footer-light-toggle-system {
+    display: none;
+  }
+
+  #footer-light-toggle-dark {
+    display: block;
+  }
+
+  #footer-light-toggle-light {
+    display: none;
+  }
+
   #back-to-top {
     color: var(--global-back-to-top-text-color);
     background: var(--global-back-to-top-bg-color);
@@ -156,6 +188,19 @@ html[data-theme-setting="light"] {
   #light-toggle-light {
     padding-left: 10px;
     padding-top: 12px;
+    display: block;
+  }
+
+  // Footer theme toggle icons
+  #footer-light-toggle-system {
+    display: none;
+  }
+
+  #footer-light-toggle-dark {
+    display: none;
+  }
+
+  #footer-light-toggle-light {
     display: block;
   }
 }
