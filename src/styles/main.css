@@ -240,8 +240,8 @@ pre code {
 
 .hamburger-menu {
   display: none; /* Hidden by default (desktop) */
-  background: none;
-  border: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   padding: 0.5rem;
   flex-direction: column;
@@ -250,25 +250,35 @@ pre code {
   height: 40px;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
 .hamburger-menu:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.hamburger-menu:active {
+  transform: scale(0.95);
 }
 
 .hamburger-line {
-  width: 24px;
-  height: 2px;
+  width: 20px;
+  height: 2.5px;
   background-color: white;
   transition: all 0.3s ease;
   border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Hamburger animation when active */
+.hamburger-menu.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
 .hamburger-menu.active .hamburger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(7.5px) rotate(45deg);
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(2) {
@@ -276,7 +286,7 @@ pre code {
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* Header controls container */
@@ -947,30 +957,47 @@ pre code {
   /* Show navigation when active */
   .main-nav.nav-active {
     /* max-height set dynamically by JavaScript */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   /* Mobile navigation list */
   .nav-list {
-    flex-direction: column;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
     gap: 0;
     padding: 0.5rem 0;
+    width: 100%;
   }
 
   .nav-list li {
     width: 100%;
+    margin: 0;
+  }
+
+  .nav-list li:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .nav-list a {
     display: block;
+    width: 100%;
     padding: 1rem var(--spacing-md);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    text-align: left;
   }
 
-  .nav-list a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-bottom-color: var(--color-secondary);
+  .nav-list a:hover,
+  .nav-list a:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    outline: none;
+  }
+
+  .nav-list a:focus {
+    box-shadow: inset 3px 0 0 var(--color-secondary);
   }
 
   /* Keep header controls visible */
