@@ -68,15 +68,21 @@
     // Theme toggle functionality
     document.addEventListener('DOMContentLoaded', function() {
       const themeToggle = document.getElementById('theme-toggle');
+      const footerThemeToggle = document.getElementById('footer-theme-toggle');
+
+      function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      }
 
       if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-          const currentTheme = document.documentElement.getAttribute('data-theme');
-          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        themeToggle.addEventListener('click', toggleTheme);
+      }
 
-          document.documentElement.setAttribute('data-theme', newTheme);
-          localStorage.setItem('theme', newTheme);
-        });
+      if (footerThemeToggle) {
+        footerThemeToggle.addEventListener('click', toggleTheme);
       }
 
       // Listen for system theme changes
