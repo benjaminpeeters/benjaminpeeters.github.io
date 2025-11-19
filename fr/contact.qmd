@@ -188,7 +188,10 @@ Allemagne
 
 ## Envoyer un message
 
-<form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/manlrveb">
+<form class="contact-form" id="contact-form" method="POST" action="https://formcarry.com/s/_n_QcqvTqp6">
+  <!-- Hidden field to identify language -->
+  <input type="hidden" name="language" value="fr">
+
   <div class="form-group">
     <label for="name">Nom <span class="required">*</span></label>
     <input type="text" id="name" name="name" required>
