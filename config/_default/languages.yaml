@@ -5,6 +5,7 @@
 # Default language
 en:
   languageCode: en-us
+  languageName: English
   contentDir: content/en
   title: Benjamin Peeters
   params:
@@ -13,6 +14,7 @@ en:
 # French
 fr:
   languageCode: fr
+  languageName: Français
   contentDir: content/fr
   title: Benjamin Peeters
   params:
@@ -21,6 +23,7 @@ fr:
 # Chinese
 zh:
   languageCode: zh-Hans
+  languageName: 中文
   contentDir: content/zh
   title: Benjamin Peeters
   params:

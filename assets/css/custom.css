@@ -414,21 +414,10 @@ html.dark .contact-form textarea:focus {
 /* ============================================ */
 
 .site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background-color: #f8f9fa;
   border-top: 2px solid #e0e0e0;
-  padding: 2rem 1rem 1rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 1000;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.site-footer.visible {
-  transform: translateY(0);
+  padding: 3rem 1rem 2rem;
+  margin-top: 4rem;
 }
 
 .footer-container {
@@ -446,6 +435,21 @@ html.dark .contact-form textarea:focus {
   margin-bottom: 1rem;
   color: #333333;
   font-family: 'Rubik', sans-serif;
+}
+
+.footer-section-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-section-right h3 {
+  text-align: right;
+}
+
+.footer-section-right .footer-controls {
+  align-items: flex-end;
 }
 
 .footer-links {
@@ -483,7 +487,10 @@ html.dark .contact-form textarea:focus {
 .icon-orcid path { fill: #A6CE39; }
 .icon-github path { fill: #181717; }
 .icon-facebook path { fill: #1877F2; }
-.icon-twitter path { fill: #1DA1F2; }
+.icon-twitter path { fill: #000000; }
+.icon-whatsapp path { fill: #25D366; }
+.icon-email path { fill: #EA4335; }
+.icon-reddit path { fill: #FF4500; }
 .icon-rss path { fill: #FFA500; }
 
 .footer-controls {
@@ -554,14 +561,20 @@ html.dark .theme-icon-dark {
   display: block;
 }
 
+.footer-section-right .language-menu {
+  left: auto;
+  right: 0;
+}
+
 .lang-option {
   display: block;
   padding: 0.75rem 1rem;
-  color: #333333;
+  color: #333333 !important;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   border-bottom: 1px solid #f0f0f0;
+  font-weight: 500;
 }
 
 .lang-option:last-child {
@@ -569,13 +582,14 @@ html.dark .theme-icon-dark {
 }
 
 .lang-option:hover {
-  background-color: #f8f9fa;
+  background-color: #f0f0f0;
+  color: rgb(33, 147, 12) !important;
 }
 
 .lang-option.active {
   background-color: rgb(33, 147, 12);
-  color: #ffffff;
-  font-weight: 500;
+  color: #ffffff !important;
+  font-weight: 600;
 }
 
 .footer-bottom {
@@ -621,12 +635,18 @@ html.dark .language-menu {
 }
 
 html.dark .lang-option {
-  color: #e0e0e0;
+  color: #e0e0e0 !important;
   border-bottom-color: #4a5568;
 }
 
 html.dark .lang-option:hover {
   background-color: #3a4556;
+  color: rgb(33, 147, 12) !important;
+}
+
+html.dark .lang-option.active {
+  background-color: rgb(33, 147, 12);
+  color: #ffffff !important;
 }
 
 html.dark .footer-bottom {
