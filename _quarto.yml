@@ -2,45 +2,8 @@ project:
   type: website
   output-dir: _site
 
-website:
-  title: "Benjamin Peeters"
-  site-url: "https://benjaminpeeters.github.io"
-  favicon: favicon.ico
-
-  navbar:
-    background: primary
-    search: true
-    left:
-      - text: "Home"
-        href: index.qmd
-      - text: "Publications"
-        href: publications.qmd
-      - text: "Blog"
-        href: blog/index.qmd
-      - text: "Data & Code"
-        href: data-code.qmd
-      - text: "Teaching"
-        href: teaching.qmd
-      - text: "Contact"
-        href: contact.qmd
-    right:
-      - icon: translate
-        menu:
-          - text: "English"
-            href: /en/index.html
-          - text: "Français"
-            href: /fr/index.html
-          - text: "中文"
-            href: /zh/index.html
-      - icon: github
-        href: https://github.com/benjaminpeeters
-        aria-label: GitHub
-      - icon: mortarboard-fill
-        href: https://scholar.google.com
-        aria-label: Google Scholar
-      - icon: linkedin
-        href: https://linkedin.com
-        aria-label: LinkedIn
+# Shared configuration inherited by en/, fr/, zh/ subdirectories
+# Each language subdirectory has its own _quarto.yml with specific content
 
 format:
   html:
@@ -52,7 +15,6 @@ format:
       - state-manager.html
       - text: |
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    include-after-body: footer-en.html
     toc: true
     toc-location: right
     code-copy: true

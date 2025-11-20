@@ -62,42 +62,53 @@ a {
    MODERN STICKY REVEALING FOOTER
    ======================================== */
 
-/* Main content wrapper must have background and higher z-index */
-#quarto-content {
-  position: relative;
-  z-index: 1;
-  background-color: #ffffff;
+/* Ensure page wrapper takes full viewport height */
+html {
+  height: 100%;
+}
+
+body {
   min-height: 100vh;
-  padding-bottom: 400px; /* Height of footer + spacing */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Modern footer with sticky reveal effect */
+/* Main content area - grows to push footer down */
+#quarto-content,
+.quarto-container {
+  flex: 1 0 auto;
+  background-color: #ffffff;
+}
+
+/* Modern footer - in normal document flow, only visible when scrolled to bottom */
 .modern-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1; /* Behind main content */
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  flex-shrink: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #f8f9fa;
   border-top: 2px solid rgba(45, 126, 63, 0.3);
-  padding: 3rem 2rem;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: auto;
 }
 
-/* Footer content container */
+/* Footer content container - horizontal layout */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
 }
 
 /* Footer sections */
 .footer-section {
   text-align: center;
-  width: 100%;
 }
 
 .footer-heading {
@@ -194,11 +205,6 @@ a {
    ======================================== */
 
 @media (max-width: 768px) {
-  /* Adjust content padding for mobile */
-  #quarto-content {
-    padding-bottom: 500px; /* Taller footer on mobile */
-  }
-
   .modern-footer {
     padding: 2rem 1rem;
   }
@@ -241,10 +247,6 @@ a {
 }
 
 @media (max-width: 480px) {
-  #quarto-content {
-    padding-bottom: 550px;
-  }
-
   .footer-heading {
     font-size: 0.8rem;
   }

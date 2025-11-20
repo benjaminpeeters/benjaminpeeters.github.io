@@ -1,0 +1,16 @@
+---
+title: "Technical Notes"
+---
+
+This section contains technical notes and derivations related to my research work.
+
+## Available Notes
+
+### Climate Economics
+
+- **[Deriving Capital Dynamics with Climate Damage](capital_motion_derivation/)**
+  Mathematical derivation of discrete-time capital equations from continuous-time dynamics for a model with climate-induced damage to capital. Covers the decomposition of capital into potential stock and capacity factors.
+
+---
+
+*These notes are working documents and may be updated as research progresses.*
