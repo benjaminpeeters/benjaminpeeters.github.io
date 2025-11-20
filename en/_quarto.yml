@@ -60,7 +60,7 @@ format:
       - ../state-manager.html
       - text: |
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    include-after-body: ../footer-en.html
+    include-after-body: ../_includes/footer-en.html
     toc: true
     toc-location: right
     code-copy: true
