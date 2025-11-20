@@ -50,6 +50,7 @@ footer.footer-sticky {
   bottom: 0;
   width: 100%;
   margin-top: auto; // Pushes footer to bottom when content is short
+  flex-shrink: 0; // Prevent footer from shrinking in flex layout
 
   // World Bank inspired styling
   background-color: $wb-dark-blue;

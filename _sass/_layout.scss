@@ -2,7 +2,17 @@
  * Content
  ******************************************************************************/
 
+// Sticky footer layout - ensure footer stays at bottom of viewport
+html {
+  height: 100%;
+  height: -webkit-fill-available; // Fix for iOS Safari
+}
+
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available; // Fix for iOS Safari
+  display: flex;
+  flex-direction: column;
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
@@ -25,6 +35,11 @@ body.fixed-top-nav {
 body.sticky-bottom-footer {
   // Remove padding below footer.
   padding-bottom: 0;
+
+  // Make main content area grow to push footer down
+  > .container[role="main"] {
+    flex: 1 0 auto;
+  }
 }
 
 .container {
