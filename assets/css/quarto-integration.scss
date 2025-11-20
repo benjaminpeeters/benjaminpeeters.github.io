@@ -1,0 +1,168 @@
+---
+---
+
+// Quarto content integration styles
+// This file provides minimal styling for Quarto-generated content embedded in Jekyll
+
+.quarto-content {
+  // Ensure proper spacing
+  margin: 1rem 0;
+
+  // Equation display
+  .math-display {
+    margin: 1.5em 0;
+    overflow-x: auto;
+  }
+
+  // Equation numbering
+  .eq-number {
+    float: right;
+    margin-left: 1em;
+  }
+
+  // Cross-reference links
+  .quarto-xref {
+    color: var(--global-theme-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Section anchors
+  .header-section-number {
+    margin-right: 0.5em;
+    color: var(--global-text-color-light);
+  }
+
+  // Code blocks
+  pre.sourceCode {
+    border: 1px solid var(--global-divider-color);
+    border-radius: 4px;
+    padding: 1em;
+    overflow-x: auto;
+    background-color: var(--global-code-bg-color);
+  }
+
+  // Inline code
+  code:not(.sourceCode) {
+    background-color: var(--global-code-bg-color);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  // Tables
+  table {
+    margin: 1.5em 0;
+    border-collapse: collapse;
+    width: 100%;
+
+    th, td {
+      padding: 0.5em;
+      border: 1px solid var(--global-divider-color);
+    }
+
+    th {
+      background-color: var(--global-bg-color);
+      font-weight: bold;
+    }
+  }
+
+  // Callouts and notes
+  .callout {
+    margin: 1.5em 0;
+    padding: 1em;
+    border-left: 4px solid var(--global-theme-color);
+    background-color: rgba(var(--global-theme-color-rgb), 0.05);
+    border-radius: 4px;
+
+    .callout-title {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  // Figure captions
+  figcaption, .figure-caption {
+    margin-top: 0.5em;
+    font-style: italic;
+    color: var(--global-text-color-light);
+    text-align: center;
+  }
+
+  // Quarto-specific margin content
+  .margin-caption,
+  .column-margin {
+    font-size: 0.9em;
+    color: var(--global-text-color-light);
+  }
+}
+
+// Embedded Quarto content wrapper
+.quarto-embedded-content {
+  // Reset some styles that might conflict
+  line-height: inherit;
+
+  // Ensure main content gets full width
+  main.content {
+    width: 100%;
+    max-width: none;
+  }
+
+  // Adjust heading styles to match Jekyll
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  // Paragraph spacing
+  p {
+    margin-bottom: 1em;
+  }
+
+  // Lists
+  ul, ol {
+    margin: 1em 0;
+    padding-left: 2em;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
+}
+
+// Dark mode adjustments
+html[data-theme='dark'] {
+  .quarto-content {
+    pre.sourceCode {
+      background-color: var(--global-code-bg-color);
+    }
+
+    code:not(.sourceCode) {
+      background-color: var(--global-code-bg-color);
+    }
+
+    table th {
+      background-color: var(--global-bg-color);
+    }
+
+    .callout {
+      background-color: rgba(var(--global-theme-color-rgb), 0.1);
+    }
+  }
+}

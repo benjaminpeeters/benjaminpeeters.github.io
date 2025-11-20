@@ -1,0 +1,99 @@
+---
+title: "Example R Analysis: Data Visualization"
+author: "Benjamin Peeters"
+description: "Demonstrating R Markdown with executable code, plots, and cross-references"
+---
+
+## Introduction {#sec-intro}
+
+This is an example R Markdown document that demonstrates the integration of:
+
+- Executable R code
+- Data visualization
+- Mathematical equations with cross-references
+- Interactive analysis
+
+## Mathematical Foundation {#sec-math}
+
+The linear regression model is defined as:
+
+$$
+y_i = \beta_0 + \beta_1 x_i + \epsilon_i
+$$ {#eq-linear-regression}
+
+where $\epsilon_i \sim N(0, \sigma^2)$ represents the error term.
+
+The coefficient of determination is:
+
+$$
+R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
+$$ {#eq-r-squared}
+
+## Data Analysis {#sec-analysis}
+
+Let's demonstrate with a simple analysis using R:
+
+```{r setup, include=FALSE}
+# Set chunk options
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r data-generation}
+# Generate sample data
+set.seed(42)
+n <- 100
+x <- seq(0, 10, length.out = n)
+y <- 2 + 3 * x + rnorm(n, sd = 2)
+data <- data.frame(x = x, y = y)
+
+# Summary statistics
+summary(data)
+```
+
+### Regression Model
+
+We fit the linear model described in @eq-linear-regression:
+
+```{r regression}
+# Fit linear regression
+model <- lm(y ~ x, data = data)
+summary(model)
+```
+
+The $R^2$ value from @eq-r-squared is `r round(summary(model)$r.squared, 3)`.
+
+### Visualization
+
+```{r plot, fig.width=8, fig.height=6}
+# Create scatter plot with regression line
+plot(data$x, data$y,
+     pch = 16, col = "steelblue",
+     xlab = "X", ylab = "Y",
+     main = "Linear Regression Example")
+abline(model, col = "red", lwd = 2)
+legend("topleft",
+       legend = c("Data", "Fitted line"),
+       col = c("steelblue", "red"),
+       pch = c(16, NA),
+       lty = c(NA, 1),
+       lwd = c(NA, 2))
+```
+
+## Results {#sec-results}
+
+As shown in @sec-analysis, the linear relationship between $x$ and $y$ is well-captured by the model in @eq-linear-regression.
+
+Key findings:
+
+1. The estimated slope is approximately 3
+2. The intercept is close to 2
+3. The model explains most of the variance in the data
+
+## Conclusion
+
+This document demonstrates the capability to:
+
+- Execute R code and display results
+- Generate plots and visualizations
+- Use equation cross-references (@eq-linear-regression, @eq-r-squared)
+- Reference sections (@sec-intro, @sec-math, @sec-analysis)

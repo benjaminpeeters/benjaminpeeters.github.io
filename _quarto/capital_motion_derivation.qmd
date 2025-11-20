@@ -1,0 +1,1200 @@
+---
+title: "Deriving Capital Dynamics with Climate Damage in the MSG"
+author: "Benjamin Peeters"
+description: "Derivation of discrete-time capital equations from continuous-time dynamics for climate-induced damage models"
+---
+
+This document provides a derivation of the discrete-time capital equations from continuous-time dynamics for a model with climate-induced damage to capital. We follow an approach that splits capital into potential capital stock and a capacity factor representing the undamaged fraction.
+
+#### Model Framework and Variables 
+
+- $K^p_{r,s,t}$: Potential capital stock in region $r$, sector $s$ at time $t$
+- $\xi_{r,s,t}$: Production capacity factor (undamaged fraction) in region $r$, sector $s$ at time $t$
+- $K_{r,s,t}$: Actual capital stock, where $K_{r,s,t} = \xi_{r,s,t} \cdot K^p_{r,s,t}$
+- $I^p_{r,s,t}$: Investment in new potential capital (annual)
+- $I^{\xi}_{r,s,t}$: Investment in rebuilding damaged capital (annual)
+- $I_{r,s}(t) = I^p_{r,s}(t) + I^{\xi}_{r,s}(t)$ is total investment
+- $\delta_{r,s}$: Standard depreciation rate for region $r$, sector $s$ (annual)
+- $\delta^D_{r,s}(t)$: Time-varying damage rate to capital for region $r$, sector $s$ (annual)
+- $D_{r,s}(t)$ represents climate damage to capital
+- $\Delta t$: Time step for discrete approximation (in years)
+
+
+# Continuous-Time Dynamics {#sec-continuous-time}
+
+## Derivation of the Continuous Equations
+
+We start with the standard capital accumulation equation in the presence of climate damage:
+
+$$\dot{K}_{r,s}(t) = I_{r,s}(t) - \delta_{r,s} K_{r,s}(t) - D_{r,s}(t)$$ {#eq-capital-accumulation}
+
+where:
+
+- $I_{r,s}(t) = I^p_{r,s}(t) + I^{\xi}_{r,s}(t)$ is total investment
+- $\delta_{r,s}$ is the standard depreciation rate for region $r$, sector $s$
+- $D_{r,s}(t)$ represents climate damage to capital
+
+
+
+### Decomposing Capital
+
+We decompose actual capital as:
+$$K_{r,s}(t) = \xi_{r,s}(t) \cdot K^p_{r,s}(t)$$ {#eq-capital-decomposition}
+
+where:
+
+- $\xi_{r,s}(t) \in [0,1]$ is the production capacity factor (undamaged fraction)
+- $K^p_{r,s}(t)$ is the potential capital stock
+
+This multiplicative relationship defines the actual productive capital as the fraction of potential capital that remains functional. This formulation elegantly separates the two distinct processes affecting capital: (1) standard accumulation and aging/obsolescence and (2) climate-induced damage.
+
+
+We assume that total investment can be split between investment in new potential capital and investment in rebuilding damaged capital:
+
+$$I_{r,s,t} =  I^p_{r,s,t} + I^{\xi}_{r,s,t}$$ {#eq-investment-split}
+
+where $I^p_{r,s,t}$ represents investment that expands the potential capital stock and $I^{\xi}_{r,s,t}$ represents investment that repairs damaged capital to restore the production capacity factor. 
+
+The allocation between these two types of investment is determined by economic incentives and practical constraints. Since rebuilding existing capital typically provides higher immediate returns than creating new capacity (as it restores already-installed productive infrastructure), the model prioritizes rebuilding investment subject to feasibility constraints:
+
+$$I^{\xi}_{r,s,t} = \mathcal{I}_{r,s,t} \equiv \min \left[ (1-\xi_{r,s,t})K^p_{r,s,t}, f^{max}_{r,s,t} \cdot Y_{r,s,t}, I_{r,s,t} \right]$$ {#eq-rebuilding-constraint}
+
+This last equation determine how total investment is optimally split between rebuilding damaged capital and creating new potential capital. The rebuilding investment ($I^{\xi}_{r,s,t}$) is constrained by three factors:
+
+1. *Available damaged capital*: $(1-\xi_{r,s,t})K^p_{r,s,t}$ represents the total amount of damaged capital that could potentially be repaired
+   
+2. *Reconstruction capacity*: $f^{max}_{r,s,t} \cdot Y_{r,s,t}$ captures the maximum feasible rebuilding that can be undertaken in a single time period, where:
+   - $f^{max}_{r,s,t}$ is a parameter representing the maximum fraction of current output that can be effectively dedicated to reconstruction
+   - $Y_{r,s,t}$ is the current output of the sector
+   - This constraint reflects limitations in skilled labor, specialized equipment, and logistical capacity that prevent instant rebuilding of all damaged capital
+
+3. *Budget constraint*: $I_{r,s,t}$ is the total investment resources available to the sector, which cannot be exceeded
+
+Once rebuilding investment is determined, any remaining investment resources ($I^p_{r,s,t}$) are allocated to creating new potential capital, reflecting the economic logic that repairing existing capital typically yields higher immediate returns than building entirely new capital.
+
+Alternatively, the fraction of the investment allocated to reconstruction can be let to the optimizer (typically representative households or planners) so that @eq-rebuilding-constraint becomes the following inequality: 
+
+$$ I^{\xi}_{r,s,t} \leq \mathcal{I}_{r,s,t}. $$
+
+
+
+### Deriving the Dynamics
+
+Taking the time derivative of the capital decomposition from equation @eq-capital-decomposition:
+$$\dot{K}_{r,s}(t) = \frac{\partial}{\partial t}[\xi_{r,s}(t) \cdot K^p_{r,s}(t)] = \dot{\xi}_{r,s}(t) \cdot K^p_{r,s}(t) + \xi_{r,s}(t) \cdot \dot{K}^p_{r,s}(t)$$
+
+From our original equation @eq-capital-accumulation, we also have:
+$$\dot{K}_{r,s}(t) = I^p_{r,s}(t) + I^{\xi}_{r,s}(t) - \delta_{r,s} \xi_{r,s}(t) K^p_{r,s}(t) - D_{r,s}(t)$$
+
+### Potential Capital Dynamics
+
+We define the potential capital stock to evolve according to the standard accumulation equation without climate damage:
+$$\dot{K}^p_{r,s}(t) = I^p_{r,s}(t) - \delta_{r,s} K^p_{r,s}(t)$$ {#eq-potential-capital-continuous}
+
+This ensures that investment in new capital simply adds to the potential capital stock.
+
+### Production Capacity Factor Dynamics
+
+Substituting the equation for $\dot{K}^p_{r,s}(t)$ into our expression for $\dot{K}_{r,s}(t)$:
+
+$$\dot{\xi}_{r,s}(t) \cdot K^p_{r,s}(t) + \xi_{r,s}(t)[I^p_{r,s}(t) - \delta_{r,s} K^p_{r,s}(t)] = I^p_{r,s}(t) + I^{\xi}_{r,s}(t) - \delta_{r,s} \xi_{r,s}(t) K^p_{r,s}(t) - D_{r,s}(t)$$
+
+Simplifying:
+$$\dot{\xi}_{r,s}(t) \cdot K^p_{r,s}(t) + \xi_{r,s}(t) I^p_{r,s}(t) - \delta_{r,s} \xi_{r,s}(t) K^p_{r,s}(t) = I^p_{r,s}(t) + I^{\xi}_{r,s}(t) - \delta_{r,s} \xi_{r,s}(t) K^p_{r,s}(t) - D_{r,s}(t)$$
+
+The $\delta_{r,s} \xi_{r,s}(t) K^p_{r,s}(t)$ terms cancel:
+$$\dot{\xi}_{r,s}(t) \cdot K^p_{r,s}(t) = I^p_{r,s}(t)(1 - \xi_{r,s}(t)) + I^{\xi}_{r,s}(t) - D_{r,s}(t)$$
+
+Assuming climate damage affects the capacity factor directly: $D_{r,s}(t) = \delta^D_{r,s}(t) \cdot \xi_{r,s}(t) \cdot K^p_{r,s}(t)$, we get:
+
+$$\dot{\xi}_{r,s}(t) = \frac{I^{\xi}_{r,s}(t)}{K^p_{r,s}(t)} + \frac{I^{p}_{r,s}(t)}{K^p_{r,s}(t)} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s}(t) \cdot \xi_{r,s}(t)$$ {#eq-capacity-factor-continuous}
+
+## Summary of Continuous-Time Dynamics
+
+We arrive at the following system of continuous-time equations:
+
+#### Potential Capital Stock Dynamics
+
+$$\dot{K}^p_{r,s}(t) = I^p_{r,s}(t) - \delta_{r,s} K^p_{r,s}(t)$$
+
+This equation (same as equation @eq-potential-capital-continuous) shows that potential capital changes due to:
+
+- Increase from new investments $I^p_{r,s}(t)$
+- Decrease from standard depreciation at rate $\delta_{r,s}$
+
+#### Production Capacity Factor Dynamics
+
+$$\dot{\xi}_{r,s}(t) = \frac{I^{\xi}_{r,s}(t)}{K^p_{r,s}(t)} + \frac{I^{p}_{r,s}(t)}{K^p_{r,s}(t)} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s}(t) \cdot \xi_{r,s}(t)$$
+
+This equation (derived as equation @eq-capacity-factor-continuous) shows that the capacity factor changes due to:
+
+- Increase from rebuilding investments (as a proportion of potential capital)
+- Increase from new capital investments when $\xi_{r,s}(t) < 1$: investing in new potential capital helps restore the capacity factor toward 1, as the new capital is undamaged and increases both actual and potential capital stock
+- Decrease from damage at rate $\delta^D_{r,s}(t)$ applied to the undamaged fraction
+
+
+# Deriving Discrete-Time Equations {#sec-discrete-derivation}
+
+## Potential Capital Stock Equation
+
+Starting with:
+$$\dot{K}^p_{r,s}(t) = I^p_{r,s}(t) - \delta_{r,s} K^p_{r,s}(t)$$
+
+This is a first-order linear differential equation. To solve it, we rearrange:
+$$\dot{K}^p_{r,s}(t) + \delta_{r,s} K^p_{r,s}(t) = I^p_{r,s}(t)$$
+
+Using the integrating factor method with $e^{\delta_{r,s} t}$:
+$$e^{\delta_{r,s} t}\dot{K}^p_{r,s}(t) + \delta_{r,s} e^{\delta_{r,s} t}K^p_{r,s}(t) = e^{\delta_{r,s} t}I^p_{r,s}(t)$$
+
+The left side is the derivative of $e^{\delta_{r,s} t}K^p_{r,s}(t)$:
+$$\frac{d}{dt}[e^{\delta_{r,s} t}K^p_{r,s}(t)] = e^{\delta_{r,s} t}I^p_{r,s}(t)$$
+
+Integrating both sides from $t$ to $t+\Delta t$:
+$$\int_t^{t+\Delta t} \frac{d}{ds}[e^{\delta_{r,s} s}K^p_{r,s}(s)]ds = \int_t^{t+\Delta t} e^{\delta_{r,s} s}I^p_{r,s}(s)ds$$
+
+Evaluating the left side:
+$$e^{\delta_{r,s}(t+\Delta t)}K^p_{r,s}(t+\Delta t) - e^{\delta_{r,s} t}K^p_{r,s}(t) = \int_t^{t+\Delta t} e^{\delta_{r,s} s}I^p_{r,s}(s)ds$$
+
+Assuming $I^p_{r,s}(s)$ is constant over $[t, t+\Delta t]$ with value $I^p_{r,s,t}$:
+$$e^{\delta_{r,s}(t+\Delta t)}K^p_{r,s}(t+\Delta t) - e^{\delta_{r,s} t}K^p_{r,s}(t) = I^p_{r,s,t}\int_t^{t+\Delta t} e^{\delta_{r,s} s}ds$$
+
+$$e^{\delta_{r,s}(t+\Delta t)}K^p_{r,s}(t+\Delta t) - e^{\delta_{r,s} t}K^p_{r,s}(t) = I^p_{r,s,t}\left[\frac{e^{\delta_{r,s} s}}{\delta_{r,s}}\right]_t^{t+\Delta t}$$
+
+$$e^{\delta_{r,s}(t+\Delta t)}K^p_{r,s}(t+\Delta t) - e^{\delta_{r,s} t}K^p_{r,s}(t) = I^p_{r,s,t}\frac{e^{\delta_{r,s}(t+\Delta t)} - e^{\delta_{r,s} t}}{\delta_{r,s}}$$
+
+Solving for $K^p_{r,s}(t+\Delta t)$:
+$$K^p_{r,s}(t+\Delta t) = e^{-\delta_{r,s} \Delta t}K^p_{r,s}(t) + I^p_{r,s,t}\frac{1 - e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$ {#eq-potential-capital-discrete}
+
+This gives us the discrete-time equation for potential capital stock with time step $\Delta t$.
+
+This equation tracks the evolution of potential capital stock, accounting for standard depreciation (through the survival fraction $e^{-\delta_{r,s} \Delta t}$) and new capital investments. The term $\frac{1-e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$ represents the effective multiplier for investment over the time interval, accounting for the fact that new investments also begin to depreciate immediately.
+
+
+## Production Capacity Factor Equation
+
+The continuous-time equation for the capacity factor (equation @eq-capacity-factor-continuous) is:
+$$\dot{\xi}_{r,s}(t) = \frac{I^{\xi}_{r,s}(t)}{K^p_{r,s}(t)} + \frac{I^{p}_{r,s}(t)}{K^p_{r,s}(t)} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s}(t) \cdot \xi_{r,s}(t)$$
+
+Two approaches can be taken to derive the discrete-time equation: assuming or not that the potential capital stock is constant within a time step. The detailed derivations of both approaches are provided in @sec-appendix-constant-kp, @sec-appendix-varying-kp-1 and @sec-appendix-varying-kp-2.
+
+
+### Approach 1: Assuming Constant $K^p$ Within Time Step (see @sec-appendix-constant-kp)
+
+If we assume $K^p_{r,s}(t)$ is approximately constant within each time step, we obtain:
+
+$$\xi_{r,s}(t+\Delta t) = e^{-\gamma_{r,s,t} \Delta t}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}} \cdot \frac{1 - e^{-\gamma_{r,s,t} \Delta t}}{\gamma_{r,s,t}}$$ {#eq-xi-discrete-approx}
+
+where $\gamma_{r,s,t} = \delta^D_{r,s,t} + \frac{I^{p}_{r,s,t}}{K^p_{r,s,t}}$.
+
+### Approach 2: Solution Accounting for Time-Varying $K^p$ (see @sec-appendix-varying-kp-1 and @sec-appendix-varying-kp-2)
+
+Without assuming constant $K^p$, the solution is:
+
+$$\xi_{r,s}(t+\Delta t) = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$ {#eq-xi-discrete-exact}
+
+where $K^p_{r,s}(t+\Delta t)$ is given by equation @eq-potential-capital-discrete.
+
+
+## Complete Discrete-Time System {#sec-complete-system}
+
+After integrating the continuous equations, we arrive at a five-equation system that fully characterizes capital dynamics with climate damage for any time step $\Delta t$:
+
+- Capital Decomposition Equqtion, @eq-capital-decomposition: $K_{r,s}(t) = \xi_{r,s}(t) \cdot K^p_{r,s}(t)$
+- Investment Split Equation, @eq-investment-split: $I_{r,s,t} =  I^p_{r,s,t} + I^{\xi}_{r,s,t}$
+- Investment Allocation Equation/Inequality, @eq-rebuilding-constraint:
+$$ I^{\xi}_{r,s,t} = \mathcal{I}_{r,s,t} \quad \text{or} \quad I^{\xi}_{r,s,t} \leq \mathcal{I}_{r,s,t} $$
+- Potential Capital Stock Equation, @eq-potential-capital-discrete:
+$$K^p_{r,s,t+\Delta t} = e^{-\delta_{r,s} \Delta t}K^p_{r,s,t} + I^p_{r,s,t} \cdot \frac{1-e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+- Production Capacity Factor Equation, @eq-xi-discrete-exact:
+$$\xi_{r,s,t+\Delta t} = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t} \frac{K^p_{r,s,t}}{K^p_{r,s,t+\Delta t}}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t+\Delta t}} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+
+
+Based on the Potential Capital Stock Equation (@eq-potential-capital-discrete) and Production Capacity Factor Equation (@eq-xi-discrete-exact), we have that the dynamical equation for the capital stock is given by:
+$$K_{r,s,t+\Delta t} = K^p_{r,s,t+\Delta t} \cdot \xi_{r,s,t+\Delta t} = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t} K_{r,s,t} + \left( I^{\xi}_{r,s,t} + I^{p}_{r,s,t} \right) \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$ {#eq-actual-capital-discrete}
+
+Note: The capital stock dynamic is independent of the investment allocation between $I^p_{r,s,t}$ and $I^{\xi}_{r,s,t}$.
+
+
+# Some Interpretative Elements {#sec-interpretation}
+
+## Steady State
+
+In the steady state, the capital stock and capacity factor remain constant over time, implying:
+
+- $K^p_{r,s,t+\Delta t} = K^p_{r,s,t} = K^p_{r,s}$
+- $\xi_{r,s,t+\Delta t} = \xi_{r,s,t} = \xi_{r,s}$
+- $K_{r,s,t+\Delta t} = K_{r,s,t} = K_{r,s}$
+
+### Steady-State Potential Capital
+
+From the potential capital equation (@eq-potential-capital-discrete), setting $K^p_{r,s,t+\Delta t} = K^p_{r,s,t} = K^p_{r,s}$:
+
+$$K^p_{r,s} = e^{-\delta_{r,s} \Delta t}K^p_{r,s} + I^p_{r,s} \cdot \frac{1-e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+Solving for $K^p_{r,s}$:
+$$K^p_{r,s}(1 - e^{-\delta_{r,s} \Delta t}) = I^p_{r,s} \cdot \frac{1-e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+$$K^p_{r,s} = \frac{I^p_{r,s}}{\delta_{r,s}}$$
+
+This is the standard result: steady-state potential capital equals investment in new capital divided by the depreciation rate.
+
+### Steady-State Capacity Factor
+
+From the capacity factor equation (@eq-xi-discrete-exact), setting $\xi_{r,s,t+\Delta t} = \xi_{r,s,t} = \xi_{r,s}$ and $K^p_{r,s,t+\Delta t} = K^p_{r,s,t} = K^p_{r,s}$:
+
+$$\xi_{r,s} = e^{-(\delta^D_{r,s} + \delta_{r,s})\Delta t} \xi_{r,s} + \frac{I^{\xi}_{r,s} + I^{p}_{r,s}}{K^p_{r,s}} \cdot \frac{1-e^{-(\delta^D_{r,s} + \delta_{r,s})\Delta t}}{\delta^D_{r,s} + \delta_{r,s}}$$
+
+Rearranging:
+$$\xi_{r,s}(1 - e^{-(\delta^D_{r,s} + \delta_{r,s})\Delta t}) = \frac{I^{\xi}_{r,s} + I^{p}_{r,s}}{K^p_{r,s}} \cdot \frac{1-e^{-(\delta^D_{r,s} + \delta_{r,s})\Delta t}}{\delta^D_{r,s} + \delta_{r,s}}$$
+
+$$\xi_{r,s} = \frac{I^{\xi}_{r,s} + I^{p}_{r,s}}{K^p_{r,s}(\delta^D_{r,s} + \delta_{r,s})}$$
+
+Substituting $K^p_{r,s} = \frac{I^{p}_{r,s}}{\delta_{r,s}}$, we have these three steady state equations:
+
+
+$$
+K^p_{r,s} = \frac{I^p_{r,s}}{\delta_{r,s}}
+\quad
+\quad
+\quad
+\quad
+\quad
+\xi_{r,s} = \left[ \frac{1}{1 + \frac{\delta^D_{r,s}}{\delta_{r,s}}} \right] \left[ 1 + \frac{I^\xi_{r,s}}{I^p_{r,s}} \right]
+\quad
+\quad
+\quad
+\quad
+\quad
+K_{r,s} = \frac{I^{\xi}_{r,s} + I^{p}_{r,s}}{\delta^D_{r,s} + \delta_{r,s}}
+$$ {#eq-steady-state}
+
+These steady-state relationships reveal important economic insights:
+
+1. **Potential capital** follows the standard neoclassical result where steady-state capital equals the flow of new investment divided by the depreciation rate.
+
+2. **Capacity factor** depends on two key ratios:
+   - The damage-to-depreciation ratio $\frac{\delta^D_{r,s}}{\delta_{r,s}}$: Higher climate damage relative to normal depreciation reduces steady-state capacity
+   - The rebuilding-to-new-investment ratio $\frac{I^\xi_{r,s}}{I^p_{r,s}}$: More rebuilding investment helps maintain higher capacity factor
+
+3. **Actual capital** has an elegant form where total investment (rebuilding plus new) is divided by the sum of depreciation and damage rates. This shows that climate damage acts like an additional depreciation rate in steady state. Importantly, the steady-state actual capital stock $K_{r,s} = \frac{I_{r,s}}{\delta^D_{r,s} + \delta_{r,s}}$ depends only on total investment $I_{r,s} = I^\xi_{r,s} + I^p_{r,s}$, *regardless of the split between rebuilding and new capital investment*.
+
+
+\
+
+<br>
+
+
+
+The middle equation for $\xi_{r,s}$ can be rewritten as:
+$$\xi_{r,s} = \frac{\delta_{r,s}}{\delta_{r,s} + \delta^D_{r,s}} \cdot \frac{I^p_{r,s} + I^\xi_{r,s}}{I^p_{r,s}}$$
+
+This shows that steady-state capacity utilization is the product of two factors: the fraction of capital that survives climate damage and the investment boost from rebuilding activities.
+
+### Special Case: No Climate Damage
+
+
+When there is no climate damage ($\delta^D_{r,s} = 0$):
+
+- $I^{\xi}_{r,s} = 0$ (no rebuilding investment needed)
+- $I_{r,s} = I^{p}_{r,s}$ (all investment goes to new capital)
+- $\xi_{r,s} = 1$ (full capacity utilization)
+
+
+
+
+
+
+
+
+## Small Depreciation Rate Approximation
+
+When the depreciation rates $\delta_{r,s}$ and $\delta^D_{r,s}$ are relatively small (which is often the case for annual rates in macroeconomic models), we can simplify our discrete-time equations using the first-order Taylor approximation of the exponential function: $e^{-x} \approx 1 - x$ for small $x$.
+
+Applying this approximation to our equations:
+
+**Potential Capital Stock Evolution**:
+
+$$K^p_{r,s,t+\Delta t} = e^{-\delta_{r,s} \Delta t}K^p_{r,s,t} + I^p_{r,s,t} \cdot \frac{1-e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+$$\approx (1-\delta_{r,s} \Delta t)K^p_{r,s,t} + I^p_{r,s,t} \cdot \frac{1-(1-\delta_{r,s} \Delta t)}{\delta_{r,s}}$$
+
+$$= (1-\delta_{r,s} \Delta t)K^p_{r,s,t} + I^p_{r,s,t} \cdot \frac{\delta_{r,s} \Delta t}{\delta_{r,s}}$$
+
+$$= (1-\delta_{r,s} \Delta t)K^p_{r,s,t} + I^p_{r,s,t} \cdot \Delta t$$
+
+This recovers the familiar discrete-time capital motion equation from standard macroeconomic models when $\Delta t = 1$:
+
+$$K^p_{r,s,t+1} = (1-\delta_{r,s})K^p_{r,s,t} + I^p_{r,s,t}$$
+
+
+**Production Capacity Factor Evolution (assuming constant $K^p$):**
+
+Starting from the exact discrete equation @eq-xi-discrete-approx:
+
+$$\xi_{r,s,t+\Delta t} = e^{-\gamma_{r,s,t} \Delta t}\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}} \cdot \frac{1 - e^{-\gamma_{r,s,t} \Delta t}}{\gamma_{r,s,t}}$$
+
+where $\gamma_{r,s,t} = \delta^D_{r,s,t} + \frac{I^{p}_{r,s,t}}{K^p_{r,s,t}}$.
+
+Using the approximation $e^{-x} \approx 1 - x$ for small $x$:
+
+$$\approx (1-\gamma_{r,s,t} \Delta t)\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}} \cdot \frac{\gamma_{r,s,t} \Delta t}{\gamma_{r,s,t}}$$
+
+$$= (1-\gamma_{r,s,t} \Delta t)\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}} \cdot \Delta t$$
+
+For the standard annual time step ($\Delta t = 1$), this simplifies to:
+
+$$\xi_{r,s,t+1} = (1-\gamma_{r,s,t})\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}}$$
+
+Expanding $\gamma_{r,s,t}$:
+$$\xi_{r,s,t+1} = (1-\delta^D_{r,s,t})\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t}}{K^p_{r,s,t}} + \frac{I^{p}_{r,s,t}}{K^p_{r,s,t}}(1 - \xi_{r,s,t})$$
+
+
+
+**Production Capacity Factor Evolution (considering time-varying $K^p$):**
+
+
+Starting from the discrete equation @eq-xi-discrete-exact:
+$$\xi_{r,s}(t+\Delta t) = e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+For small $x$, use $e^{-x} \approx 1 - x$ and $\frac{1-e^{-x}}{x} \approx 1$:
+
+- $e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \approx 1-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t$
+- $\frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}} \approx \Delta t$
+
+This gives:
+$$\xi_{r,s}(t+\Delta t) \approx [1-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t] \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \Delta t$$
+
+
+For the standard annual time step ($\Delta t = 1$), this simplifies to:
+$$\xi_{r,s,t+1} \approx [1-(\delta^D_{r,s,t} + \delta_{r,s})] \frac{K^p_{r,s,t}}{K^p_{r,s,t+1}}\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t+1}} $$
+
+
+
+By proceeding to further simplification (see @sec-simplication-time-varying-kp), we can find an expression with a similar pattern than for the case assuming constant $K^p$:
+
+$$\xi_{r,s,t+1} \approx (1-\delta^D_{r,s,t})\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t}}{K^p_{r,s}(t+1)} + \frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+1)}(1 - \xi_{r,s,t})$$
+
+
+**Combined Effect on Actual Capital:**
+
+As shown in Section @sec-complete-system, the exact capital stock dynamics is given by:
+$$K_{r,s,t+\Delta t} = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t} K_{r,s,t} + \left( I^{\xi}_{r,s,t} + I^{p}_{r,s,t} \right) \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+For small depreciation rates and annual time step ($\Delta t = 1$), using the approximations $e^{-x} \approx 1-x$ and $\frac{1-e^{-x}}{x} \approx 1$:
+
+$$K_{r,s,t+1} \approx [1-(\delta^D_{r,s,t} + \delta_{r,s})]K_{r,s,t} + (I^{\xi}_{r,s,t} + I^{p}_{r,s,t})$$
+
+
+Key insights from this approximation:
+
+1. **Additive depreciation effects**: In the first-order approximation, standard depreciation ($\delta_{r,s}$) and climate damage ($\delta^D_{r,s,t}$) act additively on the capital stock.
+
+2. **Investment allocation neutrality**: The capital stock evolution is independent of how total investment is split between rebuilding ($I^{\xi}_{r,s,t}$) and new capital ($I^{p}_{r,s,t}$). This split only affects the evolution of $\xi_{r,s,t}$ and $K^p_{r,s,t}$ separately.
+
+3. **Comparison with standard model**: Without climate damage ($\delta^D_{r,s,t} = 0$), this reduces to the standard capital accumulation equation:
+   $$K_{r,s,t+1} \approx (1-\delta_{r,s})K_{r,s,t} + I_{r,s,t}$$
+
+4. **Effective depreciation rate**: The presence of climate damage creates an effective depreciation rate of $(\delta_{r,s} + \delta^D_{r,s,t})$ in the linearized approximation, though the exact solution shows these effects combine non-linearly through the exponential term.
+
+
+## Remarks
+
+#### Relationship to Standard Capital Motion Equation
+
+When there is no damage ($\delta^D_{r,s,t} = 0$ and $\xi_{r,s,t} = 1$ for all $t$), the system reduces to the standard capital motion equation:
+
+$$K_{r,s,t+\Delta t} = e^{-\delta_{r,s} \Delta t}K_{r,s,t} + I_{r,s,t} \cdot \frac{1-e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+This demonstrates that our modeling approach is a proper extension of the standard approach. Note that this is equivalent to equation @eq-potential-capital-discrete when $\xi_{r,s,t} = 1$.
+
+
+
+
+#### Depreciation of Rebuilt Capital
+
+An important aspect of this model is that investment in rebuilding ($I^{\xi}_{r,s,t}$) is implicitly subject to standard depreciation. This occurs because:
+
+1. Rebuilding investment increases the capacity factor $\xi_{r,s,t}$, which represents the fraction of potential capital that is functional
+2. The potential capital stock $K^p_{r,s,t}$ depreciates at rate $\delta_{r,s}$ according to equation @eq-potential-capital-continuous, regardless of whether it's damaged or functional
+3. Since actual capital is defined as $K_{r,s,t} = \xi_{r,s,t} \cdot K^p_{r,s,t}$, the depreciation of potential capital affects both undamaged and rebuilt capital equally
+
+This treatment correctly models the physical reality that repaired infrastructure and equipment still experience normal aging and wear-and-tear after being repaired. Rebuilt capital is not "new" capital - it simply restores damaged capacity that continues to age at the normal rate.
+
+
+
+
+<!-- #### Interpretation of Exponential Terms -->
+<!---->
+<!-- The terms $e^{-\delta \Delta t}$ and $e^{-\delta_c \Delta t}$ represent the survival fractions after standard depreciation and climate damage, respectively, over the time interval $\Delta t$. For small values of $\delta \Delta t$ and $\delta_c \Delta t$, these can be approximated as $(1-\delta \Delta t)$ and $(1-\delta_c \Delta t)$, but the exponential form is more accurate for larger time steps. -->
+
+#### Treatment of Time-Varying Climate Damage
+
+If damage rate $\delta^D_{r,s}(t)$ varies significantly within a time step, more sophisticated integration techniques may be needed. Options include:
+
+1. Using the average value over the period
+2. Using the end-of-period value if damage is expected to increase monotonically
+3. Employing numerical integration methods for highly variable damage rates
+
+<!-- #### Small Time Step Approximation -->
+<!---->
+<!-- For small time steps (e.g., annual), the discrete equations can be approximated using first-order Taylor expansions: -->
+<!---->
+<!-- Potential Capital Stock: -->
+<!-- $$K^p_{r,s,t+\Delta t} \approx (1-\delta_{r,s} \Delta t)K^p_{r,s,t} + I^p_{r,s,t} \cdot \Delta t$$ -->
+<!---->
+<!-- Production Capacity Factor (accounting for time-varying $K^p$): -->
+<!-- From the detailed derivation in @sec-simplication-time-varying-kp, when properly accounting for the changing potential capital stock: -->
+<!-- $$\xi_{r,s,t+\Delta t} \approx (1-\delta^D_{r,s,t} \Delta t)\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t}}{K^p_{r,s,t+\Delta t}} \cdot \Delta t + \frac{I^{p}_{r,s,t}}{K^p_{r,s,t+\Delta t}}(1 - \xi_{r,s,t}) \cdot \Delta t$$ -->
+<!---->
+<!-- Note that investment terms are normalized by $K^p_{r,s,t+\Delta t}$ rather than $K^p_{r,s,t}$, reflecting the proper accounting for time-varying potential capital. -->
+<!---->
+<!-- Actual Capital Stock: -->
+<!-- $$K_{r,s,t+\Delta t} \approx [1-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t]K_{r,s,t} + (I^{\xi}_{r,s,t} + I^{p}_{r,s,t})\Delta t$$ -->
+<!---->
+<!-- This shows that climate damage and standard depreciation act additively in the linearized approximation, and the evolution of actual capital depends only on total investment, not its allocation between rebuilding and new capital. -->
+
+
+
+
+
+# Investment Allocation: Economic, Spatial, and Social Factors
+
+As highlighted by @eq-actual-capital-discrete and @eq-steady-state, the capital accumulation dynamic in this representation is not impacted by the investment allocation between rebuilding and new capital investment. This allocation neutrality creates an apparent indeterminacy that can be resolved through several mechanisms:
+
+1. **Baseline indeterminacy**: When no other model features distinguish between investment types, the planner has no preference between rebuilding and new capital, resulting in infinite possible optimal allocations.
+
+2. **External constraints**: Explicit constraints, such as @eq-rebuilding-constraint, can impose specific allocation requirements independent of economic optimization.
+
+3. **Economic differentiation**: Other factors in the model create distinct returns or costs for different investment types, pushing the optimizer toward specific allocations. These include production function specifications, spatial productivity-risk trade-offs, cost heterogeneity, time-to-build differences, and adaptation opportunities.
+
+4. **Social and distributional considerations**: Broader welfare implications beyond production efficiency may favor particular allocation strategies. These encompass utility preferences for functional capital and distributional effects across heterogeneous households.
+
+This section explores various modeling approaches that create meaningful economic trade-offs between rebuilding damaged capital and creating new capacity. 
+
+Note: This section is under development and *intended to stimulate discussion*. Some elements may require revision. Some subsections explore complex theoretical frameworks that exceed current implementation capabilities in the MSG model — these are included to foster conceptual development rather than immediate operationalization.
+
+## Damage on the least efficient capital vs Uniform damage
+
+The production function specification determines how climate damage affects the marginal productivity of capital and consequently influences optimal investment allocation between new capital ($I^p$) and rebuilding ($I^{\xi}$). We consider four main specifications:
+
+*Case 1: Damage on least efficient capital (Investment allocation neutral)*
+$$Y_{r,s,t} = A_{r,s,t} (K_{r,s,t})^{\alpha} L_{r,s,t}^{1-\alpha} = A_{r,s,t} (\xi_{r,s,t} K^p_{r,s,t})^{\alpha} L_{r,s,t}^{1-\alpha}$$
+
+This formulation assumes damage preferentially affects the least productive capital (e.g., older, less maintained infrastructure). Since only the total effective capital stock $K = \xi K^p$ matters for production, the marginal product of capital is independent of how that stock is achieved. Therefore, $I^p$ and $I^{\xi}$ have identical effects on production, making the optimizer indifferent between investment types.
+
+*Case 2: Uniform damage (Rebuilding preferred)*
+$$Y_{r,s,t} = A_{r,s,t} \xi_{r,s,t} (K^p_{r,s,t})^{\alpha} L_{r,s,t}^{1-\alpha}$$
+
+Here, all capital is equally susceptible to damage, and the capacity factor directly multiplies total output. This creates a strong preference for rebuilding since:
+
+- Marginal product of rebuilding: $\frac{\partial Y}{\partial I^{\xi}} = A \alpha K^{\alpha-1} + A (K^p)^{\alpha}$
+- Marginal product of new capital: $\frac{\partial Y}{\partial I^p} = A \xi \alpha (K^p)^{\alpha-1}$
+
+Since $\xi \leq 1$ and $\alpha < 1$, rebuilding always dominates new investment.
+
+*Case 3: Variable damage intensity*
+$$Y_{r,s,t} = A_{r,s,t} \left[\xi_{r,s,t}\right]^{\alpha \cdot \phi(\xi_{r,s,t})} \left[K^p_{r,s,t}\right]^{\alpha} L_{r,s,t}^{1-\alpha}$$
+
+where $\phi(\xi) \geq 1$ is a decreasing function with $\phi(1) = 1$. Since $\xi \leq 1$, this formulation implies that when capital is damaged, the remaining undamaged capital becomes more productive than the least efficient capital. This specification provides flexibility as $\phi(\cdot)$ can vary across regions and sectors to reflect different damage patterns.
+
+*Case 4: Explicit capital heterogeneity*
+$$Y_{r,s,t} = A_{r,s,t} \left[\int_0^1 q(v) \cdot k_{r,s,t}(v) dv\right]^{\alpha} L_{r,s,t}^{1-\alpha}$$
+
+where $k_{r,s,t}(v)$ represents capital of quality $v \in [0,1]$ and $q(v)$ is the productivity of quality-$v$ capital. Damage could destroy capital across all quality levels, allowing the optimizer to prioritize rebuilding the highest-quality capital first.
+
+## Location-specific productivity and risk
+
+Location factors introduce additional trade-offs between rebuilding damaged capital in-place versus creating new capital in different locations. We can model this by introducing location-specific productivity and damage parameters.
+
+*Location-specific capital heterogeneity*
+
+Let capital be indexed by location $\ell \in \mathcal{L}$, with production function:
+$$Y_{r,s,t} = A_{r,s,t} \left[\int_{\mathcal{L}} a_{r,s}(\ell) \xi_{r,s,t}(\ell) K^p_{r,s,t}(\ell) d\ell\right]^{\alpha} L_{r,s,t}^{1-\alpha}$$
+
+where $a_{r,s}(\ell)$ captures location-specific productivity advantages (e.g., agglomeration effects, infrastructure access).
+
+The location-specific damage rate $\delta^D_{r,s,t}(\ell)$ affects the capacity factor dynamics:
+$$\frac{d}{dt} \xi_{r,s,t}(\ell) = \frac{I^{\xi}_{r,s,t}(\ell)}{K^p_{r,s,t}(\ell)} + \frac{I^{p}_{r,s,t}(\ell)}{K^p_{r,s,t}(\ell)} \left(1 - \xi_{r,s,t}(\ell)\right) - \delta^D_{r,s,t}(\ell) \cdot \xi_{r,s,t}(\ell)$$
+
+Key trade-offs emerge:
+
+1. Productivity vs. Risk: High-productivity locations (large $a_{r,s}(\ell)$) may also face higher damage risk (large $\delta^D_{r,s,t}(\ell)$). Examples:
+   - Coastal manufacturing: Port access (high $a$) but hurricane/flooding risk (high $\delta^D$)
+   - River valleys: Fertile agricultural land but flood exposure
+   - Seismic zones: Urban agglomeration benefits but earthquake damage
+
+2. Network effects: Some capital provides network externalities requiring spatial continuity:
+$$a_{r,s}(\ell) = \bar{a}_{r,s}(\ell) \cdot g\left(\int_{\mathcal{N}(\ell)} \xi_{r,s,t}(\ell') K^p_{r,s,t}(\ell') d\ell'\right)$$
+where $\mathcal{N}(\ell)$ represents the neighborhood of location $\ell$ and $g(\cdot)$ captures network complementarities. Examples:
+   - Transport networks: Bridges, tunnels, rail lines requiring continuous connectivity
+   - Energy grids: Power plants and transmission infrastructure
+   - Industrial clusters: Supply chain interdependencies
+
+3. Relocation costs: Moving capital to safer locations incurs additional costs:
+$$\frac{dK^p_{r,s,t}(\ell')}{dt} = \frac{I^p_{r,s,t}(\ell')}{\eta^p_{r,s}(\ell,\ell')} - \delta_{r,s} K^p_{r,s,t}(\ell')$$
+where $\eta^p_{r,s}(\ell,\ell') > 1$ when $\ell' \neq \ell$ represents the cost premium for relocating from damaged location $\ell$ to new location $\ell'$. Examples:
+   - Site preparation costs for greenfield development
+   - Loss of location-specific human capital and knowledge
+   - Customer base and market access disruption
+
+These location-specific factors create complex optimization problems where rebuilding in risky but productive locations may dominate relocating to safer but less productive areas, particularly when network effects are strong.
+
+
+*Simplified approach: Persistent location characteristics*
+
+A simpler deterministic approach tracks whether capital was rebuilt in its original location or relocated after damage. We extend our framework by tracking the "location history" of capital.
+
+Define $\pi_{r,s,t}$ as the fraction of actual capital that was rebuilt in original locations (versus relocated):
+$$K_{r,s,t} = \xi_{r,s,t} K^p_{r,s,t} = \pi_{r,s,t} K_{r,s,t} + (1-\pi_{r,s,t}) K_{r,s,t}$$
+
+The evolution of this fraction depends on investment allocation:
+$$\frac{d}{dt} \pi_{r,s,t} = \frac{I^{\xi}_{r,s,t}}{K_{r,s,t}} (1-\pi_{r,s,t}) - \frac{I^{p}_{r,s,t}}{K_{r,s,t}} \pi_{r,s,t} \frac{1-\xi_{r,s,t}}{\xi_{r,s,t}}$$
+
+This tracks how rebuilding investment increases the fraction in original locations while new investment (when damage exists) dilutes it.
+
+The production function becomes:
+$$Y_{r,s,t} = A_{r,s,t} \left[\pi_{r,s,t} \theta^{orig}_{r,s} + (1-\pi_{r,s,t}) \theta^{new}_{r,s}\right] K_{r,s,t}^{\alpha} L_{r,s,t}^{1-\alpha}$$
+
+where:
+
+- $\theta^{orig}_{r,s}$: Productivity multiplier for capital in original locations
+- $\theta^{new}_{r,s}$: Productivity multiplier for relocated capital
+
+Future damage may also differ by location history:
+$$\delta^D_{r,s,t} = \pi_{r,s,t} \delta^{D,orig}_{r,s,t} + (1-\pi_{r,s,t}) \delta^{D,new}_{r,s,t}$$
+
+This implementation allows the model to track the composition of capital by location history and evaluate the long-term trade-offs between productivity and vulnerability.
+
+## Cost Heterogeneity between New Capital and Reconstruction
+
+#### Efficiency Parameters
+
+Beyond production function specifications, investment costs can differ significantly between new capital formation and reconstruction activities. New capital typically requires substantial R&D, planning, and regulatory approval costs, while reconstruction may face different cost structures including elevated risks (e.g., construction in disaster-prone areas) and potential economies of scale from existing infrastructure.
+
+To incorporate cost heterogeneity into our framework, we can modify the capital accumulation equations by introducing investment-specific efficiency parameters:
+
+$$\frac{d}{dt} K^p_{r,s}(t) = \frac{I^p_{r,s}(t)}{\eta^p_{r,s}} - \delta_{r,s} K^p_{r,s}(t)$$
+
+$$\frac{d}{dt} {\xi}_{r,s}(t) = \frac{I^{\xi}_{r,s}(t)}{\eta^{\xi}_{r,s} K^p_{r,s}(t)} + \frac{I^{p}_{r,s}(t)}{K^p_{r,s}(t)} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s}(t) \cdot \xi_{r,s}(t)$$
+
+
+where $\eta^p_{r,s}$ and $\eta^{\xi}_{r,s}$ represent the relative efficiency of new capital and rebuilding investments, respectively. Several interpretations are possible:
+
+*1. Relative investment efficiency:* If $\eta^p > \eta^{\xi}$, new capital formation is more expensive per unit of capacity added, potentially due to higher planning and approval costs.
+
+*2. Installation and adjustment costs:* These parameters can capture that reconstruction may benefit from existing infrastructure (lower $\eta^{\xi}$) while new capital faces greenfield development costs (higher $\eta^p$).
+
+*3. Risk premiums:* Reconstruction in damaged areas may require risk premiums reflected in higher $\eta^{\xi}$, while new capital in safer locations has lower $\eta^p$.
+
+*4. Scale economies:* Large-scale reconstruction programs may achieve economies of scale (lower $\eta^{\xi}$) compared to distributed new investments.
+
+This cost heterogeneity interacts with the production function specifications discussed above. Even in Case 1 where production effects are neutral, cost differences $\eta^p \neq \eta^{\xi}$ will create investment allocation preferences. The optimal allocation depends on the relative cost-effectiveness $\frac{\eta^{\xi}}{\eta^p}$ compared to the relative marginal productivities from the chosen production function specification.
+
+#### Installation and Adjustment Costs
+
+We can extend the model to include explicit installation costs that differ between new capital and reconstruction:
+
+$$\frac{d}{dt} K^p_{r,s}(t) = I^p_{r,s}(t) - \Phi^p(I^p_{r,s}(t), K^p_{r,s}(t)) - \delta_{r,s} K^p_{r,s}(t)$$
+
+$$\frac{d}{dt} \xi_{r,s}(t) = \frac{I^{\xi}_{r,s}(t) - \Phi^{\xi}(I^{\xi}_{r,s}(t), K_{r,s}(t))}{K^p_{r,s}(t)} + \frac{I^{p}_{r,s}(t) - \Phi^p(I^p_{r,s}(t), K^p_{r,s}(t))}{K^p_{r,s}(t)} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s}(t) \cdot \xi_{r,s}(t)$$
+
+where $\Phi^p(I^p_{r,s}(t), K^p_{r,s}(t))$ and $\Phi^{\xi}(I^{\xi}_{r,s}(t), K_{r,s}(t))$ represent installation costs that "consume" part of the investment. Common specifications include:
+
+- Quadratic costs: $\Phi^j(I^j, K) = \frac{\psi^j}{2}\left(\frac{I^j}{K}\right)^2 K$ for $j \in \{p, \xi\}$
+- Linear-quadratic: $\Phi^j(I^j, K) = \tau^j I^j + \frac{\psi^j}{2}\left(\frac{I^j}{K}\right)^2 K$
+
+The parameters $\psi^p$ and $\psi^{\xi}$ capture the convexity of adjustment costs, while $\tau^p$ and $\tau^{\xi}$ represent fixed efficiency losses. Reconstruction might have lower adjustment costs ($\psi^{\xi} < \psi^p$) due to existing site preparation and infrastructure connections.
+
+## Time-to-Build Considerations
+
+Investment projects often require multiple periods to become productive. This can be incorporated through modified continuous-time equations:
+
+$$\frac{d}{dt} K^p_{r,s}(t) = \int_0^{\infty} \omega^p_{r,s}(\tau) I^p_{r,s}(t-\tau) d\tau - \delta_{r,s} K^p_{r,s}(t)$$
+
+where $\omega^p_{r,s}(\tau)$ is the time-to-build profile representing the fraction of investment that becomes productive after time $\tau$, with $\int_0^{\infty} \omega^p_{r,s}(\tau) d\tau = 1$.
+
+For the capacity factor:
+
+$$\frac{d}{dt} \xi_{r,s}(t) = \frac{\int_0^{\infty} \omega^{\xi}_{r,s}(\tau) I^{\xi}_{r,s}(t-\tau) d\tau}{K^p_{r,s}(t)} + \frac{I^{p}_{r,s}(t)}{K^p_{r,s}(t)} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s}(t) \cdot \xi_{r,s}(t)$$
+
+In discrete time with time step $\Delta t$, these become:
+
+$$K^p_{r,s,t+\Delta t} = e^{-\delta_{r,s} \Delta t} K^p_{r,s,t} + \sum_{j=0}^{J} \omega^p_{r,s,j} I^p_{r,s,t-j} \cdot \frac{1-e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+$$\xi_{r,s,t+\Delta t} = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t} \frac{K^p_{r,s,t}}{K^p_{r,s,t+\Delta t}}\xi_{r,s,t} + \frac{\sum_{j=0}^{J} \omega^{\xi}_{r,s,j} I^{\xi}_{r,s,t-j} + \sum_{j=0}^{J} \omega^{p}_{r,s,j} I^{p}_{r,s,t}}{K^p_{r,s,t+\Delta t}} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+Reconstruction projects might have different completion profiles $\omega^{\xi}_{r,s}(\tau)$ than new construction $\omega^p_{r,s}(\tau)$. For instance:
+
+- Emergency repairs might have immediate partial effectiveness: $\omega^{\xi}_{r,s}(0) > 0$
+- Major new infrastructure might require longer lead times: $\omega^p_{r,s}(\tau) = 0$ for $\tau < \bar{\tau}$
+
+These additional cost structures further enrich the investment allocation decision, creating dynamic trade-offs between immediate needs and long-term efficiency.
+
+
+## Adaptation
+
+Adaptation investments can reduce future damage rates, creating an additional allocation decision beyond rebuilding versus new capital. We model adaptation as investments that reduce the damage rate $\delta^D_{r,s,t}$.
+
+Let $I^A_{r,s,t}$ represent adaptation investment and $M_{r,s,t}$ be the stock of adaptive measures. The damage rate becomes:
+$$\delta^D_{r,s,t} = \bar{\delta}^D_{r,s,t} \cdot g(M_{r,s,t})$$
+
+where $\bar{\delta}^D_{r,s,t}$ is the baseline damage rate without adaptation and $g(\cdot)$ is a decreasing function with $g(0) = 1$ and $g'(M) < 0$.
+
+The adaptation stock evolves according to:
+$$\frac{d}{dt} M_{r,s}(t) = I^A_{r,s}(t) - \delta^M_{r,s} M_{r,s}(t)$$
+
+where $\delta^M_{r,s}$ represents depreciation of adaptive measures.
+
+Specification options for the damage reduction function include:
+
+- Exponential: $g(M) = e^{-\phi M}$
+- Power: $g(M) = (1 + \phi M)^{-\beta}$
+- Bounded: $g(M) = \frac{1 + \phi M_{max}}{1 + \phi M}$
+
+The investment allocation problem now has three components:
+$$I_{r,s,t} = I^p_{r,s,t} + I^{\xi}_{r,s,t} + I^A_{r,s,t}$$
+
+Key trade-offs:
+
+- *Preventive vs. reactive*: Adaptation reduces future damage but diverts resources from current production capacity
+- *Timing*: Early adaptation provides cumulative benefits but has opportunity costs
+- *Complementarity*: Adaptation may be more effective for new capital than retrofitting existing capital
+
+Examples of adaptation measures and their characteristics:
+
+- Sea walls: High fixed costs, long lifetime ($\delta^M \approx 0.02$), location-specific
+- Building codes: Moderate costs, embedded in new construction, broad applicability
+- Early warning systems: Low capital costs, high maintenance ($\delta^M \approx 0.1$), network benefits
+
+The optimal adaptation level balances marginal damage reduction against the opportunity cost of foregone productive investment:
+$$\frac{\partial g(M_{r,s,t})}{\partial M_{r,s,t}} \cdot \bar{\delta}^D_{r,s,t} \cdot K_{r,s,t} = r + \delta^M_{r,s}$$
+
+where the left side is the marginal benefit of damage avoided and the right side is the user cost of adaptation capital.
+
+## Utility preferences
+
+Utility specifications can create preferences between rebuilding and new capital investment through aversion to damaged capital shares in the economy.
+
+Consider a utility function that directly incorporates the share of damaged capital:
+$$U_{r,t} = u(C_{r,t}, 1-\xi_{r,t})$$
+
+where $C_{r,t}$ is consumption and $\xi_{r,t} = \frac{\sum_s \xi_{r,s,t}K^p_{r,s,t}}{\sum_s K^p_{r,s,t}}$ is the economy-wide capacity factor (share of undamaged capital).
+
+Common specifications include:
+
+*1. Multiplicative penalty*: $U_{r,t} = u(C_{r,t}) \cdot h(\xi_{r,t})$ where $h(\xi)$ is increasing and $h(1) = 1$
+
+   - Example: $h(\xi) = \xi^{\psi}$ with $\psi > 0$ capturing aversion to disrepair
+
+*2. Additive separability*: $U_{r,t} = u(C_{r,t}) - \psi \cdot v(1-\xi_{r,t})$
+
+   - Linear: $v(1-\xi) = 1-\xi$ (proportional disutility)
+   - Convex: $v(1-\xi) = (1-\xi)^2$ (increasing marginal disutility)
+
+*3. Non-separable preferences*: $U_{r,t} = \frac{C_{r,t}^{1-\sigma} \cdot \xi_{r,t}^{\gamma}}{1-\sigma}$
+
+   - Parameter $\gamma > 0$ captures complementarity between consumption and functional capital
+
+The marginal utility comparison for the multiplicative specification becomes:
+$$\frac{\partial U}{\partial I^{\xi}} = u'(C) \frac{\partial Y}{\partial K} \frac{\partial K}{\partial I^{\xi}} + u(C) \cdot h'(\xi) \frac{1}{\sum_s K^p_{r,s,t}}$$
+$$\frac{\partial U}{\partial I^{p}} = u'(C) \frac{\partial Y}{\partial K} \frac{\partial K}{\partial I^{p}} - u(C) \cdot h'(\xi) \frac{\xi}{\sum_s K^p_{r,s,t}}$$
+
+Even when production effects are equal, rebuilding is preferred because it increases $\xi$ while new investment dilutes it when $\xi < 1$.
+
+Examples of preference parameters:
+
+- Subsistence economies: High $\psi$ due to limited tolerance for service disruptions
+- Diversified economies: Lower $\psi$ from multiple substitution options  
+- Public services: High $v'(G)$ from social costs of dysfunctional hospitals, schools, transport
+
+Intertemporal considerations strengthen rebuilding preferences when:
+
+- Service continuity matters: Essential infrastructure requires rapid restoration
+- Adjustment costs exist: Delayed rebuilding becomes more expensive or infeasible
+- Social cohesion: Visible disrepair erodes confidence and economic activity
+
+This utility-based approach can rationalize rebuilding investment even when pure production considerations would favor new capital, particularly in contexts where maintaining functional capital stock has intrinsic social value beyond its direct productive contribution.
+
+## Distributional effects
+
+The allocation between rebuilding and new capital can have significant distributional consequences across different groups in society, creating additional considerations for optimal investment policy.
+
+Let households be indexed by $h \in \mathcal{H}$ with heterogeneous exposure to damaged capital. Define $\omega_{h,s}$ as household $h$'s dependence on capital in sector $s$:
+$$W_h = w_h L_h + \sum_s \omega_{h,s} r_{s,t} K_{s,t}$$
+
+where $W_h$ is household income, $w_h$ is wage rate, $L_h$ is labor supply, and $r_{s,t}$ is the return to capital in sector $s$.
+
+When capital is damaged, the distributional impact depends on:
+$$\Delta W_h = -\sum_s \omega_{h,s} r_{s,t} (1-\xi_{s,t}) K^p_{s,t}$$
+
+Key heterogeneities arise from:
+
+**1. Asset ownership**: Wealthy households typically own more capital ($\omega_{h,s}$ increasing in wealth) but also have diversified portfolios
+
+   - Direct effect: Capital owners lose from unrepaired damage
+   - Portfolio effect: Diversification reduces individual exposure
+
+**2. Employment linkages**: Workers in damaged sectors face indirect effects
+
+   $$\Delta w_h = -\epsilon_h \cdot \frac{\partial w}{\partial K_s} (1-\xi_{s,t}) K^p_{s,t}$$
+   where $\epsilon_h$ measures worker $h$'s exposure to sector $s$
+
+**3. Service dependencies**: Low-income households often depend more on public infrastructure
+
+   - Transport: Damaged public transit affects non-car-owners more
+   - Utilities: Unreliable power/water has larger impact without private alternatives
+   - Health: Public hospital damage affects those without private insurance
+
+The social welfare function incorporating distribution becomes:
+$$\mathcal{W} = \sum_h \lambda_h U_h(C_h, 1-\xi)$$
+
+where $\lambda_h$ represents social weights. Common specifications:
+
+- Utilitarian: $\lambda_h = 1$ for all $h$
+- Rawlsian: $\lambda_h = 1$ only for worst-off group
+- Inequality-averse: $\lambda_h = \bar{Y}/Y_h$ (higher weight on poor)
+
+This creates additional rebuilding incentives when:
+
+- Damaged capital disproportionately serves disadvantaged groups
+- Rebuilding provides employment for displaced workers
+- Service restoration reduces inequality in access to basic needs
+
+Examples of distributional considerations:
+
+- Public schools: Damage affects low-income families without private alternatives
+- Manufacturing: Rebuilding preserves blue-collar employment
+- Luxury hotels: New investment may have better distributional properties
+
+The optimal allocation must balance efficiency (productive capital) with equity (who benefits from restoration), potentially justifying rebuilding even when new investment is more productive if it better serves disadvantaged populations.
+
+
+
+
+
+<!-- ## Geopolitics -->
+<!---->
+<!-- Climate damage to capital can create strategic interactions between regions that influence optimal investment allocation. Geopolitical considerations introduce additional dimensions beyond traditional economic efficiency, as investment decisions affect relative power, resource dependencies, and strategic vulnerabilities. -->
+<!---->
+<!-- Four potential modeling strategies for incorporating geopolitical factors: -->
+<!---->
+<!-- **1. Strategic resource control**: Climate damage can shift the geography of productive capacity, creating opportunities for regions to gain strategic advantages through targeted investment. Consider a production function where regional output depends on access to critical resources: -->
+<!-- $$Y_{r,s,t} = A_{r,s,t} \left[\sum_{r'} \beta_{r,r'} K_{r',s,t}\right]^{\alpha} L_{r,s,t}^{1-\alpha}$$ -->
+<!-- where $\beta_{r,r'}$ captures region $r$'s access to capital in region $r'$. When climate damage reduces $K_{r',s,t}$ in vulnerable regions, rebuilding investment there versus relocating to safer regions affects global supply chains and strategic dependencies. -->
+<!---->
+<!-- **2. Security externalities in investment allocation**: Investment decisions create spillover effects on regional security and stability. Damaged infrastructure in neighboring regions can generate refugee flows, trade disruptions, and conflict risks that reduce investment returns in region $r$: -->
+<!-- $$r_{r,s,t} = \bar{r}_{r,s,t} - \sum_{r' \in \mathcal{N}(r)} \gamma_{r,r'} \cdot \frac{(1-\xi_{r',s,t})K^p_{r',s,t}}{K^p_{r',s,t} + \bar{K}}$$ -->
+<!-- where the return to capital in region $r$ decreases with the share of damaged capital in neighboring regions $\mathcal{N}(r)$, creating incentives for cross-border rebuilding assistance to maintain regional stability and investment attractiveness. -->
+<!---->
+<!-- **3. Strategic competition in adaptation and technology**: Regions may compete for technological leadership in climate adaptation, with investment allocation affecting future competitive positions. Define a technology stock $T_{r,t}$ that evolves through adaptation investment: -->
+<!-- $$\frac{d}{dt} T_{r,t} = \mu \cdot I^A_{r,t} - \delta^T T_{r,t}$$ -->
+<!-- The damage reduction function becomes technology-dependent: $g(M_{r,s,t}, T_{r,t})$, where higher technology stock reduces damage more effectively. This creates incentives for regions to maintain adaptation investment leadership even when pure economic returns favor other allocations. -->
+<!---->
+<!-- **4. Coalition formation and burden sharing**: Climate damage creates collective action problems where optimal global allocation differs from individual regional incentives. Model this through a coalition formation game where regions choose cooperation levels $\zeta_r \in [0,1]$: -->
+<!-- $$I^{total}_{r,s,t} = I^{domestic}_{r,s,t} + \zeta_r \sum_{r' \neq r} \phi_{r,r'} I^{transfer}_{r',s,t}$$ -->
+<!-- where $\phi_{r,r'}$ represents the efficiency of transfers from region $r'$ to region $r$. The coalition choice affects both domestic investment allocation and international burden-sharing for rebuilding damaged capital in vulnerable regions. -->
+<!---->
+<!-- **5. Climate migration and labor market dynamics**: Large-scale climate damage can trigger population movements that fundamentally alter regional labor markets and optimal investment allocation. This creates direct feedback effects on the production function parameters and investment returns. -->
+<!---->
+<!-- Consider a migration function driven by damage-induced economic opportunities: -->
+<!-- $$\frac{dL_{r,t}}{dt} = \sum_{r' \neq r} \mu_{r',r} \cdot \Psi\left(\frac{w_{r,t}}{w_{r',t}}, \frac{(1-\xi_{r',t})K^p_{r',t}}{L_{r',t}}\right) - \sum_{r' \neq r} \mu_{r,r'} \cdot \Psi\left(\frac{w_{r',t}}{w_{r,t}}, \frac{(1-\xi_{r,t})K^p_{r,t}}{L_{r,t}}\right)$$ -->
+<!---->
+<!-- where $\Psi(\cdot)$ captures migration incentives based on wage differentials and damage per capita. A specific functional form could be: -->
+<!-- $$\Psi(w_{ratio}, damage_{pc}) = \nu \cdot \log(w_{ratio}) + \lambda \cdot damage_{pc}$$ -->
+<!---->
+<!-- This migration affects the production function through changing labor supply, but also creates infrastructure pressures that modify investment costs. Define congestion-adjusted investment efficiency: -->
+<!-- $$\eta^{effective}_{r,s,t} = \eta^{base}_{r,s} \cdot \left(1 + \psi \cdot \frac{\Delta L_{r,t}}{L_{r,t-1}}\right)^{-1}$$ -->
+<!---->
+<!-- where rapid labor inflows ($\Delta L_{r,t} > 0$) reduce investment efficiency due to infrastructure strain. This creates a trade-off: rebuilding damaged capital in source regions may be more expensive locally but avoids efficiency losses from migration pressures in destination regions. The optimal allocation must consider: -->
+<!---->
+<!-- $$\max \sum_{r,s} \left[\frac{\partial Y_{r,s,t}}{\partial K_{r,s,t}} \cdot \frac{\partial K_{r,s,t}}{\partial I^j_{r,s,t}} - \frac{1}{\eta^{effective}_{r,s,t}}\right] \cdot I^j_{r,s,t}$$ -->
+<!---->
+<!-- for $j \in \{p, \xi\}$, balancing direct productivity gains against migration-induced efficiency losses. -->
+<!---->
+<!-- **6. Trade disruption and border adjustment mechanisms**: Climate damage can disrupt trade networks and trigger policy responses like carbon border adjustments that differentially affect investment allocation decisions based on regions' rebuilding versus relocation strategies. -->
+<!---->
+<!-- Model trade disruption through damage-dependent trade costs: -->
+<!-- $$\tau_{r,r',s,t} = \bar{\tau}_{r,r',s} \cdot \left(1 + \sum_{r'' \in \text{Route}_{r,r'}} \omega_{r''} \cdot \frac{(1-\xi_{r'',s,t})K^p_{r'',s,t}}{K^p_{r'',s,t}}\right)$$ -->
+<!---->
+<!-- where trade costs increase with damage to infrastructure in regions along the trade route. This affects the effective production function by modifying market access: -->
+<!---->
+<!-- $$Y^{effective}_{r,s,t} = Y_{r,s,t} \cdot \left[\sum_{r'} \frac{GDP_{r',t}}{\prod_{r''} (1+\tau_{r,r'',s,t})}\right] / \sum_{r'} GDP_{r',t}$$ -->
+<!---->
+<!-- Additionally, implement border adjustment mechanisms that penalize high-damage regions: -->
+<!-- $$\text{Border Adjustment}_{r,s,t} = \chi \cdot \frac{\sum_{r'} (1-\xi_{r',s,t})K^p_{r',s,t}}{\sum_{r'} K^p_{r',s,t}} \cdot \text{Trade}_{r,s,t}$$ -->
+<!---->
+<!-- where $\chi$ represents the policy intensity. This creates revenue implications: -->
+<!-- $$\text{Revenue}_{r,s,t} = p_{r,s,t} \cdot Y_{r,s,t} - \text{Border Adjustment}_{r,s,t}$$ -->
+<!---->
+<!-- Regions anticipating border adjustments have incentives to prioritize rebuilding over new investment to maintain trade competitiveness. The investment allocation problem becomes: -->
+<!---->
+<!-- $$\max_{I^p, I^\xi} \sum_t \beta^t \left[\text{Revenue}_{r,s,t} - \sum_j \frac{I^j_{r,s,t}}{\eta^j_{r,s}}\right]$$ -->
+<!---->
+<!-- subject to evolving trade costs and border adjustment penalties. -->
+<!---->
+<!-- **7. Financial market access and climate risk pricing**: International financial markets increasingly price climate risks and rebuilding efforts into lending costs and investment flows, creating differential financing conditions that affect optimal investment allocation. -->
+<!---->
+<!-- Model climate risk-adjusted discount rates: -->
+<!-- $$r_{r,s,t} = r^{base} + \rho \cdot \frac{(1-\xi_{r,s,t})K^p_{r,s,t}}{K^p_{r,s,t}} + \sigma \cdot \mathbb{E}\left[\frac{d}{dt}\left(\frac{(1-\xi_{r,s,t+1})K^p_{r,s,t+1}}{K^p_{r,s,t+1}}\right)\right]$$ -->
+<!---->
+<!-- where the risk premium increases with current damage levels and expected damage growth. Additionally, implement rebuilding incentives through preferential financing: -->
+<!---->
+<!-- $$r^{rebuilding}_{r,s,t} = r_{r,s,t} \cdot \left(1 - \phi \cdot \frac{I^\xi_{r,s,t}}{I^\xi_{r,s,t} + I^p_{r,s,t}}\right)$$ -->
+<!---->
+<!-- where higher rebuilding shares reduce financing costs. Financial market integration affects capital mobility: -->
+<!---->
+<!-- $$\frac{dK^{foreign}_{r,s,t}}{dt} = \kappa \cdot \left[\frac{MPK_{r,s,t}}{r_{r,s,t}} - \sum_{r'} \frac{MPK_{r',s,t}}{r_{r',s,t}} \cdot w_{r'}\right]$$ -->
+<!---->
+<!-- where $w_{r'}$ represents portfolio weights and foreign capital flows to regions with favorable risk-adjusted returns. The optimal investment allocation must account for financing constraints: -->
+<!---->
+<!-- $$\sum_j I^j_{r,s,t} \leq \text{Domestic Savings}_{r,t} + \frac{K^{foreign}_{r,s,t}}{1 + r_{r,s,t}}$$ -->
+<!---->
+<!-- This creates feedback effects where rebuilding investment reduces financing costs, potentially making rebuilding self-reinforcing even when new investment has higher immediate returns. -->
+<!---->
+<!-- **8. Technology transfer restrictions and strategic autonomy**: Geopolitical tensions can lead to technology transfer restrictions that affect the productivity parameters in regions' production functions, creating incentives for domestic technological capabilities and investment allocation patterns. -->
+<!---->
+<!-- Model technology-dependent productivity: -->
+<!-- $$A_{r,s,t} = A^{base}_{r,s} \cdot T_{r,s,t}^{\alpha_T} \cdot \left(\sum_{r'} \theta_{r,r'} \cdot T_{r',s,t}\right)^{\alpha_S}$$ -->
+<!---->
+<!-- where $T_{r,s,t}$ is domestic technology stock and the second term captures spillovers from other regions. Technology transfer restrictions modify spillover parameters: -->
+<!---->
+<!-- $$\theta_{r,r',t} = \bar{\theta}_{r,r'} \cdot \left(1 - \varsigma \cdot \text{Tension}_{r,r',t}\right) \cdot \text{TechAccess}_{r,r',t}$$ -->
+<!---->
+<!-- Technology evolves through domestic investment and transfers: -->
+<!-- $$\frac{dT_{r,s,t}}{dt} = \nu^p \cdot I^p_{r,s,t} + \nu^\xi \cdot I^\xi_{r,s,t} + \sum_{r'} \theta_{r,r',t} \cdot \text{Transfer}_{r',r,s,t} - \delta^T T_{r,s,t}$$ -->
+<!---->
+<!-- Crucially, rebuilding investment may preserve existing technology stock while new investment creates new technological capabilities: -->
+<!-- $$\nu^\xi = \text{preservation rate}, \quad \nu^p = \text{creation rate}$$ -->
+<!---->
+<!-- where typically $\nu^\xi > \nu^p$ for near-term technology preservation but $\nu^p > \nu^\xi$ for long-term advancement. Strategic autonomy considerations create a technology security constraint: -->
+<!---->
+<!-- $$\frac{T_{r,s,t}^{domestic}}{T_{r,s,t}^{total}} \geq \underline{\tau}_{r,s}$$ -->
+<!---->
+<!-- This constraint may favor rebuilding investment to maintain technological independence, even when new investment abroad would be more immediately productive. -->
+<!---->
+<!-- **9. Regional bloc formation and preferential investment treatment**: Climate damage can accelerate the formation of regional economic blocs that provide preferential treatment for member regions' investment projects, affecting optimal allocation between rebuilding and new investment across bloc boundaries. -->
+<!---->
+<!-- Model bloc membership benefits through preferential market access and investment terms. Define bloc structure: -->
+<!-- $$\text{Bloc}_{r,t} \in \{\text{Bloc A}, \text{Bloc B}, \text{Unaffiliated}\}$$ -->
+<!---->
+<!-- Bloc membership affects trade costs, investment efficiency, and technology access: -->
+<!-- $$\tau^{bloc}_{r,r',s,t} = \begin{cases} -->
+<!-- \tau^{intra}_{s,t} & \text{if Bloc}_r = \text{Bloc}_{r'} \\ -->
+<!-- \tau^{inter}_{s,t} & \text{otherwise} -->
+<!-- \end{cases}$$ -->
+<!---->
+<!-- where $\tau^{intra} < \tau^{inter}$. Investment efficiency gains within blocs: -->
+<!-- $$\eta^{bloc}_{r,s,t} = \eta^{base}_{r,s} \cdot (1 + \epsilon \cdot \text{BlocSize}_{r,t})$$ -->
+<!---->
+<!-- where larger blocs provide economies of scale. Bloc formation decisions depend on investment allocation patterns: -->
+<!---->
+<!-- $$\text{BlocUtility}_{r,t} = \sum_s \sum_{r' \in \text{SameBloc}} \text{TradeGains}_{r,r',s,t} + \text{InvestmentGains}_{r,s,t} - \text{SovereigntyCosts}_{r,t}$$ -->
+<!---->
+<!-- Climate damage affects bloc formation incentives by changing the relative benefits of regional integration versus global integration. Damaged regions may prefer bloc membership for rebuilding assistance: -->
+<!---->
+<!-- $$\text{RebuildinSupport}_{r,t} = \sum_{r' \in \text{SameBloc}} \zeta_{r'} \cdot \frac{I^{\xi}_{r,s,t}}{(1-\xi_{r,s,t})K^p_{r,s,t}}$$ -->
+<!---->
+<!-- The optimal investment allocation must consider bloc formation dynamics: -->
+<!-- $$\max_{I^p, I^\xi, \text{Bloc}} \mathbb{E}\left[\sum_t \beta^t \left(\text{ProductionGains} + \text{BlocBenefits} - \text{InvestmentCosts}\right)\right]$$ -->
+<!---->
+<!-- where bloc choice and investment allocation are jointly optimized, potentially favoring rebuilding within blocs over more efficient investment outside blocs. -->
+<!---->
+<!-- These geopolitical considerations can create significant departures from purely economic optimal allocation, particularly when strategic factors outweigh short-term efficiency gains. The resulting investment patterns may favor rebuilding in geopolitically important locations even when new investment elsewhere would be more economically efficient. -->
+<!---->
+
+
+\appendix
+
+# Appendix {-}
+
+# Production Capacity Factor Equation Assuming Constant $K^p$ {#sec-appendix-constant-kp}
+
+This appendix provides the detailed derivation of the production capacity factor equation under the assumption that $K^p_{r,s}(t)$ is approximately constant within each time step.
+
+We begin with the continuous-time equation:
+$$\dot{\xi}_{r,s}(t) = \frac{I^{\xi}_{r,s}(t)}{K^p_{r,s}(t)} + \frac{I^{p}_{r,s}(t)}{K^p_{r,s}(t)} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s}(t) \cdot \xi_{r,s}(t)$$
+
+### Assumptions
+
+For tractability, we assume that within each time step:
+
+- $\delta^D_{r,s}(t)$ is approximately constant at value $\delta^D_{r,s,t}$ 
+- $K^p_{r,s}(t)$ is approximately constant at value $K^p_{r,s,t}$
+- $I^{\xi}_{r,s}(t)$ and $I^{p}_{r,s}(t)$ are constant at values $I^{\xi}_{r,s,t}$ and $I^{p}_{r,s,t}$
+
+### Solving the ODE
+
+Under these assumptions:
+$$\dot{\xi}_{r,s}(t) = \frac{I^{\xi}_{r,s,t}}{K^p_{r,s,t}} + \frac{I^{p}_{r,s,t}}{K^p_{r,s,t}} \left(1 - \xi_{r,s}(t)\right) - \delta^D_{r,s,t} \cdot \xi_{r,s}(t)$$
+
+Rearranging:
+$$\dot{\xi}_{r,s}(t) = \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}} - \gamma_{r,s,t} \xi_{r,s}(t)$$
+
+This is a first-order linear differential equation with constant coefficients of the form $\dot{\xi} = \beta - \alpha\xi$, where:
+
+- $\alpha = \gamma_{r,s,t} = \delta^D_{r,s,t} + \frac{I^{p}_{r,s,t}}{K^p_{r,s,t}}$
+- $\beta = \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}}$
+
+The general solution is:
+$$\xi_{r,s}(t+\tau) = e^{-\alpha \tau}\xi_{r,s}(t) + \frac{\beta}{\alpha}(1 - e^{-\alpha \tau})$$
+
+### Result
+
+Evaluating from $t$ to $t+\Delta t$:
+$$\xi_{r,s}(t+\Delta t) = e^{-\gamma_{r,s,t} \Delta t}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}} \cdot \frac{1 - e^{-\gamma_{r,s,t} \Delta t}}{\gamma_{r,s,t}}$$
+
+This approximation is valid when:
+
+- The time step $\Delta t$ is small
+- Investment rates are modest relative to the capital stock
+- The assumption $K^p_{r,s}(t+\Delta t) \approx K^p_{r,s,t}$ holds reasonably well
+
+
+# Deriving the Exact Solution for $\xi$: method 1 - integrating factor method {#sec-appendix-varying-kp-1}
+
+Substituting the time-varying $K^p_{r,s}(t+\tau)$ into the equation for $\xi$:
+
+$$\dot{\xi}_{r,s}(t+\tau) = \frac{I^{\xi}_{r,s,t}}{K^p_{r,s}(t+\tau)} + \frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\tau)} \left(1 - \xi_{r,s}(t+\tau)\right) - \delta^D_{r,s,t} \cdot \xi_{r,s}(t+\tau)$$
+
+Let's define $Q(\tau) = K^p_{r,s}(t+\tau) = e^{-\delta_{r,s}\tau}K^p_{r,s}(t) + I^p_{r,s,t}\frac{1-e^{-\delta_{r,s}\tau}}{\delta_{r,s}}$.
+
+Then:
+$$\dot{\xi}_{r,s}(t+\tau) = \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{Q(\tau)} - \left(\delta^D_{r,s,t} + \frac{I^{p}_{r,s,t}}{Q(\tau)}\right) \xi_{r,s}(t+\tau)$$
+
+This is a first-order linear ordinary differential equation (ODE) with time-varying coefficients of the form:
+$$\dot{\xi} + P(\tau)\xi = R(\tau)$$
+
+where $P(\tau) = \delta^D_{r,s,t} + \frac{I^{p}_{r,s,t}}{Q(\tau)}$ and $R(\tau) = \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{Q(\tau)}$.
+
+### The Integrating Factor Method
+
+For a linear ODE of the form $\dot{\xi} + P(\tau)\xi = R(\tau)$, we multiply both sides by an integrating factor $\mu(\tau)$ chosen such that:
+$$\mu(\tau)\dot{\xi} + \mu(\tau)P(\tau)\xi = \frac{d}{d\tau}[\mu(\tau)\xi]$$
+
+This requires $\frac{d\mu}{d\tau} = \mu(\tau)P(\tau)$, which gives us:
+$$\mu(\tau) = \exp\left[\int_0^\tau P(s)ds\right] = \exp\left[\int_0^\tau \left(\delta^D_{r,s,t} + \frac{I^{p}_{r,s,t}}{Q(s)}\right)ds\right]$$
+
+With this integrating factor, our ODE becomes:
+$$\frac{d}{d\tau}[\mu(\tau)\xi_{r,s}(t+\tau)] = \mu(\tau)R(\tau) = \mu(\tau)\frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{Q(\tau)}$$
+
+Integrating both sides from 0 to $\Delta t$:
+$$\mu(\Delta t)\xi_{r,s}(t+\Delta t) - \mu(0)\xi_{r,s}(t) = \int_0^{\Delta t} \mu(\tau)\frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{Q(\tau)}d\tau$$
+
+Since $\mu(0) = 1$, we get:
+$$\xi_{r,s}(t+\Delta t) = \frac{1}{\mu(\Delta t)}\left[\xi_{r,s}(t) + \int_0^{\Delta t} \mu(\tau)\frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{Q(\tau)}d\tau\right]$$
+
+## Evaluating the Integrating Factor
+
+To evaluate $\mu(\tau)$, we need to compute:
+$$\mu(\tau) = \exp\left[\delta^D_{r,s,t} \tau + \int_0^\tau \frac{I^{p}_{r,s,t}}{Q(s)}ds\right]$$
+
+Let's focus on the integral:
+$$\int_0^\tau \frac{I^{p}_{r,s,t}}{Q(s)}ds = \int_0^\tau \frac{I^{p}_{r,s,t}}{e^{-\delta_{r,s} s}K^p_{r,s}(t) + I^p_{r,s,t}\frac{1-e^{-\delta_{r,s} s}}{\delta_{r,s}}}ds$$
+
+
+Note that from the differential equation for potential capital, we have:
+$$\dot{K}^p_{r,s}(t+\tau) = I^p_{r,s,t} - \delta_{r,s} K^p_{r,s}(t+\tau)$$
+
+Rearranging:
+$$I^p_{r,s,t} = \dot{K}^p_{r,s}(t+\tau) + \delta_{r,s} K^p_{r,s}(t+\tau)$$
+
+Therefore:
+$$\frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\tau)} = \frac{\dot{K}^p_{r,s}(t+\tau)}{K^p_{r,s}(t+\tau)} + \delta_{r,s} = \frac{d}{d\tau}\ln(K^p_{r,s}(t+\tau)) + \delta_{r,s}$$
+
+Integrating:
+$$\int_0^\tau \frac{I^{p}_{r,s,t}}{Q(s)}ds = \int_0^\tau \left[\frac{d}{ds}\ln(K^p_{r,s}(t+s)) + \delta_{r,s}\right]ds$$
+$$= \ln\left(\frac{K^p_{r,s}(t+\tau)}{K^p_{r,s}(t)}\right) + \delta_{r,s} \tau$$
+
+Therefore:
+$$\mu(\tau) = \exp\left[\delta^D_{r,s,t} \tau + \ln\left(\frac{K^p_{r,s}(t+\tau)}{K^p_{r,s}(t)}\right) + \delta_{r,s} \tau\right]$$
+$$= e^{(\delta^D_{r,s,t} + \delta_{r,s}) \tau} \cdot \frac{K^p_{r,s}(t+\tau)}{K^p_{r,s}(t)}$$
+
+## Final Exact Solution
+
+Now we can substitute our expression for $\mu(\tau)$ back into the solution formula. Recall that:
+$$\xi_{r,s}(t+\Delta t) = \frac{1}{\mu(\Delta t)}\left[\xi_{r,s}(t) + \int_0^{\Delta t} \mu(\tau)\frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{Q(\tau)}d\tau\right]$$
+
+With $\mu(\Delta t) = e^{(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \cdot \frac{K^p_{r,s}(t+\Delta t)}{K^p_{r,s}(t)}$, we have:
+$$\frac{1}{\mu(\Delta t)} = e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \cdot \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}$$
+
+### Evaluating the Integral Term
+
+For the integral, we substitute $\mu(\tau) = e^{(\delta^D_{r,s,t} + \delta_{r,s}) \tau} \cdot \frac{K^p_{r,s}(t+\tau)}{K^p_{r,s}(t)}$:
+
+$$\int_0^{\Delta t} \mu(\tau)\frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{Q(\tau)}d\tau = \int_0^{\Delta t} e^{(\delta^D_{r,s,t} + \delta_{r,s}) \tau} \cdot \frac{K^p_{r,s}(t+\tau)}{K^p_{r,s}(t)} \cdot \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\tau)}d\tau$$
+
+Since $Q(\tau) = K^p_{r,s}(t+\tau)$, the $K^p_{r,s}(t+\tau)$ terms cancel:
+$$= \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t)} \int_0^{\Delta t} e^{(\delta^D_{r,s,t} + \delta_{r,s}) \tau}d\tau$$
+
+$$= \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t)} \cdot \frac{e^{(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} - 1}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+### Combining Terms
+
+Substituting everything back:
+$$\xi_{r,s}(t+\Delta t) = e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)} \cdot \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t)} \cdot \frac{e^{(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} - 1}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+Simplifying the second term:
+$$= e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \cdot \frac{1 - e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+## Final Exact Discrete-Time Equation
+
+The exact solution for the production capacity factor evolution from Method 1 is:
+
+$$\xi_{r,s}(t+\Delta t) = e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+**Note:** This is identical to the result from Method 2, confirming both derivations are correct!
+
+Where:
+$$K^p_{r,s}(t+\Delta t) = e^{-\delta_{r,s} \Delta t}K^p_{r,s}(t) + I^p_{r,s,t}\frac{1 - e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+
+## Comparison with the Approximate Solution {#sec-comparison-method1}
+
+Comparing this exact solution with our approximation from equation @eq-xi-discrete-approx where we assumed constant $K^p$:
+
+**Approximate solution (constant $K^p$):**
+$$\xi_{r,s}(t+\Delta t) = e^{-\gamma_{r,s,t} \Delta t}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s,t}} \cdot \frac{1 - e^{-\gamma_{r,s,t} \Delta t}}{\gamma_{r,s,t}}$$
+where $\gamma_{r,s,t} = \delta^D_{r,s,t} + \frac{I^{p}_{r,s,t}}{K^p_{r,s,t}}$.
+
+**Exact solution (time-varying $K^p$):**
+$$\xi_{r,s}(t+\Delta t) = e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+Key differences:
+1. The exact solution includes the ratio $\frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}$ to account for changing potential capital
+2. The effective decay rate includes $\delta_{r,s}$ due to the interaction with the changing $K^p$
+3. The investment term is normalized by $K^p_{r,s}(t+\Delta t)$ rather than $K^p_{r,s}(t)$
+
+
+# Deriving the Exact Solution for $\xi$: method 2 - change of variables {#sec-appendix-varying-kp-2}
+
+## Change of Variables
+
+Instead of working directly with the time-varying $K^p$ in the denominator, let's make a change of variables. Let:
+
+$$\eta(\tau) = \xi_{r,s}(t+\tau) \cdot K^p_{r,s}(t+\tau)$$
+
+This represents the actual capacity (damaged capital) at time $t+\tau$. Note that $\eta(0) = \xi_{r,s}(t) \cdot K^p_{r,s}(t)$.
+
+Taking the time derivative:
+$$\dot{\eta}(\tau) = \dot{\xi}_{r,s}(t+\tau) \cdot K^p_{r,s}(t+\tau) + \xi_{r,s}(t+\tau) \cdot \dot{K}^p_{r,s}(t+\tau)$$
+
+Substituting our expressions:
+$$\dot{\eta}(\tau) = \left[\frac{I^{\xi}_{r,s,t}}{K^p_{r,s}(t+\tau)} + \frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\tau)} \left(1 - \xi_{r,s}(t+\tau)\right) - \delta^D_{r,s,t} \xi_{r,s}(t+\tau)\right] K^p_{r,s}(t+\tau)$$
+$$+ \xi_{r,s}(t+\tau) \left[I^p_{r,s,t} - \delta_{r,s} K^p_{r,s}(t+\tau)\right]$$
+
+Simplifying:
+$$\dot{\eta}(\tau) = I^{\xi}_{r,s,t} + I^{p}_{r,s,t} \left(1 - \xi_{r,s}(t+\tau)\right) - \delta^D_{r,s,t} \xi_{r,s}(t+\tau) K^p_{r,s}(t+\tau) + \xi_{r,s}(t+\tau) I^p_{r,s,t} - \delta_{r,s} \xi_{r,s}(t+\tau) K^p_{r,s}(t+\tau)$$
+
+Since $\xi_{r,s}(t+\tau) K^p_{r,s}(t+\tau) = \eta(\tau)$:
+$$\dot{\eta}(\tau) = I^{\xi}_{r,s,t} + I^{p}_{r,s,t} - I^{p}_{r,s,t} \xi_{r,s}(t+\tau) + I^{p}_{r,s,t} \xi_{r,s}(t+\tau) - \delta^D_{r,s,t} \eta(\tau) - \delta_{r,s} \eta(\tau)$$
+
+$$= I^{\xi}_{r,s,t} + I^{p}_{r,s,t} - (\delta^D_{r,s,t} + \delta_{r,s}) \eta(\tau)$$
+
+This is a simple first-order linear ODE with constant coefficients:
+$$\dot{\eta}(\tau) + (\delta^D_{r,s,t} + \delta_{r,s}) \eta(\tau) = I^{\xi}_{r,s,t} + I^{p}_{r,s,t}$$
+
+## Solving for $\eta(\tau)$
+
+The solution is:
+$$\eta(\tau) = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\tau} \eta(0) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{\delta^D_{r,s,t} + \delta_{r,s}} \left(1 - e^{-(\delta^D_{r,s,t} + \delta_{r,s})\tau}\right)$$
+
+## Converting Back to $\xi$
+
+Since $\eta(\tau) = \xi_{r,s}(t+\tau) \cdot K^p_{r,s}(t+\tau)$ and $\eta(0) = \xi_{r,s}(t) \cdot K^p_{r,s}(t)$:
+
+$$\xi_{r,s}(t+\tau) \cdot K^p_{r,s}(t+\tau) = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\tau} \xi_{r,s}(t) K^p_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{\delta^D_{r,s,t} + \delta_{r,s}} \left(1 - e^{-(\delta^D_{r,s,t} + \delta_{r,s})\tau}\right)$$
+
+Therefore:
+$$\xi_{r,s}(t+\tau) = \frac{e^{-(\delta^D_{r,s,t} + \delta_{r,s})\tau} \xi_{r,s}(t) K^p_{r,s}(t)}{K^p_{r,s}(t+\tau)} + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\tau)} \cdot \frac{1 - e^{-(\delta^D_{r,s,t} + \delta_{r,s})\tau}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+## Final Discrete-Time Equation from Method 2
+
+Setting $\tau = \Delta t$:
+
+$$\xi_{r,s}(t+\Delta t) = e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s})\Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$ {#eq-xi-discrete-exact2}
+
+**This is identical to the result from Method 1!** Both methods yield the same exact solution, confirming the derivation is correct.
+
+Where:
+$$K^p_{r,s}(t+\Delta t) = e^{-\delta_{r,s} \Delta t}K^p_{r,s}(t) + I^p_{r,s,t}\frac{1 - e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+
+## Comparison with the Approximate Solution {#sec-comparison-method2}
+
+The exact solution from Method 2 is identical to Method 1, confirming both derivations are correct. The appearance of $(\delta^D_{r,s,t} + \delta_{r,s})$ in the decay rate is not an error—it correctly accounts for the interaction between the changing $K^p$ and the evolution of $\xi$.
+
+
+# Simplifications for small depreciation rates {#sec-simplication-time-varying-kp}
+
+When the depreciation rates $\delta_{r,s}$ and $\delta^D_{r,s}$ are relatively small, we can verify that the exact solution reduces to the expected form. Let's proceed step by step, clearly indicating each simplification.
+
+#### Step 1: Apply Taylor approximation to exponential terms
+
+Starting from the exact solution:
+$$\xi_{r,s}(t+\Delta t) = e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \cdot \frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}}$$
+
+*Simplification 1*: For small $x$, use $e^{-x} \approx 1 - x$ and $\frac{1-e^{-x}}{x} \approx 1$:
+
+- $e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t} \approx 1-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t$
+- $\frac{1-e^{-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t}}{\delta^D_{r,s,t} + \delta_{r,s}} \approx \Delta t$
+
+This gives:
+$$\xi_{r,s}(t+\Delta t) \approx [1-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t] \frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \Delta t$$
+
+#### Step 2: Approximate the potential capital ratio
+
+For $K^p_{r,s}(t+\Delta t)$, we have:
+$$K^p_{r,s}(t+\Delta t) = e^{-\delta_{r,s} \Delta t}K^p_{r,s}(t) + I^p_{r,s,t}\frac{1 - e^{-\delta_{r,s} \Delta t}}{\delta_{r,s}}$$
+
+*Simplification 2*: Apply $e^{-x} \approx 1 - x$ and $\frac{1-e^{-x}}{x} \approx 1$ for small $\delta_{r,s} \Delta t$:
+$$K^p_{r,s}(t+\Delta t) \approx (1-\delta_{r,s} \Delta t)K^p_{r,s}(t) + I^p_{r,s,t} \Delta t$$
+
+Now we need the ratio $\frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)}$:
+$$\frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)} = \frac{K^p_{r,s}(t)}{(1-\delta_{r,s} \Delta t)K^p_{r,s}(t) + I^p_{r,s,t} \Delta t}$$
+
+$$= \frac{1}{1-\delta_{r,s} \Delta t + \frac{I^p_{r,s,t} \Delta t}{K^p_{r,s}(t)}}$$
+
+*Simplification 3*: Use $\frac{1}{1+x} \approx 1-x$ for small $x$:
+$$\frac{K^p_{r,s}(t)}{K^p_{r,s}(t+\Delta t)} \approx 1 + \delta_{r,s} \Delta t - \frac{I^p_{r,s,t}}{K^p_{r,s}(t)} \Delta t$$
+
+#### Step 3: Combine the first term
+
+Now we multiply:
+$$[1-(\delta^D_{r,s,t} + \delta_{r,s}) \Delta t][1 + \delta_{r,s} \Delta t - \frac{I^p_{r,s,t}}{K^p_{r,s}(t)} \Delta t]\xi_{r,s}(t)$$
+
+*Simplification 4*: Expand and keep only first-order terms in $\Delta t$ (drop terms with $(\Delta t)^2$):
+$$= [1 - \delta^D_{r,s,t} \Delta t - \delta_{r,s} \Delta t + \delta_{r,s} \Delta t - \frac{I^p_{r,s,t}}{K^p_{r,s}(t)} \Delta t + O((\Delta t)^2)]\xi_{r,s}(t)$$
+
+$$= [1 - \delta^D_{r,s,t} \Delta t - \frac{I^p_{r,s,t}}{K^p_{r,s}(t)} \Delta t]\xi_{r,s}(t)$$
+
+#### Step 4: Separate the investment term
+
+Rearranging:
+$$\xi_{r,s}(t+\Delta t) \approx (1 - \delta^D_{r,s,t} \Delta t)\xi_{r,s}(t) - \frac{I^p_{r,s,t}}{K^p_{r,s}(t)} \Delta t \cdot \xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t} + I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \Delta t$$
+
+$$= (1 - \delta^D_{r,s,t} \Delta t)\xi_{r,s}(t) + \frac{I^{\xi}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \Delta t + \frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \Delta t - \frac{I^p_{r,s,t}}{K^p_{r,s}(t)} \Delta t \cdot \xi_{r,s}(t)$$
+
+#### Step 5: Recognize the $(1-\xi_{r,s,t})$ factor
+
+*Key observation*: We need to relate $\frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)}$ and $\frac{I^{p}_{r,s,t}}{K^p_{r,s}(t)}$.
+
+Since $K^p_{r,s}(t+\Delta t) \approx K^p_{r,s}(t) + O(\Delta t)$, to first order:
+$$\frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \approx \frac{I^{p}_{r,s,t}}{K^p_{r,s}(t)}[1 - O(\Delta t)]$$
+
+Therefore:
+$$\frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \Delta t - \frac{I^p_{r,s,t}}{K^p_{r,s}(t)} \Delta t \cdot \xi_{r,s}(t) = \frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+\Delta t)} \Delta t (1 - \xi_{r,s}(t))$$
+
+#### Step 6: Final result for $\Delta t = 1$
+
+Setting $\Delta t = 1$:
+$$\xi_{r,s,t+1} \approx (1-\delta^D_{r,s,t})\xi_{r,s,t} + \frac{I^{\xi}_{r,s,t}}{K^p_{r,s}(t+1)} + \frac{I^{p}_{r,s,t}}{K^p_{r,s}(t+1)}(1 - \xi_{r,s,t})$$
+
+Note: The investment terms are normalized by $K^p_{r,s}(t+1)$ to be consistent with the exact solution. The $(1-\xi_{r,s,t})$ factor appears with $I^p_{r,s,t}$ and emerges from the interaction between the decay term and the potential capital ratio.
+
+
+This confirms that the $(\delta^D_{r,s,t} + \delta_{r,s})$ term in the exact solution correctly simplifies to give the expected result where:
+
+- The capacity factor depreciates only due to damage ($\delta^D_{r,s,t}$)
+- New capital investment contributes proportionally to $(1-\xi_{r,s,t})$
+- The interaction effects with $\delta_{r,s}$ cancel out in the first-order approximation
