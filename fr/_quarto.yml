@@ -20,6 +20,8 @@ website:
         href: data-code.qmd
       - text: "Enseignement"
         href: teaching.qmd
+      - text: "Contact"
+        href: contact.qmd
     right:
       - icon: translate
         menu:
@@ -47,7 +49,11 @@ format:
       light: [cosmo, ../custom.scss]
       dark: [darkly, ../custom-dark.scss]
     css: ../styles.css
-    include-in-header: ../state-manager.html
+    include-in-header:
+      - ../state-manager.html
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    include-after-body: ../footer-fr.html
     toc: true
     lang: fr
 

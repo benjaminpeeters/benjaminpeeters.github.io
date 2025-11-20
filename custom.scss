@@ -57,3 +57,209 @@ a {
     box-shadow: 0 4px 8px rgba(45, 126, 63, 0.2);
   }
 }
+
+/* ========================================
+   MODERN STICKY REVEALING FOOTER
+   ======================================== */
+
+/* Ensure page wrapper takes full viewport height */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content area - grows to push footer down */
+#quarto-content,
+.quarto-container {
+  flex: 1 0 auto;
+  background-color: #ffffff;
+}
+
+/* Modern footer - in normal document flow, only visible when scrolled to bottom */
+.modern-footer {
+  flex-shrink: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #f8f9fa;
+  border-top: 2px solid rgba(45, 126, 63, 0.3);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: auto;
+}
+
+/* Footer content container - horizontal layout */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Footer sections */
+.footer-section {
+  text-align: center;
+}
+
+.footer-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #495057;
+  margin-bottom: 1rem;
+}
+
+/* Icon grid layout */
+.icon-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Footer icon links */
+.footer-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+/* Profile links (larger) */
+.profile-link i {
+  font-size: 2rem;
+}
+
+/* Share links (smaller) */
+.share-link i {
+  font-size: 1.5rem;
+}
+
+/* Hover effects */
+.footer-icon-link:hover {
+  transform: scale(1.15) translateY(-3px);
+  opacity: 0.85;
+}
+
+.footer-icon-link:focus {
+  outline: 2px solid #2d7e3f;
+  outline-offset: 4px;
+}
+
+/* GitHub icon color adaptation */
+.github-icon i {
+  color: #181717;
+}
+
+/* Footer text section */
+.footer-text {
+  margin-top: 1rem;
+}
+
+.footer-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d7e3f;
+  margin-bottom: 0.5rem;
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  color: #495057;
+  margin-bottom: 1rem;
+}
+
+.footer-meta {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.footer-meta a {
+  color: #2d7e3f;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.footer-meta a:hover {
+  border-bottom-color: #2d7e3f;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .modern-footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    gap: 2rem;
+  }
+
+  /* Stack icons in grid */
+  .profile-links .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .share-links .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  /* Larger tap targets */
+  .footer-icon-link {
+    padding: 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .profile-link i {
+    font-size: 1.75rem;
+  }
+
+  .share-link i {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-heading {
+    font-size: 0.8rem;
+  }
+
+  .footer-name {
+    font-size: 1.1rem;
+  }
+
+  .footer-description {
+    font-size: 0.875rem;
+  }
+
+  .footer-meta {
+    font-size: 0.75rem;
+  }
+}

@@ -70,3 +70,157 @@ pre {
   background-color: #2d2d2d;
   border: 1px solid #3a3a3a;
 }
+
+/* ========================================
+   DARK MODE FOOTER STYLES
+   ======================================== */
+
+/* Dark mode: ensure page wrapper takes full viewport height */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content area - grows to push footer down */
+#quarto-content,
+.quarto-container {
+  flex: 1 0 auto;
+  background-color: #1a1a1a;
+}
+
+/* Dark mode footer - in normal document flow */
+.modern-footer {
+  flex-shrink: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #2a2a2a;
+  border-top: 2px solid rgba(76, 175, 80, 0.4);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  margin-top: auto;
+}
+
+/* Footer content container - horizontal layout */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Footer sections */
+.footer-section {
+  text-align: center;
+}
+
+/* Dark mode text colors */
+.footer-heading {
+  color: #b0b0b0;
+}
+
+.footer-name {
+  color: #66BB6A;
+}
+
+.footer-description {
+  color: #b0b0b0;
+}
+
+.footer-meta {
+  color: #8a8a8a;
+}
+
+.footer-meta a {
+  color: #66BB6A;
+}
+
+.footer-meta a:hover {
+  border-bottom-color: #66BB6A;
+}
+
+/* Dark mode GitHub icon */
+.github-icon i {
+  color: #ffffff;
+}
+
+/* Hover effects in dark mode */
+.footer-icon-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.footer-icon-link:focus {
+  outline-color: #66BB6A;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN (DARK MODE)
+   ======================================== */
+
+@media (max-width: 768px) {
+  .modern-footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    gap: 2rem;
+  }
+
+  .profile-links .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .share-links .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .footer-icon-link {
+    padding: 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .profile-link i {
+    font-size: 1.75rem;
+  }
+
+  .share-link i {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-heading {
+    font-size: 0.8rem;
+  }
+
+  .footer-name {
+    font-size: 1.1rem;
+  }
+
+  .footer-description {
+    font-size: 0.875rem;
+  }
+
+  .footer-meta {
+    font-size: 0.75rem;
+  }
+}
