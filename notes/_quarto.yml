@@ -1,0 +1,70 @@
+project:
+  type: website
+  output-dir: ../_site/notes
+
+website:
+  title: "Benjamin Peeters - Technical Notes"
+  site-url: "https://benjaminpeeters.github.io/notes"
+
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Notes Home"
+        href: index.qmd
+      - text: "Main Site"
+        href: /en/index.html
+    right:
+      - icon: translate
+        menu:
+          - text: "English"
+            href: /en/index.html
+          - text: "Français"
+            href: /fr/index.html
+          - text: "中文"
+            href: /zh/index.html
+      - icon: github
+        href: https://github.com/benjaminpeeters
+        aria-label: GitHub
+      - icon: mortarboard-fill
+        href: https://scholar.google.com/citations?user=ACbL7v0AAAAJ
+        aria-label: Google Scholar
+      - icon: linkedin
+        href: https://www.linkedin.com/in/benjamin-peeters-891551314
+        aria-label: LinkedIn
+
+# Enable pandoc-crossref for equation and section cross-references
+filters:
+  - /usr/local/bin/pandoc-crossref
+
+# Pandoc-crossref metadata configuration
+metadata:
+  linkReferences: true
+  nameInLink: true
+
+format:
+  html:
+    theme:
+      light: [cosmo, ../custom.scss]
+      dark: [darkly, ../custom-dark.scss]
+    css: ../styles.css
+    include-in-header:
+      - ../state-manager.html
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    include-after-body: ../footer-en.html
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    number-sections: true
+    number-depth: 3
+    code-copy: true
+    code-fold: false
+    anchor-sections: true
+    link-external-newwindow: true
+    lang: en
+
+bibliography: ../publications.bib
+
+execute:
+  freeze: auto
