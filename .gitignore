@@ -3,6 +3,7 @@
 *_files/
 *.html
 !index.html
+!footer-*.html
 .Rproj.user
 .Rhistory
 .RData
