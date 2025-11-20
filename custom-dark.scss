@@ -91,6 +91,7 @@ body {
 .quarto-container {
   flex: 1 0 auto;
   background-color: #1a1a1a;
+  overflow-x: visible !important;  /* Allow footer to break out for full width */
 }
 
 /* Dark mode footer - in normal document flow */
@@ -107,6 +108,8 @@ body {
   padding: 2rem 1.5rem;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
   margin-top: auto;
+  z-index: 100;  /* Ensure footer appears on top when breaking out */
+  isolation: isolate;  /* Create stacking context */
 }
 
 /* Footer content container - horizontal layout */

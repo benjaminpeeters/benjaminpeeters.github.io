@@ -78,6 +78,7 @@ body {
 .quarto-container {
   flex: 1 0 auto;
   background-color: #ffffff;
+  overflow-x: visible !important;  /* Allow footer to break out for full width */
 }
 
 /* Modern footer - in normal document flow, only visible when scrolled to bottom */
@@ -94,6 +95,8 @@ body {
   padding: 2rem 1.5rem;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
   margin-top: auto;
+  z-index: 100;  /* Ensure footer appears on top when breaking out */
+  isolation: isolate;  /* Create stacking context */
 }
 
 /* Footer content container - horizontal layout */
