@@ -24,23 +24,23 @@ html[data-theme='dark'] {
   --global-divider-color: #424246;
 }
 
-/* Navbar - above the fold */
-.navbar {
+/* Navbar - above the fold with increased specificity to prevent Quarto content interference */
+body > header#site-header .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-header-bg-color);
-  opacity: .95;
+  opacity: 1.0;
 }
 
-.navbar.navbar-light .navbar-brand {
+body > header#site-header .navbar.navbar-light .navbar-brand {
   color: var(--global-header-text-color);
 }
 
-.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+body > header#site-header .navbar.navbar-light .navbar-nav .nav-item .nav-link {
   color: var(--global-header-link-color);
 }
 
-.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+body > header#site-header .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
   color: var(--global-hover-color);
 }
 

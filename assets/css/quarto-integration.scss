@@ -166,3 +166,30 @@ html[data-theme='dark'] {
     }
   }
 }
+
+// CSS containment to isolate Quarto content rendering and prevent navbar interference
+.quarto-content {
+  // CSS containment improves performance and creates isolation boundary
+  // contain: layout - isolates layout calculations
+  // contain: paint - ensures content doesn't paint outside bounds
+  // contain: style - prevents style containment leakage (counters, quotes)
+  contain: layout paint style;
+
+  // Create new stacking context for additional isolation
+  isolation: isolate;
+}
+
+.quarto-embedded-content {
+  // Create new stacking context to prevent z-index interference with navbar
+  position: relative;
+  z-index: 0;
+}
+
+// Ensure Quarto's embedded header doesn't interfere with site header
+// The :not selector ensures we only target headers inside Quarto content
+.quarto-embedded-content header,
+.quarto-content header:not(body > header#site-header) {
+  // Reset to prevent inheritance of site header styles
+  position: relative;
+  z-index: auto;
+}
