@@ -351,7 +351,7 @@ body > header#site-header .navbar-toggler {
     display: block;
     width: 22px;
     height: 2px;
-    background-color: var(--global-header-text-color);
+    background-color: var(--global-header-text-color) !important;
     border-radius: 1px;
     margin-bottom: 4px;
     transition: all 0.2s;
@@ -395,6 +395,65 @@ body > header#site-header .navbar-toggler.collapsed {
 
   &:hover {
     color: var(--global-hover-color);
+  }
+}
+
+// Mobile navbar utilities - horizontal and condensed layout
+@media (max-width: 576px) {
+  // Hide "ctrl k" text on mobile, show only icon
+  .search-text {
+    display: none;
+  }
+
+  // Force utility controls to display horizontally
+  .navbar-nav.ml-auto {
+    flex-direction: row;
+    gap: 0.5rem;
+
+    .nav-item,
+    .toggle-container {
+      margin: 0;
+    }
+
+    .nav-link {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    // Ensure dropdown menu aligns to right
+    .dropdown-menu {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  // Keep utilities fixed in navbar, don't move when hamburger opens
+  .navbar .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar-toggler {
+      order: 1;
+    }
+
+    .navbar-nav.ml-auto {
+      order: 3;
+      margin-left: auto;
+    }
+
+    .navbar-collapse {
+      order: 2;
+      flex-basis: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--global-header-bg-color);
+      border-bottom: 1px solid var(--global-divider-color);
+      z-index: 1000;
+    }
   }
 }
 

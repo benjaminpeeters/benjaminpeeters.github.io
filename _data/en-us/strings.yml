@@ -2,6 +2,10 @@ language_names:
   en-us: English
   fr-ca: Français
   zh-hans: 简体中文
+language_acronyms:
+  en-us: EN
+  fr-ca: FR
+  zh-hans: ZH
 archive:
   prefix: an archive of
   category_suffix: in this category
