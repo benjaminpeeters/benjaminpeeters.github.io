@@ -1,0 +1,6 @@
+# Development-only configuration overrides
+# This file is loaded AFTER _config.yml in local development
+
+# Enable parallel language processing for faster local builds
+# (Disabled in production/CI due to compatibility issues)
+parallel_localization: true

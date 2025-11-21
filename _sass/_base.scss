@@ -298,7 +298,9 @@ body > header#site-header .navbar {
   }
 
   .navbar-nav .nav-item.active > .nav-link {
-    font-weight: bolder;
+    font-weight: 800;
+    color: var(--global-theme-color);
+    border-bottom: 2px solid var(--global-theme-color);
   }
 
   .navbar-brand.social {
