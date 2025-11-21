@@ -1,8 +1,8 @@
-name: Publish Quarto Website
+name: Publish Quarto Website (DISABLED - use deployer branch)
 
 on:
   push:
-    branches: [main]
+    branches: [deployer]
   workflow_dispatch:
 
 permissions:
