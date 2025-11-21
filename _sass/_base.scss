@@ -298,14 +298,7 @@ body > header#site-header .navbar {
   }
 
   .navbar-nav .nav-item.active > .nav-link {
-    background-color: inherit;
     font-weight: bolder;
-    color: var(--global-hover-color);
-
-    &:hover {
-      color: var(--global-hover-color);
-      opacity: 0.8;
-    }
   }
 
   .navbar-brand.social {

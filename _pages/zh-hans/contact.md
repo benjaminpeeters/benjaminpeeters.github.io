@@ -6,6 +6,7 @@ permalink: /contact/
 description: 与我联系
 nav: true
 nav_order: 8
+hide_header: true
 scripts:
   - https://js.hcaptcha.com/1/api.js
   - /assets/js/contact.js

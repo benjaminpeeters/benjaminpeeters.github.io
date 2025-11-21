@@ -6,6 +6,7 @@ title: 教学
 description: 课程与教学经验
 nav: true
 nav_order: 5
+hide_header: true
 ---
 
 ## 当前课程 (2023-2024)

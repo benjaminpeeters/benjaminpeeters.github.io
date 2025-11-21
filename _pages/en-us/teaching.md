@@ -6,6 +6,7 @@ title: teaching
 description: Courses and teaching experience
 nav: true
 nav_order: 5
+hide_header: true
 ---
 
 ## Current Courses (2023-2024)

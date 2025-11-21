@@ -6,6 +6,7 @@ permalink: /about/
 nav: true
 nav_order: 6.5
 subtitle: <a href='https://www.pik-potsdam.de/'>PIK</a>博士后研究员
+hide_header: true
 
 profile:
   align: right

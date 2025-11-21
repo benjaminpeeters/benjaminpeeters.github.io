@@ -21,6 +21,7 @@ pagination:
 
 <div class="post">
 
+{% comment %}
 {% assign blog_name_size = page.blog_name | size %}
 {% assign blog_description_size = page.description | size %}
 
@@ -31,6 +32,7 @@ pagination:
     <h2>{{ page.description }}</h2>
   </div>
   {% endif %}
+{% endcomment %}
 
 {% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
 

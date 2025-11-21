@@ -6,6 +6,7 @@ title: books
 description: Books in progress
 nav: true
 nav_order: 6
+hide_header: true
 ---
 
 ## Books in Progress

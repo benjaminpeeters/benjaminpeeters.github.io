@@ -6,6 +6,7 @@ title: livres
 description: Livres en préparation
 nav: true
 nav_order: 6
+hide_header: true
 ---
 
 ## Livres en préparation

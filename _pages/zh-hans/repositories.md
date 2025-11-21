@@ -6,6 +6,7 @@ title: 代码仓库
 description: 与经济学、气候建模和生产力应用相关的开源研究工具、数据集和软件项目。
 nav: true
 nav_order: 4
+hide_header: true
 ---
 
 {% if site.data.repositories.github_users %}

@@ -6,6 +6,7 @@ title: repositories
 description: Open-source research tools, datasets, and software projects related to economics, climate modeling, and productivity applications.
 nav: true
 nav_order: 4
+hide_header: true
 ---
 
 {% if site.data.repositories.github_users %}

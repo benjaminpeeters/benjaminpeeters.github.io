@@ -6,6 +6,7 @@ permalink: /contact/
 description: Prenez contact avec moi
 nav: true
 nav_order: 8
+hide_header: true
 scripts:
   - https://js.hcaptcha.com/1/api.js
   - /assets/js/contact.js

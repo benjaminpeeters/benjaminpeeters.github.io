@@ -10,7 +10,7 @@ start_jekyll() {
     if [ -f Gemfile.lock ]; then
         echo "Gemfile.lock exists, keeping it"
     fi
-    bundle exec jekyll serve --watch --port=8080 --host=0.0.0.0 --livereload --verbose --trace --force_polling &
+    bundle exec jekyll serve --incremental --watch --port=8080 --host=0.0.0.0 --livereload --verbose --trace --force_polling &
 }
 
 start_jekyll

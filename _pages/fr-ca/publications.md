@@ -6,6 +6,7 @@ title: publications
 description: publications par catégories en ordre chronologique inverse. générées par jekyll-scholar.
 nav: true
 nav_order: 2
+hide_header: true
 ---
 
 <!-- _pages/publications.md -->

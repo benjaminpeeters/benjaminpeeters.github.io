@@ -6,6 +6,7 @@ title: 书籍
 description: 进行中的书籍
 nav: true
 nav_order: 6
+hide_header: true
 ---
 
 ## 进行中的书籍

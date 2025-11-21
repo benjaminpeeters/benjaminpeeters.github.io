@@ -4,6 +4,7 @@ layout: page
 title: 主页
 permalink: /
 nav: false
+hide_header: true
 
 latest_posts:
   enabled: true

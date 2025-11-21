@@ -4,6 +4,7 @@ layout: page
 title: accueil
 permalink: /
 nav: false
+hide_header: true
 
 latest_posts:
   enabled: true

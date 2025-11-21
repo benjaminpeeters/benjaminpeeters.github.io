@@ -6,6 +6,7 @@ title: enseignement
 description: Cours et expérience d'enseignement
 nav: true
 nav_order: 5
+hide_header: true
 ---
 
 ## Cours actuels (2023-2024)

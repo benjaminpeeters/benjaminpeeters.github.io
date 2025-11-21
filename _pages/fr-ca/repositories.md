@@ -6,6 +6,7 @@ title: dépôts
 description: Outils de recherche open-source, ensembles de données et projets logiciels liés à l'économie, la modélisation climatique et les applications de productivité.
 nav: true
 nav_order: 4
+hide_header: true
 ---
 
 {% if site.data.repositories.github_users %}
