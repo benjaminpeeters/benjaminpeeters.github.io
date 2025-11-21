@@ -46,6 +46,13 @@ jobs:
           install.packages(c("rmarkdown", "knitr"), Ncpus = 2)
         shell: Rscript {0}
 
+      - name: Install pandoc-crossref
+        run: |
+          wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.18.0/pandoc-crossref-Linux.tar.xz
+          tar -xf pandoc-crossref-Linux.tar.xz
+          sudo mv pandoc-crossref /usr/local/bin/
+          sudo chmod +x /usr/local/bin/pandoc-crossref
+
       - name: Render English site
         run: cd en && quarto render
 
@@ -54,6 +61,9 @@ jobs:
 
       - name: Render Chinese site
         run: cd zh && quarto render
+
+      - name: Render Notes site
+        run: cd notes && quarto render
 
       - name: Copy root redirect page
         run: cp index.html _site/index.html
