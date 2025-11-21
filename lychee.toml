@@ -1,0 +1,38 @@
+# Lychee link checker configuration
+
+# Accept these HTTP status codes as successful
+accept = [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 403]
+
+# Exclude these patterns
+exclude = [
+  # Social media sharing links (often return 403)
+  'reddit.com/submit',
+  'twitter.com/intent',
+
+  # Fragment-only links (internal page anchors)
+  '^#$',
+
+  # Private/local addresses
+  '^(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)',
+]
+
+# Exclude mail links
+exclude_mail = true
+
+# Exclude all private IPs
+exclude_all_private = true
+
+# Include fragments in link checking (but accept warnings)
+include_fragments = false
+
+# User agent string
+user_agent = "curl/7.54"
+
+# Don't follow redirects for local files
+max_redirects = 5
+
+# Timeout for requests (in seconds)
+timeout = 30
+
+# Cache responses to speed up repeated checks
+cache = true

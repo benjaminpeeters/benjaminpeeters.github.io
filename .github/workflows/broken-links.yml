@@ -57,8 +57,14 @@ jobs:
           export JEKYLL_ENV=production
           bundle exec jekyll build
 
+      - name: Serve site 🌐
+        run: |
+          cd _site
+          python3 -m http.server 8080 &
+          sleep 3
+
       - name: Link Checker 🔗
         uses: lycheeverse/lychee-action@v2.1.0
         with:
           fail: true
-          args: --user-agent 'curl/7.54' --base _site --verbose --no-progress './_site/**/*.html'
+          args: --config lychee.toml --verbose --no-progress 'http://localhost:8080/'
