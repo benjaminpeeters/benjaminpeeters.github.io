@@ -44,6 +44,7 @@ selected_papers: true
 </div>
 
 {% if page.latest_posts.enabled %}
+
 <div class="homepage-section">
   <h2><a href="{{ '/blog/' | relative_url }}">Latest Posts</a></h2>
   {% include latest_posts.liquid %}
@@ -51,6 +52,7 @@ selected_papers: true
 {% endif %}
 
 {% if page.selected_papers %}
+
 <div class="homepage-section">
   <h2><a href="{{ '/publications/' | relative_url }}">Selected Publications</a></h2>
   {% include selected_papers.liquid %}
