@@ -4,6 +4,13 @@ layout: page
 title: accueil
 permalink: /
 nav: false
+
+latest_posts:
+  enabled: true
+  scrollable: true
+  limit: 3
+
+selected_papers: true
 ---
 
 <div class="homepage-hero">
@@ -36,16 +43,14 @@ nav: false
   </div>
 </div>
 
-{% if site.latest_posts.enabled %}
-
+{% if page.latest_posts.enabled %}
 <div class="homepage-section">
   <h2><a href="{{ '/blog/' | relative_url }}">Derniers Articles</a></h2>
   {% include latest_posts.liquid %}
 </div>
 {% endif %}
 
-{% if site.selected_papers %}
-
+{% if page.selected_papers %}
 <div class="homepage-section">
   <h2><a href="{{ '/publications/' | relative_url }}">Publications Sélectionnées</a></h2>
   {% include selected_papers.liquid %}
