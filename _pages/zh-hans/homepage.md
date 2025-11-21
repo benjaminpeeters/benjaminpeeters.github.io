@@ -20,8 +20,7 @@ nav: false
       </div>
 
       <div class="homepage-actions">
-        <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">了解更多</a>
-        <a href="{{ '/assets/pdf/CV.pdf' | relative_url }}" class="btn btn-outline-primary" target="_blank">下载简历</a>
+        <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">了解更多关于我</a>
       </div>
     </div>
 

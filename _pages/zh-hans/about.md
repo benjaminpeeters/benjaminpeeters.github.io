@@ -15,18 +15,7 @@ profile:
     <p>波茨坦气候影响研究所</p>
     <p>转型路径研究部门</p>
 
-selected_papers: true
 social: false
-
-announcements:
-  enabled: false
-  scrollable: true
-  limit: 5
-
-latest_posts:
-  enabled: true
-  scrollable: true
-  limit: 3
 ---
 
 我是[波茨坦气候影响研究所 (PIK)](https://www.pik-potsdam.de/)的博士后研究员，在转型路径研究部门工作。我的研究重点是通过REMIND模型研究气候变化的物理风险和金融风险之间的联系，特别关注气候损害、适应成本以及气候风险对发展中国家资本成本的影响。
@@ -53,6 +42,10 @@ latest_posts:
 
 我之前的研究考察了国际金融流动的周期性模式、经济体之间的货币政策溢出效应以及半外围国家的中期金融周期。我还研究了能源转型的经济学以及无形资产在世界体系中的作用。
 
-## 联系方式
+---
 
-欢迎通过电子邮件[benjaminpeeters@protonmail.com](mailto:benjaminpeeters@protonmail.com)或电话+32 496 399 505与我联系。
+<div class="text-center mt-4">
+  <a href="{{ '/assets/pdf/CV.pdf' | relative_url }}" class="btn btn-primary" target="_blank">
+    <i class="fas fa-download"></i> 下载简历
+  </a>
+</div>

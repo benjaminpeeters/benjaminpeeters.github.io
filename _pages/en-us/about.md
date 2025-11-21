@@ -17,18 +17,7 @@ profile:
     <p>Research Department</p>
     <p>Transformation Pathways</p>
 
-selected_papers: true
 social: false
-
-announcements:
-  enabled: false
-  scrollable: true
-  limit: 5
-
-latest_posts:
-  enabled: true
-  scrollable: true
-  limit: 3
 ---
 
 I am a Postdoctoral Researcher at the [Potsdam Institute for Climate Impact Research (PIK)](https://www.pik-potsdam.de/), working in the Research Department Transformation Pathways. My research focuses on examining the links between physical and financial risks of climate change through the REMIND model, with particular emphasis on climate damages, adaptation costs, and the effects of climate risk on capital costs in developing nations.
@@ -55,6 +44,10 @@ At PIK, I am integrating financial risk assessment into climate-economy models t
 
 My previous research has examined cyclical patterns in international financial flows, monetary policy spillovers among economies, and medium-term financial cycles in semi-periphery countries. I have also worked on the economics of energy transitions and the role of intangible assets in the world-system.
 
-## Contact
+---
 
-Feel free to reach out via email at [benjaminpeeters@protonmail.com](mailto:benjaminpeeters@protonmail.com) or phone at +32 496 399 505.
+<div class="text-center mt-4">
+  <a href="{{ '/assets/pdf/CV.pdf' | relative_url }}" class="btn btn-primary" target="_blank">
+    <i class="fas fa-download"></i> Download CV
+  </a>
+</div>
