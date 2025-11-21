@@ -24,6 +24,11 @@ group :jekyll_plugins do
     gem 'jemoji'
 
     gem 'classifier-reborn'  # used for content categorization during the build
+
+    # Server-side math rendering
+    gem 'kramdown-math-katex'
+    gem 'katex'
+    gem 'execjs'
 end
 
 # Gems for development or external data fetching (outside :jekyll_plugins)

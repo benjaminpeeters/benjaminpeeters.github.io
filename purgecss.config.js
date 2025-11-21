@@ -19,8 +19,11 @@ module.exports = {
       'post-list', 'post-meta', 'post-tags',
       'publications', 'bibliography',
 
-      // MathJax
+      // MathJax (for non-Quarto pages)
       'MathJax', 'mjx-*', 'MJX-*',
+
+      // KaTeX (for Quarto pages)
+      'katex', 'katex-html', 'katex-mathml',
 
       // Quarto content
       'quarto-content', 'quarto-embedded-content',
@@ -36,6 +39,7 @@ module.exports = {
       /^MJX-/,
       /^mjx-/,
       /^MathJax/,
+      /^katex/,
       /^alert-/,
       /^btn-/,
       /^text-/,

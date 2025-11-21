@@ -26,35 +26,3 @@ layout: default
     {{ content }}
   </article>
 </div>
-
-<!-- Ensure MathJax is loaded for equation rendering -->
-{% if site.enable_math == false %}
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      tags: 'ams'
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-  };
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"
-  integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="
-  crossorigin="anonymous">
-</script>
-{% endif %}
-
-<!-- Trigger MathJax typesetting after page loads -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (window.MathJax && window.MathJax.typesetPromise) {
-      MathJax.typesetPromise().catch((err) => console.log('MathJax typeset error:', err));
-    }
-  });
-</script>
