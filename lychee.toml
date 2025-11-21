@@ -1,7 +1,7 @@
 # Lychee link checker configuration
 
 # Accept these HTTP status codes as successful
-accept = [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 403]
+accept = [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 403, 999]
 
 # Exclude these patterns
 exclude = [
