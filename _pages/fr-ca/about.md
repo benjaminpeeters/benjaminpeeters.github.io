@@ -2,12 +2,14 @@
 page_id: about
 layout: about
 title: à propos
-permalink: /
+permalink: /about/
+nav: true
+nav_order: 6.5
 subtitle: Chercheur postdoctoral au <a href='https://www.pik-potsdam.de/'>PIK</a>
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: about_profile.jpg
   image_circular: false
   more_info: >
     <p>Potsdam Institute for</p>

@@ -5,7 +5,7 @@ title: 联系方式
 permalink: /contact/
 description: 与我联系
 nav: true
-nav_order: 7
+nav_order: 8
 scripts:
   - https://js.hcaptcha.com/1/api.js
   - /assets/js/contact.js

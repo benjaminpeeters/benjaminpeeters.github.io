@@ -1,0 +1,114 @@
+// Homepage styles
+
+.homepage-hero {
+  padding: 3rem 0 2rem;
+  margin-bottom: 2rem;
+
+  .homepage-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--global-text-color);
+  }
+
+  .lead {
+    font-size: 1.5rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .homepage-tagline {
+    font-size: 1.1rem;
+    color: var(--global-theme-color);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .homepage-intro {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .homepage-actions {
+    margin-top: 1.5rem;
+
+    .btn {
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1.25rem;
+    }
+  }
+
+  // Image styling
+  figure {
+    margin-bottom: 0;
+  }
+}
+
+.homepage-section {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--global-divider-color);
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+
+    a {
+      color: var(--global-text-color);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
+// Responsive styles for mobile
+@media (max-width: 768px) {
+  .homepage-hero {
+    padding: 2rem 0 1.5rem;
+
+    .homepage-title {
+      font-size: 2rem;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+    }
+
+    .homepage-tagline {
+      font-size: 1rem;
+    }
+
+    .homepage-intro {
+      font-size: 1rem;
+    }
+
+    // Force hide image column on mobile
+    .col-md-4 {
+      display: none !important;
+    }
+  }
+
+  .homepage-section {
+    padding: 2rem 0;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Ensure profile images are hidden on mobile throughout the site
+@media (max-width: 768px) {
+  .about .profile {
+    display: none !important;
+  }
+}

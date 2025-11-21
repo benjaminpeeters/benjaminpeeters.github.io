@@ -2,12 +2,14 @@
 page_id: about
 layout: about
 title: 关于
-permalink: /
+permalink: /about/
+nav: true
+nav_order: 6.5
 subtitle: <a href='https://www.pik-potsdam.de/'>PIK</a>博士后研究员
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: about_profile.jpg
   image_circular: false
   more_info: >
     <p>波茨坦气候影响研究所</p>
