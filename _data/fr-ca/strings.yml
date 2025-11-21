@@ -37,7 +37,7 @@ collections:
 contact:
   header: Prenez Contact
   intro: "Que vous ayez une question sur mes recherches, que vous souhaitiez discuter d'une collaboration potentielle, ou simplement entrer en contact, je serais ravi de vous entendre."
-  test_warning: "⚠️ MODE TEST: Ce formulaire de contact français teste actuellement le service FormCarry. Pour les formulaires basés sur Formspree, veuillez utiliser les versions <a href=\"/en-us/contact/\">anglaise</a> ou <a href=\"/zh-hans/contact/\">chinoise</a>."
+  test_warning: '⚠️ MODE TEST: Ce formulaire de contact français teste actuellement le service FormCarry. Pour les formulaires basés sur Formspree, veuillez utiliser les versions <a href="/en-us/contact/">anglaise</a> ou <a href="/zh-hans/contact/">chinoise</a>.'
   office_title: Adresse du Bureau
   office_name: Potsdam Institute for Climate Impact Research (PIK)
   office_department: "Département de recherche : Transformation Pathways"
@@ -45,7 +45,7 @@ contact:
   office_address_line2: 14473 Potsdam
   office_country: Allemagne
   github_title: Questions de Code et Techniques
-  github_text: "Pour les questions ou problèmes liés au code, aux logiciels ou aux discussions techniques, veuillez me contacter via <a href=\"https://github.com/benjaminpeeters\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>. Cela permet de garder les conversations techniques organisées et accessibles publiquement."
+  github_text: 'Pour les questions ou problèmes liés au code, aux logiciels ou aux discussions techniques, veuillez me contacter via <a href="https://github.com/benjaminpeeters" target="_blank" rel="noopener noreferrer">GitHub</a>. Cela permet de garder les conversations techniques organisées et accessibles publiquement.'
   form_title: Envoyer un Message
   name_label: Nom
   email_label: Email

@@ -6,12 +6,13 @@ This directory contains source files for technical notes that are automatically 
 
 ### Adding a New Note
 
-1. Create your file in _quarto/ with one of these extensions:
+1. Create your file in \_quarto/ with one of these extensions:
    - .qmd - Quarto Markdown (recommended)
    - .Rmd - R Markdown (for R code execution)
    - .md - Plain Markdown (only if it contains cross-references)
 
 2. Add YAML front matter:
+
    ```yaml
    ---
    title: "Your Note Title"
@@ -44,13 +45,16 @@ This monitors files for changes and re-renders automatically. Press Ctrl+C to st
 #### Equations
 
 Define equations with labels:
+
 ```markdown
 $$
 E = mc^2
 $$ {#eq-einstein}
+$$
 ```
 
 Reference them in text:
+
 ```markdown
 As shown in @eq-einstein, energy and mass are equivalent.
 ```
@@ -58,11 +62,13 @@ As shown in @eq-einstein, energy and mass are equivalent.
 #### Sections
 
 Label sections:
+
 ```markdown
 ## Methods {#sec-methods}
 ```
 
 Reference them:
+
 ```markdown
 See @sec-methods for details.
 ```
@@ -115,30 +121,33 @@ _pages/en-us/notes/                # Jekyll wrappers (auto-generated)
 ## Render Script Details
 
 ### Location
+
 bin/render-notes.sh
 
 ### What It Does
 
-1. Detects files: Finds all .qmd, .Rmd, and .md files in _quarto/
+1. Detects files: Finds all .qmd, .Rmd, and .md files in \_quarto/
 2. Smart filtering: Skips plain .md files without cross-reference syntax
 3. Renders with Quarto: Converts to self-contained HTML with:
    - Embedded resources (CSS, JavaScript)
    - Table of contents
    - Numbered equations
    - Clickable cross-references
-4. Creates Jekyll wrappers: Generates redirect pages in _pages/en-us/notes/
+4. Creates Jekyll wrappers: Generates redirect pages in \_pages/en-us/notes/
 5. Updates index: Auto-generates /notes/ index page listing all notes
 
 ### Output
 
 Each source file produces:
+
 - assets/quarto/{filename}.html - Self-contained rendered HTML
-- _pages/en-us/notes/{filename}.md - Jekyll wrapper with redirect
-- _pages/en-us/notes/index.md - Updated index listing
+- \_pages/en-us/notes/{filename}.md - Jekyll wrapper with redirect
+- \_pages/en-us/notes/index.md - Updated index listing
 
 ### Cross-Reference Detection
 
 The script checks for these patterns in .md files:
+
 - {#eq-...}, {#sec-...}, {#fig-...}, {#tbl-...} - Label definitions
 - @eq-..., @sec-..., @fig-..., @tbl-... - References
 
@@ -169,11 +178,11 @@ date: 2025-11-20
 
 ## Format Comparison
 
-| Format | Best For | Executable Code | Syntax |
-|--------|----------|----------------|--------|
-| .qmd | Most use cases | Python, R, Julia, etc. | Quarto Markdown |
-| .Rmd | R-specific analysis | R only | R Markdown |
-| .md  | Simple notes with cross-refs | No | Markdown + Quarto refs |
+| Format | Best For                     | Executable Code        | Syntax                 |
+| ------ | ---------------------------- | ---------------------- | ---------------------- |
+| .qmd   | Most use cases               | Python, R, Julia, etc. | Quarto Markdown        |
+| .Rmd   | R-specific analysis          | R only                 | R Markdown             |
+| .md    | Simple notes with cross-refs | No                     | Markdown + Quarto refs |
 
 Recommendation: Use .qmd for new notes unless you need R-specific features.
 
@@ -181,7 +190,7 @@ Recommendation: Use .qmd for new notes unless you need R-specific features.
 
 ### Adding a Mathematical Derivation
 
-1. Create _quarto/my_derivation.qmd
+1. Create \_quarto/my_derivation.qmd
 2. Write content with equations and cross-references
 3. Run ./bin/render-notes.sh
 4. Commit all generated files
@@ -189,7 +198,7 @@ Recommendation: Use .qmd for new notes unless you need R-specific features.
 
 ### Updating an Existing Note
 
-1. Edit the source file in _quarto/
+1. Edit the source file in \_quarto/
 2. Run ./bin/render-notes.sh (or use watch mode)
 3. Commit changes (source + regenerated HTML + wrapper)
 4. Push to deploy
@@ -213,12 +222,14 @@ Recommendation: Use .qmd for new notes unless you need R-specific features.
 ### "Skipping (plain markdown without cross-refs)"
 
 This means your .md file doesn't contain cross-reference syntax. Either:
+
 - Add cross-references using {#eq-label} and @eq-label syntax
 - Rename to .qmd if you want it rendered anyway
 
 ### R Code Doesn't Execute
 
 Ensure:
+
 - File has .Rmd extension (not .qmd)
 - R is installed and accessible
 - Required R packages are installed
@@ -226,6 +237,7 @@ Ensure:
 ### Cross-References Not Working
 
 Check:
+
 - Labels use hyphens, not colons: {#eq-einstein} not {#eq:einstein}
 - References use @ prefix: @eq-einstein not just eq-einstein
 - Label and reference names match exactly
@@ -278,12 +290,14 @@ The workflow is compatible with GitHub Actions. Add this to your workflow:
 ## Examples
 
 See these examples in this directory:
+
 - capital_motion_derivation.qmd - Complex mathematical derivation
 - example_r_analysis.Rmd - R code execution with plots
 
 ## Support
 
 For issues with:
+
 - Quarto rendering: Check Quarto documentation at quarto.org/docs/guide/
 - Cross-references: See Quarto cross-references guide at quarto.org/docs/authoring/cross-references.html
 - R Markdown: See R Markdown documentation at rmarkdown.rstudio.com/

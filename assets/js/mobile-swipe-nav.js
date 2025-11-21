@@ -8,15 +8,15 @@
  * - Uses passive event listeners for optimal scrolling performance
  * - Automatically closes menu when resizing to desktop view
  */
-(function() {
-  'use strict';
+(function () {
+  "use strict";
 
   // Configuration
   const CONFIG = {
-    mobileBreakpoint: 576,        // Match Bootstrap's sm breakpoint
-    minSwipeDistance: 80,          // Minimum horizontal swipe distance in pixels
-    maxVerticalDeviation: 50,      // Maximum vertical movement allowed
-    edgeThreshold: 50,             // Must start within this distance from left edge
+    mobileBreakpoint: 576, // Match Bootstrap's sm breakpoint
+    minSwipeDistance: 80, // Minimum horizontal swipe distance in pixels
+    maxVerticalDeviation: 50, // Maximum vertical movement allowed
+    edgeThreshold: 50, // Must start within this distance from left edge
   };
 
   // Check if device is in mobile viewport
@@ -34,24 +34,32 @@
   /**
    * Record initial touch position
    */
-  document.addEventListener('touchstart', (e) => {
-    if (!isMobile()) return;
+  document.addEventListener(
+    "touchstart",
+    (e) => {
+      if (!isMobile()) return;
 
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-  }, { passive: true });
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    },
+    { passive: true }
+  );
 
   /**
    * Record final touch position and check for valid swipe
    */
-  document.addEventListener('touchend', (e) => {
-    if (!isMobile()) return;
+  document.addEventListener(
+    "touchend",
+    (e) => {
+      if (!isMobile()) return;
 
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
 
-    handleSwipeGesture();
-  }, { passive: true });
+      handleSwipeGesture();
+    },
+    { passive: true }
+  );
 
   /**
    * Analyze touch movement and trigger menu if conditions met
@@ -67,14 +75,14 @@
     const isHorizontalSwipe = verticalDiff < CONFIG.maxVerticalDeviation;
 
     // Get navbar elements
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('#navbarNav');
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector("#navbarNav");
 
     // Exit if elements not found
     if (!navbarToggler || !navbarCollapse) return;
 
     // Check if menu is currently closed
-    const isMenuClosed = !navbarCollapse.classList.contains('show');
+    const isMenuClosed = !navbarCollapse.classList.contains("show");
 
     // Open menu if all conditions are met
     if (startedFromLeftEdge && isRightSwipe && isHorizontalSwipe && isMenuClosed) {
@@ -86,15 +94,15 @@
    * Handle window resize - close menu if viewport becomes desktop size
    */
   let resizeTimer;
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       if (!isMobile()) {
-        const navbarCollapse = document.querySelector('#navbarNav');
-        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector("#navbarNav");
+        const navbarToggler = document.querySelector(".navbar-toggler");
 
         // Close menu if it's open
-        if (navbarCollapse && navbarCollapse.classList.contains('show') && navbarToggler) {
+        if (navbarCollapse && navbarCollapse.classList.contains("show") && navbarToggler) {
           navbarToggler.click();
         }
       }

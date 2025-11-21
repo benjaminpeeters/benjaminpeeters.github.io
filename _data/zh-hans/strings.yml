@@ -37,7 +37,7 @@ collections:
 contact:
   header: 联系我
   intro: 无论您对我的研究有疑问、希望讨论潜在的合作，还是只是想建立联系，我都很乐意听到您的声音。
-  test_warning: "⚠️ 测试模式：此中文联系表单目前正在测试 FormCarry 服务。对于基于 Formspree 的表单，请使用<a href=\"/en-us/contact/\">英文</a>或<a href=\"/fr-ca/contact/\">法文</a>版本。"
+  test_warning: '⚠️ 测试模式：此中文联系表单目前正在测试 FormCarry 服务。对于基于 Formspree 的表单，请使用<a href="/en-us/contact/">英文</a>或<a href="/fr-ca/contact/">法文</a>版本。'
   office_title: 办公地址
   office_name: 波茨坦气候影响研究所 (PIK)
   office_department: 研究部门：转型路径
@@ -45,7 +45,7 @@ contact:
   office_address_line2: 14473 Potsdam
   office_country: 德国
   github_title: 代码与技术问题
-  github_text: "对于与代码、软件或技术讨论相关的问题，请通过 <a href=\"https://github.com/benjaminpeeters\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a> 联系我。这有助于保持技术对话的组织性和公开性。"
+  github_text: '对于与代码、软件或技术讨论相关的问题，请通过 <a href="https://github.com/benjaminpeeters" target="_blank" rel="noopener noreferrer">GitHub</a> 联系我。这有助于保持技术对话的组织性和公开性。'
   form_title: 发送消息
   name_label: 姓名
   email_label: 电子邮件

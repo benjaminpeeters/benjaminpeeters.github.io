@@ -16,8 +16,7 @@ This page contains detailed technical notes, derivations, and research documenta
 ### Available Notes
 
 - [Deriving Capital Dynamics with Climate Damage in the MSG](/notes/capital_motion_derivation/)
-  <br>*Derivation of discrete-time capital equations from continuous-time dynamics for climate-induced damage models*
+  <br>_Derivation of discrete-time capital equations from continuous-time dynamics for climate-induced damage models_
 
 - [Example R Analysis: Data Visualization](/notes/example_r_analysis/)
-  <br>*Demonstrating R Markdown with executable code, plots, and cross-references*
-
+  <br>_Demonstrating R Markdown with executable code, plots, and cross-references_

@@ -33,10 +33,12 @@ nav: false
          loading="eager"
       %}
     </div>
+
   </div>
 </div>
 
 {% if site.latest_posts.enabled %}
+
 <div class="homepage-section">
   <h2><a href="{{ '/blog/' | relative_url }}">最新文章</a></h2>
   {% include latest_posts.liquid %}
@@ -44,6 +46,7 @@ nav: false
 {% endif %}
 
 {% if site.selected_papers %}
+
 <div class="homepage-section">
   <h2><a href="{{ '/publications/' | relative_url }}">精选出版物</a></h2>
   {% include selected_papers.liquid %}

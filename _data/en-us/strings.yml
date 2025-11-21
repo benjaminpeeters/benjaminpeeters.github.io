@@ -37,7 +37,7 @@ collections:
 contact:
   header: Get in Touch
   intro: "Whether you have a question about my research, want to discuss a potential collaboration, or simply want to connect, I'd be happy to hear from you."
-  test_warning: "⚠️ TEST MODE: This English contact form is currently testing FormCarry service. For Formspree-based forms, please use <a href=\"/fr-ca/contact/\">French</a> or <a href=\"/zh-hans/contact/\">Chinese</a> versions."
+  test_warning: '⚠️ TEST MODE: This English contact form is currently testing FormCarry service. For Formspree-based forms, please use <a href="/fr-ca/contact/">French</a> or <a href="/zh-hans/contact/">Chinese</a> versions.'
   office_title: Office Address
   office_name: Potsdam Institute for Climate Impact Research (PIK)
   office_department: "Research Department: Transformation Pathways"
@@ -45,7 +45,7 @@ contact:
   office_address_line2: 14473 Potsdam
   office_country: Germany
   github_title: Code & Technical Questions
-  github_text: "For questions or issues related to code, software, or technical discussions, please reach out via <a href=\"https://github.com/benjaminpeeters\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>. This helps keep technical conversations organized and publicly accessible."
+  github_text: 'For questions or issues related to code, software, or technical discussions, please reach out via <a href="https://github.com/benjaminpeeters" target="_blank" rel="noopener noreferrer">GitHub</a>. This helps keep technical conversations organized and publicly accessible.'
   form_title: Send a Message
   name_label: Name
   email_label: Email

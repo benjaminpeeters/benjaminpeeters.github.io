@@ -1,0 +1,25 @@
+# Jekyll template files with Liquid syntax and front matter
+_scripts/
+
+# SCSS files with Liquid template syntax
+assets/css/main.scss
+
+# Minified files (no need to format)
+*.min.js
+*.min.css
+
+# Third-party libraries
+assets/js/distillpub/
+assets/js/search/
+
+# Build outputs
+_site/
+.jekyll-cache/
+.bundle/
+
+# Vendor files
+vendor/
+
+# Generated files
+assets/quarto/*-content.html
+assets/plotly/demo.html

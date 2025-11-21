@@ -59,7 +59,8 @@
     border-collapse: collapse;
     width: 100%;
 
-    th, td {
+    th,
+    td {
       padding: 0.5em;
       border: 1px solid var(--global-divider-color);
     }
@@ -85,7 +86,8 @@
   }
 
   // Figure captions
-  figcaption, .figure-caption {
+  figcaption,
+  .figure-caption {
     margin-top: 0.5em;
     font-style: italic;
     color: var(--global-text-color-light);
@@ -112,7 +114,12 @@
   }
 
   // Adjust heading styles to match Jekyll
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 1.5em;
     margin-bottom: 0.75em;
     font-weight: bold;
@@ -136,7 +143,8 @@
   }
 
   // Lists
-  ul, ol {
+  ul,
+  ol {
     margin: 1em 0;
     padding-left: 2em;
   }
@@ -147,7 +155,7 @@
 }
 
 // Dark mode adjustments
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   .quarto-content {
     pre.sourceCode {
       background-color: var(--global-code-bg-color);

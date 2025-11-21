@@ -11,6 +11,7 @@ nav_order: 6
 ## 进行中的书籍
 
 ### Financial Crises in Semi-periphery Countries
+
 （半边缘国家的金融危机）
 
 Peeters, B.; Defraigne, J.-C.
@@ -26,6 +27,7 @@ Peeters, B.; Defraigne, J.-C.
 ---
 
 ### Histoire de la mondialisation économique du 19ème siècle à nos jours
+
 （19世纪至今的经济全球化史）
 
 Peeters, B.; Defraigne, J.-C.

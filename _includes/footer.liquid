@@ -4,7 +4,6 @@
 <footer class="footer-sticky" role="contentinfo">
   <div class="footer-container">
     <div class="footer-sections">
-
       <!-- Section 1: Connect (Profile Links) -->
       <div class="footer-section">
         <h3>{{ footer_strings.connect_label }}</h3>
@@ -12,49 +11,59 @@
           {% for social in site.data.socials %}
             {% case social[0] %}
               {% when 'scholar_userid' %}
-                <a href="https://scholar.google.com/citations?user={{ social[1] }}"
-                   class="footer-icon icon-scholar"
-                   title="Google Scholar"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Google Scholar profile">
+                <a
+                  href="https://scholar.google.com/citations?user={{ social[1] }}"
+                  class="footer-icon icon-scholar"
+                  title="Google Scholar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Google Scholar profile"
+                >
                   <i class="ai ai-google-scholar"></i>
                 </a>
               {% when 'linkedin_username' %}
-                <a href="https://www.linkedin.com/in/{{ social[1] }}"
-                   class="footer-icon icon-linkedin"
-                   title="LinkedIn"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="LinkedIn profile">
+                <a
+                  href="https://www.linkedin.com/in/{{ social[1] }}"
+                  class="footer-icon icon-linkedin"
+                  title="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                >
                   <i class="fa-brands fa-linkedin"></i>
                 </a>
               {% when 'orcid_id' %}
-                <a href="https://orcid.org/{{ social[1] }}"
-                   class="footer-icon icon-orcid"
-                   title="ORCID"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="ORCID profile">
+                <a
+                  href="https://orcid.org/{{ social[1] }}"
+                  class="footer-icon icon-orcid"
+                  title="ORCID"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ORCID profile"
+                >
                   <i class="ai ai-orcid"></i>
                 </a>
               {% when 'github_username' %}
-                <a href="https://github.com/{{ social[1] }}"
-                   class="footer-icon icon-github"
-                   title="GitHub"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="GitHub profile">
+                <a
+                  href="https://github.com/{{ social[1] }}"
+                  class="footer-icon icon-github"
+                  title="GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub profile"
+                >
                   <i class="fa-brands fa-github"></i>
                 </a>
               {% else %}
                 {% if social[1].url %}
-                  <a href="{{ social[1].url }}"
-                     class="footer-icon icon-{{ social[0] | replace: '_', '-' }}"
-                     title="{{ social[1].title }}"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     aria-label="{{ social[1].title }}">
+                  <a
+                    href="{{ social[1].url }}"
+                    class="footer-icon icon-{{ social[0] | replace: '_', '-' }}"
+                    title="{{ social[1].title }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="{{ social[1].title }}"
+                  >
                     {% assign file_ext = social[1].logo | split: '.' | last %}
                     {% if file_ext == 'svg' %}
                       <svg width="24" height="24">
@@ -65,7 +74,7 @@
                     {% endif %}
                   </a>
                 {% endif %}
-              {% endcase %}
+            {% endcase %}
           {% endfor %}
         </div>
       </div>
@@ -79,126 +88,152 @@
           {% assign page_title = page.title | default: site.title | url_encode %}
 
           <!-- Facebook -->
-          <a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}"
-             class="footer-icon icon-facebook"
-             title="Share on Facebook"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on Facebook">
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}"
+            class="footer-icon icon-facebook"
+            title="Share on Facebook"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Facebook"
+          >
             <i class="fa-brands fa-facebook"></i>
           </a>
 
           <!-- Twitter/X -->
-          <a href="https://twitter.com/intent/tweet?url={{ page_url }}&text={{ page_title }}"
-             class="footer-icon icon-x-twitter"
-             title="Share on X (Twitter)"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on X">
+          <a
+            href="https://twitter.com/intent/tweet?url={{ page_url }}&text={{ page_title }}"
+            class="footer-icon icon-x-twitter"
+            title="Share on X (Twitter)"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on X"
+          >
             <i class="fa-brands fa-x-twitter"></i>
           </a>
 
           <!-- Instagram (Web Share API fallback to copy link) -->
-          <a href="javascript:void(0);"
-             class="footer-icon icon-instagram share-web"
-             title="Share on Instagram"
-             data-url="{{ page_url_raw }}"
-             aria-label="Share on Instagram">
+          <a
+            href="javascript:void(0);"
+            class="footer-icon icon-instagram share-web"
+            title="Share on Instagram"
+            data-url="{{ page_url_raw }}"
+            aria-label="Share on Instagram"
+          >
             <i class="fa-brands fa-instagram"></i>
           </a>
 
           <!-- Discord (Web Share API fallback to copy link) -->
-          <a href="javascript:void(0);"
-             class="footer-icon icon-discord share-web"
-             title="Share on Discord"
-             data-url="{{ page_url_raw }}"
-             aria-label="Share on Discord">
+          <a
+            href="javascript:void(0);"
+            class="footer-icon icon-discord share-web"
+            title="Share on Discord"
+            data-url="{{ page_url_raw }}"
+            aria-label="Share on Discord"
+          >
             <i class="fa-brands fa-discord"></i>
           </a>
 
           <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page_url }}"
-             class="footer-icon icon-linkedin"
-             title="Share on LinkedIn"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on LinkedIn">
+          <a
+            href="https://www.linkedin.com/sharing/share-offsite/?url={{ page_url }}"
+            class="footer-icon icon-linkedin"
+            title="Share on LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on LinkedIn"
+          >
             <i class="fa-brands fa-linkedin"></i>
           </a>
 
           <!-- Email -->
-          <a href="mailto:?subject={{ page_title }}&body={{ page_url }}"
-             class="footer-icon icon-email"
-             title="Share via Email"
-             aria-label="Share via email">
+          <a
+            href="mailto:?subject={{ page_title }}&body={{ page_url }}"
+            class="footer-icon icon-email"
+            title="Share via Email"
+            aria-label="Share via email"
+          >
             <i class="fa-solid fa-envelope"></i>
           </a>
 
           <!-- Reddit -->
-          <a href="https://www.reddit.com/submit?url={{ page_url }}&title={{ page_title }}"
-             class="footer-icon icon-reddit"
-             title="Share on Reddit"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on Reddit">
+          <a
+            href="https://www.reddit.com/submit?url={{ page_url }}&title={{ page_title }}"
+            class="footer-icon icon-reddit"
+            title="Share on Reddit"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Reddit"
+          >
             <i class="fa-brands fa-reddit"></i>
           </a>
 
           <!-- WhatsApp -->
-          <a href="https://wa.me/?text={{ page_title }}%20{{ page_url }}"
-             class="footer-icon icon-whatsapp"
-             title="Share on WhatsApp"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on WhatsApp">
+          <a
+            href="https://wa.me/?text={{ page_title }}%20{{ page_url }}"
+            class="footer-icon icon-whatsapp"
+            title="Share on WhatsApp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on WhatsApp"
+          >
             <i class="fa-brands fa-whatsapp"></i>
           </a>
 
           <!-- Telegram -->
-          <a href="https://t.me/share/url?url={{ page_url }}&text={{ page_title }}"
-             class="footer-icon icon-telegram"
-             title="Share on Telegram"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on Telegram">
+          <a
+            href="https://t.me/share/url?url={{ page_url }}&text={{ page_title }}"
+            class="footer-icon icon-telegram"
+            title="Share on Telegram"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Telegram"
+          >
             <i class="fa-brands fa-telegram"></i>
           </a>
 
           <!-- WeChat (Web Share API fallback to QR code) -->
-          <a href="javascript:void(0);"
-             class="footer-icon icon-wechat share-web"
-             title="Share on WeChat"
-             data-url="{{ page_url_raw }}"
-             aria-label="Share on WeChat">
+          <a
+            href="javascript:void(0);"
+            class="footer-icon icon-wechat share-web"
+            title="Share on WeChat"
+            data-url="{{ page_url_raw }}"
+            aria-label="Share on WeChat"
+          >
             <i class="fa-brands fa-weixin"></i>
           </a>
 
           <!-- LINE -->
-          <a href="https://social-plugins.line.me/lineit/share?url={{ page_url }}"
-             class="footer-icon icon-line"
-             title="Share on LINE"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on LINE">
+          <a
+            href="https://social-plugins.line.me/lineit/share?url={{ page_url }}"
+            class="footer-icon icon-line"
+            title="Share on LINE"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on LINE"
+          >
             <i class="fa-brands fa-line"></i>
           </a>
 
           <!-- VK (VKontakte) -->
-          <a href="https://vk.com/share.php?url={{ page_url }}&title={{ page_title }}"
-             class="footer-icon icon-vk"
-             title="Share on VK"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Share on VK">
+          <a
+            href="https://vk.com/share.php?url={{ page_url }}&title={{ page_title }}"
+            class="footer-icon icon-vk"
+            title="Share on VK"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on VK"
+          >
             <i class="fa-brands fa-vk"></i>
           </a>
 
           <!-- Copy Link Button -->
-          <a href="javascript:void(0);"
-             class="footer-icon icon-copy copy-link-button"
-             title="{{ footer_strings.copy_link }}"
-             data-url="{{ page_url_raw }}"
-             aria-label="{{ footer_strings.copy_link }}">
+          <a
+            href="javascript:void(0);"
+            class="footer-icon icon-copy copy-link-button"
+            title="{{ footer_strings.copy_link }}"
+            data-url="{{ page_url_raw }}"
+            aria-label="{{ footer_strings.copy_link }}"
+          >
             <i class="fa-solid fa-link"></i>
             <span class="copy-feedback">{{ footer_strings.link_copied }}</span>
           </a>
@@ -209,15 +244,16 @@
       <div class="footer-section">
         <h3>{{ footer_strings.settings_label }}</h3>
         <div class="footer-utilities">
-
           <!-- RSS Feed -->
           {% if site.rss_icon %}
-            <a href="{{ site.baseurl }}/feed.xml"
-               class="footer-icon icon-rss"
-               title="RSS Feed"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="RSS feed">
+            <a
+              href="{{ site.baseurl }}/feed.xml"
+              class="footer-icon icon-rss"
+              title="RSS Feed"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="RSS feed"
+            >
               <i class="fa-solid fa-square-rss"></i>
             </a>
           {% endif %}
@@ -233,14 +269,18 @@
                   {% assign other_language = site.languages.first %}
                 {% endif %}
                 {% if site.active_lang == site.default_lang %}
-                  <a href="{{ site.baseurl }}/{{ other_language }}{{ page.url }}"
-                     aria-label="Switch to {{ site.data[site.active_lang].strings.language_names[other_language] }}">
+                  <a
+                    href="{{ site.baseurl }}/{{ other_language }}{{ page.url }}"
+                    aria-label="Switch to {{ site.data[site.active_lang].strings.language_names[other_language] }}"
+                  >
                     <i class="fa-solid fa-language"></i>
                     {{ site.data[site.active_lang].strings.language_names[other_language] }}
                   </a>
                 {% else %}
-                  <a href="{{ site.baseurl }}{{ page.url }}"
-                     aria-label="Switch to {{ site.data[site.active_lang].strings.language_names[site.default_lang] }}">
+                  <a
+                    href="{{ site.baseurl }}{{ page.url }}"
+                    aria-label="Switch to {{ site.data[site.active_lang].strings.language_names[site.default_lang] }}"
+                  >
                     <i class="fa-solid fa-language"></i>
                     {{ site.data[site.active_lang].strings.language_names[site.default_lang] }}
                   </a>
@@ -248,13 +288,15 @@
               {% else %}
                 {%- comment -%} Three or more languages: Dropdown {%- endcomment -%}
                 <div class="dropdown">
-                  <button class="dropdown-toggle"
-                          type="button"
-                          id="footerLanguageDropdown"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                          aria-label="Select language">
+                  <button
+                    class="dropdown-toggle"
+                    type="button"
+                    id="footerLanguageDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-label="Select language"
+                  >
                     <i class="fa-solid fa-language"></i>
                     {{ site.data[site.active_lang].strings.language_names[site.active_lang] }}
                   </button>
@@ -280,9 +322,11 @@
 
           <!-- Theme Toggle -->
           {% if site.enable_darkmode %}
-            <button id="footer-light-toggle"
-                    title="{{ search_strings.theme }}"
-                    aria-label="Toggle theme">
+            <button
+              id="footer-light-toggle"
+              title="{{ search_strings.theme }}"
+              aria-label="Toggle theme"
+            >
               <i class="ti ti-sun-moon" id="footer-light-toggle-system"></i>
               <i class="ti ti-moon-filled" id="footer-light-toggle-dark"></i>
               <i class="ti ti-sun-filled" id="footer-light-toggle-light"></i>
@@ -290,56 +334,62 @@
           {% endif %}
         </div>
       </div>
-
-    </div> <!-- End footer-sections -->
+    </div>
+    <!-- End footer-sections -->
 
     <!-- Copyright Notice -->
     <div class="footer-attribution">
       © 2025 Benjamin Peeters | <a href="https://www.pik-potsdam.de/en/home" target="_blank" rel="noopener noreferrer">PIK</a> Potsdam
     </div>
-  </div> <!-- End footer-container -->
+  </div>
+  <!-- End footer-container -->
 </footer>
 
 <!-- Footer JavaScript for Copy Link and Web Share API -->
 <script>
   // Copy Link Button
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const copyButtons = document.querySelectorAll('.copy-link-button');
 
-    copyButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
+    copyButtons.forEach((button) => {
+      button.addEventListener('click', function (e) {
         e.preventDefault();
         const url = this.dataset.url;
         const feedback = this.querySelector('.copy-feedback');
 
-        navigator.clipboard.writeText(url).then(() => {
-          feedback.classList.add('show');
-          setTimeout(() => {
-            feedback.classList.remove('show');
-          }, 2000);
-        }).catch(err => {
-          console.error('Failed to copy:', err);
-        });
+        navigator.clipboard
+          .writeText(url)
+          .then(() => {
+            feedback.classList.add('show');
+            setTimeout(() => {
+              feedback.classList.remove('show');
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error('Failed to copy:', err);
+          });
       });
     });
 
     // Web Share API for platforms without direct share URLs
     const shareWebButtons = document.querySelectorAll('.share-web');
 
-    shareWebButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
+    shareWebButtons.forEach((button) => {
+      button.addEventListener('click', function (e) {
         e.preventDefault();
         const url = this.dataset.url;
         const title = document.title;
 
         if (navigator.share) {
-          navigator.share({
-            title: title,
-            url: url
-          }).catch(err => {
-            // Fallback: copy to clipboard
-            navigator.clipboard.writeText(url);
-          });
+          navigator
+            .share({
+              title: title,
+              url: url,
+            })
+            .catch((err) => {
+              // Fallback: copy to clipboard
+              navigator.clipboard.writeText(url);
+            });
         } else {
           // Fallback: copy to clipboard
           navigator.clipboard.writeText(url);
@@ -351,7 +401,7 @@
     // Sync footer theme toggle with header theme toggle
     const footerThemeToggle = document.getElementById('footer-light-toggle');
     if (footerThemeToggle) {
-      footerThemeToggle.addEventListener('click', function() {
+      footerThemeToggle.addEventListener('click', function () {
         const headerThemeToggle = document.getElementById('light-toggle');
         if (headerThemeToggle) {
           headerThemeToggle.click();
