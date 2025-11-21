@@ -1,14 +1,14 @@
 /*-- scss:defaults --*/
 
-// Green color scheme for dark mode
-$primary: #4CAF50;
-$secondary: #66BB6A;
-$success: #81C784;
-$info: #5fa573;
-$link-color: #66BB6A;
+// World Bank color scheme for dark mode
+$primary: #009FDA;
+$secondary: #00c4ff;
+$success: #11d68b;
+$info: #009FDA;
+$link-color: #009FDA;
 
 // Dark mode background colors
-$body-bg: #1a1a1a;
+$body-bg: #1c1c1d;
 $body-color: #e0e0e0;
 
 // Typography
@@ -17,7 +17,7 @@ $headings-font-weight: 600;
 $headings-color: #f0f0f0;
 
 // Navbar for dark mode
-$navbar-bg: #1f4d29;
+$navbar-bg: #003366;
 $navbar-fg: white;
 
 /*-- scss:rules --*/
@@ -57,17 +57,17 @@ a {
 // Cards for blog posts in dark mode
 .card {
   background-color: #2a2a2a;
-  border: 1px solid rgba(76, 175, 80, 0.3);
+  border: 1px solid rgba(0, 157, 218, 0.3);
   transition: box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 157, 218, 0.3);
   }
 }
 
 // Code blocks in dark mode
 pre {
-  background-color: #2d2d2d;
+  background-color: #2c3237;
   border: 1px solid #3a3a3a;
 }
 
@@ -88,28 +88,28 @@ body {
 
 /* Main content area - grows to push footer down */
 #quarto-content,
-.quarto-container {
+.quarto-container,
+.page-columns,
+.page-rows-contents,
+.page-layout-full,
+#quarto-document-content,
+#quarto-margin-sidebar,
+.quarto-layout-row {
   flex: 1 0 auto;
-  background-color: #1a1a1a;
+  background-color: #1c1c1d;
   overflow-x: visible !important;  /* Allow footer to break out for full width */
+  overflow-y: visible !important;
 }
 
-/* Dark mode footer - in normal document flow */
+/* Dark mode footer - will be moved outside #quarto-content via JavaScript */
 .modern-footer {
-  flex-shrink: 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: #2a2a2a;
-  border-top: 2px solid rgba(76, 175, 80, 0.4);
+  position: static;
+  width: 100%;
+  background-color: #003366;
+  border-top: 2px solid rgba(0, 157, 218, 0.4);
   padding: 2rem 1.5rem;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
   margin-top: auto;
-  z-index: 100;  /* Ensure footer appears on top when breaking out */
-  isolation: isolate;  /* Create stacking context */
 }
 
 /* Footer content container - horizontal layout */
@@ -129,27 +129,27 @@ body {
 
 /* Dark mode text colors */
 .footer-heading {
-  color: #b0b0b0;
+  color: #ffffff;
 }
 
 .footer-name {
-  color: #66BB6A;
+  color: #009FDA;
 }
 
 .footer-description {
-  color: #b0b0b0;
+  color: #ffffff;
 }
 
 .footer-meta {
-  color: #8a8a8a;
+  color: #cccccc;
 }
 
 .footer-meta a {
-  color: #66BB6A;
+  color: #009FDA;
 }
 
 .footer-meta a:hover {
-  border-bottom-color: #66BB6A;
+  border-bottom-color: #009FDA;
 }
 
 /* Dark mode GitHub icon */
@@ -163,7 +163,7 @@ body {
 }
 
 .footer-icon-link:focus {
-  outline-color: #66BB6A;
+  outline-color: #009FDA;
 }
 
 /* ========================================

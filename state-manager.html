@@ -218,6 +218,26 @@
     }
   }
 
+  // ========== FOOTER POSITIONING ==========
+
+  // Move custom footer outside #quarto-content for proper full-width positioning
+  function repositionFooter() {
+    const modernFooter = document.getElementById('modern-footer');
+    const quartoContent = document.getElementById('quarto-content');
+    const nativeFooter = document.querySelector('footer.footer');
+
+    if (modernFooter && quartoContent) {
+      // Move footer to be a direct child of body, after #quarto-content
+      // If native footer exists, hide it
+      if (nativeFooter) {
+        nativeFooter.style.display = 'none';
+      }
+
+      // Insert after #quarto-content
+      quartoContent.parentNode.insertBefore(modernFooter, quartoContent.nextSibling);
+    }
+  }
+
   // ========== INITIALIZATION ==========
 
   window.addEventListener('DOMContentLoaded', function() {
@@ -228,6 +248,9 @@
 
     // Initialize theme features
     enhanceThemeToggle();
+
+    // Reposition footer for proper full-width layout
+    repositionFooter();
   });
 
 })();
