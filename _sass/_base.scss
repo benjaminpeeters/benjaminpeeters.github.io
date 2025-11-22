@@ -352,6 +352,7 @@ body > header#site-header .navbar-toggler {
     width: 22px;
     height: 2px;
     background-color: var(--global-header-text-color) !important;
+    forced-color-adjust: none;
     border-radius: 1px;
     margin-bottom: 4px;
     transition: all 0.2s;
