@@ -289,7 +289,7 @@ body > header#site-header .navbar {
     color: var(--global-header-text-color);
   }
 
-  .navbar-nav .nav-item .nav-link {
+  .navbar-nav .nav-link {
     color: var(--global-header-link-color);
 
     &:hover {
@@ -300,8 +300,12 @@ body > header#site-header .navbar {
   .navbar-nav .nav-item.active > .nav-link {
     background-color: inherit;
     font-weight: 800;
-    color: var(--global-theme-color);
-    border-bottom: 2px solid var(--global-theme-color);
+    color: var(--global-hover-color);
+    border-bottom: 2px solid var(--global-hover-color);
+  }
+
+  .navbar-nav .nav-link span {
+    color: inherit;
   }
 
   .navbar-brand.social {
@@ -392,6 +396,11 @@ body > header#site-header .navbar-toggler.collapsed {
   &:hover {
     color: var(--global-hover-color);
   }
+}
+
+#search-toggle .nav-link,
+#search-toggle .nav-link .search-text {
+  color: var(--global-header-text-color);
 }
 
 // Mobile navbar utilities - horizontal and condensed layout

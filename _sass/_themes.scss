@@ -5,7 +5,7 @@
 @use "sass:color";
 
 :root {
-  color-scheme: light;
+  color-scheme: only light;
   --global-bg-color: #{$white-color};
   --global-code-bg-color: #{$code-bg-color-light};
   --global-text-color: #{$text-charcoal};
@@ -50,6 +50,12 @@
     padding-left: 10px;
     padding-top: 12px;
     display: block;
+
+    @media (max-width: 576px) {
+      padding-top: 0;
+      display: flex;
+      align-items: center;
+    }
   }
 
   #light-toggle-dark {
@@ -103,7 +109,7 @@ html[data-theme="dark"] {
   --global-hover-text-color: #{$white-color};
   --global-header-bg-color: #{$wb-footer-dark};
   --global-header-text-color: #{$white-color};
-  --global-header-link-color: #{$grey-color-light};
+  --global-header-link-color: #{$white-color};
   --global-footer-bg-color: #{$wb-footer-dark};
   --global-footer-text-color: #{$white-color};
   --global-footer-link-color: #{$wb-bright-blue};
@@ -151,6 +157,12 @@ html[data-theme-setting="dark"] {
     padding-left: 10px;
     padding-top: 12px;
     display: block;
+
+    @media (max-width: 576px) {
+      padding-top: 0;
+      display: flex;
+      align-items: center;
+    }
   }
 
   #light-toggle-light {
@@ -189,6 +201,12 @@ html[data-theme-setting="light"] {
     padding-left: 10px;
     padding-top: 12px;
     display: block;
+
+    @media (max-width: 576px) {
+      padding-top: 0;
+      display: flex;
+      align-items: center;
+    }
   }
 
   // Footer theme toggle icons
