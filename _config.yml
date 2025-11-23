@@ -142,6 +142,9 @@ collections:
     output: true
   projects:
     output: true
+  publications:
+    output: true
+    permalink: /pub/:name/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -281,8 +284,10 @@ scholar:
   replace_strings: true
   join_strings: true
 
-  details_dir: bibliography
-  details_link: Details
+  # Disabled Jekyll-Scholar auto-generation - using manual publication pages at /pub/ instead
+  # details_dir: bibliography
+  # details_layout: publication_details
+  # details_link: Details
 
   query: "@*"
   group_by: year

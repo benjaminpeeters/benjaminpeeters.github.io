@@ -1,0 +1,113 @@
+---
+layout: default
+---
+
+<div class="publication-details">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="publication-header">
+          <h1>{{ page.title }}</h1>
+
+          <div class="authors mt-3">
+            {{ page.authors }}
+          </div>
+
+          {% if page.journal or page.school %}
+            <div class="publication-venue mt-2">
+              <em>
+                {% if page.journal %}
+                  {{ page.journal }}
+                {% elsif page.school %}
+                  {{ page.school }}
+                {% endif %}
+              </em>
+              {% if page.year %}, {{ page.year }}{% endif %}
+              {% if page.volume %}, Vol. {{ page.volume }}{% endif %}
+              {% if page.number %}, No. {{ page.number }}{% endif %}
+              {% if page.pages %}, pp. {{ page.pages }}{% endif %}
+            </div>
+          {% endif %}
+
+          <div class="publication-links mt-3">
+            {% if page.pdf %}
+              {% if page.pdf contains '://' %}
+                {% assign pdf_url = page.pdf %}
+              {% else %}
+                {% assign pdf_url = page.pdf | prepend: '/assets/pdf/' | relative_url %}
+              {% endif %}
+              <a href="{{ pdf_url }}" class="btn btn-primary" download>
+                <i class="fa-solid fa-download"></i> Download PDF
+              </a>
+            {% endif %}
+
+            {% if page.doi %}
+              <a href="https://doi.org/{{ page.doi }}" class="btn btn-outline-primary" target="_blank">
+                <i class="ai ai-doi"></i> DOI
+              </a>
+            {% endif %}
+
+            {% if page.html %}
+              <a href="{{ page.html }}" class="btn btn-outline-primary" target="_blank">
+                <i class="fa-solid fa-link"></i> Publisher
+              </a>
+            {% endif %}
+
+            {% if page.code %}
+              <a href="{{ page.code }}" class="btn btn-outline-primary" target="_blank">
+                <i class="fa-brands fa-github"></i> Code
+              </a>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if page.abstract %}
+          <div class="publication-abstract mt-4">
+            <h3>Abstract</h3>
+            <p class="text-justify">{{ page.abstract }}</p>
+          </div>
+        {% endif %}
+
+        {% if page.pdf %}
+          <div class="publication-pdf mt-4">
+            <h3>PDF Preview</h3>
+            <div class="pdf-container" style="height: 800px; border: 1px solid var(--global-divider-color); border-radius: 4px; overflow: hidden;">
+              <object
+                data="{{ pdf_url }}#view=FitH"
+                type="application/pdf"
+                width="100%"
+                height="100%"
+                style="border: none;">
+                <iframe
+                  src="{{ pdf_url }}"
+                  width="100%"
+                  height="100%"
+                  style="border: none;">
+                  <p style="padding: 20px;">
+                    Your browser does not support PDF preview.
+                    <a href="{{ pdf_url }}" download>Download the PDF</a> to view it.
+                  </p>
+                </iframe>
+              </object>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if page.bibtex %}
+          <div class="publication-citation mt-4">
+            <h3>Citation</h3>
+            <div class="bibtex-wrapper">
+              <pre><code>{{ page.bibtex }}</code></pre>
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="publication-back mt-4 mb-5">
+          <a href="{{ '/pub/' | relative_url }}" class="btn btn-outline-secondary">
+            <i class="fa-solid fa-arrow-left"></i> Back to Publications
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

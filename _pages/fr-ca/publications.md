@@ -1,7 +1,7 @@
 ---
 page_id: publications
 layout: page
-permalink: /publications/
+permalink: /pub/
 title: publications
 description: publications par catégories en ordre chronologique inverse. générées par jekyll-scholar.
 nav: true
