@@ -48,7 +48,7 @@ Mes recherches antérieures ont examiné les schémas cycliques des flux financi
 ---
 
 <div class="text-center mt-4">
-  <a href="{{ '/assets/pdf/cv/cv_fr.pdf' | relative_url }}" class="btn btn-primary" target="_blank">
-    <i class="fas fa-download"></i> Télécharger le CV
+  <a href="{{ '/cv/' | relative_url }}" class="btn btn-primary">
+    <i class="fas fa-file-alt"></i> Voir le CV
   </a>
 </div>

@@ -48,7 +48,7 @@ My previous research has examined cyclical patterns in international financial f
 ---
 
 <div class="text-center mt-4">
-  <a href="{{ '/assets/pdf/cv/cv_en.pdf' | relative_url }}" class="btn btn-primary" target="_blank">
-    <i class="fas fa-download"></i> Download CV
+  <a href="{{ '/cv/' | relative_url }}" class="btn btn-primary">
+    <i class="fas fa-file-alt"></i> View CV
   </a>
 </div>
