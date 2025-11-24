@@ -25,7 +25,10 @@ $(document).ready(function () {
     });
     var navSelector = "#toc-sidebar";
     var $myNav = $(navSelector);
-    Toc.init($myNav);
+    Toc.init({
+      $nav: $myNav,
+      $scope: $('[role="main"]')
+    });
     $("body").scrollspy({
       target: navSelector,
     });
