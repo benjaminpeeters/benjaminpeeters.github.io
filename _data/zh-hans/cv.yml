@@ -25,17 +25,17 @@
         - <a href="http://hdl.handle.net/2078.3/273394">论文存储库</a>
     - title: 经济学硕士
       institution: 鲁汶大学，比利时
-      year: 2023年之前
+      year: 2016
     - title: 电气工程硕士
       institution: 鲁汶大学，比利时
-      year: 2023年之前
+      year: 2016
     - title: 证书
       institution: 鲁汶大学，比利时
-      year: 2023年之前
+      year: 2015-2017
       description:
-        - 经济与社会伦理学
-        - 统计学
-        - 辐射防护
+        - 经济与社会伦理学（2017）
+        - 统计学（2015）
+        - 辐射防护（2015）
 
 - title: 工作经历
   type: time_table
@@ -60,7 +60,7 @@
   type: time_table
   contents:
     - title: 讲师
-      institution: 当前机构 (2023-2024)
+      institution: 国立政治大学（台湾）
       year: 2023-2024
       description:
         - 区域一体化与欧盟-亚洲关系

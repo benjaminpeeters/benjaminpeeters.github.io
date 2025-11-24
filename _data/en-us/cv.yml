@@ -25,17 +25,17 @@
         - <a href="http://hdl.handle.net/2078.3/273394">Thesis Repository</a>
     - title: Master in Economics
       institution: UCLouvain, Belgium
-      year: Prior to 2023
+      year: 2016
     - title: Master in Electrical Engineering
       institution: UCLouvain, Belgium
-      year: Prior to 2023
+      year: 2016
     - title: Certificates
       institution: UCLouvain, Belgium
-      year: Prior to 2023
+      year: 2015-2017
       description:
-        - Economic and Social Ethics
-        - Statistics
-        - Radiation Protection
+        - Economic and Social Ethics (2017)
+        - Statistics (2015)
+        - Radiation Protection (2015)
 
 - title: Experience
   type: time_table
@@ -60,7 +60,7 @@
   type: time_table
   contents:
     - title: Lecturer
-      institution: Current Institution (2023-2024)
+      institution: National Chengchi University (NCCU), Taiwan
       year: 2023-2024
       description:
         - Regional Integration and EU-Asia Relations

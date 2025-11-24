@@ -25,17 +25,17 @@
         - <a href="http://hdl.handle.net/2078.3/273394">Dépôt de thèse</a>
     - title: Master en sciences économiques
       institution: UCLouvain, Belgique
-      year: Avant 2023
+      year: 2016
     - title: Master en ingénieur civil électricien
       institution: UCLouvain, Belgique
-      year: Avant 2023
+      year: 2016
     - title: Certificats
       institution: UCLouvain, Belgique
-      year: Avant 2023
+      year: 2015-2017
       description:
-        - Éthique économique et sociale
-        - Statistique
-        - Radioprotection
+        - Éthique économique et sociale (2017)
+        - Statistique (2015)
+        - Radioprotection (2015)
 
 - title: Expérience
   type: time_table
@@ -60,7 +60,7 @@
   type: time_table
   contents:
     - title: Chargé de cours
-      institution: Institution actuelle (2023-2024)
+      institution: National Chengchi University (NCCU), Taïwan
       year: 2023-2024
       description:
         - Intégration régionale et relations UE-Asie
