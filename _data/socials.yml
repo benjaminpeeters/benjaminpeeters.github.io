@@ -46,10 +46,10 @@ scholar_userid: ACbL7v0AAAAJ # your Google Scholar ID
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
 sciprofiles: # SciProfiles custom link
-  logo: https://sciprofiles.com/favicon.ico
+  logo: /assets/img/icons/sciprofiles.svg
   title: SciProfiles
   url: https://sciprofiles.com/profile/benjaminpeeters
 ideas_repec: # IDEAS/RePEc custom link
-  logo: https://ideas.repec.org/favicon.ico
+  icon: ai ai-ideas-repec
   title: IDEAS/RePEc
   url: https://ideas.repec.org/f/ppe825.html

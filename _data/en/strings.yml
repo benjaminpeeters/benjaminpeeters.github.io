@@ -114,7 +114,9 @@ footer:
   last_updated: "Last updated:"
   connect_label: Connect
   share_label: Share
-  settings_label: Preferences
+  settings_label: More
+  subscribe_label: Subscribe
+  theme_label: Theme
   copy_link: Copy Link
   link_copied: Link copied!
   copyright_text: "© 2025 Benjamin Peeters. All Rights Reserved."
