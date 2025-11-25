@@ -58,7 +58,7 @@ footer.footer-sticky {
   margin-top: auto;
   flex-shrink: 0;
 
-  background-color: $wb-dark-blue;
+  background-color: $wb-dark-blue !important;
 
   padding: 2rem 0 1rem;
   font-size: 0.875rem;
@@ -99,12 +99,6 @@ footer.footer-sticky {
   align-items: flex-start;
   gap: 2rem;
   margin-bottom: 1.5rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 }
 
 .footer-actions {
@@ -118,10 +112,6 @@ footer.footer-sticky {
   flex-direction: column;
   align-items: flex-end;
   gap: 0.5rem;
-
-  @media (max-width: 768px) {
-    align-items: center;
-  }
 }
 
 /*******************************************************************************
@@ -147,7 +137,7 @@ footer.footer-sticky {
   // Override global span/i color rules from _base.scss
   span,
   i {
-    color: inherit;
+    color: inherit !important;
   }
 
   &:hover {
@@ -191,7 +181,7 @@ footer.footer-sticky {
   // Override global span/i color rules from _base.scss
   span,
   i {
-    color: inherit;
+    color: inherit !important;
   }
 
   &:hover {
