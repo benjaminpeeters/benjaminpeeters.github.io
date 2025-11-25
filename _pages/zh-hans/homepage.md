@@ -6,10 +6,14 @@ permalink: /
 nav: false
 hide_header: true
 
-latest_posts:
+latest_blog:
+  enabled: true
+  limit: 3
+
+latest_news:
   enabled: true
   scrollable: true
-  limit: 3
+  limit: 5
 
 selected_papers: true
 ---
@@ -44,11 +48,17 @@ selected_papers: true
   </div>
 </div>
 
-{% if page.latest_posts.enabled %}
-
+{% if page.latest_blog.enabled %}
 <div class="homepage-section">
   <h2><a href="{{ '/blog/' | relative_url }}">最新文章</a></h2>
-  {% include latest_posts.liquid %}
+  {% include latest_blog.liquid %}
+</div>
+{% endif %}
+
+{% if page.latest_news.enabled %}
+<div class="homepage-section">
+  <h2><a href="{{ '/news/' | relative_url }}">最新新闻</a></h2>
+  {% include latest_news.liquid %}
 </div>
 {% endif %}
 

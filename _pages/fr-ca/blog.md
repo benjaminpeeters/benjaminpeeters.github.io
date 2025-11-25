@@ -8,15 +8,7 @@ description: Réflexions sur l'économie, le climat et la recherche
 nav: true
 nav_order: 1
 pagination:
-  enabled: true
-  collection: posts
-  permalink: /page/:num/
-  per_page: 5
-  sort_field: date
-  sort_reverse: true
-  trail:
-    before: 1 # The number of links before the current page
-    after: 3 # The number of links after the current page
+  enabled: false
 ---
 
 <div class="post">
@@ -34,34 +26,7 @@ pagination:
   {% endif %}
 {% endcomment %}
 
-{% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
-
-  <div class="tag-category-list">
-    <ul class="p-0 m-0">
-      {% for tag in site.display_tags %}
-        <li>
-          <i class="fa-solid fa-hashtag fa-sm"></i> <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
-        </li>
-        {% unless forloop.last %}
-          <p>&bull;</p>
-        {% endunless %}
-      {% endfor %}
-      {% if site.display_categories.size > 0 and site.display_tags.size > 0 %}
-        <p>&bull;</p>
-      {% endif %}
-      {% for category in site.display_categories %}
-        <li>
-          <i class="fa-solid fa-tag fa-sm"></i> <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">{{ category }}</a>
-        </li>
-        {% unless forloop.last %}
-          <p>&bull;</p>
-        {% endunless %}
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-
-{% assign featured_posts = site.posts | where: "featured", "true" %}
+{% assign featured_posts = site.blog | where: "series_landing", true | where: "featured", "true" %}
 {% if featured_posts.size > 0 %}
 <br>
 
@@ -106,13 +71,35 @@ pagination:
 
 {% endif %}
 
+  <div class="blog-search-container">
+    <input type="text" id="blogsearch" spellcheck="false" autocomplete="off" class="search bibsearch-form-input" placeholder="Tapez pour filtrer les articles">
+  </div>
+
+  {% comment %} Collect all unique tags from blog posts {% endcomment %}
+  {% assign all_tags = "" | split: "" %}
+  {% assign blog_posts = site.blog | where: "series_landing", true %}
+  {% for post in blog_posts %}
+    {% for tag in post.tags %}
+      {% unless all_tags contains tag %}
+        {% assign all_tags = all_tags | push: tag %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+  {% assign all_tags = all_tags | sort %}
+
+  {% if all_tags.size > 0 %}
+  <div class="blog-tag-selector">
+    <button class="tag-btn active" data-tag="all">Tous</button>
+    {% for tag in all_tags %}
+      <button class="tag-btn" data-tag="{{ tag | downcase }}">{{ tag }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <ul class="post-list">
 
-    {% if page.pagination.enabled %}
-      {% assign postlist = paginator.posts %}
-    {% else %}
-      {% assign postlist = site.posts %}
-    {% endif %}
+    {% comment %} Only show series landing pages (entry points) {% endcomment %}
+    {% assign postlist = site.blog | where: "series_landing", true | sort: "date" | reverse %}
 
     {% for post in postlist %}
 
@@ -122,10 +109,12 @@ pagination:
       {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
     {% endif %}
     {% assign year = post.date | date: "%Y" %}
-    {% assign tags = post.tags | join: "" %}
-    {% assign categories = post.categories | join: "" %}
+    {% assign post_tags_lower = "" %}
+    {% for tag in post.tags %}
+      {% assign post_tags_lower = post_tags_lower | append: tag | downcase | append: " " %}
+    {% endfor %}
 
-    <li>
+    <li data-tags="{{ post_tags_lower | strip }}">
 
 {% if post.thumbnail %}
 
@@ -152,32 +141,17 @@ pagination:
         &nbsp; &middot; &nbsp; {{ post.external_source }}
         {% endif %}
       </p>
-      <p class="post-tags">
-        <a href="{{ year | prepend: '/blog/' | relative_url }}">
-          <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
-
-          {% if tags != "" %}
-          &nbsp; &middot; &nbsp;
-            {% for tag in post.tags %}
-            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">
-              <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
-              {% unless forloop.last %}
-                &nbsp;
-              {% endunless %}
-              {% endfor %}
-          {% endif %}
-
-          {% if categories != "" %}
-          &nbsp; &middot; &nbsp;
-            {% for category in post.categories %}
-            <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">
-              <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
-              {% unless forloop.last %}
-                &nbsp;
-              {% endunless %}
-              {% endfor %}
-          {% endif %}
-    </p>
+      {% if post.series_total > 1 %}
+      <div class="blog-series-parts">
+        <span class="badge badge-series">{{ post.series_total }} parties</span>
+        <span class="series-parts">
+          {% assign series_posts = site.blog | where: "series_id", post.series_id | where_exp: "p", "p.series_landing != true" | sort: "series_part" %}
+          {% for part in series_posts %}
+            <a href="{{ part.url | relative_url }}" class="part-link">{{ part.series_part }}</a>
+          {% endfor %}
+        </span>
+      </div>
+      {% endif %}
 
 {% if post.thumbnail %}
 
@@ -194,8 +168,60 @@ pagination:
 
   </ul>
 
-{% if page.pagination.enabled %}
-{% include pagination.liquid %}
-{% endif %}
+{% comment %} Pagination disabled - showing all landing pages {% endcomment %}
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const searchInput = document.getElementById("blogsearch");
+  const tagButtons = document.querySelectorAll(".tag-btn");
+  let activeTag = "all";
+
+  const filterPosts = (searchTerm) => {
+    const posts = document.querySelectorAll(".post-list > li");
+    posts.forEach(post => {
+      const text = post.innerText.toLowerCase();
+      const postTags = (post.dataset.tags || "").split(" ");
+      const matchesSearch = searchTerm === "" || text.includes(searchTerm);
+      const matchesTag = activeTag === "all" || postTags.includes(activeTag);
+
+      if (matchesSearch && matchesTag) {
+        post.style.display = "";
+      } else {
+        post.style.display = "none";
+      }
+    });
+  };
+
+  // Tag button click handler
+  tagButtons.forEach(btn => {
+    btn.addEventListener("click", function() {
+      tagButtons.forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
+      activeTag = this.dataset.tag;
+      filterPosts(searchInput ? searchInput.value.toLowerCase() : "");
+    });
+  });
+
+  if (!searchInput) return;
+
+  let timeoutId;
+  searchInput.addEventListener("input", function() {
+    clearTimeout(timeoutId);
+    const searchTerm = this.value.toLowerCase();
+    timeoutId = setTimeout(() => filterPosts(searchTerm), 200);
+  });
+
+  // Handle hash-based filtering
+  const updateFromHash = () => {
+    const hashValue = decodeURIComponent(window.location.hash.substring(1));
+    searchInput.value = hashValue;
+    filterPosts(hashValue.toLowerCase());
+  };
+
+  window.addEventListener("hashchange", updateFromHash);
+  updateFromHash();
+});
+</script>
+

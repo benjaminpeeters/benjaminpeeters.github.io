@@ -2,6 +2,8 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+@use "variables" as *;
+
 // Typography
 
 p,
@@ -39,7 +41,7 @@ a,
 table.table a {
   color: var(--global-theme-color);
 
-  &:hover {
+  &:hover:not(.part-link) {
     color: var(--global-theme-color);
     text-decoration: underline;
   }
@@ -397,10 +399,6 @@ body > header#site-header .navbar-toggler.collapsed {
   border: 0;
   background-color: inherit;
   color: var(--global-header-text-color);
-
-  &:hover {
-    color: var(--global-hover-color);
-  }
 }
 
 #search-toggle .nav-link,
@@ -648,7 +646,7 @@ body > header#site-header .navbar-toggler.collapsed {
       padding-bottom: 0;
     }
 
-    a {
+    a:not(.part-link) {
       color: var(--global-text-color);
       text-decoration: none;
 

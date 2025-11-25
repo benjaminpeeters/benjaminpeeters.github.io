@@ -151,6 +151,7 @@ months:
     november: nov
     december: déc
 news: actualités
+all_news: Toutes les actualités
 newsletter:
   back: retour
   error: "Oups ! Quelque chose s'est mal passé, veuillez réessayer."
@@ -187,6 +188,7 @@ search:
     description: changer le thème du site en clair
     title: changer le thème en clair
   navigation: menu de navigation
+  blog: blog
   news: actualités
   placeholder: Tapez pour commencer la recherche
   posts: articles

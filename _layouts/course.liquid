@@ -1,0 +1,149 @@
+---
+layout: default
+---
+{% if page._styles %}
+  <!-- Page/Post style -->
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+
+    <div class="course-meta">
+      {% if page.institution %}
+        <span class="course-institution">
+          <i class="fa-solid fa-building-columns"></i> {{ page.institution }}
+        </span>
+      {% endif %}
+
+      {% if page.semester and page.course_year %}
+        <span class="course-period">
+          <i class="fa-solid fa-calendar"></i> {{ page.semester }} {{ page.course_year }}
+        </span>
+      {% endif %}
+
+      {% if page.language %}
+        <span class="course-language">
+          <i class="fa-solid fa-language"></i>
+          {% if page.language == 'en-us' %}
+            English
+          {% elsif page.language == 'fr-ca' %}
+            Français
+          {% elsif page.language == 'zh-hans' %}
+            中文
+          {% else %}
+            {{ page.language }}
+          {% endif %}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <article class="course-content">
+    {% if page.toc and page.toc.sidebar %}
+      <div class="row">
+        <div class="col-sm-9">
+          <div id="markdown-content">
+            {{ content }}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <nav id="table-of-contents" class="sticky-top">
+            {% toc %}
+          </nav>
+        </div>
+      </div>
+    {% else %}
+      <div id="markdown-content">
+        {{ content }}
+      </div>
+    {% endif %}
+  </article>
+
+  {% if page.related_posts or page.related_notes %}
+    <div class="course-related">
+      <h2>Related Materials</h2>
+      {% if page.related_posts %}
+        <h3>Posts</h3>
+        <ul>
+          {% for post_id in page.related_posts %}
+            {% assign related_post = site.posts | where: "slug", post_id | first %}
+            {% if related_post %}
+              <li><a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if page.related_notes %}
+        <h3>Notes</h3>
+        <ul>
+          {% for note_id in page.related_notes %}
+            {% assign related_note = site.notes | where: "slug", note_id | first %}
+            {% if related_note %}
+              <li><a href="{{ related_note.url | relative_url }}">{{ related_note.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .course-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: var(--global-code-bg-color);
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  .course-meta span {
+    color: var(--global-text-color-light);
+  }
+
+  .course-meta i {
+    margin-right: 0.25rem;
+    color: var(--global-theme-color);
+  }
+
+  .course-content {
+    margin-top: 2rem;
+  }
+
+  .course-related {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
+
+  .course-related h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .course-related h3 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .course-related ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+
+  .course-related li {
+    margin-bottom: 0.5rem;
+  }
+</style>

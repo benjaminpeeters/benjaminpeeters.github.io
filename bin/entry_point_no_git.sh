@@ -10,6 +10,13 @@ start_jekyll() {
     if [ -f Gemfile.lock ]; then
         echo "Gemfile.lock exists, keeping it"
     fi
+
+    # Pre-create _site language directories to avoid imagemagick race condition with polyglot
+    mkdir -p _site
+    for lang in $(grep 'languages:' _config.yml | grep -oP '"[^"]+"' | tr -d '"'); do
+        mkdir -p "_site/$lang"
+    done
+
     bundle exec jekyll serve --config _config.yml,_config_dev.yml --incremental --watch --port=8080 --host=0.0.0.0 --livereload --verbose --trace --force_polling &
 }
 

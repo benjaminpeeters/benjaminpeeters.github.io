@@ -79,7 +79,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-permalink: /blog/:year/:title/
+permalink: /blog/:title/
 lsi: false # produce an index for related posts
 
 # Pagination
@@ -140,6 +140,17 @@ collections:
     defaults:
       layout: post
     output: true
+  notes:
+    output: true
+    permalink: /notes/:name/
+  courses:
+    output: true
+    permalink: /courses/:name/
+  blog:
+    defaults:
+      layout: post
+    output: true
+    permalink: /blog/:name/
   projects:
     output: true
   publications:

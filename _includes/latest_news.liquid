@@ -1,0 +1,69 @@
+{% comment %}
+Latest News Component
+Displays recent news items on homepage
+{% endcomment %}
+
+{% if page.latest_news %}
+  {% if page.latest_news.limit %}
+    {% assign news_limit = page.latest_news.limit %}
+  {% else %}
+    {% assign news_limit = 5 %}
+  {% endif %}
+
+  {% assign news_items = site.news | sort: "date" | reverse %}
+
+  <div class="latest-news">
+    <div
+      class="table-responsive"
+      {% if page.latest_news.scrollable and news_items.size > news_limit %}
+        style="max-height: 40vw"
+      {% endif %}
+    >
+      <table class="table table-sm table-borderless">
+        {% for item in news_items limit: news_limit %}
+          <tr>
+            <th scope="row" style="width: 20%">
+              {% include date_format.liquid format='short' date=item.date %}
+            </th>
+            <td>
+              <a class="news-title" href="{{ item.url | relative_url }}">
+                {{ item.title }}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="news-actions">
+      <a href="{{ '/news/' | relative_url }}" class="btn btn-sm btn-outline-secondary">
+        {{ site.data[site.active_lang].strings.all_news }}
+      </a>
+    </div>
+  </div>
+
+  <style>
+    .latest-news {
+      margin: 1rem 0;
+    }
+
+    .news-title {
+      font-weight: 500;
+      color: var(--global-text-color);
+      text-decoration: none;
+    }
+
+    .news-title:hover {
+      color: var(--global-theme-color);
+      text-decoration: underline;
+    }
+
+    .news-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+  </style>
+{% else %}
+  <p>{{ site.data[site.active_lang].strings.no_news }}</p>
+{% endif %}

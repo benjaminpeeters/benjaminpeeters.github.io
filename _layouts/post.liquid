@@ -67,6 +67,11 @@ layout: default
     </p>
   </header>
 
+  {% comment %} Series navigation - show at top if multi-part series {% endcomment %}
+  {% unless page.series_landing %}
+    {% include series_navigation.liquid %}
+  {% endunless %}
+
   <article class="post-content">
     {% if page.toc and page.toc.beginning %}
       <div id="table-of-contents">
@@ -75,9 +80,20 @@ layout: default
       <hr>
     {% endif %}
     <div id="markdown-content">
-      {{ content }}
+      {% comment %} If this is a series landing page, show series contents {% endcomment %}
+      {% if page.series_landing %}
+        {{ content }}
+        {% include series_landing.liquid %}
+      {% else %}
+        {{ content }}
+      {% endif %}
     </div>
   </article>
+
+  {% comment %} Series navigation - show at bottom if multi-part series {% endcomment %}
+  {% unless page.series_landing %}
+    {% include series_navigation.liquid %}
+  {% endunless %}
 
   {% if page.citation %}
     {% include citation.liquid %}

@@ -1,0 +1,145 @@
+{% comment %}
+Series Landing Component
+Displays a list of all parts in a series on the series landing/overview page
+Use this on pages with series_landing: true
+Only shows for multi-part series (series_total > 1)
+{% endcomment %}
+
+{% if page.series_landing and page.series_id and page.series_total > 1 %}
+  <div class="series-landing">
+    <div class="series-header">
+      <h2>Series Contents</h2>
+      <p class="series-meta">{{ page.series_total }} parts</p>
+    </div>
+
+    {% comment %} Find all items in this series {% endcomment %}
+    {% assign series_blog = site.blog | where: "series_id", page.series_id | sort: "series_part" %}
+    {% assign series_notes = site.notes | where: "series_id", page.series_id | sort: "series_part" %}
+    {% assign series_items = series_blog | concat: series_notes | sort: "series_part" %}
+
+    {% comment %} Filter out landing page itself and items without part numbers {% endcomment %}
+    {% assign series_parts = "" | split: "" %}
+    {% for item in series_items %}
+      {% if item.series_part and item.url != page.url %}
+        {% assign series_parts = series_parts | push: item %}
+      {% endif %}
+    {% endfor %}
+
+    <ol class="series-parts-list">
+      {% for part in series_parts %}
+        <li class="series-part-item">
+          <div class="series-part-number">Part {{ part.series_part }}</div>
+          <div class="series-part-content">
+            <h3 class="series-part-title">
+              <a href="{{ part.url | relative_url }}">{{ part.title }}</a>
+            </h3>
+            {% if part.description %}
+              <p class="series-part-description">{{ part.description }}</p>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+
+    <div class="series-reading-guide">
+      <p><strong>Reading Guide:</strong> This series is designed to be read sequentially, but you can jump to any part that interests you.</p>
+    </div>
+  </div>
+
+  <style>
+    .series-landing {
+      margin: 2rem 0;
+    }
+
+    .series-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--global-divider-color);
+    }
+
+    .series-header h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .series-meta {
+      color: var(--global-text-color-light);
+      font-size: 0.9rem;
+    }
+
+    .series-parts-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .series-part-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background-color: var(--global-bg-color);
+      border: 1px solid var(--global-divider-color);
+      border-radius: 0.5rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .series-part-item:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .series-part-number {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--global-theme-color);
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 0.85rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .series-part-content {
+      flex: 1;
+    }
+
+    .series-part-title {
+      font-size: 1.3rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .series-part-title a {
+      color: var(--global-text-color);
+      text-decoration: none;
+    }
+
+    .series-part-title a:hover {
+      color: var(--global-theme-color);
+      text-decoration: underline;
+    }
+
+    .series-part-description {
+      margin: 0;
+      color: var(--global-text-color-light);
+      line-height: 1.6;
+    }
+
+    .series-reading-guide {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: var(--global-code-bg-color);
+      border-left: 4px solid var(--global-theme-color);
+      border-radius: 0.25rem;
+    }
+
+    .series-reading-guide p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+  </style>
+{% endif %}

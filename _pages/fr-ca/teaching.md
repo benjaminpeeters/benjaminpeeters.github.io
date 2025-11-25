@@ -9,6 +9,29 @@ nav_order: 5
 hide_header: true
 ---
 
+{% assign courses = site.courses | sort: "course_year" | reverse %}
+{% if courses.size > 0 %}
+## Matériel de cours
+
+<div class="courses-list">
+{% for course in courses %}
+<div class="course-card" style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid var(--global-divider-color); border-radius: 0.5rem;">
+  <h3 style="margin-top: 0;"><a href="{{ course.url | relative_url }}">{{ course.title }}</a></h3>
+  <div class="course-meta" style="color: var(--global-text-color-light); font-size: 0.9rem; margin-bottom: 0.5rem;">
+    {{ course.semester }} {{ course.course_year }} | {{ course.institution }}
+    {% if course.language and course.language != 'en-us' %}
+    | {% if course.language == 'fr-ca' %}Français{% elsif course.language == 'zh-hans' %}Chinois{% else %}{{ course.language }}{% endif %}
+    {% endif %}
+  </div>
+  <p style="margin-bottom: 0;">{{ course.description }}</p>
+</div>
+{% endfor %}
+</div>
+
+---
+
+{% endif %}
+
 ## Cours actuels (2023-2024)
 
 ### Intégration régionale et relations UE-Asie

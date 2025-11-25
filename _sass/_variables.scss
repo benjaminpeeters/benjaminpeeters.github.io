@@ -59,3 +59,6 @@ $back-to-top-right: 30px;
 $back-to-top-diameter: 40px;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
+
+// Content width - configurable from main.scss via Jekyll
+$max-content-width: 800px !default;

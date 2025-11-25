@@ -1,4 +1,4 @@
 /* Flag Icons 7.1.0 https://github.com/lipis/flag-icons */
-@import "variables";
-@import "flag-icons-base";
-@import "flag-icons-list";
+@use "variables" as *;
+@use "flag-icons-base" as *;
+@use "flag-icons-list";

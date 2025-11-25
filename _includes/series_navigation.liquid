@@ -1,0 +1,118 @@
+{% comment %}
+Series Navigation Component
+Displays "Part X of Y" and Previous/Next buttons for multi-part series
+Only shows if series_total > 1
+{% endcomment %}
+
+{% if page.series_total and page.series_total > 1 and page.series_part %}
+  <div class="series-navigation">
+    <div class="series-info">
+      {% if page.series_title %}
+        <h4 class="series-title">{{ page.series_title }}</h4>
+      {% endif %}
+      <p class="series-part-indicator">
+        Part {{ page.series_part }} of {{ page.series_total }}
+      </p>
+    </div>
+
+    <div class="series-nav-buttons">
+      {% comment %} Find all items in this series {% endcomment %}
+      {% assign series_blog = site.blog | where: "series_id", page.series_id | sort: "series_part" %}
+      {% assign series_notes = site.notes | where: "series_id", page.series_id | sort: "series_part" %}
+      {% assign series_items = series_blog | concat: series_notes | sort: "series_part" %}
+
+      {% comment %} Find previous and next parts {% endcomment %}
+      {% assign prev_part = nil %}
+      {% assign next_part = nil %}
+
+      {% for item in series_items %}
+        {% if item.series_part %}
+          {% assign item_part_num = item.series_part | plus: 0 %}
+          {% assign current_part_num = page.series_part | plus: 0 %}
+
+          {% if item_part_num == current_part_num | minus: 1 %}
+            {% assign prev_part = item %}
+          {% endif %}
+
+          {% if item_part_num == current_part_num | plus: 1 %}
+            {% assign next_part = item %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} Previous button {% endcomment %}
+      {% if prev_part %}
+        <a href="{{ prev_part.url | relative_url }}" class="btn btn-sm btn-outline-primary">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </a>
+      {% else %}
+        <span class="btn btn-sm btn-outline-secondary disabled">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </span>
+      {% endif %}
+
+      {% comment %} Series overview link {% endcomment %}
+      {% assign series_landing = series_items | where: "series_landing", true | first %}
+      {% if series_landing %}
+        <a href="{{ series_landing.url | relative_url }}" class="btn btn-sm btn-outline-secondary">
+          <i class="fa-solid fa-list"></i> Series Overview
+        </a>
+      {% endif %}
+
+      {% comment %} Next button {% endcomment %}
+      {% if next_part %}
+        <a href="{{ next_part.url | relative_url }}" class="btn btn-sm btn-outline-primary">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      {% else %}
+        <span class="btn btn-sm btn-outline-secondary disabled">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .series-navigation {
+      background-color: var(--global-bg-color);
+      border: 1px solid var(--global-divider-color);
+      border-radius: 0.25rem;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .series-info {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .series-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--global-text-color);
+    }
+
+    .series-part-indicator {
+      font-size: 0.9rem;
+      color: var(--global-text-color-light);
+      margin: 0;
+    }
+
+    .series-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .series-nav-buttons .btn {
+      flex: 1;
+      text-align: center;
+    }
+
+    .series-nav-buttons .btn.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+{% endif %}

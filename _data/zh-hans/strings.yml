@@ -151,6 +151,7 @@ months:
     november: 11月
     december: 12月
 news: 新闻
+all_news: 所有新闻
 newsletter:
   back: 返回
   error: "哎呀！出了点问题，请重试。"
@@ -187,6 +188,7 @@ search:
     description: 将网站主题更改为浅色
     title: 更改为浅色主题
   navigation: 导航菜单
+  blog: 博客
   news: 新闻
   placeholder: 输入以开始搜索
   posts: 文章

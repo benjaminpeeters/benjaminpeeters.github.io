@@ -2,6 +2,8 @@
  * Content
  ******************************************************************************/
 
+@use "variables" as *;
+
 // Sticky footer layout - ensure footer stays at bottom of viewport
 html {
   height: 100%;

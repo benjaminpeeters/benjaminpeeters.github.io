@@ -3,6 +3,8 @@
  * Modern footer with brand-colored social icons and sticky positioning
  ******************************************************************************/
 
+@use "variables" as *;
+
 // Brand Colors for Social Platforms
 $brand-colors: (
   // Profile Links (Connect Section)

@@ -22,7 +22,23 @@ layout: default
     {% endif %}
   </header>
 
+  {% comment %} Series navigation - show at top if multi-part series {% endcomment %}
+  {% unless page.series_landing %}
+    {% include series_navigation.liquid %}
+  {% endunless %}
+
   <article class="quarto-content">
-    {{ content }}
+    {% comment %} If this is a series landing page, show series contents {% endcomment %}
+    {% if page.series_landing %}
+      {{ content }}
+      {% include series_landing.liquid %}
+    {% else %}
+      {{ content }}
+    {% endif %}
   </article>
+
+  {% comment %} Series navigation - show at bottom if multi-part series {% endcomment %}
+  {% unless page.series_landing %}
+    {% include series_navigation.liquid %}
+  {% endunless %}
 </div>

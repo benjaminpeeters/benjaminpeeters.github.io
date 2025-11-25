@@ -1,0 +1,148 @@
+{% comment %}
+Latest Activity Component
+Merges news and posts chronologically with type indicators
+Shows on homepage as unified feed
+{% endcomment %}
+
+{% if page.latest_activity %}
+  {% comment %} Get limit from page config, default to 6 {% endcomment %}
+  {% if page.latest_activity.limit %}
+    {% assign activity_limit = page.latest_activity.limit %}
+  {% else %}
+    {% assign activity_limit = 6 %}
+  {% endif %}
+
+  {% comment %} Combine news and posts {% endcomment %}
+  {% assign all_posts = site.posts %}
+  {% assign all_news = site.news %}
+  {% assign combined = all_posts | concat: all_news | sort: 'date' | reverse %}
+
+  {% comment %} Filter out series landing pages from main feed {% endcomment %}
+  {% assign activity_items = "" | split: "" %}
+  {% for item in combined %}
+    {% unless item.series_landing %}
+      {% assign activity_items = activity_items | push: item %}
+    {% endunless %}
+  {% endfor %}
+
+  <div class="latest-activity">
+    {% assign activity_size = activity_items | size %}
+    <div
+      class="table-responsive"
+      {% if page.latest_activity.scrollable and activity_size > activity_limit %}
+        style="max-height: 60vw"
+      {% endif %}
+    >
+      <table class="table table-sm table-borderless">
+        {% for item in activity_items limit: activity_limit %}
+          <tr>
+            {% comment %} Date column {% endcomment %}
+            <th scope="row" style="width: 20%">
+              {% include date_format.liquid format='short' date=item.date %}
+            </th>
+
+            {% comment %} Type indicator column {% endcomment %}
+            <td style="width: 10%; text-align: center">
+              {% if item.collection == 'news' %}
+                <span class="badge badge-pill badge-news" title="News">
+                  📰
+                </span>
+              {% else %}
+                <span class="badge badge-pill badge-post" title="Post">
+                  📝
+                </span>
+              {% endif %}
+            </td>
+
+            {% comment %} Content column {% endcomment %}
+            <td>
+              {% if item.redirect == blank %}
+                <a class="activity-title" href="{{ item.url | prepend: site.baseurl }}">
+                  {{ item.title }}
+                </a>
+              {% elsif item.redirect contains '://' %}
+                <a class="activity-title" href="{{ item.redirect }}" target="_blank">
+                  {{ item.title }}
+                </a>
+                <svg width="2rem" height="2rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9"
+                    class="icon_svg-stroke"
+                    stroke="#999"
+                    stroke-width="1.5"
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              {% else %}
+                <a class="activity-title" href="{{ item.redirect | prepend: site.baseurl }}">
+                  {{ item.title }}
+                </a>
+              {% endif %}
+
+              {% comment %} Show description for posts but not news {% endcomment %}
+              {% if item.collection == 'posts' and item.description %}
+                <div class="activity-description">{{ item.description }}</div>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    {% comment %} Action buttons {% endcomment %}
+    <div class="activity-actions">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-sm btn-outline-primary">
+        More Posts →
+      </a>
+      <a href="{{ '/news/' | relative_url }}" class="btn btn-sm btn-outline-secondary">
+        More News →
+      </a>
+    </div>
+  </div>
+
+  <style>
+    .latest-activity {
+      margin: 1rem 0;
+    }
+
+    .activity-title {
+      font-weight: 500;
+      color: var(--global-text-color);
+      text-decoration: none;
+    }
+
+    .activity-title:hover {
+      color: var(--global-theme-color);
+      text-decoration: underline;
+    }
+
+    .activity-description {
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+      color: var(--global-text-color-light);
+      line-height: 1.4;
+    }
+
+    .badge-news, .badge-post {
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+    }
+
+    .activity-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .activity-actions .btn {
+      padding: 0.5rem 1.5rem;
+    }
+  </style>
+{% else %}
+  <p>{{ site.data[site.active_lang].strings.no_posts }}</p>
+{% endif %}

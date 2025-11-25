@@ -151,6 +151,7 @@ months:
     november: Nov
     december: Dec
 news: news
+all_news: All News
 newsletter:
   back: Back
   error: "Oops! Something went wrong, please try again."
@@ -187,6 +188,7 @@ search:
     description: Change the theme of the site to Light
     title: Change theme to light
   navigation: Navigation menu
+  blog: Blog
   news: News
   placeholder: Type to start searching
   posts: Posts

@@ -1,4 +1,8 @@
-@if variable-exists(flag-icons-included-countries) {
+@use "sass:meta";
+@use "variables" as *;
+@use "flag-icons-base" as *;
+
+@if meta.variable-exists(flag-icons-included-countries) {
   @each $country in $flag-icons-included-countries {
     @include flag-icon($country);
   }

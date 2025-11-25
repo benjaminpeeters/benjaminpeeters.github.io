@@ -1,0 +1,120 @@
+// Blog series navigation and part links
+// Centralized styles for blog series components
+
+.blog-series-parts {
+  margin-top: 0.5rem;
+}
+
+.badge-series {
+  font-size: 0.75rem;
+  background-color: var(--global-theme-color);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.series-parts {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-left: 0.5rem;
+  overflow-x: auto;
+  max-width: 300px;
+  vertical-align: middle;
+}
+
+.part-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.4rem;
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-theme-color);
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--global-theme-color);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--global-theme-color);
+    color: white;
+    text-decoration: none;
+  }
+
+  &.current {
+    background: var(--global-theme-color);
+    color: white;
+  }
+}
+
+// Blog page search and tag filter
+.blog-search-container {
+  margin-bottom: 1rem;
+}
+
+.blog-tag-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag-btn {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 1rem;
+  background: var(--global-bg-color);
+  color: var(--global-theme-color);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--global-theme-color);
+    color: white;
+  }
+
+  &.active {
+    background: var(--global-theme-color);
+    color: white;
+  }
+}
+
+#blogsearch {
+  width: 100%;
+  max-width: 400px;
+}
+
+// Latest blog component styles (homepage)
+.latest-blog {
+  margin: 1rem 0;
+
+  .blog-title {
+    font-weight: 500;
+    color: var(--global-text-color);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: underline;
+    }
+  }
+
+  .blog-description {
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+    line-height: 1.4;
+  }
+
+  .blog-meta {
+    margin-top: 0.25rem;
+  }
+
+  .blog-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
