@@ -116,6 +116,8 @@ footer:
   share_label: 分享
   settings_label: 更多
   subscribe_label: 订阅
+  about_me_label: 关于我
+  colophon_label: 版本信息
   theme_label: 主题
   copy_link: 复制链接
   link_copied: 链接已复制!

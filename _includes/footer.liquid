@@ -2,24 +2,34 @@
 
 <footer class="footer-sticky" role="contentinfo">
   <div class="footer-container">
-    <div class="footer-buttons">
-      <!-- Connect Button -->
-      <button type="button" class="footer-button" id="openConnectModal">
-        <i class="fa-solid fa-users"></i>
-        <span>{{ footer_strings.connect_label }}</span>
-      </button>
+    <div class="footer-content">
+      <!-- Left Column: Action Buttons -->
+      <div class="footer-actions">
+        <button type="button" class="footer-button" id="openConnectModal">
+          <i class="fa-solid fa-users"></i>
+          <span>{{ footer_strings.connect_label }}</span>
+        </button>
+        <button type="button" class="footer-button" id="openShareModal">
+          <i class="fa-solid fa-share-nodes"></i>
+          <span>{{ footer_strings.share_label }}</span>
+        </button>
+      </div>
 
-      <!-- Share Button -->
-      <button type="button" class="footer-button" id="openShareModal">
-        <i class="fa-solid fa-share-nodes"></i>
-        <span>{{ footer_strings.share_label }}</span>
-      </button>
-
-      <!-- Subscribe Link -->
-      <a href="{{ site.baseurl }}/subscribe/" class="footer-button">
-        <i class="fa-solid fa-square-rss"></i>
-        <span>{{ footer_strings.subscribe_label }}</span>
-      </a>
+      <!-- Right Column: Navigation Links -->
+      <div class="footer-links">
+        <a href="{{ site.baseurl }}/about/" class="footer-link">
+          <i class="fa-solid fa-user"></i>
+          <span>{{ footer_strings.about_me_label }}</span>
+        </a>
+        <a href="{{ site.baseurl }}/colophon/" class="footer-link">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>{{ footer_strings.colophon_label }}</span>
+        </a>
+        <a href="{{ site.baseurl }}/subscribe/" class="footer-link">
+          <i class="fa-solid fa-square-rss"></i>
+          <span>{{ footer_strings.subscribe_label }}</span>
+        </a>
+      </div>
     </div>
 
     <!-- Copyright Notice -->

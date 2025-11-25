@@ -3,8 +3,7 @@ page_id: about
 layout: about
 title: about
 permalink: /about/
-nav: true
-nav_order: 6.5
+nav: false
 subtitle: Postdoctoral Researcher at <a href='https://www.pik-potsdam.de/'>PIK</a>
 hide_header: true
 
