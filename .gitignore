@@ -28,3 +28,4 @@ _includes/quarto/*.html
 
 # But DO track PDFs in cv/ directory
 !cv/*.pdf
+TODO.md
