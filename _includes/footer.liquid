@@ -111,6 +111,41 @@
             <i class="fa-brands fa-x-twitter"></i>
           </a>
 
+          <!-- Bluesky -->
+          <a
+            href="https://bsky.app/intent/compose?text={{ page_title }}%20{{ page_url }}"
+            class="footer-icon icon-bluesky"
+            title="Share on Bluesky"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Bluesky"
+          >
+            <i class="fa-brands fa-bluesky"></i>
+          </a>
+
+          <!-- Threads -->
+          <a
+            href="https://www.threads.net/intent/post?text={{ page_title }}%20{{ page_url }}"
+            class="footer-icon icon-threads"
+            title="Share on Threads"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Threads"
+          >
+            <i class="fa-brands fa-threads"></i>
+          </a>
+
+          <!-- Mastodon (Web Share API - decentralized, no single share URL) -->
+          <a
+            href="javascript:void(0);"
+            class="footer-icon icon-mastodon share-web"
+            title="Share on Mastodon"
+            data-url="{{ page_url_raw }}"
+            aria-label="Share on Mastodon"
+          >
+            <i class="fa-brands fa-mastodon"></i>
+          </a>
+
           <!-- Instagram (Web Share API fallback to copy link) -->
           <a
             href="javascript:void(0);"
