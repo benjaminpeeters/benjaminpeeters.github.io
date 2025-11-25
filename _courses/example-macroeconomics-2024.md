@@ -25,21 +25,25 @@ This course provides a comprehensive introduction to macroeconomic theory with p
 ## Course Structure
 
 ### Module 1: National Income Accounting
+
 - GDP measurement and components
 - Real vs. nominal values
 - International comparisons
 
 ### Module 2: Economic Growth
+
 - Solow growth model
 - Endogenous growth theory
 - Climate damages and growth
 
 ### Module 3: Business Cycles
+
 - Short-run fluctuations
 - Aggregate demand and supply
 - Stabilization policy
 
 ### Module 4: Climate Macroeconomics
+
 - Climate damages in macro models
 - Green transition pathways
 - Carbon pricing and growth
@@ -47,15 +51,18 @@ This course provides a comprehensive introduction to macroeconomic theory with p
 ## Materials
 
 ### Lecture Notes
+
 - [Introduction to National Accounts](/blog/national-accounts-intro/) (example link)
 - Additional lectures to be added
 
 ### Readings
+
 - Mankiw, N. Gregory. (2019). Macroeconomics. 10th edition.
 - Nordhaus, W. (2017). Revisiting the social cost of carbon. PNAS.
 - Additional readings on course platform
 
 ### Problem Sets
+
 - Problem Set 1: National Income Accounting (PDF to be uploaded)
 - Problem Set 2: Growth Theory (PDF to be uploaded)
 - Problem Set 3: Business Cycles (PDF to be uploaded)

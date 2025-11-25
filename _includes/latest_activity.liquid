@@ -1,7 +1,7 @@
 {% comment %}
-Latest Activity Component
-Merges news and posts chronologically with type indicators
-Shows on homepage as unified feed
+  Latest Activity Component
+  Merges news and posts chronologically with type indicators
+  Shows on homepage as unified feed
 {% endcomment %}
 
 {% if page.latest_activity %}
@@ -18,7 +18,7 @@ Shows on homepage as unified feed
   {% assign combined = all_posts | concat: all_news | sort: 'date' | reverse %}
 
   {% comment %} Filter out series landing pages from main feed {% endcomment %}
-  {% assign activity_items = "" | split: "" %}
+  {% assign activity_items = '' | split: '' %}
   {% for item in combined %}
     {% unless item.series_landing %}
       {% assign activity_items = activity_items | push: item %}
@@ -44,13 +44,9 @@ Shows on homepage as unified feed
             {% comment %} Type indicator column {% endcomment %}
             <td style="width: 10%; text-align: center">
               {% if item.collection == 'news' %}
-                <span class="badge badge-pill badge-news" title="News">
-                  📰
-                </span>
+                <span class="badge badge-pill badge-news" title="News"> 📰 </span>
               {% else %}
-                <span class="badge badge-pill badge-post" title="Post">
-                  📝
-                </span>
+                <span class="badge badge-pill badge-post" title="Post"> 📝 </span>
               {% endif %}
             </td>
 
@@ -94,12 +90,8 @@ Shows on homepage as unified feed
 
     {% comment %} Action buttons {% endcomment %}
     <div class="activity-actions">
-      <a href="{{ '/blog/' | relative_url }}" class="btn btn-sm btn-outline-primary">
-        More Posts →
-      </a>
-      <a href="{{ '/news/' | relative_url }}" class="btn btn-sm btn-outline-secondary">
-        More News →
-      </a>
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-sm btn-outline-primary"> More Posts → </a>
+      <a href="{{ '/news/' | relative_url }}" class="btn btn-sm btn-outline-secondary"> More News → </a>
     </div>
   </div>
 
@@ -126,7 +118,8 @@ Shows on homepage as unified feed
       line-height: 1.4;
     }
 
-    .badge-news, .badge-post {
+    .badge-news,
+    .badge-post {
       font-size: 1.2rem;
       background: none;
       border: none;

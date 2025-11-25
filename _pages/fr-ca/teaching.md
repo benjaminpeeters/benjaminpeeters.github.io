@@ -11,6 +11,7 @@ hide_header: true
 
 {% assign courses = site.courses | sort: "course_year" | reverse %}
 {% if courses.size > 0 %}
+
 ## Matériel de cours
 
 <div class="courses-list">

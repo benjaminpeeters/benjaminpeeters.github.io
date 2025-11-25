@@ -1,6 +1,6 @@
 {% comment %}
-Latest News Component
-Displays recent news items on homepage
+  Latest News Component
+  Displays recent news items on homepage
 {% endcomment %}
 
 {% if page.latest_news %}
@@ -10,7 +10,7 @@ Displays recent news items on homepage
     {% assign news_limit = 5 %}
   {% endif %}
 
-  {% assign news_items = site.news | sort: "date" | reverse %}
+  {% assign news_items = site.news | sort: 'date' | reverse %}
 
   <div class="latest-news">
     <div

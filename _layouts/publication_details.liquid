@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div class="publication-details">
   <div class="container mt-5">
     <div class="row">
@@ -36,27 +35,19 @@ layout: default
               {% else %}
                 {% assign pdf_url = page.pdf | prepend: '/assets/pdf/' | relative_url %}
               {% endif %}
-              <a href="{{ pdf_url }}" class="btn btn-primary" download>
-                <i class="fa-solid fa-download"></i> Download PDF
-              </a>
+              <a href="{{ pdf_url }}" class="btn btn-primary" download> <i class="fa-solid fa-download"></i> Download PDF </a>
             {% endif %}
 
             {% if page.doi %}
-              <a href="https://doi.org/{{ page.doi }}" class="btn btn-outline-primary" target="_blank">
-                <i class="ai ai-doi"></i> DOI
-              </a>
+              <a href="https://doi.org/{{ page.doi }}" class="btn btn-outline-primary" target="_blank"> <i class="ai ai-doi"></i> DOI </a>
             {% endif %}
 
             {% if page.html %}
-              <a href="{{ page.html }}" class="btn btn-outline-primary" target="_blank">
-                <i class="fa-solid fa-link"></i> Publisher
-              </a>
+              <a href="{{ page.html }}" class="btn btn-outline-primary" target="_blank"> <i class="fa-solid fa-link"></i> Publisher </a>
             {% endif %}
 
             {% if page.code %}
-              <a href="{{ page.code }}" class="btn btn-outline-primary" target="_blank">
-                <i class="fa-brands fa-github"></i> Code
-              </a>
+              <a href="{{ page.code }}" class="btn btn-outline-primary" target="_blank"> <i class="fa-brands fa-github"></i> Code </a>
             {% endif %}
           </div>
         </div>
@@ -77,12 +68,14 @@ layout: default
                 type="application/pdf"
                 width="100%"
                 height="100%"
-                style="border: none;">
+                style="border: none;"
+              >
                 <iframe
                   src="{{ pdf_url }}"
                   width="100%"
                   height="100%"
-                  style="border: none;">
+                  style="border: none;"
+                >
                   <p style="padding: 20px;">
                     Your browser does not support PDF preview.
                     <a href="{{ pdf_url }}" download>Download the PDF</a> to view it.
@@ -103,9 +96,7 @@ layout: default
         {% endif %}
 
         <div class="publication-back mt-4 mb-5">
-          <a href="{{ '/pub/' | relative_url }}" class="btn btn-outline-secondary">
-            <i class="fa-solid fa-arrow-left"></i> Back to Publications
-          </a>
+          <a href="{{ '/pub/' | relative_url }}" class="btn btn-outline-secondary"> <i class="fa-solid fa-arrow-left"></i> Back to Publications </a>
         </div>
       </div>
     </div>

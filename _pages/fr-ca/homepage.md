@@ -49,6 +49,7 @@ selected_papers: true
 </div>
 
 {% if page.latest_blog.enabled %}
+
 <div class="homepage-section">
   <h2><a href="{{ '/blog/' | relative_url }}">Derniers Articles</a></h2>
   {% include latest_blog.liquid %}
@@ -56,6 +57,7 @@ selected_papers: true
 {% endif %}
 
 {% if page.latest_news.enabled %}
+
 <div class="homepage-section">
   <h2><a href="{{ '/news/' | relative_url }}">Dernières Nouvelles</a></h2>
   {% include latest_news.liquid %}

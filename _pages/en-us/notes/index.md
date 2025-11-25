@@ -14,6 +14,7 @@ This page contains detailed technical notes, derivations, and research documenta
 {% assign public_notes = site.notes | where_exp: "note", "note.unlisted != true" | sort: "date" | reverse %}
 
 {% if public_notes.size > 0 %}
+
   <div class="notes-list">
     {% for note in public_notes %}
       <div class="note-item">

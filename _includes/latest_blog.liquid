@@ -1,6 +1,6 @@
 {% comment %}
-Latest Blog Component
-Displays recent blog series landing pages on homepage
+  Latest Blog Component
+  Displays recent blog series landing pages on homepage
 {% endcomment %}
 
 {% if page.latest_blog %}
@@ -10,7 +10,7 @@ Displays recent blog series landing pages on homepage
     {% assign blog_limit = 3 %}
   {% endif %}
 
-  {% assign blog_entries = site.blog | where: "series_landing", true | sort: "date" | reverse %}
+  {% assign blog_entries = site.blog | where: 'series_landing', true | sort: 'date' | reverse %}
 
   <div class="latest-blog">
     <div class="table-responsive">
@@ -31,7 +31,11 @@ Displays recent blog series landing pages on homepage
                 <div class="blog-meta">
                   <span class="badge badge-series">{{ post.series_total }} parts</span>
                   <span class="series-parts">
-                    {% assign series_posts = site.blog | where: "series_id", post.series_id | where_exp: "p", "p.series_landing != true" | sort: "series_part" %}
+                    {% assign series_posts = site.blog
+                      | where: 'series_id', post.series_id
+                      | where_exp: 'p', 'p.series_landing != true'
+                      | sort: 'series_part'
+                    %}
                     {% for part in series_posts %}
                       <a href="{{ part.url | relative_url }}" class="part-link">{{ part.series_part }}</a>
                     {% endfor %}
@@ -45,9 +49,7 @@ Displays recent blog series landing pages on homepage
     </div>
 
     <div class="blog-actions">
-      <a href="{{ '/blog/' | relative_url }}" class="btn btn-sm btn-outline-primary">
-        All Blog Posts
-      </a>
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-sm btn-outline-primary"> All Blog Posts </a>
     </div>
   </div>
 

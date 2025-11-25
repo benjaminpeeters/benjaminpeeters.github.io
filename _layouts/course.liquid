@@ -18,14 +18,13 @@ layout: default
 
     <div class="course-meta">
       {% if page.institution %}
-        <span class="course-institution">
-          <i class="fa-solid fa-building-columns"></i> {{ page.institution }}
-        </span>
+        <span class="course-institution"> <i class="fa-solid fa-building-columns"></i> {{ page.institution }} </span>
       {% endif %}
 
       {% if page.semester and page.course_year %}
         <span class="course-period">
-          <i class="fa-solid fa-calendar"></i> {{ page.semester }} {{ page.course_year }}
+          <i class="fa-solid fa-calendar"></i> {{ page.semester }}
+          {{ page.course_year }}
         </span>
       {% endif %}
 
@@ -74,9 +73,11 @@ layout: default
         <h3>Posts</h3>
         <ul>
           {% for post_id in page.related_posts %}
-            {% assign related_post = site.posts | where: "slug", post_id | first %}
+            {% assign related_post = site.posts | where: 'slug', post_id | first %}
             {% if related_post %}
-              <li><a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a></li>
+              <li>
+                <a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a>
+              </li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -86,9 +87,11 @@ layout: default
         <h3>Notes</h3>
         <ul>
           {% for note_id in page.related_notes %}
-            {% assign related_note = site.notes | where: "slug", note_id | first %}
+            {% assign related_note = site.notes | where: 'slug', note_id | first %}
             {% if related_note %}
-              <li><a href="{{ related_note.url | relative_url }}">{{ related_note.title }}</a></li>
+              <li>
+                <a href="{{ related_note.url | relative_url }}">{{ related_note.title }}</a>
+              </li>
             {% endif %}
           {% endfor %}
         </ul>

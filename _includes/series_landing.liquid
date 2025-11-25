@@ -1,8 +1,8 @@
 {% comment %}
-Series Landing Component
-Displays a list of all parts in a series on the series landing/overview page
-Use this on pages with series_landing: true
-Only shows for multi-part series (series_total > 1)
+  Series Landing Component
+  Displays a list of all parts in a series on the series landing/overview page
+  Use this on pages with series_landing: true
+  Only shows for multi-part series (series_total > 1)
 {% endcomment %}
 
 {% if page.series_landing and page.series_id and page.series_total > 1 %}
@@ -13,12 +13,12 @@ Only shows for multi-part series (series_total > 1)
     </div>
 
     {% comment %} Find all items in this series {% endcomment %}
-    {% assign series_blog = site.blog | where: "series_id", page.series_id | sort: "series_part" %}
-    {% assign series_notes = site.notes | where: "series_id", page.series_id | sort: "series_part" %}
-    {% assign series_items = series_blog | concat: series_notes | sort: "series_part" %}
+    {% assign series_blog = site.blog | where: 'series_id', page.series_id | sort: 'series_part' %}
+    {% assign series_notes = site.notes | where: 'series_id', page.series_id | sort: 'series_part' %}
+    {% assign series_items = series_blog | concat: series_notes | sort: 'series_part' %}
 
     {% comment %} Filter out landing page itself and items without part numbers {% endcomment %}
-    {% assign series_parts = "" | split: "" %}
+    {% assign series_parts = '' | split: '' %}
     {% for item in series_items %}
       {% if item.series_part and item.url != page.url %}
         {% assign series_parts = series_parts | push: item %}

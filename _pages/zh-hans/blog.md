@@ -75,19 +75,20 @@ pagination:
     <input type="text" id="blogsearch" spellcheck="false" autocomplete="off" class="search bibsearch-form-input" placeholder="输入以筛选博客文章">
   </div>
 
-  {% comment %} Collect all unique tags from blog posts {% endcomment %}
-  {% assign all_tags = "" | split: "" %}
-  {% assign blog_posts = site.blog | where: "series_landing", true %}
-  {% for post in blog_posts %}
-    {% for tag in post.tags %}
-      {% unless all_tags contains tag %}
-        {% assign all_tags = all_tags | push: tag %}
-      {% endunless %}
-    {% endfor %}
-  {% endfor %}
-  {% assign all_tags = all_tags | sort %}
+{% comment %} Collect all unique tags from blog posts {% endcomment %}
+{% assign all_tags = "" | split: "" %}
+{% assign blog_posts = site.blog | where: "series_landing", true %}
+{% for post in blog_posts %}
+{% for tag in post.tags %}
+{% unless all_tags contains tag %}
+{% assign all_tags = all_tags | push: tag %}
+{% endunless %}
+{% endfor %}
+{% endfor %}
+{% assign all_tags = all_tags | sort %}
 
-  {% if all_tags.size > 0 %}
+{% if all_tags.size > 0 %}
+
   <div class="blog-tag-selector">
     <button class="tag-btn active" data-tag="all">全部</button>
     {% for tag in all_tags %}
@@ -224,4 +225,3 @@ document.addEventListener("DOMContentLoaded", function() {
   updateFromHash();
 });
 </script>
-

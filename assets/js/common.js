@@ -27,7 +27,7 @@ $(document).ready(function () {
     var $myNav = $(navSelector);
     Toc.init({
       $nav: $myNav,
-      $scope: $('[role="main"]')
+      $scope: $('[role="main"]'),
     });
     $("body").scrollspy({
       target: navSelector,
