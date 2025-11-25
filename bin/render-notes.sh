@@ -10,7 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 QUARTO_DIR="$PROJECT_ROOT/_quarto"
 OUTPUT_DIR="$PROJECT_ROOT/assets/quarto"
-PAGES_DIR="$PROJECT_ROOT/_pages/en-us/notes"
+PAGES_DIR="$PROJECT_ROOT/_pages/en/notes"
 INCLUDES_DIR="$PROJECT_ROOT/_includes/quarto"
 
 # Colors for output
