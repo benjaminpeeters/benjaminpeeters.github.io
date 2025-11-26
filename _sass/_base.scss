@@ -1216,13 +1216,17 @@ ninja-keys {
   --ninja-modal-background: var(--global-bg-color);
   --ninja-z-index: 1031;
 
+  // Larger modal on desktop (70% of viewport, centered)
+  @media (min-width: 768px) {
+    --ninja-width: 70vw;
+    --ninja-actions-height: 70vh;
+    --ninja-top: 10vh;
+  }
+
   // modal footer and its components were extracted from assets/js/search/base-styles.min.js
+  // Hidden to remove the keyboard hints bar that occasionally appears below footer
   .modal-footer {
-    padding: 0.5em 1em;
-    display: flex;
-    /* font-size: 0.75em; */
-    border-top: 1px solid var(--ninja-secondary-background-color);
-    color: var(--ninja-secondary-text-color);
+    display: none !important;
   }
 
   .modal-footer .help {
