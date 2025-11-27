@@ -1,0 +1,26 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title | default: site.first_name | append: " " | append: site.last_name }}</title>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}/</id>
+  <author>
+    <name>{{ site.first_name }} {{ site.last_name }}</name>
+  </author>
+
+  {% assign all_items = site.blog | concat: site.news | concat: site.publications %}
+  {% assign sorted_items = all_items | sort: 'date' | reverse %}
+  {% for item in sorted_items limit: 20 %}
+  <entry>
+    <title>{{ item.title | xml_escape }}</title>
+    <link href="{{ item.url | absolute_url }}"/>
+    <updated>{{ item.date | date_to_xmlschema }}</updated>
+    <id>{{ item.url | absolute_url }}</id>
+    <content type="html">{{ item.excerpt | default: item.abstract | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

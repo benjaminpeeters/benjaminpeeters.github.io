@@ -37,9 +37,12 @@ rss_icon: true
 
 feed:
   collections:
-    - blog
-    - news
-    - publications
+    blog:
+      path: "/blog/feed.xml"
+    news:
+      path: "/news/feed.xml"
+    publications:
+      path: "/publications/feed.xml"
 
 # -----------------------------------------------------------------------------
 # Layout
