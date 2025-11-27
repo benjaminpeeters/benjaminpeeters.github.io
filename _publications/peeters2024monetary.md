@@ -5,6 +5,8 @@ authors: "Benjamin Peeters, Alexander Girard, and Jean-Yves Gnabo"
 year: 2024
 code: "https://github.com/benjaminpeeters/TVSR"
 abstract: "This study investigates the relative importance of monetary policy responses versus economic integration in explaining international monetary policy spillover effects across economies."
+redirect_from:
+  - /articles/paper/paper-pgg/
 bibtex: |
   @unpublished{peeters2024monetary,
     author = {Peeters, Benjamin and Girard, Alexander and Gnabo, Jean-Yves},

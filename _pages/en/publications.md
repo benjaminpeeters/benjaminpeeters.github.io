@@ -7,6 +7,12 @@ description: publications by categories in reversed chronological order. generat
 nav: true
 nav_order: 2
 hide_header: true
+redirect_from:
+  - /articles/
+  - /articles/paper/
+  - /paper/
+  - /papers/
+  - /publications/
 ---
 
 <!-- _pages/publications.md -->

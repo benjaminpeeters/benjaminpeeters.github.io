@@ -216,6 +216,7 @@ plugins:
   - jekyll-minifier
   - jekyll-paginate-v2
   - jekyll-polyglot
+  - jekyll-redirect-from
   - jekyll-regex-replace
   - jekyll/scholar
   - jekyll-sitemap
