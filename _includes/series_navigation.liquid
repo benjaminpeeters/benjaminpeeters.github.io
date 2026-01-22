@@ -23,16 +23,19 @@
       {% assign prev_part = null %}
       {% assign next_part = null %}
 
+      {% assign current_part_num = page.series_part | plus: 0 %}
+      {% assign prev_part_num = current_part_num | minus: 1 %}
+      {% assign next_part_num = current_part_num | plus: 1 %}
+
       {% for item in series_items %}
         {% if item.series_part %}
           {% assign item_part_num = item.series_part | plus: 0 %}
-          {% assign current_part_num = page.series_part | plus: 0 %}
 
-          {% if item_part_num == current_part_num | minus: 1 %}
+          {% if item_part_num == prev_part_num %}
             {% assign prev_part = item %}
           {% endif %}
 
-          {% if item_part_num == current_part_num | plus: 1 %}
+          {% if item_part_num == next_part_num %}
             {% assign next_part = item %}
           {% endif %}
         {% endif %}
