@@ -2,6 +2,7 @@
 
 // Toggle through light, dark, and system theme settings.
 let toggleThemeSetting = () => {
+  transTheme();
   let themeSetting = determineThemeSetting();
   if (themeSetting == "system") {
     setThemeSetting("light");
@@ -24,8 +25,6 @@ let setThemeSetting = (themeSetting) => {
 // Apply the computed dark or light theme to the website.
 let applyTheme = () => {
   let theme = determineComputedTheme();
-
-  transTheme();
   setHighlight(theme);
   setGiscusTheme(theme);
   setSearchTheme(theme);
