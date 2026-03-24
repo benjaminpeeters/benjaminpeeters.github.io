@@ -26,9 +26,9 @@ selected_papers: true
       <p class="homepage-tagline">Climate Economics • Macroeconomics • International Finance</p>
 
       <div class="homepage-intro">
-        <p>I examine the links between physical and financial risks of climate change through integrated assessment models, with particular focus on climate damages, adaptation costs, and effects on capital markets in developing nations.</p>
+        <p>I examine the links between physical and financial risks of climate change through integrated assessment models, with particular focus on climate damages to capital, reconstruction dynamics, labour productivity impacts, and trade.</p>
 
-        <p>My research uses the REMIND model to analyze how climate risks affect economic transformation pathways, combining insights from economic history, macroeconomics, and climate science.</p>
+        <p>My research uses the MINDCET model to analyze how climate risks affect economic transformation pathways, combining insights from climate science, macroeconomics, and economic history.</p>
       </div>
 
       <div class="homepage-actions">

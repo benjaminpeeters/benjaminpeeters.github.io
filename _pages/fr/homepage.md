@@ -26,9 +26,9 @@ selected_papers: true
       <p class="homepage-tagline">Économie Climatique • Macroéconomie • Finance Internationale</p>
 
       <div class="homepage-intro">
-        <p>J'examine les liens entre les risques physiques et financiers du changement climatique à travers des modèles d'évaluation intégrés, avec un accent particulier sur les dommages climatiques, les coûts d'adaptation et les effets sur les marchés de capitaux dans les pays en développement.</p>
+        <p>J'examine les liens entre les risques physiques et financiers du changement climatique à travers des modèles d'évaluation intégrés, avec un accent particulier sur les dommages climatiques au capital, les dynamiques de reconstruction, les impacts sur la productivité du travail et le commerce.</p>
 
-        <p>Mes recherches utilisent le modèle REMIND pour analyser comment les risques climatiques affectent les trajectoires de transformation économique, combinant des perspectives issues de l'histoire économique, de la macroéconomie et des sciences du climat.</p>
+        <p>Mes recherches utilisent le modèle MINDCET pour analyser comment les risques climatiques affectent les trajectoires de transformation économique, combinant des perspectives issues des sciences du climat, de la macroéconomie et de l'histoire économique.</p>
       </div>
 
       <div class="homepage-actions">

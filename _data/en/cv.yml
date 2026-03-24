@@ -42,12 +42,19 @@
   contents:
     - title: Postdoctoral Researcher
       institution: Potsdam Institute for Climate Impact Research (PIK), Germany
-      year: 2023 - present
+      year: 2025 - present
       description:
         - Research Department Transformation Pathways
         - Examining links between physical and financial risks of climate change
-        - Working with REMIND model on climate damages and adaptation costs
-        - Analyzing climate risk effects on capital costs in developing nations
+        - Developing the MINDCET model with energy supply emulators from REMIND
+        - Climate damages to capital, reconstruction dynamics, labour productivity, trade
+    - title: Postdoctoral Researcher
+      institution: National Chengchi University (NCCU), Taiwan
+      year: 2023 - 2024
+      description:
+        - College of International Affairs
+        - 1-year research and study grant
+        - "Supervisor: Prof. Cho-hsin Su"
     - title: PhD Researcher and Teaching Assistant
       institution: UCLouvain, Belgium
       year: 2016 - 2023
@@ -55,6 +62,26 @@
         - Doctoral research on financial interdependencies
         - Teaching assistant for multiple courses in economics and statistics
         - Supervised student projects and tutorials
+
+- title: Publications
+  type: time_table
+  contents:
+    - title: Peer-reviewed
+      year: ""
+      description:
+        - "Cyclical pattern in international financial flows to the semi-periphery. <i>International Review of Economics &amp; Finance</i>, Vol. 104, 2025. <a href='https://doi.org/10.1016/j.iref.2025.104456'>doi:10.1016/j.iref.2025.104456</a>"
+        - "Can the Energy Transition Be Smooth? A General Equilibrium Approach to the EROEI. <i>Sustainability</i>, 2020. With J.-F. Fagnart and M. Germain. <a href='https://www.mdpi.com/2071-1050/12/3/1176/htm'>link</a>"
+    - title: Working papers
+      year: ""
+      description:
+        - "Modeling Climate Damage on Capital: Reconstruction Dynamics and Investment Allocation in Growth Models. With F. Piontek, 2025."
+        - "How has Financial Globalization impacted Monetary Policy? An overview. 2024."
+        - "Medium-Term Cycles and Financial Crises in Semi-periphery Countries. With J.-C. Defraigne. Under review at <i>World Development</i>."
+        - "Monetary policy response or economic integration: what drives international monetary policy spillovers? With A. Girard and J.-Y. Gnabo. Under review at <i>JIMF</i>."
+    - title: PhD thesis
+      year: 2023
+      description:
+        - "Empirical Assessments of Financial Interdependencies Since the 1970s. <a href='http://hdl.handle.net/2078.3/273394'>hdl.handle.net/2078.3/273394</a>"
 
 - title: Teaching Experience
   type: time_table
@@ -90,9 +117,9 @@
   contents:
     - title: Climate Economics
       items:
-        - Climate damages and adaptation costs
-        - Climate risk effects on capital markets
-        - Integration of financial risk in climate-economy models
+        - Climate damages to capital and reconstruction dynamics
+        - Labour productivity impacts and trade
+        - Integration of climate damage in growth models
     - title: Macroeconomics and Finance
       items:
         - Financial interdependencies and crises
@@ -115,7 +142,7 @@
   type: list
   contents:
     - Econometric Analysis (R, Stata, Python)
-    - Climate-Economy Modeling (REMIND)
+    - Climate-Economy Modeling (MINDCET/REMIND)
     - Statistical Programming
     - Data Visualization
     - Academic Writing and Publishing

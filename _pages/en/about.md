@@ -20,7 +20,7 @@ profile:
 social: false
 ---
 
-I am a Postdoctoral Researcher at the [Potsdam Institute for Climate Impact Research (PIK)](https://www.pik-potsdam.de/), working in the Research Department Transformation Pathways. My research focuses on examining the links between physical and financial risks of climate change through the REMIND model, with particular emphasis on climate damages, adaptation costs, and the effects of climate risk on capital costs in developing nations.
+I am a Postdoctoral Researcher at the [Potsdam Institute for Climate Impact Research (PIK)](https://www.pik-potsdam.de/), working in the Research Department Transformation Pathways. My research focuses on examining the links between physical and financial risks of climate change through the MINDCET model (Model of Investment and Development with Climate and Economic Transformation), a multi-sector growth model using energy supply emulators from REMIND. I focus in particular on climate damages to capital, reconstruction dynamics, labour productivity impacts, and trade.
 
 I hold a PhD in Economics from [UCLouvain Saint-Louis Brussels](https://uclouvain.be/en/research-institutes/rscs), where I completed my doctoral thesis on "Empirical Assessments of Financial Interdependencies Since the 1970s" under the supervision of Alexander Girard and Jean-Christophe Defraigne. Prior to my PhD, I earned dual master's degrees in Economics and Electrical Engineering from UCLouvain, along with certificates in Economic and Social Ethics, Statistics, and Radiation Protection.
 
@@ -28,7 +28,7 @@ I hold a PhD in Economics from [UCLouvain Saint-Louis Brussels](https://uclouvai
 
 My research spans multiple areas at the intersection of economics, finance, and climate science:
 
-- Climate Economics: Climate damages, adaptation costs, and climate risk effects on capital markets
+- Climate Economics: Climate damages to capital, reconstruction dynamics, labour productivity impacts, and trade
 - Macroeconomics: Business cycles, financial crises, and economic integration
 - Econometrics: Time-series analysis, spatial econometrics, and panel data methods
 - International Economics: Financial globalization, monetary policy spillovers, and regional integration
@@ -40,7 +40,7 @@ My research spans multiple areas at the intersection of economics, finance, and 
 
 ## Current Work
 
-At PIK, I am integrating financial risk assessment into climate-economy models to better understand how climate change affects investment decisions and capital allocation, particularly in developing economies. This work contributes to improving our understanding of the economic pathways toward climate stabilization and sustainable development.
+At PIK, I am developing the MINDCET model to better understand how climate damages affect capital accumulation, labour productivity, and economic transformation pathways. This work contributes to bridging the gap between statistical and structural estimates of climate damages by providing foundations for persistent economic effects of climate shocks.
 
 My previous research has examined cyclical patterns in international financial flows, monetary policy spillovers among economies, and medium-term financial cycles in semi-periphery countries. I have also worked on the economics of energy transitions and the role of intangible assets in the world-system.
 

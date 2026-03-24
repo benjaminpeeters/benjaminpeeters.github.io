@@ -42,12 +42,19 @@
   contents:
     - title: 博士后研究员
       institution: 波茨坦气候影响研究所 (PIK)，德国
-      year: 2023年至今
+      year: 2025年至今
       description:
         - 转型路径研究部门
         - 研究气候变化的物理风险与金融风险之间的联系
-        - 使用REMIND模型研究气候损害和适应成本
-        - 分析气候风险对发展中国家资本成本的影响
+        - 开发MINDCET模型，使用REMIND能源供应模拟器
+        - 气候对资本的损害、重建动态、劳动生产率、贸易
+    - title: 博士后研究员
+      institution: 国立政治大学（台湾）
+      year: 2023 - 2024
+      description:
+        - 国际事务学院
+        - 一年研究与学习奖学金
+        - 导师：蘇卓馨教授
     - title: 博士研究生和助教
       institution: 鲁汶大学，比利时
       year: 2016 - 2023
@@ -55,6 +62,26 @@
         - 金融相互依赖性博士研究
         - 多门经济学和统计学课程助教
         - 指导学生项目和辅导
+
+- title: 出版物
+  type: time_table
+  contents:
+    - title: 同行评审期刊
+      year: ""
+      description:
+        - "Cyclical pattern in international financial flows to the semi-periphery. <i>International Review of Economics &amp; Finance</i>, Vol. 104, 2025. <a href='https://doi.org/10.1016/j.iref.2025.104456'>doi:10.1016/j.iref.2025.104456</a>"
+        - "Can the Energy Transition Be Smooth? A General Equilibrium Approach to the EROEI. <i>Sustainability</i>, 2020. 与 J.-F. Fagnart 和 M. Germain 合著. <a href='https://www.mdpi.com/2071-1050/12/3/1176/htm'>链接</a>"
+    - title: 工作论文
+      year: ""
+      description:
+        - "Modeling Climate Damage on Capital: Reconstruction Dynamics and Investment Allocation in Growth Models. 与 F. Piontek 合著, 2025."
+        - "How has Financial Globalization impacted Monetary Policy? An overview. 2024."
+        - "Medium-Term Cycles and Financial Crises in Semi-periphery Countries. 与 J.-C. Defraigne 合著. 审稿中 (<i>World Development</i>)."
+        - "Monetary policy response or economic integration: what drives international monetary policy spillovers? 与 A. Girard 和 J.-Y. Gnabo 合著. 审稿中 (<i>JIMF</i>)."
+    - title: 博士论文
+      year: 2023
+      description:
+        - "Empirical Assessments of Financial Interdependencies Since the 1970s. <a href='http://hdl.handle.net/2078.3/273394'>hdl.handle.net/2078.3/273394</a>"
 
 - title: 教学经历
   type: time_table
@@ -90,9 +117,9 @@
   contents:
     - title: 气候经济学
       items:
-        - 气候损害和适应成本
-        - 气候风险对资本市场的影响
-        - 气候-经济模型中的金融风险整合
+        - 气候对资本的损害和重建动态
+        - 劳动生产率影响和贸易
+        - 在增长模型中整合气候损害
     - title: 宏观经济学与金融
       items:
         - 金融相互依赖性与危机
@@ -115,7 +142,7 @@
   type: list
   contents:
     - 计量经济分析 (R, Stata, Python)
-    - 气候-经济建模 (REMIND)
+    - 气候-经济建模 (MINDCET/REMIND)
     - 统计编程
     - 数据可视化
     - 学术写作与出版
