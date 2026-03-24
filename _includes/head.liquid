@@ -22,7 +22,6 @@
 {% if page.pretty_table %}
   <!-- Bootstrap Table -->
   <link
-    defer
     rel="stylesheet"
     href="{{ site.third_party_libraries.bootstrap-table.url.css }}"
     integrity="{{ site.third_party_libraries.bootstrap-table.integrity.css }}"
@@ -33,11 +32,10 @@
 <!-- Fonts & Icons -->
 <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
 <link rel="stylesheet" href="{{ '/assets/css/scholar-icons.css' | relative_url | bust_file_cache }}">
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{{ site.third_party_libraries.google_fonts.url.fonts }}"
->
+<!-- Text fonts: display=optional prevents layout shift (uses system font if Roboto not cached) -->
+<link rel="stylesheet" type="text/css" href="{{ site.third_party_libraries.google_fonts.url.fonts }}">
+<!-- Icon font: display=swap ensures icons always render (not optional -- broken icons are worse than a font swap) -->
+<link rel="stylesheet" type="text/css" href="{{ site.third_party_libraries.google_fonts.url.icons }}">
 
 <!-- Code Syntax Highlighting -->
 <link
@@ -50,7 +48,6 @@
 {% if page.layout == 'quarto-note' or page.katex %}
   <!-- KaTeX for server-side rendered math -->
   <link
-    defer
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
     integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
@@ -68,7 +65,6 @@
 {% if page.pseudocode %}
   <!-- pseudocode -->
   <link
-    defer
     rel="stylesheet"
     href="{{ site.third_party_libraries.pseudocode.url.css }}"
     integrity="{{ site.third_party_libraries.pseudocode.integrity.css }}"
@@ -116,7 +112,6 @@
 <script src="{{ '/assets/js/theme.js' | relative_url | bust_file_cache }}"></script>
 {% if site.enable_darkmode %}
   <link
-    defer
     rel="stylesheet"
     href="{{ '/assets/css/jekyll-pygments-themes-native.css' | relative_url | bust_file_cache }}"
     media="none"
@@ -130,7 +125,6 @@
 {% if page.map %}
   <!-- GeoJSON support via Leaflet -->
   <link
-    defer
     rel="stylesheet"
     href="{{ site.third_party_libraries.leaflet.url.css }}"
     integrity="{{ site.third_party_libraries.leaflet.integrity.css }}"
@@ -141,7 +135,6 @@
 {% if page.code_diff %}
   <!-- diff2html -->
   <link
-    defer
     rel="stylesheet"
     href="{{ site.third_party_libraries.highlightjs.url.css.light }}"
     integrity="{{ site.third_party_libraries.highlightjs.integrity.css.light }}"
@@ -149,7 +142,6 @@
     media="screen and (prefers-color-scheme: light)"
   >
   <link
-    defer
     rel="stylesheet"
     href="{{ site.third_party_libraries.highlightjs.url.css.dark }}"
     integrity="{{ site.third_party_libraries.highlightjs.integrity.css.dark }}"
@@ -157,7 +149,6 @@
     media="screen and (prefers-color-scheme: dark)"
   >
   <link
-    defer
     rel="stylesheet"
     href="{{ site.third_party_libraries.diff2html.url.css }}"
     integrity="{{ site.third_party_libraries.diff2html.integrity.css }}"
@@ -169,7 +160,6 @@
   {% if page.images.compare %}
     <!-- Image comparison slider -->
     <link
-      defer
       rel="stylesheet"
       href="{{ site.third_party_libraries.img-comparison-slider.url.css }}"
       integrity="{{ site.third_party_libraries.img-comparison-slider.integrity.css }}"
@@ -179,7 +169,6 @@
   {% if page.images.lightbox2 %}
     <!-- Lightbox2 -->
     <link
-      defer
       rel="stylesheet"
       href="{{ site.third_party_libraries.lightbox2.url.css }}"
       integrity="{{ site.third_party_libraries.lightbox2.integrity.css }}"
@@ -189,7 +178,6 @@
   {% if page.images.photoswipe %}
     <!-- Photoswipe -->
     <link
-      defer
       rel="stylesheet"
       href="{{ site.third_party_libraries.photoswipe.url.css }}"
       crossorigin="anonymous"
@@ -198,7 +186,6 @@
   {% if page.images.slider %}
     <!-- Image slider -->
     <link
-      defer
       rel="stylesheet"
       href="{{ site.third_party_libraries.swiper.url.css }}"
       integrity="{{ site.third_party_libraries.swiper.integrity.css }}"
@@ -208,7 +195,6 @@
   {% if page.images.spotlight %}
     <!-- Spotlight -->
     <link
-      defer
       rel="stylesheet"
       href="{{ site.third_party_libraries.spotlight.url.css }}"
       integrity="{{ site.third_party_libraries.spotlight.integrity.css }}"
@@ -218,7 +204,6 @@
   {% if page.images.venobox %}
     <!-- Venobox -->
     <link
-      defer
       rel="stylesheet"
       href="{{ site.third_party_libraries.venobox.url.css }}"
       integrity="{{ site.third_party_libraries.venobox.integrity.css }}"
@@ -228,5 +213,5 @@
 {% endif %}
 
 {% if page.tikzjax %}
-  <link defer rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
 {% endif %}
