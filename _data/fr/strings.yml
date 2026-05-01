@@ -156,14 +156,6 @@ months:
     december: déc
 news: actualités
 all_news: Toutes les actualités
-newsletter:
-  back: retour
-  error: "Oups ! Quelque chose s'est mal passé, veuillez réessayer."
-  subscribe: "s'abonner"
-  subscribed: "Vous vous êtes abonné(e) à la newsletter avec succès."
-  subscribe_to_receive: "Abonnez-vous pour être informé(e) des prochains articles:"
-  too_many_signups: "Trop d'inscriptions, veuillez réessayer plus tard."
-  wait: "Veuillez patienter..."
 no_news: "Aucune actualité pour l'instant..."
 no_posts: "Aucun article pour le moment..."
 pagination:
@@ -203,4 +195,4 @@ search:
     title: utiliser le thème par défaut du système
   theme: thème
 selected_publications: publications sélectionnées
-site_description: Un thème simple et épuré pour les académiques. Basé sur le design de [*folio](https://github.com/bogoli/-folio).
+site_description: Chercheur postdoctoral au PIK travaillant sur l'économie climatique, la macroéconomie et la finance internationale. Recherches sur les dommages climatiques, le capital et le commerce.

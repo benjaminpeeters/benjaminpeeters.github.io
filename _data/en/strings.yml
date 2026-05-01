@@ -156,14 +156,6 @@ months:
     december: Dec
 news: news
 all_news: All News
-newsletter:
-  back: Back
-  error: "Oops! Something went wrong, please try again."
-  subscribe: subscribe
-  subscribed: "You have successfully subscribed to the newsletter."
-  subscribe_to_receive: "Subscribe to be notified of future articles:"
-  too_many_signups: "Too many signups, please try again in a little while"
-  wait: "Please wait..."
 no_news: No news so far...
 no_posts: "No posts so far..."
 pagination:
@@ -203,4 +195,4 @@ search:
     title: Use system default theme
   theme: Theme
 selected_publications: selected publications
-site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+site_description: Postdoctoral Researcher at PIK working on climate economics, macroeconomics, and international finance. Research on climate damages, capital, and trade.

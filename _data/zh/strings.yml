@@ -156,14 +156,6 @@ months:
     december: 12月
 news: 新闻
 all_news: 所有新闻
-newsletter:
-  back: 返回
-  error: "哎呀！出了点问题，请重试。"
-  subscribe: 订阅
-  subscribed: "您已成功订阅新闻通讯。"
-  subscribe_to_receive: "订阅以接收未来文章的通知："
-  too_many_signups: "注册次数过多，请稍后重试"
-  wait: "请稍候..."
 no_news: 目前没有新闻...
 no_posts: "目前没有文章..."
 pagination:
@@ -203,4 +195,4 @@ search:
     title: 使用系统默认主题
   theme: 主题
 selected_publications: 精选出版物
-site_description: 一个简洁、清爽的学术主题。基于 [*folio](https://github.com/bogoli/-folio) 设计。
+site_description: PIK博士后研究员，研究气候经济学、宏观经济学和国际金融。研究方向包括气候损害、资本和贸易。

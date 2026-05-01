@@ -65,9 +65,9 @@ max_width: 1100px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: /assets/img/og_card.jpg # 1200x630 landscape preview rendered for social cards.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -124,15 +124,6 @@ disqus_shortname: multi-language-al-folio # put your disqus shortname
 # external_sources:
 #   - name: medium.com
 #     rss_url: https://medium.com/@al-folio/feed
-
-# -----------------------------------------------------------------------------
-# Newsletter
-# -----------------------------------------------------------------------------
-
-newsletter:
-  enabled: false
-  endpoint: # your loops endpoint (e.g., https://app.loops.so/api/newsletter-form/YOUR-ENDPOINT)
-  # https://loops.so/docs/forms/custom-form
 
 # -----------------------------------------------------------------------------
 # Collections
