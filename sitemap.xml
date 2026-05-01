@@ -1,0 +1,61 @@
+---
+permalink: /sitemap.xml
+sitemap: false
+lang: en
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- assign translatable = site.html_pages | concat: site.publications | concat: site.notes | concat: site.courses | concat: site.blog | concat: site.books | concat: site.projects -%}
+{%- for item in translatable -%}
+  {%- if item.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- if item.published == false -%}{%- continue -%}{%- endif -%}
+  {%- if item.url contains '/_pages/' -%}{%- continue -%}{%- endif -%}
+  {%- if item.url contains '/404' -%}{%- continue -%}{%- endif -%}
+  {%- assign clean_url = item.url | replace: 'index.html', '' -%}
+  {%- for lang in site.languages -%}
+    {%- if lang == site.default_lang -%}
+      {%- capture loc_url -%}{{ site.url }}{{ site.baseurl }}{{ clean_url }}{%- endcapture -%}
+    {%- else -%}
+      {%- capture loc_url -%}{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ clean_url }}{%- endcapture -%}
+    {%- endif %}
+  <url>
+    <loc>{{ loc_url }}</loc>
+    {%- if item.date %}
+    <lastmod>{{ item.date | date_to_xmlschema }}</lastmod>
+    {%- endif %}
+    {%- for alt_lang in site.languages %}
+      {%- if alt_lang == site.default_lang -%}
+        {%- capture alt_url -%}{{ site.url }}{{ site.baseurl }}{{ clean_url }}{%- endcapture -%}
+      {%- else -%}
+        {%- capture alt_url -%}{{ site.url }}{{ site.baseurl }}/{{ alt_lang }}{{ clean_url }}{%- endcapture -%}
+      {%- endif %}
+    <xhtml:link rel="alternate" hreflang="{{ alt_lang }}" href="{{ alt_url }}"/>
+    {%- endfor %}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}{{ clean_url }}"/>
+  </url>
+  {%- endfor -%}
+{%- endfor -%}
+{%- comment -%} News items are language-specific (URL paths include lang). {%- endcomment -%}
+{%- for item in site.news -%}
+  {%- if item.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- if item.published == false -%}{%- continue -%}{%- endif -%}
+  {%- assign clean_url = item.url | replace: 'index.html', '' %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ clean_url }}</loc>
+    {%- if item.date %}
+    <lastmod>{{ item.date | date_to_xmlschema }}</lastmod>
+    {%- endif %}
+  </url>
+{%- endfor -%}
+{%- comment -%} Static files: PDFs and other assets exposed via collections {%- endcomment -%}
+{%- for file in site.static_files -%}
+  {%- if file.path contains '/cv/cv_' and file.extname == '.pdf' %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ file.path }}</loc>
+    <lastmod>{{ file.modified_time | date_to_xmlschema }}</lastmod>
+  </url>
+  {%- endif -%}
+{%- endfor %}
+</urlset>

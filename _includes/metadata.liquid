@@ -96,6 +96,32 @@
 
 {% assign socials = site.data.socials %}
 
+{% comment %}
+  Language-aware URL helpers. Polyglot rewrites relative HTML hrefs to add the
+  language prefix, but does NOT rewrite absolute URLs in meta tags. So canonical,
+  og:url, and Schema.org url must manually prepend the active language prefix.
+{% endcomment %}
+{% assign clean_url_path = page.url | replace: 'index.html', '' %}
+{% if site.active_lang == site.default_lang %}
+  {% assign lang_prefix = '' %}
+{% else %}
+  {% capture lang_prefix %}/{{ site.active_lang }}{% endcapture %}
+{% endif %}
+{% capture current_lang_url %}{{ site.url }}{{ site.baseurl }}{{ lang_prefix }}{{ clean_url_path }}{% endcapture %}
+
+{% comment %}
+  Detect language-specific URLs (e.g. /news/en/foo/, /news/fr/foo/). For those,
+  hreflang alternates pointing to /fr/news/en/foo/ would be 404s — skip the block.
+{% endcomment %}
+{% assign url_is_lang_specific = false %}
+{% assign url_segments = clean_url_path | split: '/' %}
+{% for segment in url_segments %}
+  {% if site.languages contains segment %}
+    {% assign url_is_lang_specific = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
 {% if site.serve_og_meta %}
   {% comment %} Resolve og_image to an absolute URL — required by Facebook, LinkedIn, Bluesky validators. {% endcomment %}
   {% assign og_image_value = page.og_image | default: site.og_image %}
@@ -111,7 +137,7 @@
   <meta property="og:site_name" content="{{ title }}">
   <meta property="og:type" content="{% if is_blog_post %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ title }} | {{ page_title }}{% else %}{{ title }}{% endif %}">
-  <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}">
+  <meta property="og:url" content="{{ current_lang_url }}">
   <meta property="og:description" content="{{ description }}">
   {% if og_image_url %}
     <meta property="og:image" content="{{ og_image_url }}">
@@ -298,7 +324,7 @@
             "@type": "Person",
             "name": "{{ author_name }}"
         },
-        "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
+        "url": "{{ current_lang_url }}",
         "@type": "{% if is_blog_post %}BlogPosting{% else %}WebSite{% endif %}",
         "description": "{{ description }}",
         "headline": "{% if page.title %}{{ page_title }}{% else %}{{ site.title }}{% endif %}",
