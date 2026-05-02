@@ -9,9 +9,9 @@ nav_order: 4
 hide_header: true
 ---
 
-{% if site.data.repositories.github_users %}
+Une sélection de travaux open-source publics — outils de recherche, modèles et scripts de productivité. La carte d'activité ci-dessous reflète l'ensemble de mes contributions GitHub, y compris les dépôts privés; les projets listés sont le sous-ensemble public partageable ici.
 
-## Utilisateurs GitHub
+{% if site.data.repositories.github_users %}
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for user in site.data.repositories.github_users %}

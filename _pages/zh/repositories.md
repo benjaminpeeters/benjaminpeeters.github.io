@@ -9,9 +9,9 @@ nav_order: 4
 hide_header: true
 ---
 
-{% if site.data.repositories.github_users %}
+一些公开的开源工作——研究工具、模型和生产力脚本。下方的活动卡片反映了我所有的 GitHub 贡献，包括私有仓库；列出的项目是可在此公开分享的子集。
 
-## GitHub 用户
+{% if site.data.repositories.github_users %}
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for user in site.data.repositories.github_users %}
