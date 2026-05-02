@@ -18,17 +18,82 @@
     {% comment %} https://github.com/anuraghazra/github-readme-stats?tab=readme-ov-file#available-locales {% endcomment %}
 {% endcase %}
 
-<div class="repo p-2 text-center">
-  <a href="https://github.com/{{ include.username }}">
-    <img
-      class="only-light w-100"
-      alt="{{ include.username }}"
-      src="{{ site.repo_stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_light }}&locale={{ lang }}&show_icons=true&hide_rank={% if site.repo_stats_show_rank %}false{% else %}true{% endif %}"
-    >
-    <img
-      class="only-dark w-100"
-      alt="{{ include.username }}"
-      src="{{ site.repo_stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_dark }}&locale={{ lang }}&show_icons=true&hide_rank={% if site.repo_stats_show_rank %}false{% else %}true{% endif %}"
-    >
-  </a>
+{% if site.repo_stats_show_rank %}{% assign hide_rank_param = 'false' %}{% else %}{% assign hide_rank_param = 'true' %}{% endif %}
+
+{% case site.active_lang %}
+  {% when 'fr' -%}
+    {%- assign stats_title = 'Statistiques GitHub' %}
+  {% when 'zh' -%}
+    {%- assign stats_title = 'GitHub 统计' %}
+  {% else -%}
+    {%- assign stats_title = 'GitHub Stats' %}
+{% endcase %}
+
+{% comment %}
+  "Fake one box" layout: two transparent borderless SVGs styled as a single
+  bordered card with two columns of stats. Mobile: stacked. Desktop: side-by-side.
+{% endcomment %}
+<style>
+  .gh-stats-box {
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    margin: 0 auto 1.5rem;
+    max-width: 820px;
+  }
+  .gh-stats-box .gh-stats-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .gh-stats-box .row {
+    margin-top: -1rem;
+  }
+  .gh-stats-box .gh-stats-title a {
+    color: var(--global-text-color);
+    text-decoration: none;
+  }
+  .gh-stats-box .gh-stats-title a:hover {
+    color: var(--global-theme-color);
+  }
+  .gh-stats-box img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+</style>
+
+<div class="gh-stats-box">
+  <p class="gh-stats-title">
+    <a href="https://github.com/{{ include.username }}">{{ stats_title }}</a>
+  </p>
+  <div class="row align-items-center">
+    <div class="col-md-6 mb-3 mb-md-0">
+      <img
+        class="only-light"
+        alt="{{ include.username }}"
+        src="{{ site.repo_stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_light }}&locale={{ lang }}&show_icons=true&hide_rank={{ hide_rank_param }}&hide_title=true&hide_border=true&bg_color=00000000&hide=issues,contribs"
+      >
+      <img
+        class="only-dark"
+        alt="{{ include.username }}"
+        src="{{ site.repo_stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_dark }}&locale={{ lang }}&show_icons=true&hide_rank={{ hide_rank_param }}&hide_title=true&hide_border=true&bg_color=00000000&hide=issues,contribs"
+      >
+    </div>
+    <div class="col-md-6">
+      <img
+        class="only-light"
+        alt="{{ include.username }}"
+        src="{{ site.repo_stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_light }}&locale={{ lang }}&show_icons=true&hide_rank={{ hide_rank_param }}&hide_title=true&hide_border=true&bg_color=00000000&hide=stars,commits,prs"
+      >
+      <img
+        class="only-dark"
+        alt="{{ include.username }}"
+        src="{{ site.repo_stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_dark }}&locale={{ lang }}&show_icons=true&hide_rank={{ hide_rank_param }}&hide_title=true&hide_border=true&bg_color=00000000&hide=stars,commits,prs"
+      >
+    </div>
+  </div>
 </div>
