@@ -22,6 +22,10 @@ back_to_top: true # set to false to disable the back to top button
 # Self-hosted github-readme-stats deployment (avoids 503s from the shared instance)
 repo_stats_url: https://github-readme-stats-mu-jet-44.vercel.app
 
+# Show the gimmicky letter-rank badge (A+, B, etc.) on the user stats card.
+# Set to true to display it on /repositories/.
+repo_stats_show_rank: false
+
 # repo color theme
 repo_theme_light: default # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_theme_dark: dark # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
