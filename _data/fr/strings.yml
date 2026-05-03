@@ -194,5 +194,13 @@ search:
     description: changer le thème du site selon le système par défaut
     title: utiliser le thème par défaut du système
   theme: thème
+repositories:
+  categories:
+    research:
+      title: Outils & Modèles de Recherche
+      description: Code open-source issu de ma recherche — boîtes à outils, modèles et pipelines d'analyse.
+    tools:
+      title: Outils de Productivité et de Développement
+      description: Des projets que j'ai construits pour moi-même et qui pourraient être utiles à d'autres.
 selected_publications: publications sélectionnées
 site_description: Chercheur postdoctoral au PIK travaillant sur l'économie climatique, la macroéconomie et la finance internationale. Recherches sur les dommages climatiques, le capital et le commerce.

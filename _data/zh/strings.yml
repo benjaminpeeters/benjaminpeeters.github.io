@@ -194,5 +194,13 @@ search:
     description: 将网站主题更改为系统默认
     title: 使用系统默认主题
   theme: 主题
+repositories:
+  categories:
+    research:
+      title: 研究工具与模型
+      description: 来自我研究的开源代码——数据工具包、模型和分析流程。
+    tools:
+      title: 生产力与开发工具
+      description: 我为自己构建的、可能对他人有用的项目。
 selected_publications: 精选出版物
 site_description: PIK博士后研究员，研究气候经济学、宏观经济学和国际金融。研究方向包括气候损害、资本和贸易。

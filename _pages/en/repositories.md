@@ -17,8 +17,6 @@ A selection of public open-source work — research tools, models, and productiv
 {% include repository/repo_user.liquid username=user %}
 {% endfor %}
 
----
-
 {% if site.repo_trophies.enabled %}
 {% for user in site.data.repositories.github_users %}
 {% if site.data.repositories.github_users.size > 1 %}
@@ -35,13 +33,17 @@ A selection of public open-source work — research tools, models, and productiv
 {% endif %}
 {% endif %}
 
-{% if site.data.repositories.github_repos %}
+{% if site.data.repositories.github_repo_categories %}
+{% for category in site.data.repositories.github_repo_categories %}
+{% assign cat_strings = site.data[site.active_lang].strings.repositories.categories[category.id] %}
 
-## GitHub Repositories
+<h2 id="{{ category.id }}" class="repo-category-title">{{ cat_strings.title }}</h2>
+<p class="repo-category-description">{{ cat_strings.description }}</p>
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% for repo in site.data.repositories.github_repos %}
+  {% for repo in category.repos %}
     {% include repository/repo.liquid repository=repo %}
   {% endfor %}
 </div>
+  {% endfor %}
 {% endif %}

@@ -3,10 +3,20 @@ github_users:
 
 repo_description_lines_max: 2
 
-github_repos:
-  - benjaminpeeters/wpd
-  - benjaminpeeters/nvim-focus
-  - benjaminpeeters/working-memory-trainer
-  - benjaminpeeters/pandac
-  - benjaminpeeters/remind
-  - benjaminpeeters/mrdrivers
+github_repo_categories:
+  - id: research
+    repos:
+      - benjaminpeeters/wpd
+      - benjaminpeeters/mrdrivers
+      - benjaminpeeters/remind
+      - benjaminpeeters/Dyn-General-Equilibrium-Model-of-Energy-Transition
+      - benjaminpeeters/TVSR
+      - macroverse-r/macroverse
+
+  - id: tools
+    repos:
+      - benjaminpeeters/nvim-focus
+      - benjaminpeeters/bp-latex
+      - benjaminpeeters/working-memory-trainer
+      - benjaminpeeters/pandac
+      - benjaminpeeters/breaktime

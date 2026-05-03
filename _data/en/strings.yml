@@ -194,5 +194,13 @@ search:
     description: Change the theme of the site to System Default
     title: Use system default theme
   theme: Theme
+repositories:
+  categories:
+    research:
+      title: Research Tools & Models
+      description: Open-source code from my research — data toolkits, models, and analysis pipelines.
+    tools:
+      title: Productivity and Development Tools
+      description: Things I built for myself that others might find useful.
 selected_publications: selected publications
 site_description: Postdoctoral Researcher at PIK working on climate economics, macroeconomics, and international finance. Research on climate damages, capital, and trade.
