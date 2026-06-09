@@ -12,6 +12,11 @@ exclude = [
   # Fragment-only links (internal page anchors)
   '^#$',
 
+  # UCLouvain DIAL handle resolver for the PhD thesis: a valid permanent
+  # identifier (no DOI exists), but the resolver is slow/unreliable and
+  # intermittently times out in CI. Skip checking it.
+  'hdl\.handle\.net',
+
   # Private/local addresses
   '^(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)',
 ]
